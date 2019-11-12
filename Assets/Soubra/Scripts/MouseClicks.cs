@@ -18,21 +18,21 @@ public class MouseClicks : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // if (Input.GetMouseButtonDown(0))
+        // {
+        //     RaycastHit hit;
+        //     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        //     if (Physics.Raycast(ray, out hit))
+        //     {
+        //         if (hit.collider.tag == "Ground")
+        //         {
+        //             start = hit.transform.gameObject;
+        //         }
+        //     }
+        // }
+
         if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.collider.tag == "Ground")
-                {
-                    start = hit.transform.gameObject;
-                }
-            }
-        }
-
-        if (Input.GetMouseButtonDown(1))
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -43,6 +43,7 @@ public class MouseClicks : MonoBehaviour
                 {
                     end = hit.transform.gameObject;
 
+                    gridScript.movement.Clear();
                     pfScript.StartPosition = start.transform;
                     pfScript.TargetPosition = end.transform;
 
@@ -55,6 +56,7 @@ public class MouseClicks : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             ciScript.RollAll();
+            ciScript.ChangeCharacter();
             //pfScript.FindPath(start.transform.position, end.transform.position);
         }
 

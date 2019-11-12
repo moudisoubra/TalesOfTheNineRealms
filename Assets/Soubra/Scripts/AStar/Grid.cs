@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
-
+    //Make the path emit light, make the rest of the grid dissappear
+    public FollowPath pfScript;
     public Transform StartPosition;//This is where the program will start the pathfinding from.
     public LayerMask WallMask;//This is the mask that the program will look for when trying to find obstructions to the path.
     public Vector2 vGridWorldSize;//A vector2 to store the width and height of the graph in world units.
@@ -36,6 +37,8 @@ public class Grid : MonoBehaviour
             n.ground.transform.localScale = new Vector3(.35f, .35f, 1) ;
         }
 
+        pfScript = FindObjectOfType<FollowPath>();
+
     }
 
     private void Update()
@@ -48,9 +51,18 @@ public class Grid : MonoBehaviour
             }
             for (int i = 0; i < FinalPath.Count; i++)
             {
-                FinalPath[i].ground.GetComponent<MeshRenderer>().material.color = Color.green;
-                movement.Add(FinalPath[i].worldPosition);
-                walk = false;
+                if(pfScript.character.GetComponent<CharacterInfo>().movementDistance >= FinalPath.Count)
+                {
+                    FinalPath[i].ground.GetComponent<MeshRenderer>().material.color = Color.green;
+                    movement.Add(FinalPath[i].worldPosition);
+                    walk = false;
+                }
+                else
+                {
+                    FinalPath[i].ground.GetComponent<MeshRenderer>().material.color = Color.red;
+                    walk = false;
+                }
+
             }
         }
 

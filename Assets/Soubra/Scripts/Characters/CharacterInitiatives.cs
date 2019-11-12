@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterInitiatives : MonoBehaviour
 {
     public FollowPath fpScript;
+    public MouseClicks mcScript;
     public List<CharacterInfo> Characters;
     public int index;
 
@@ -12,6 +13,7 @@ public class CharacterInitiatives : MonoBehaviour
     void Start()
     {
         fpScript = FindObjectOfType<FollowPath>();
+        mcScript = FindObjectOfType<MouseClicks>();
     }
 
     // Update is called once per frame
@@ -29,7 +31,9 @@ public class CharacterInitiatives : MonoBehaviour
             index = 0;
         }
 
-        fpScript.character = Characters[index].gameObject;
+        fpScript.character = Characters[index].gameObject;        
+        mcScript.start = Characters[index].gameObject;
+
     }
     public void ReOrder()
     {
