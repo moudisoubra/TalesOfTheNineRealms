@@ -882,6 +882,7 @@ MonoBehaviour:
   pfScript: {fileID: 0}
   gridScript: {fileID: 0}
   ciScript: {fileID: 0}
+  fpScript: {fileID: 0}
 --- !u!4 &1276678932
 Transform:
   m_ObjectHideFlags: 0
@@ -1157,7 +1158,11 @@ MonoBehaviour:
   movement: []
   ground: {fileID: 5270145220360695188, guid: 3507eb25277778847af0299d6fdb1c0d, type: 3}
   grounds: []
+  groundsWalkedOn: []
   walk: 0
+  updateMap: 0
+  original: {fileID: 2100000, guid: 467f2f1eb8bdef84da1261c52e902386, type: 2}
+  transparent: {fileID: 2100000, guid: b6b67b017cbac7a41968fc1ef1f4909c, type: 2}
 --- !u!64 &1671993841
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1189,7 +1194,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f96fd848d55ab8940a02e258b84eca21, type: 2}
+  - {fileID: 2100000, guid: ad3e6861b4eb545619338d8fa43c51db, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

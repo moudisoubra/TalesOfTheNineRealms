@@ -15,12 +15,16 @@ public class Grid : MonoBehaviour
     public List<Vector3> movement;
     public GameObject ground;
     public List<GameObject> grounds;
+    public List<GameObject> groundsWalkedOn;
     Node[,] NodeArray;//The array of nodes that the A Star algorithm uses.
 
     public bool walk;
+    public bool updateMap;
     float fNodeDiameter;//Twice the amount of the radius (Set in the start function)
     int GridSizeX, iGridSizeY;//Size of the Grid in Array units.
 
+    public Material original;
+    public Material transparent;
 
     private void Start()//Ran once the program starts
     {
@@ -43,11 +47,33 @@ public class Grid : MonoBehaviour
 
     private void Update()
     {
+        // if(updateMap)
+        // {
+        //   for(int x = 0; x < grounds.Count; x++)
+        //   {
+        //     if(!groundsWalkedOn.Contains(grounds[x]))
+        //      {
+        //         grounds[x].GetComponent<MeshRenderer>().material = transparent;
+        //      }
+        //   }
+        //   updateMap = false;
+        // }
+        // else if(!updateMap && movement.Count == 0)
+        // {
+        //  for(int x = 0; x < grounds.Count; x++)
+        //   {
+        //     if(!groundsWalkedOn.Contains(grounds[x]))
+        //      {
+        //         grounds[x].GetComponent<MeshRenderer>().material = original;
+        //      }
+        //   }
+        // }
+
         if (walk)
         {
             for (int i = 0; i < grounds.Count; i++)
             {
-                grounds[i].GetComponent<MeshRenderer>().material.color = Color.white;
+                grounds[i].GetComponent<MeshRenderer>().material = original;
             }
             for (int i = 0; i < FinalPath.Count; i++)
             {
@@ -55,6 +81,8 @@ public class Grid : MonoBehaviour
                 {
                     FinalPath[i].ground.GetComponent<MeshRenderer>().material.color = Color.green;
                     movement.Add(FinalPath[i].worldPosition);
+                    groundsWalkedOn.Add(FinalPath[i].ground);
+
                     walk = false;
                 }
                 else

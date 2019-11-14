@@ -6,12 +6,16 @@ public class MouseClicks : MonoBehaviour
 {
     public GameObject start;
     public GameObject end;
+
     public Pathfinding pfScript;
     public Grid gridScript;
     public CharacterInitiatives ciScript;
+    public FollowPath fpScript;
+
     public void Start()
     {
         pfScript = FindObjectOfType<Pathfinding>();
+        fpScript = FindObjectOfType<FollowPath>();
         gridScript = FindObjectOfType<Grid>();
         ciScript = FindObjectOfType<CharacterInitiatives>();
     }
@@ -46,7 +50,7 @@ public class MouseClicks : MonoBehaviour
                     gridScript.movement.Clear();
                     pfScript.StartPosition = start.transform;
                     pfScript.TargetPosition = end.transform;
-
+                    
                     pfScript.findPath = true;
                     gridScript.walk = true;
                 }
@@ -63,6 +67,12 @@ public class MouseClicks : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Q))
         {
             ciScript.ChangeCharacter();
+        }
+
+        if (Input.GetKeyUp(KeyCode.W)) //Make Character Walk
+        {
+            fpScript.walk = true;
+            gridScript.updateMap = true;
         }
     }
 }

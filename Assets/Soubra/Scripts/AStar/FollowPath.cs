@@ -38,6 +38,8 @@ public class FollowPath : MonoBehaviour
             if (index == gridScript.movement.Count)
             {
                 walk = false;
+                gridScript.movement.Clear();
+                gridScript.groundsWalkedOn.Clear();
                 index = 0;
             }
         }
