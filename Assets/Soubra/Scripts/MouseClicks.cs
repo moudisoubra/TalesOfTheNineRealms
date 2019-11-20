@@ -6,7 +6,7 @@ public class MouseClicks : MonoBehaviour
 {
     public GameObject start;
     public GameObject end;
-
+    public GameObject player;
     public Pathfinding pfScript;
     public Grid gridScript;
     public CharacterInitiatives ciScript;
@@ -43,7 +43,7 @@ public class MouseClicks : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.tag == "Ground")
+                if (hit.collider.tag == "Ground" && start.GetComponent<CharacterInfo>().currentMovementDistance > 0)
                 {
                     end = hit.transform.gameObject;
 
@@ -57,12 +57,24 @@ public class MouseClicks : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (start && start.CompareTag("Enemy"))
         {
-            ciScript.RollAll();
-            ciScript.ChangeCharacter();
-            //pfScript.FindPath(start.transform.position, end.transform.position);
+            end = player;
+                                
+            gridScript.movement.Clear();
+            pfScript.StartPosition = start.transform;
+            pfScript.TargetPosition = end.transform;
+                    
+            pfScript.findPath = true;
+            gridScript.walk = true;
         }
+
+        // if (Input.GetKeyUp(KeyCode.Space))
+        // {
+        //     ciScript.RollAll();
+        //     ciScript.ChangeCharacter();
+        //     //pfScript.FindPath(start.transform.position, end.transform.position);
+        // }
 
         if (Input.GetKeyUp(KeyCode.Q))
         {
