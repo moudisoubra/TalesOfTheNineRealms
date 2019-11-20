@@ -48,7 +48,9 @@ public class CharacterInitiatives : MonoBehaviour
 
     public void ChangeCharacter()
     {
+        fpScript.walk = false;
         fpScript.character.GetComponent<CharacterInfo>().currentMovementDistance = fpScript.character.GetComponent<CharacterInfo>().movementDistance;
+        mcScript.boolAI = true;
         index++;
 
         if (index == Characters.Count)

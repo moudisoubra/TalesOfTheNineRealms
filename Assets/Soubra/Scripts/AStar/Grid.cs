@@ -75,20 +75,20 @@ public class Grid : MonoBehaviour
             {
                 grounds[i].GetComponent<MeshRenderer>().material = original;
             }
-            for (int i = 0; i < FinalPath.Count; i++)
+            if (pfScript.character.CompareTag("Enemy"))
             {
-                if (pfScript.character.CompareTag("Enemy"))
+                for (int x = 0; x < pfScript.character.GetComponent<CharacterInfo>().currentMovementDistance; x++)
                 {
-                    for (int x = 0; x < pfScript.character.GetComponent<CharacterInfo>().currentMovementDistance; x++)
-                    {
-                        FinalPath[x].ground.GetComponent<MeshRenderer>().material.color = Color.green;
-                        movement.Add(FinalPath[x].worldPosition);
-                        groundsWalkedOn.Add(FinalPath[x].ground);
-                    }
-
-                    walk = false;
+                    FinalPath[x].ground.GetComponent<MeshRenderer>().material.color = Color.green;
+                    movement.Add(FinalPath[x].worldPosition);
+                    groundsWalkedOn.Add(FinalPath[x].ground);
                 }
-                else
+
+                walk = false;
+            }
+            else
+            {
+                for (int i = 0; i < FinalPath.Count; i++)
                 {
                     if(pfScript.character.GetComponent<CharacterInfo>().currentMovementDistance >= FinalPath.Count)
                     {

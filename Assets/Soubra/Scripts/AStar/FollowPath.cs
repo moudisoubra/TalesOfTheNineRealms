@@ -41,6 +41,7 @@ public class FollowPath : MonoBehaviour
                 walk = false;
                 gridScript.movement.Clear();
                 gridScript.groundsWalkedOn.Clear();
+                gridScript.walk = false;
                 index = 0;
             }
         }

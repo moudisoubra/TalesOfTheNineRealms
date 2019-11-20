@@ -11,6 +11,7 @@ public class MouseClicks : MonoBehaviour
     public Grid gridScript;
     public CharacterInitiatives ciScript;
     public FollowPath fpScript;
+    public bool boolAI;
 
     public void Start()
     {
@@ -57,7 +58,7 @@ public class MouseClicks : MonoBehaviour
             }
         }
 
-        if (start && start.CompareTag("Enemy"))
+        if (start && start.CompareTag("Enemy") && boolAI)
         {
             end = player;
                                 
@@ -67,6 +68,7 @@ public class MouseClicks : MonoBehaviour
                     
             pfScript.findPath = true;
             gridScript.walk = true;
+            boolAI = false;
         }
 
         // if (Input.GetKeyUp(KeyCode.Space))
@@ -84,7 +86,7 @@ public class MouseClicks : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.W)) //Make Character Walk
         {
             fpScript.walk = true;
-            gridScript.updateMap = true;
+            //gridScript.updateMap = true;
         }
     }
 }
