@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterInitiatives : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class CharacterInitiatives : MonoBehaviour
     public CharacterStatSpawner cscScript;
     public List<CharacterInfo> Characters;
     public int index;
+    public bool debugMode;
+    public Toggle debug;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +24,12 @@ public class CharacterInitiatives : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
 
+    public void DebugMode()
+    {
+        debugMode = !debugMode;
     }
 
     public void StartGame()
@@ -42,7 +50,7 @@ public class CharacterInitiatives : MonoBehaviour
         }
         cscScript.cscList.Clear();
         RollAll();
-        ChangeCharacter();
+        //ChangeCharacter();
         cscScript.spawn = true;
     }
 
@@ -50,6 +58,7 @@ public class CharacterInitiatives : MonoBehaviour
     {
         fpScript.walk = false;
         fpScript.character.GetComponent<CharacterInfo>().currentMovementDistance = fpScript.character.GetComponent<CharacterInfo>().movementDistance;
+
         mcScript.boolAI = true;
         index++;
 
@@ -60,6 +69,11 @@ public class CharacterInitiatives : MonoBehaviour
 
         fpScript.character = Characters[index].gameObject;        
         mcScript.start = Characters[index].gameObject;
+        if (Characters[index].gameObject.GetComponent <AttackPlayer>())
+        {
+            Characters[index].gameObject.GetComponent<AttackPlayer>().attack = true;
+        }
+        
 
     }
     public void ReOrder()
@@ -81,7 +95,8 @@ public class CharacterInitiatives : MonoBehaviour
         {
             Characters[i].transform.SetSiblingIndex(i);
         }
-        fpScript.character = Characters[index].gameObject;
+        //ChangeCharacter();
+        //fpScript.character = Characters[index].gameObject;
     }
 
     public void RollAll()

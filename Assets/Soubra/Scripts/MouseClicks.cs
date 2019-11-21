@@ -49,6 +49,7 @@ public class MouseClicks : MonoBehaviour
                     end = hit.transform.gameObject;
 
                     gridScript.movement.Clear();
+                    //gridScript.groundsNodes.Clear();
                     pfScript.StartPosition = start.transform;
                     pfScript.TargetPosition = end.transform;
                     
@@ -63,6 +64,7 @@ public class MouseClicks : MonoBehaviour
             end = player;
                                 
             gridScript.movement.Clear();
+            //gridScript.//groundsNodes.Clear();
             pfScript.StartPosition = start.transform;
             pfScript.TargetPosition = end.transform;
                     

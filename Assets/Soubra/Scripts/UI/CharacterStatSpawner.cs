@@ -24,6 +24,8 @@ public class CharacterStatSpawner : MonoBehaviour
                 GameObject temp = Instantiate(characterStatPrefab, transform.position, Quaternion.identity);
                 temp.transform.SetParent(this.transform);
                 CharacterStatController tempCSC = temp.GetComponent<CharacterStatController>();
+                tempCSC.character = ciScript.Characters[i].gameObject.GetComponent<CharacterInfo>();
+                ciScript.Characters[i].gameObject.GetComponent<CharacterInfo>().characterPanel = tempCSC.gameObject;
                 tempCSC.characterName.text = ciScript.Characters[i].gameObject.name;
                 tempCSC.characterNumber.text = ciScript.Characters[i].CharacterInitiativeNum.ToString();
                 tempCSC.characterHealth = ciScript.Characters[i].characterHealth;
