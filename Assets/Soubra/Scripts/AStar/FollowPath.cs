@@ -24,7 +24,7 @@ public class FollowPath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (walk)
+        if (walk && gridScript.movement.Count > 0)
         {
             if (Vector3.Distance(character.transform.position, gridScript.movement[index]) < 0.5f)
             {
@@ -37,9 +37,11 @@ public class FollowPath : MonoBehaviour
 
             if (index == gridScript.movement.Count)
             {
+                character.GetComponent<CharacterInfo>().currentMovementDistance -= gridScript.movement.Count;
                 walk = false;
                 gridScript.movement.Clear();
                 gridScript.groundsWalkedOn.Clear();
+                gridScript.walk = false;
                 index = 0;
             }
         }

@@ -75,22 +75,35 @@ public class Grid : MonoBehaviour
             {
                 grounds[i].GetComponent<MeshRenderer>().material = original;
             }
-            for (int i = 0; i < FinalPath.Count; i++)
+            if (pfScript.character.CompareTag("Enemy"))
             {
-                if(pfScript.character.GetComponent<CharacterInfo>().movementDistance >= FinalPath.Count)
+                for (int x = 0; x < pfScript.character.GetComponent<CharacterInfo>().currentMovementDistance; x++)
                 {
-                    FinalPath[i].ground.GetComponent<MeshRenderer>().material.color = Color.green;
-                    movement.Add(FinalPath[i].worldPosition);
-                    groundsWalkedOn.Add(FinalPath[i].ground);
-
-                    walk = false;
-                }
-                else
-                {
-                    FinalPath[i].ground.GetComponent<MeshRenderer>().material.color = Color.red;
-                    walk = false;
+                    FinalPath[x].ground.GetComponent<MeshRenderer>().material.color = Color.green;
+                    movement.Add(FinalPath[x].worldPosition);
+                    groundsWalkedOn.Add(FinalPath[x].ground);
                 }
 
+                walk = false;
+            }
+            else
+            {
+                for (int i = 0; i < FinalPath.Count; i++)
+                {
+                    if(pfScript.character.GetComponent<CharacterInfo>().currentMovementDistance >= FinalPath.Count)
+                    {
+                        FinalPath[i].ground.GetComponent<MeshRenderer>().material.color = Color.green;
+                        movement.Add(FinalPath[i].worldPosition);
+                        groundsWalkedOn.Add(FinalPath[i].ground);
+                    
+                        walk = false;
+                    }
+                    else
+                    {
+                       FinalPath[i].ground.GetComponent<MeshRenderer>().material.color = Color.red;
+                      walk = false;
+                    }
+                }
             }
         }
 
