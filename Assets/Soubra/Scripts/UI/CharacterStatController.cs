@@ -71,7 +71,7 @@ public class CharacterStatController : MonoBehaviour
                 
                 if (time % 2 < .5f)
                 {
-                    Debug.Log("Even");
+                    //Debug.Log("Even");
                     background.color = hit;
                 }
                 else

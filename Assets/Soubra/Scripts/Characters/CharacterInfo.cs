@@ -23,9 +23,12 @@ public class CharacterInfo : MonoBehaviour
     public List<GameObject> sides;
     public Color color;
 
+    public CharacterInitiatives ciScript;
+
     // Start is called before the first frame update
     void Start()
     {
+        ciScript = FindObjectOfType<CharacterInitiatives>();
         dead = false;
         for (int i = 0; i < 4; i++)
         {
@@ -74,6 +77,11 @@ public class CharacterInfo : MonoBehaviour
                     sides[1] = Back;
                 }
             }
+        }
+
+        if (dead)
+        {
+            ciScript.Characters.Remove(this);
         }
 
         if (currentNode)
