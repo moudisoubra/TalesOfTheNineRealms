@@ -168,8 +168,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0eb886e205b345e1a03933c3f7ab5c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 0}
   characterName: {fileID: 3652520155823006974}
   characterNumber: {fileID: 3652520156379277379}
+  characterHealth: 0
+  health: 0
+  original: {r: 0, g: 0, b: 0, a: 0}
+  currentCharacter: {r: 0, g: 1, b: 0.1387968, a: 0.39215687}
+  hit: {r: 1, g: 0, b: 0, a: 0.39215687}
 --- !u!1 &3652520156379277381
 GameObject:
   m_ObjectHideFlags: 0

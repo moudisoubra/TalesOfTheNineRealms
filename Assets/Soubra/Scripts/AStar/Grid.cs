@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Grid : MonoBehaviour
 {
@@ -15,16 +16,20 @@ public class Grid : MonoBehaviour
     public List<Vector3> movement;
     public GameObject ground;
     public List<GameObject> grounds;
+    public List<Node> groundsNodes;
     public List<GameObject> groundsWalkedOn;
     Node[,] NodeArray;//The array of nodes that the A Star algorithm uses.
 
     public bool walk;
     public bool updateMap;
     float fNodeDiameter;//Twice the amount of the radius (Set in the start function)
-    int GridSizeX, iGridSizeY;//Size of the Grid in Array units.
+    public int GridSizeX, iGridSizeY;//Size of the Grid in Array units.
 
     public Material original;
     public Material transparent;
+
+    public CharacterInitiatives ciScript;
+    public bool GO;
 
     private void Start()//Ran once the program starts
     {
@@ -36,13 +41,15 @@ public class Grid : MonoBehaviour
         foreach (Node n in NodeArray)//Loop through every node in the grid
         {
             n.ground = Instantiate(ground, n.worldPosition + new Vector3(0, .1f, 0), ground.transform.rotation);
+            n.ground.AddComponent<GroundIndo>();
             n.ground.transform.parent = transform;
+            ////groundsNodes.Add(n);
             grounds.Add(n.ground);
             n.ground.transform.localScale = new Vector3(.35f, .35f, 1) ;
         }
-
+        GO = true;
         pfScript = FindObjectOfType<FollowPath>();
-
+        ciScript = FindObjectOfType<CharacterInitiatives>();
     }
 
     private void Update()
@@ -77,13 +84,20 @@ public class Grid : MonoBehaviour
             }
             if (pfScript.character.CompareTag("Enemy"))
             {
+                if (pfScript.character.GetComponent<CharacterInfo>().currentMovementDistance > FinalPath.Count)
+                {
+                    pfScript.character.GetComponent<CharacterInfo>().currentMovementDistance = FinalPath.Count - 1;
+                }
                 for (int x = 0; x < pfScript.character.GetComponent<CharacterInfo>().currentMovementDistance; x++)
                 {
                     FinalPath[x].ground.GetComponent<MeshRenderer>().material.color = Color.green;
                     movement.Add(FinalPath[x].worldPosition);
                     groundsWalkedOn.Add(FinalPath[x].ground);
                 }
-
+                if (!ciScript.debugMode)
+                {
+                    pfScript.walk = true;
+                }
                 walk = false;
             }
             else

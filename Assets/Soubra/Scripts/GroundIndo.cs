@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GroundIndo : MonoBehaviour
 {
-    public bool inNode;
+    public int groundID;
     //public Material material;
     // Start is called before the first frame update
     void Start()
