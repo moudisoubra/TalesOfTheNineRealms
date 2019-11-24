@@ -18,7 +18,8 @@ public abstract class Attacks : MonoBehaviour
     public bool nonDirectional;
     public bool attackDone;
     public bool hitEnemy;
-
+    public float timer;
+    public float attackDuration;
 
     // Start is called before the first frame update
     void Start()

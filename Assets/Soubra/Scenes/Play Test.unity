@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641252, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -120,6 +120,64 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &6207905
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6207906}
+  - component: {fileID: 6207907}
+  m_Layer: 0
+  m_Name: Sweeping Strike
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6207906
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6207905}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1291946055}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6207907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6207905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5346a617daac4de1a2863b53bbd5296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: Sweeping Strike
+  attackDescription: This is the Sweeping Strike
+  coolDown: 2
+  range: 0
+  damageDice: 6
+  gridScipt: {fileID: 0}
+  currentCharacter: {fileID: 0}
+  currentAttack: {fileID: 0}
+  selectTarget: 0
+  nonDirectional: 0
+  attackDone: 0
+  hitEnemy: 0
+  enemiesInRange: []
+  timer: 0
+  attackDuration: 3
 --- !u!1 &20813251
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,6 +1200,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 313623970}
   m_CullTransparentMesh: 0
+--- !u!1 &408730865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 408730866}
+  - component: {fileID: 408730867}
+  m_Layer: 0
+  m_Name: Rage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &408730866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408730865}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1291946055}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &408730867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408730865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f8527987c0ac4cd6b376eadb63e25ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: Rage
+  attackDescription: This is rage
+  coolDown: 3
+  range: 0
+  damageDice: 0
+  gridScipt: {fileID: 0}
+  currentCharacter: {fileID: 0}
+  currentAttack: {fileID: 0}
+  selectTarget: 0
+  nonDirectional: 0
+  attackDone: 0
+  hitEnemy: 0
 --- !u!1 &433193781
 GameObject:
   m_ObjectHideFlags: 0
@@ -1473,7 +1586,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 1.817853e+31, z: 4.472574e+21, w: 2.2241026e+32}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1681,6 +1794,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 751324620}
   m_CullTransparentMesh: 0
+--- !u!1 &775236624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 775236626}
+  - component: {fileID: 775236625}
+  m_Layer: 0
+  m_Name: Charge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &775236625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775236624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fddd8782edad4985a4555d564dd7bd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: Charge
+  attackDescription: This is Charge
+  coolDown: 3
+  range: 0
+  damageDice: 8
+  gridScipt: {fileID: 0}
+  currentCharacter: {fileID: 0}
+  currentAttack: {fileID: 0}
+  selectTarget: 0
+  nonDirectional: 0
+  attackDone: 0
+  hitEnemy: 0
+--- !u!4 &775236626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775236624}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1291946055}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &798723457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,7 +1868,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &798723458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2717,7 +2885,7 @@ MonoBehaviour:
   mcScript: {fileID: 0}
   cscScript: {fileID: 0}
   Characters:
-  - {fileID: 798723458}
+  - {fileID: 1355713778}
   - {fileID: 169816303}
   index: 0
   debugMode: 0
@@ -2866,6 +3034,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1291946054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1291946055}
+  m_Layer: 0
+  m_Name: Attacks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1291946055
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291946054}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.131778, y: 0, z: -8.986037}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6207906}
+  - {fileID: 408730866}
+  - {fileID: 775236626}
+  m_Father: {fileID: 1355713777}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1355713773
 GameObject:
   m_ObjectHideFlags: 0
@@ -2885,7 +3086,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1355713774
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2956,6 +3157,7 @@ Transform:
   m_LocalScale: {x: 2.2394, y: 2.2394, z: 2.2394}
   m_Children:
   - {fileID: 1519795655}
+  - {fileID: 1291946055}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2994,9 +3196,9 @@ MonoBehaviour:
   enemies: []
   color: {r: 0, g: 0, b: 0, a: 0}
   ciScript: {fileID: 0}
-  attackOne: {fileID: 0}
-  attackTwo: {fileID: 0}
-  attackThree: {fileID: 0}
+  attackOne: {fileID: 6207907}
+  attackTwo: {fileID: 408730867}
+  attackThree: {fileID: 775236625}
   frontColor: 0
   backColor: 0
   leftColor: 0

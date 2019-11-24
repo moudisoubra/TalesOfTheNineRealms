@@ -5,8 +5,7 @@ using UnityEngine;
 public class SweepingStrike : Attacks
 {
     public List<CharacterInfo> enemiesInRange;
-    public float timer;
-    public float attackDuration;
+
     // public override void FrontAttack()
     // {
     //     Debug.Log("This is Sweeping Strike");
