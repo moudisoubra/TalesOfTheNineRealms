@@ -21,9 +21,20 @@ public class CharacterInfo : MonoBehaviour
     public GameObject Front, Back, Left, Right;
     public GameObject frontTemp, backTemp, leftTemp, rightTemp;
     public List<GameObject> sides;
+    public List<CharacterInfo> enemies;
     public Color color;
 
     public CharacterInitiatives ciScript;
+
+    public Attacks attackOne;
+    public Attacks attackTwo;
+    public Attacks attackThree;
+
+    public bool frontColor;
+    public bool backColor;
+    public bool leftColor;
+    public bool rightColor;
+
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +55,19 @@ public class CharacterInfo : MonoBehaviour
         else
         {
             color = Color.blue;
+        }
+
+        attackOne.currentCharacter = this;
+        attackTwo.currentCharacter = this;
+        attackThree.currentCharacter = this;
+        //InitializeAttacks();
+
+        for (int i = 0; i < ciScript.Characters.Count; i++)
+        {
+            if (ciScript.Characters[i].CompareTag("Enemy"))
+            {
+                enemies.Add(ciScript.Characters[i]);
+            }
         }
     }
 
@@ -93,7 +117,6 @@ public class CharacterInfo : MonoBehaviour
         }
         
 
-
         if (Front)
         {
             if (Front != frontTemp && frontTemp)
@@ -101,7 +124,11 @@ public class CharacterInfo : MonoBehaviour
                 frontTemp.GetComponent<MeshRenderer>().material = gridScipt.original;
             }
 
-            Front.GetComponent<MeshRenderer>().material.color = color;
+            if (!frontColor)
+            { 
+                Front.GetComponent<MeshRenderer>().material.color = color;
+            }
+
             frontTemp = Front;
         }
 
@@ -112,7 +139,11 @@ public class CharacterInfo : MonoBehaviour
                 backTemp.GetComponent<MeshRenderer>().material = gridScipt.original;
             }
 
-            Back.GetComponent<MeshRenderer>().material.color = color;
+            if (!backColor)
+            { 
+                Back.GetComponent<MeshRenderer>().material.color = color;
+            }
+
             backTemp = Back;
         }
 
@@ -123,7 +154,11 @@ public class CharacterInfo : MonoBehaviour
                 rightTemp.GetComponent<MeshRenderer>().material = gridScipt.original;
             }
 
-            Right.GetComponent<MeshRenderer>().material.color = color;
+            if (!rightColor)
+            {
+                Right.GetComponent<MeshRenderer>().material.color = color;
+            }
+
             rightTemp = Right;
         }
 
@@ -134,9 +169,32 @@ public class CharacterInfo : MonoBehaviour
                 leftTemp.GetComponent<MeshRenderer>().material = gridScipt.original;
             }
 
-            Left.GetComponent<MeshRenderer>().material.color = color;
+            if (!leftColor)
+            {   
+                Left.GetComponent<MeshRenderer>().material.color = color;
+            }
             leftTemp = Left;
         }
+
+    }
+
+    public void InitializeAttacks()
+    {
+
+        attackOne.attackName = "Sweeping Strike";
+        attackOne.attackDescription = "This is the sweeping strike";
+        attackOne.coolDown = 2;
+        attackOne.damageDice = 6; 
+
+        attackTwo.attackName = "Rage";
+        attackTwo.attackDescription = "This is the Rage";
+        attackTwo.coolDown = 2;
+        attackTwo.damageDice = 6; 
+
+        attackThree.attackName = "Charge";
+        attackThree.attackDescription = "This is the Charge";
+        attackThree.coolDown = 2;
+        attackThree.damageDice = 6; 
 
     }
 }
