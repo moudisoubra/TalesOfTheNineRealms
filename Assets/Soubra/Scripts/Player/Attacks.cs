@@ -6,6 +6,7 @@ public abstract class Attacks : MonoBehaviour
 {
     public string attackName;
     public string attackDescription;
+    public int currentCoolDown;
     public int coolDown;
     public int range;
     public int damageDice;
@@ -17,10 +18,12 @@ public abstract class Attacks : MonoBehaviour
     public bool selectTarget;
     public bool nonDirectional;
     public bool attackDone;
+    public bool attacking;
     public bool hitEnemy;
     public float timer;
     public float attackDuration;
-
+    public int sizeValue;
+    public List<CharacterInfo> enemiesInRange;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,13 +42,15 @@ public abstract class Attacks : MonoBehaviour
             SelectTarget();
         }
 
+        currentCharacter.attacking = attacking;
+
         if (attackDone)
         {
             for (int i = 0; i < currentCharacter.grounds.Count; i++)
             {
                 currentCharacter.grounds[i].GetComponent<MeshRenderer>().material = gridScipt.original;
             }
-
+            attacking = false;
             currentCharacter.frontColor = false;
             currentCharacter.backColor = false;
             currentCharacter.leftColor = false;
@@ -57,7 +62,7 @@ public abstract class Attacks : MonoBehaviour
     public void SelectTarget()
     {
         gridScipt.walk = false;
-
+        attacking = true;
         if (nonDirectional)
         {
             hitEnemy = true;
@@ -78,53 +83,73 @@ public abstract class Attacks : MonoBehaviour
                     
                     if (hit.transform.gameObject == currentCharacter.Front)
                     {
+                        hitEnemy = true;
                         Debug.Log("This is the front");
-                        
-                        FrontAttack();
+                        sizeValue = -gridScipt.GridSizeX;
+                        currentCharacter.frontColor = true;
+                        currentCharacter.backColor = false;
+                        currentCharacter.leftColor = false;
+                        currentCharacter.rightColor = false;
+                        Attack();
                         
                     }
 
                     if (hit.transform.gameObject == currentCharacter.Back)
                     {
+                        hitEnemy = true;
                         Debug.Log("This is the back");
-                        BackAttack();
+                        sizeValue = gridScipt.GridSizeX;
+                        currentCharacter.backColor = true;
+                        currentCharacter.frontColor = false;
+                        currentCharacter.leftColor = false;
+                        currentCharacter.rightColor = false;
+                        Attack();
                     }
 
                     if (hit.transform.gameObject == currentCharacter.Right)
                     {
+                        hitEnemy = true;
                         Debug.Log("This is the right");
-                        RightAttack();
+                        currentCharacter.rightColor = true;
+                        currentCharacter.frontColor = false;
+                        currentCharacter.backColor = false;
+                        currentCharacter.leftColor = false;
+                        sizeValue = 1;
+                        Attack();
 
                     }
 
                     if (hit.transform.gameObject == currentCharacter.Left)
                     {
+                        hitEnemy = true;
                         Debug.Log("This is the left");
-                        LeftAttack();
+                        currentCharacter.leftColor = true;
+                        currentCharacter.frontColor = false;
+                        currentCharacter.backColor = false;
+                        currentCharacter.rightColor = false;
+                        sizeValue = -1;
+                        Attack();
                     }
                 }
             }
         }
     }
 
-    public virtual void FrontAttack()
+    public void CheckCoolDowns()
     {
-        // Do Front Attack
+        if (currentCoolDown > 0 )
+        {
+            currentCoolDown -= 1;
+        }
+    }
+    public void StartAttack()
+    {
+        hitEnemy = true;
     }
 
-    public virtual void BackAttack()
+    public virtual void Attack()
     {
-        // Do Back Attack
-    }
 
-    public virtual void RightAttack()
-    {
-        //Do Right Attack
-    }
-
-    public virtual void LeftAttack()
-    {
-        //Do Left Attack
     }
 
     public virtual void NonDirectionalAttack()

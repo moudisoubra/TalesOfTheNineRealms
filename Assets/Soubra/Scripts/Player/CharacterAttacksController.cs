@@ -26,18 +26,49 @@ public class CharacterAttacksController : MonoBehaviour
         if (!currentCharacter.CompareTag("Enemy") && currentCharacter)
         {  
             characterName.text = currentCharacter.name;
-            attack1.GetComponentInChildren<Text>().text = currentCharacter.attackOne.attackName;
-            attack2.GetComponentInChildren<Text>().text = currentCharacter.attackTwo.attackName;
-            attack3.GetComponentInChildren<Text>().text = currentCharacter.attackThree.attackName;
+
+            Text attack1Text =  attack1.GetComponentInChildren<Text>();
+            Text attack2Text =  attack2.GetComponentInChildren<Text>();
+            Text attack3Text =  attack3.GetComponentInChildren<Text>();
+
+            if (currentCharacter.attackOne.currentCoolDown > 0)
+            {
+                attack1.interactable = false;
+                attack1Text.text = currentCharacter.attackOne.coolDown.ToString();
+            }
+            else
+            {
+                attack1Text.text = currentCharacter.attackOne.attackName;
+            }
+
+            if (currentCharacter.attackTwo.currentCoolDown > 0)
+            {
+                attack2.interactable = false;
+                attack2Text.text = currentCharacter.attackTwo.coolDown.ToString();
+            }
+            else
+            {
+                attack2Text.text = currentCharacter.attackTwo.attackName;
+            }
+
+            if (currentCharacter.attackThree.currentCoolDown > 0)
+            {
+                attack3.interactable = false;
+                attack3Text.text = currentCharacter.attackThree.coolDown.ToString();
+            }
+            else
+            {
+                attack3Text.text = currentCharacter.attackThree.attackName;
+            }
         }
     }
 
     public void SelectAttack1()
     {
-        currentCharacter.attackOne.selectTarget = true;
-        currentCharacter.attackTwo.selectTarget = false;
-        currentCharacter.attackThree.selectTarget = false;
-        currentCharacter.attackOne.SetValues();
+            currentCharacter.attackOne.selectTarget = true;
+            currentCharacter.attackTwo.selectTarget = false;
+            currentCharacter.attackThree.selectTarget = false;
+            currentCharacter.attackOne.SetValues();
     }
 
     public void SelectAttack2()
@@ -46,13 +77,16 @@ public class CharacterAttacksController : MonoBehaviour
         currentCharacter.attackTwo.selectTarget = true;
         currentCharacter.attackThree.selectTarget = false;
         currentCharacter.attackOne.SetValues();
+        
     }
 
     public void SelectAttack3()
     {
+       
         currentCharacter.attackOne.selectTarget = false;
         currentCharacter.attackTwo.selectTarget = false;
         currentCharacter.attackThree.selectTarget = true;
         currentCharacter.attackOne.SetValues();
+        
     }
 }

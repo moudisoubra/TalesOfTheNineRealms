@@ -12,6 +12,7 @@ public class MouseClicks : MonoBehaviour
     public CharacterInitiatives ciScript;
     public FollowPath fpScript;
     public bool boolAI;
+    public bool attacking;
 
     public void Start()
     {
@@ -37,7 +38,7 @@ public class MouseClicks : MonoBehaviour
         //     }
         // }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !start.GetComponent<CharacterInfo>().attacking)
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

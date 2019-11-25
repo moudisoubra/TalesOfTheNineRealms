@@ -34,6 +34,7 @@ public class CharacterInfo : MonoBehaviour
     public bool backColor;
     public bool leftColor;
     public bool rightColor;
+    public bool attacking;
 
 
     // Start is called before the first frame update
@@ -57,9 +58,13 @@ public class CharacterInfo : MonoBehaviour
             color = Color.blue;
         }
 
-        attackOne.currentCharacter = this;
-        attackTwo.currentCharacter = this;
-        attackThree.currentCharacter = this;
+        if (!this.CompareTag("Enemy"))
+        {
+            attackOne.currentCharacter = this;
+            attackTwo.currentCharacter = this;
+            attackThree.currentCharacter = this;
+        }
+
         //InitializeAttacks();
 
         for (int i = 0; i < ciScript.Characters.Count; i++)
@@ -71,7 +76,13 @@ public class CharacterInfo : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    public void CheckAllCooldowns()
+    {
+        Debug.Log("Updating Cool Downs");///Continue THIS
+        attackOne.CheckCoolDowns();
+        attackTwo.CheckCoolDowns();
+        attackThree.CheckCoolDowns();
+    }
     void Update()
     {
         if (characterHealth <= 0)
