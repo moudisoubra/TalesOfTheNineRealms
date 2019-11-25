@@ -34,30 +34,33 @@ public class CharacterAttacksController : MonoBehaviour
             if (currentCharacter.attackOne.currentCoolDown > 0)
             {
                 attack1.interactable = false;
-                attack1Text.text = currentCharacter.attackOne.coolDown.ToString();
+                attack1Text.text = currentCharacter.attackOne.currentCoolDown.ToString();
             }
             else
             {
+                attack1.interactable = true;
                 attack1Text.text = currentCharacter.attackOne.attackName;
             }
 
             if (currentCharacter.attackTwo.currentCoolDown > 0)
             {
                 attack2.interactable = false;
-                attack2Text.text = currentCharacter.attackTwo.coolDown.ToString();
+                attack2Text.text = currentCharacter.attackTwo.currentCoolDown.ToString();
             }
             else
             {
+                attack2.interactable = true;
                 attack2Text.text = currentCharacter.attackTwo.attackName;
             }
 
             if (currentCharacter.attackThree.currentCoolDown > 0)
             {
                 attack3.interactable = false;
-                attack3Text.text = currentCharacter.attackThree.coolDown.ToString();
+                attack3Text.text = currentCharacter.attackThree.currentCoolDown.ToString();
             }
             else
             {
+                attack3.interactable = true;
                 attack3Text.text = currentCharacter.attackThree.attackName;
             }
         }

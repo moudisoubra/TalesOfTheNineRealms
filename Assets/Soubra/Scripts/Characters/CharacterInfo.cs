@@ -78,10 +78,13 @@ public class CharacterInfo : MonoBehaviour
 
     public void CheckAllCooldowns()
     {
-        Debug.Log("Updating Cool Downs");///Continue THIS
-        attackOne.CheckCoolDowns();
-        attackTwo.CheckCoolDowns();
-        attackThree.CheckCoolDowns();
+        if (!this.CompareTag("Enemy"))
+        {
+            Debug.Log("Updating Cool Downs");///Continue THIS
+            attackOne.CheckCoolDowns();
+            attackTwo.CheckCoolDowns();
+            attackThree.CheckCoolDowns();
+        }
     }
     void Update()
     {

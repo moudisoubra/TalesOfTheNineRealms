@@ -68,6 +68,7 @@ public abstract class Attacks : MonoBehaviour
             hitEnemy = true;
             Debug.Log("NON Directional Attack");
             NonDirectionalAttack();
+            SetCoolDown();
             //nonDirectional = false;
         }
 
@@ -91,7 +92,7 @@ public abstract class Attacks : MonoBehaviour
                         currentCharacter.leftColor = false;
                         currentCharacter.rightColor = false;
                         Attack();
-                        
+                        SetCoolDown();
                     }
 
                     if (hit.transform.gameObject == currentCharacter.Back)
@@ -104,6 +105,7 @@ public abstract class Attacks : MonoBehaviour
                         currentCharacter.leftColor = false;
                         currentCharacter.rightColor = false;
                         Attack();
+                        SetCoolDown();
                     }
 
                     if (hit.transform.gameObject == currentCharacter.Right)
@@ -116,6 +118,7 @@ public abstract class Attacks : MonoBehaviour
                         currentCharacter.leftColor = false;
                         sizeValue = 1;
                         Attack();
+                        SetCoolDown();
 
                     }
 
@@ -129,6 +132,7 @@ public abstract class Attacks : MonoBehaviour
                         currentCharacter.rightColor = false;
                         sizeValue = -1;
                         Attack();
+                        SetCoolDown();
                     }
                 }
             }
@@ -150,6 +154,11 @@ public abstract class Attacks : MonoBehaviour
     public virtual void Attack()
     {
 
+    }
+
+    public virtual void SetCoolDown()
+    {
+        currentCoolDown = coolDown;
     }
 
     public virtual void NonDirectionalAttack()

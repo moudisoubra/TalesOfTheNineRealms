@@ -8,7 +8,6 @@ public class Charge : Attacks
     public override void Attack()
     {
         Debug.Log("This is Charge " + sizeValue);
-
         //--------------------------------Coloring Tiles---------------------------------------//
         for (int i = 0; i < currentCharacter.grounds.Count; i++)
         {
@@ -70,6 +69,7 @@ public class Charge : Attacks
 
         if (timer > attackDuration)
         {
+            Debug.Log("Charge Done");
             index = 0;
             selectTarget = false;
             attackDone = true;
