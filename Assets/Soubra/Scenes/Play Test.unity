@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641252, b: 0.574817, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3055,6 +3055,7 @@ MonoBehaviour:
   fpScript: {fileID: 0}
   boolAI: 0
   attacking: 0
+  startScript: 0
 --- !u!4 &1276678932
 Transform:
   m_ObjectHideFlags: 0
@@ -3387,9 +3388,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1276678930}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1276678931}
+        m_MethodName: StartScript
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -13,6 +13,7 @@ public class MouseClicks : MonoBehaviour
     public FollowPath fpScript;
     public bool boolAI;
     public bool attacking;
+    public bool startScript;
 
     public void Start()
     {
@@ -38,8 +39,10 @@ public class MouseClicks : MonoBehaviour
         //     }
         // }
 
-        if (Input.GetMouseButtonDown(0) && !start.GetComponent<CharacterInfo>().attacking)
+        if (Input.GetMouseButtonDown(0) && startScript)
         {
+            if (!start.GetComponent<CharacterInfo>().attacking)
+            {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -58,9 +61,10 @@ public class MouseClicks : MonoBehaviour
                     gridScript.walk = true;
                 }
             }
+            }
         }
 
-        if (start && start.CompareTag("Enemy") && boolAI)
+        if (start && start.CompareTag("Enemy") && boolAI && startScript)
         {
             end = player;
                                 
@@ -91,5 +95,10 @@ public class MouseClicks : MonoBehaviour
             fpScript.walk = true;
             //gridScript.updateMap = true;
         }
+    }
+
+    public void StartScript()
+    {
+        startScript = true;
     }
 }

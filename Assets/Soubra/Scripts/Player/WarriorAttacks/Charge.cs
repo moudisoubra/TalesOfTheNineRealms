@@ -67,7 +67,7 @@ public class Charge : Attacks
         }
 
 
-        if (timer > attackDuration)
+        if (timer > attackDuration || index >= currentCharacter.enemies.Count)
         {
             Debug.Log("Charge Done");
             index = 0;
