@@ -79,7 +79,7 @@ public class CharacterAttacksController : MonoBehaviour
         currentCharacter.attackOne.selectTarget = false;
         currentCharacter.attackTwo.selectTarget = true;
         currentCharacter.attackThree.selectTarget = false;
-        currentCharacter.attackOne.SetValues();
+        currentCharacter.attackTwo.SetValues();
         
     }
 
@@ -89,7 +89,7 @@ public class CharacterAttacksController : MonoBehaviour
         currentCharacter.attackOne.selectTarget = false;
         currentCharacter.attackTwo.selectTarget = false;
         currentCharacter.attackThree.selectTarget = true;
-        currentCharacter.attackOne.SetValues();
+        currentCharacter.attackThree.SetValues();
         
     }
 }

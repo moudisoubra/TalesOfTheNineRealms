@@ -61,8 +61,7 @@ public abstract class Attacks : MonoBehaviour
 
     public void SelectTarget()
     {
-        gridScipt.walk = false;
-        attacking = true;
+
         if (nonDirectional)
         {
             hitEnemy = true;
@@ -137,6 +136,11 @@ public abstract class Attacks : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void DICE(int diceType)
+    {
+        Random.Range(1 , diceType);
     }
 
     public void CheckCoolDowns()
