@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641252, b: 0.574817, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -165,6 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Sweeping Strike
   attackDescription: This is the Sweeping Strike
+  currentCoolDown: 0
   coolDown: 2
   range: 0
   damageDice: 6
@@ -174,10 +175,12 @@ MonoBehaviour:
   selectTarget: 0
   nonDirectional: 0
   attackDone: 0
+  attacking: 0
   hitEnemy: 0
-  enemiesInRange: []
   timer: 0
   attackDuration: 3
+  sizeValue: 0
+  enemiesInRange: []
 --- !u!1 &20813251
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +243,7 @@ MonoBehaviour:
   backColor: 0
   leftColor: 0
   rightColor: 0
+  attacking: 0
 --- !u!65 &20813253
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -329,7 +333,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &26726775
 RectTransform:
   m_ObjectHideFlags: 0
@@ -518,6 +522,7 @@ MonoBehaviour:
   backColor: 0
   leftColor: 0
   rightColor: 0
+  attacking: 0
 --- !u!65 &164596939
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -672,6 +677,7 @@ MonoBehaviour:
   backColor: 0
   leftColor: 0
   rightColor: 0
+  attacking: 0
 --- !u!65 &169816304
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -761,7 +767,7 @@ MonoBehaviour:
   gridScript: {fileID: 0}
   fpScript: {fileID: 0}
   distanceFromTarget: 0
-  target: {fileID: 798723458}
+  target: {fileID: 1355713778}
   attack: 0
 --- !u!1 &185773022
 GameObject:
@@ -1245,6 +1251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Rage
   attackDescription: This is rage
+  currentCoolDown: 0
   coolDown: 3
   range: 0
   damageDice: 0
@@ -1254,7 +1261,12 @@ MonoBehaviour:
   selectTarget: 0
   nonDirectional: 0
   attackDone: 0
+  attacking: 0
   hitEnemy: 0
+  timer: 0
+  attackDuration: 0
+  sizeValue: 0
+  enemiesInRange: []
 --- !u!1 &433193781
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,6 +1416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Rage
   attackDescription: This is rage
+  currentCoolDown: 0
   coolDown: 3
   range: 0
   damageDice: 0
@@ -1413,7 +1426,12 @@ MonoBehaviour:
   selectTarget: 0
   nonDirectional: 0
   attackDone: 0
+  attacking: 0
   hitEnemy: 0
+  timer: 0
+  attackDuration: 0
+  sizeValue: 0
+  enemiesInRange: []
 --- !u!1 &565388203
 GameObject:
   m_ObjectHideFlags: 0
@@ -1586,7 +1604,8 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: -6.3384464e+29, y: 1.7592186e+13, z: -1.7014118e+38,
+    w: 2.5243547e-29}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1825,6 +1844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Charge
   attackDescription: This is Charge
+  currentCoolDown: 0
   coolDown: 3
   range: 0
   damageDice: 8
@@ -1834,7 +1854,13 @@ MonoBehaviour:
   selectTarget: 0
   nonDirectional: 0
   attackDone: 0
+  attacking: 0
   hitEnemy: 0
+  timer: 0
+  attackDuration: 5
+  sizeValue: 10
+  enemiesInRange: []
+  index: 0
 --- !u!4 &775236626
 Transform:
   m_ObjectHideFlags: 0
@@ -1911,6 +1937,7 @@ MonoBehaviour:
   backColor: 0
   leftColor: 0
   rightColor: 0
+  attacking: 0
 --- !u!65 &798723459
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2828,6 +2855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Charge
   attackDescription: This is Charge
+  currentCoolDown: 0
   coolDown: 3
   range: 0
   damageDice: 8
@@ -2837,7 +2865,13 @@ MonoBehaviour:
   selectTarget: 0
   nonDirectional: 0
   attackDone: 0
+  attacking: 0
   hitEnemy: 0
+  timer: 0
+  attackDuration: 0
+  sizeValue: 0
+  enemiesInRange: []
+  index: 0
 --- !u!4 &1119049391
 Transform:
   m_ObjectHideFlags: 0
@@ -3020,6 +3054,8 @@ MonoBehaviour:
   ciScript: {fileID: 0}
   fpScript: {fileID: 0}
   boolAI: 0
+  attacking: 0
+  startScript: 0
 --- !u!4 &1276678932
 Transform:
   m_ObjectHideFlags: 0
@@ -3203,6 +3239,7 @@ MonoBehaviour:
   backColor: 0
   leftColor: 0
   rightColor: 0
+  attacking: 0
 --- !u!1 &1501796734
 GameObject:
   m_ObjectHideFlags: 0
@@ -3343,6 +3380,17 @@ MonoBehaviour:
       - m_Target: {fileID: 26726774}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1276678931}
+        m_MethodName: StartScript
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4414,6 +4462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Sweeping Strike
   attackDescription: This is the Sweeping Strike
+  currentCoolDown: 0
   coolDown: 2
   range: 0
   damageDice: 6
@@ -4423,10 +4472,12 @@ MonoBehaviour:
   selectTarget: 0
   nonDirectional: 0
   attackDone: 0
+  attacking: 0
   hitEnemy: 0
-  enemiesInRange: []
   timer: 0
   attackDuration: 3
+  sizeValue: 0
+  enemiesInRange: []
 --- !u!1 &1782094229
 GameObject:
   m_ObjectHideFlags: 0
@@ -4839,7 +4890,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1889436613
 RectTransform:
   m_ObjectHideFlags: 0

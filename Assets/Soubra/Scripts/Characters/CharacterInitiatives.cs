@@ -67,7 +67,8 @@ public class CharacterInitiatives : MonoBehaviour
             index = 0;
         }
 
-        fpScript.character = Characters[index].gameObject;        
+        fpScript.character = Characters[index].gameObject; 
+        Characters[index].CheckAllCooldowns();       
         mcScript.start = Characters[index].gameObject;
         if (Characters[index].gameObject.GetComponent <AttackPlayer>())
         {

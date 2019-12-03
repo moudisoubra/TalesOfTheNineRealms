@@ -4,49 +4,73 @@ using UnityEngine;
 
 public class Charge : Attacks
 {
-    public override void FrontAttack()
+    public int index;
+    public override void Attack()
     {
-        Debug.Log("This is Charge");
+        Debug.Log("This is Charge " + sizeValue);
+        //--------------------------------Coloring Tiles---------------------------------------//
         for (int i = 0; i < currentCharacter.grounds.Count; i++)
         {
             currentCharacter.grounds[i].GetComponent<MeshRenderer>().material = gridScipt.original;
         }
 
-        currentCharacter.frontColor = true;
+        
         gridScipt.walk = false;
 
-        List<GameObject> frontTiles = new List<GameObject>();
+        List<GameObject> tiles = new List<GameObject>();
 
 
         for (int i = 0; i < currentCharacter.grounds.Count; i++)
         {
             if (currentCharacter.currentNode)
             {
-                if (i == currentCharacter.currentIndex - gridScipt.GridSizeX)
+                if (i == currentCharacter.currentIndex + sizeValue)
                 {
-                    frontTiles.Add(currentCharacter.grounds[i]);
+                    tiles.Add(currentCharacter.grounds[i]);
                     Debug.Log("Found 1");
                 }
-                if (i == currentCharacter.currentIndex - (gridScipt.GridSizeX * 2))
+                if (i == currentCharacter.currentIndex + (sizeValue * 2))
                 {
-                    frontTiles.Add(currentCharacter.grounds[i]);
+                    tiles.Add(currentCharacter.grounds[i]);
                     Debug.Log("Found 2");
                 }
-                if (i == currentCharacter.currentIndex - (gridScipt.GridSizeX * 4))
+                if (i == currentCharacter.currentIndex + (sizeValue * 3))
                 {
-                    frontTiles.Add(currentCharacter.grounds[i]);
+                    tiles.Add(currentCharacter.grounds[i]);
                     Debug.Log("Found 3");
                 }
             }
         }
 
-        for (int i = 0; i < frontTiles.Count; i++)
+        for (int i = 0; i < tiles.Count; i++)
         {
             Debug.Log("Setting Colors to Black");
-            frontTiles[i].GetComponent<MeshRenderer>().material.color = Color.black;
+            tiles[i].GetComponent<MeshRenderer>().material.color = Color.black;
         }
-        if (timer > attackDuration)
+
+//--------------------------------Dealing Damage---------------------------------------//
+
+        if (currentCharacter.enemies.Count > 0 && hitEnemy)
         {
+            while (index < currentCharacter.enemies.Count)
+            {
+                for (int i = 0; i < tiles.Count; i++)
+                {
+                    if (currentCharacter.enemies[index].currentNode == tiles[i])
+                    {
+                        Debug.Log("Enemy in Charge Range");
+                        currentCharacter.enemies[index].characterHealth -= 2; 
+                    }
+                }
+                index++;
+            }
+        }
+
+
+        if (timer > attackDuration || index >= currentCharacter.enemies.Count)
+        {
+            Debug.Log("Charge Done");
+            index = 0;
             selectTarget = false;
             attackDone = true;
             nonDirectional = false;

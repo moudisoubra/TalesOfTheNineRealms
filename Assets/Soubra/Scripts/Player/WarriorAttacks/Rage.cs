@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Rage : Attacks
 {
-    public override void FrontAttack()
+    public override void Attack()
     {
         Debug.Log("This is Rage");
     }
