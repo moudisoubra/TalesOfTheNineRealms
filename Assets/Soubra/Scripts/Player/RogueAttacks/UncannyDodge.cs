@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rage : Attacks
+public class UncannyDodge : Attacks
 {
-    
     public override void SetValues()
     {
-        Debug.Log("NON DIRECTIONAL CHARGE TRUE");
+        Debug.Log("NON DIRECTIONAL UnCanny TRUE");
         nonDirectional = true;
         gridScipt.walk = true;
         attacking = false;
@@ -16,8 +15,8 @@ public class Rage : Attacks
     {
         timer += Time.deltaTime;
 
-        Debug.Log("This is Rage");
-        currentCharacter.characterDamage = currentCharacter.characterDamage * 2;
+        Debug.Log("This is UnCanny Dodge");
+        Debug.Log("OOOOOOOOOO I AM MAKE INVISIBLEEEEE");
 
         if (timer > attackDuration)
         {

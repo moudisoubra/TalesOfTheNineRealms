@@ -5,6 +5,13 @@ using UnityEngine;
 public class Charge : Attacks
 {
     public int index;
+    
+    public override void SetValues()
+    {
+        gridScipt.walk = false;
+        attacking = true;
+    }
+    
     public override void Attack()
     {
         Debug.Log("This is Charge " + sizeValue);
@@ -67,13 +74,13 @@ public class Charge : Attacks
         }
 
 
-        if (timer > attackDuration || index >= currentCharacter.enemies.Count)
-        {
-            Debug.Log("Charge Done");
-            index = 0;
-            selectTarget = false;
-            attackDone = true;
-            nonDirectional = false;
-        }
+        // if (timer > attackDuration || index >= currentCharacter.enemies.Count)
+        // {
+        //     Debug.Log("Charge Done");
+        //     index = 0;
+        //     selectTarget = false;
+        //     attackDone = true;
+        //     nonDirectional = false;
+        // }
     }
 }

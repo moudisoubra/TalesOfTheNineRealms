@@ -7,7 +7,10 @@ public class SweepingStrike : Attacks
 
     public override void SetValues()
     {
+        Debug.Log("NONDIRECTIONAL SS TRUE");
         nonDirectional = true;
+        gridScipt.walk = false;
+        attacking = true;
     }
     public override void NonDirectionalAttack()
     {
