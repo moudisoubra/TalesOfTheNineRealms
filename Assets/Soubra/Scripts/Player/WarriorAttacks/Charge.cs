@@ -74,13 +74,13 @@ public class Charge : Attacks
         }
 
 
-        // if (timer > attackDuration || index >= currentCharacter.enemies.Count)
-        // {
-        //     Debug.Log("Charge Done");
-        //     index = 0;
-        //     selectTarget = false;
-        //     attackDone = true;
-        //     nonDirectional = false;
-        // }
+        if (timer > attackDuration || index >= currentCharacter.enemies.Count)
+        {
+            Debug.Log("Charge Done");
+            index = 0;
+            selectTarget = false;
+            attackDone = true;
+            nonDirectional = false;
+        }
     }
 }
