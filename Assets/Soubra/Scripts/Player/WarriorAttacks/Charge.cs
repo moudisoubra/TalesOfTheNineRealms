@@ -55,7 +55,7 @@ public class Charge : Attacks
             tiles[i].GetComponent<MeshRenderer>().material.color = Color.black;
         }
 
-//--------------------------------Dealing Damage---------------------------------------//
+        //--------------------------------Dealing Damage---------------------------------------//
 
         if (currentCharacter.enemies.Count > 0 && hitEnemy)
         {
@@ -74,13 +74,13 @@ public class Charge : Attacks
         }
 
 
-        // if (timer > attackDuration || index >= currentCharacter.enemies.Count)
-        // {
-        //     Debug.Log("Charge Done");
-        //     index = 0;
-        //     selectTarget = false;
-        //     attackDone = true;
-        //     nonDirectional = false;
-        // }
+        if (timer > attackDuration || index >= currentCharacter.enemies.Count)
+        {
+            Debug.Log("Charge Done");
+            index = 0;
+            selectTarget = false;
+            attackDone = true;
+            nonDirectional = false;
+        }
     }
 }
