@@ -55,7 +55,7 @@ public class Charge : Attacks
             tiles[i].GetComponent<MeshRenderer>().material.color = Color.black;
         }
 
-//--------------------------------Dealing Damage---------------------------------------//
+        //--------------------------------Dealing Damage---------------------------------------//
 
         if (currentCharacter.enemies.Count > 0 && hitEnemy)
         {
