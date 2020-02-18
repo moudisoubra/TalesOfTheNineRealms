@@ -54,27 +54,27 @@ public class Grid : MonoBehaviour
 
     private void Update()
     {
-        // if(updateMap)
-        // {
-        //   for(int x = 0; x < grounds.Count; x++)
-        //   {
-        //     if(!groundsWalkedOn.Contains(grounds[x]))
-        //      {
-        //         grounds[x].GetComponent<MeshRenderer>().material = transparent;
-        //      }
-        //   }
-        //   updateMap = false;
-        // }
-        // else if(!updateMap && movement.Count == 0)
-        // {
-        //  for(int x = 0; x < grounds.Count; x++)
-        //   {
-        //     if(!groundsWalkedOn.Contains(grounds[x]))
-        //      {
-        //         grounds[x].GetComponent<MeshRenderer>().material = original;
-        //      }
-        //   }
-        // }
+        if (updateMap)
+        {
+            for (int x = 0; x < grounds.Count; x++)
+            {
+                if (!groundsWalkedOn.Contains(grounds[x]))
+                {
+                    grounds[x].GetComponent<MeshRenderer>().material = transparent;
+                }
+            }
+            updateMap = false;
+        }
+        else if (!updateMap && movement.Count == 0)
+        {
+            for (int x = 0; x < grounds.Count; x++)
+            {
+                if (!groundsWalkedOn.Contains(grounds[x]))
+                {
+                    grounds[x].GetComponent<MeshRenderer>().material = original;
+                }
+            }
+        }
 
         if (walk)
         {
@@ -106,15 +106,16 @@ public class Grid : MonoBehaviour
                 {
                     if(pfScript.character.GetComponent<CharacterInfo>().currentMovementDistance >= FinalPath.Count)
                     {
-                        FinalPath[i].ground.GetComponent<MeshRenderer>().material.color = Color.green;
+                        FinalPath[i].ground.GetComponent<MeshRenderer>().material.SetColor("_BaseColor", Color.green);
+                        Debug.Log("HERE NOW " + FinalPath[i].ground.GetComponent<MeshRenderer>().material.color);
                         movement.Add(FinalPath[i].worldPosition);
                         groundsWalkedOn.Add(FinalPath[i].ground);
-                    
+                        
                         walk = false;
                     }
                     else
                     {
-                       FinalPath[i].ground.GetComponent<MeshRenderer>().material.color = Color.red;
+                       FinalPath[i].ground.GetComponent<MeshRenderer>().material.SetColor("_BaseColor", Color.red);
                       walk = false;
                     }
                 }

@@ -52,7 +52,7 @@ public class Charge : Attacks
         for (int i = 0; i < tiles.Count; i++)
         {
             Debug.Log("Setting Colors to Black");
-            tiles[i].GetComponent<MeshRenderer>().material.color = Color.black;
+            tiles[i].GetComponent<MeshRenderer>().material.SetColor("_BaseColor", Color.black);
         }
 
         //--------------------------------Dealing Damage---------------------------------------//

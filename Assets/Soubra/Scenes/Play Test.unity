@@ -3242,7 +3242,7 @@ MonoBehaviour:
   rightTemp: {fileID: 0}
   sides: []
   enemies: []
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0, g: 1, b: 0.050857544, a: 1}
   ciScript: {fileID: 0}
   attackOne: {fileID: 6207907}
   attackTwo: {fileID: 408730867}
@@ -3288,7 +3288,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -434.75, y: 51.200012}
+  m_AnchoredPosition: {x: -434.75, y: 51.19995}
   m_SizeDelta: {x: 285, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1501796736
@@ -3727,7 +3727,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -149, y: 51.2}
+  m_AnchoredPosition: {x: -149, y: 51.19995}
   m_SizeDelta: {x: 285, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1568863368
@@ -4007,7 +4007,7 @@ GameObject:
   - component: {fileID: 1671993841}
   - component: {fileID: 1671993840}
   - component: {fileID: 1671993839}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4526,7 +4526,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -147, y: 51.200012}
+  m_AnchoredPosition: {x: -147, y: 51.19995}
   m_SizeDelta: {x: 285, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1782094231

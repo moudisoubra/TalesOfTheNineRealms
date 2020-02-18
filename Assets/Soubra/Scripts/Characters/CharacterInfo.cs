@@ -140,7 +140,7 @@ public class CharacterInfo : MonoBehaviour
 
             if (!frontColor)
             { 
-                Front.GetComponent<MeshRenderer>().material.color = color;
+                Front.GetComponent<MeshRenderer>().material.SetColor("_BaseColor", color);
             }
 
             frontTemp = Front;
@@ -155,7 +155,7 @@ public class CharacterInfo : MonoBehaviour
 
             if (!backColor)
             { 
-                Back.GetComponent<MeshRenderer>().material.color = color;
+                Back.GetComponent<MeshRenderer>().material.SetColor("_BaseColor", color);
             }
 
             backTemp = Back;
@@ -170,7 +170,7 @@ public class CharacterInfo : MonoBehaviour
 
             if (!rightColor)
             {
-                Right.GetComponent<MeshRenderer>().material.color = color;
+                Right.GetComponent<MeshRenderer>().material.SetColor("_BaseColor", color);
             }
 
             rightTemp = Right;
@@ -185,7 +185,7 @@ public class CharacterInfo : MonoBehaviour
 
             if (!leftColor)
             {   
-                Left.GetComponent<MeshRenderer>().material.color = color;
+                Left.GetComponent<MeshRenderer>().material.SetColor("_BaseColor", color);
             }
             leftTemp = Left;
         }
