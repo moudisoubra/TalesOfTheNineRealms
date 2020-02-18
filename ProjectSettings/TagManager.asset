@@ -18,8 +18,8 @@ TagManager:
   - Obstacle
   - Ground
   - PostPro
-  - 
-  - 
+  - PlayerLayer
+  - ActivateChat
   - 
   - 
   - 
