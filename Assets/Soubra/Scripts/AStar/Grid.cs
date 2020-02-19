@@ -24,6 +24,7 @@ public class Grid : MonoBehaviour
     public bool updateMap;
     float fNodeDiameter;//Twice the amount of the radius (Set in the start function)
     public int GridSizeX, iGridSizeY;//Size of the Grid in Array units.
+    public float sizeOfCell;
 
     public Material original;
     public Material transparent;
@@ -45,7 +46,7 @@ public class Grid : MonoBehaviour
             n.ground.transform.parent = transform;
             ////groundsNodes.Add(n);
             grounds.Add(n.ground);
-            n.ground.transform.localScale = new Vector3(.35f, .35f, 1) ;
+            n.ground.transform.localScale = new Vector3(sizeOfCell, sizeOfCell, 1) ;
         }
         GO = true;
         pfScript = FindObjectOfType<FollowPath>();
@@ -107,7 +108,7 @@ public class Grid : MonoBehaviour
                     if(pfScript.character.GetComponent<CharacterInfo>().currentMovementDistance >= FinalPath.Count)
                     {
                         FinalPath[i].ground.GetComponent<MeshRenderer>().material.SetColor("_BaseColor", Color.green);
-                        Debug.Log("HERE NOW " + FinalPath[i].ground.GetComponent<MeshRenderer>().material.color);
+                        //Debug.Log("HERE NOW " + FinalPath[i].ground.GetComponent<MeshRenderer>().material.color);
                         movement.Add(FinalPath[i].worldPosition);
                         groundsWalkedOn.Add(FinalPath[i].ground);
                         

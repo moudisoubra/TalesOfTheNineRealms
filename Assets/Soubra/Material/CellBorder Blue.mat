@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: gridanna
+  m_Name: CellBorder Blue
   m_Shader: {fileID: -6465566751694194690, guid: 0dcedd8e42e242e4191044c860324e8a,
     type: 3}
   m_ShaderKeywords: 
@@ -21,7 +21,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - Vector1_1601D214: 0.9
+    - Vector1_1601D214: 0.85
     m_Colors:
     - Color_ABEE16DA: {r: 0.2509804, g: 5.5529413, b: 5.992157, a: 0}
-    - Vector2_1FC5E314: {r: 20, g: 20, b: 0, a: 0}
+    - Vector2_1FC5E314: {r: 1, g: 1, b: 0, a: 0}
+    - _BaseColor: {r: 0.2044346, g: 2.6917222, b: 2.6576498, a: 1}
+    - _BaseColorA: {r: 0.028958509, g: 2.046405, b: 0.21404606, a: 1}
+    - _BaseColorB: {r: 0.05918475, g: 0.05918475, b: 0.6603774, a: 1}
+    - _BaseColorC: {r: 0.03062841, g: 0.5849056, b: 0, a: 1}
