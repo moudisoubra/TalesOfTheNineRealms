@@ -151,11 +151,13 @@ public class CharacterInfo : MonoBehaviour
             if (Back != backTemp && backTemp)
             {
                 backTemp.GetComponent<MeshRenderer>().material = gridScipt.original;
+                Debug.Log("MAKING BACK ORIGINAL");
             }
 
             if (!backColor)
             { 
                 Back.GetComponent<MeshRenderer>().material.SetColor("_BaseColor", color);
+                Debug.Log("Coloring Back");
             }
 
             backTemp = Back;

@@ -13,24 +13,25 @@ public class Noder
     {
         children = new List<Noder>();
         worldState = -1;
-        
-        
     }
 }
 public class Planner :MonoBehaviour
 {
-
+    public int health = 100;
     public void Start()
     {
         List<Action> actions = new List<Action>();
-        actions.Add(new Action("do 6",0,6));
+        //actions.Add(new Action("do 200",0,200));
+        actions.Add(new Action("do 60",0,60));
+        actions.Add(new Action("do 50",0,50));
         actions.Add(new Action("do 5",0,5));
         actions.Add(new Action("do 4",0,4));
         actions.Add(new Action("do 3",0,3));
         actions.Add(new Action("do 2",0,2));
+        actions.Add(new Action("do 10",0,10));
         actions.Add(new Action("do 1",0,1));
-        var tree = CreateTree(actions,1,250,new Noder());
-        var goal=Plan(tree,27);
+        var tree = CreateTree(actions, health, 250,new Noder());
+        var goal=Plan(tree,250);
         while (goal.parent!=null)
         {
             Debug.Log(goal.worldState + " Hi");
@@ -58,7 +59,7 @@ public class Planner :MonoBehaviour
     }
     public Noder CreateTree(List<Action> avaialble, int currentWorldState, int goal, Noder tree,int step=0)
     {
-        if (step > 1000) return tree;
+        if (step > 15) return tree;
         foreach (var item in avaialble)
         {
             if (item.canDo(currentWorldState))

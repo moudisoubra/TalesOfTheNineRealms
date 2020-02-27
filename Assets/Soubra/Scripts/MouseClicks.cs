@@ -14,6 +14,7 @@ public class MouseClicks : MonoBehaviour
     public bool boolAI;
     public bool attacking;
     public bool startScript;
+    public Camera camera;
 
     public void Start()
     {
@@ -44,10 +45,14 @@ public class MouseClicks : MonoBehaviour
             if (!start.GetComponent<CharacterInfo>().attacking)
             {
             RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit))
             {
+                    if (hit.transform)
+                    {
+                        Debug.Log(hit.transform.name);
+                    }
                 if (hit.collider.tag == "Ground" && start.GetComponent<CharacterInfo>().currentMovementDistance > 0)
                 {
                     end = hit.transform.gameObject;

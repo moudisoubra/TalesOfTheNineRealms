@@ -15,6 +15,11 @@ public class Action
         this.change = change;
     }
 
+    public void DoAction(int mission, int value)
+    {
+        mission = mission + value; 
+    }
+
     public int GetWorldStateAfterPerforming(int currenWorldState)
     {
         return change + currenWorldState;

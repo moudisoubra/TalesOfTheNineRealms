@@ -33,6 +33,7 @@ public class FollowPath : MonoBehaviour
     {
         if (walk && gridScript.movement.Count > 0 && gameStart)
         {
+            Debug.Log("I can walk but Currently Im refusing to cuz fuck u");
             if (Vector3.Distance(character.transform.position, gridScript.movement[index]) < 0.5f)
             {
                 index++;

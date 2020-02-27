@@ -44,7 +44,7 @@ public class Pathfinding : MonoBehaviour
 
     public void FindPath(Vector3 a_StartPos, Vector3 a_TargetPos)
     {
-
+        Debug.Log("FINDING PATH");
         walk = false;
         Node StartNode = GridReference.NodeFromWorldPoint(a_StartPos);//Gets the node closest to the starting position
         Node TargetNode = GridReference.NodeFromWorldPoint(a_TargetPos);//Gets the node closest to the target position
