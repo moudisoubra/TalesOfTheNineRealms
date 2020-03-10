@@ -24,13 +24,17 @@ public class Grid : MonoBehaviour
     public bool updateMap;
     float fNodeDiameter;//Twice the amount of the radius (Set in the start function)
     public int GridSizeX, iGridSizeY;//Size of the Grid in Array units.
+    public float sizeOfCell;
 
     public Material original;
     public Material transparent;
+    public Material green;
+    public Material red;
 
     public CharacterInitiatives ciScript;
     public bool GO;
 
+    public Vector3 rotateThis;
     private void Start()//Ran once the program starts
     {
         fNodeDiameter = fNodeRadius * 2;//Double the radius to get diameter
@@ -45,8 +49,9 @@ public class Grid : MonoBehaviour
             n.ground.transform.parent = transform;
             ////groundsNodes.Add(n);
             grounds.Add(n.ground);
-            n.ground.transform.localScale = new Vector3(.35f, .35f, 1) ;
+            n.ground.transform.localScale = new Vector3(sizeOfCell, sizeOfCell, 1) ;
         }
+        transform.Rotate(rotateThis);
         GO = true;
         pfScript = FindObjectOfType<FollowPath>();
         ciScript = FindObjectOfType<CharacterInitiatives>();
@@ -54,27 +59,27 @@ public class Grid : MonoBehaviour
 
     private void Update()
     {
-        // if(updateMap)
-        // {
-        //   for(int x = 0; x < grounds.Count; x++)
-        //   {
-        //     if(!groundsWalkedOn.Contains(grounds[x]))
-        //      {
-        //         grounds[x].GetComponent<MeshRenderer>().material = transparent;
-        //      }
-        //   }
-        //   updateMap = false;
-        // }
-        // else if(!updateMap && movement.Count == 0)
-        // {
-        //  for(int x = 0; x < grounds.Count; x++)
-        //   {
-        //     if(!groundsWalkedOn.Contains(grounds[x]))
-        //      {
-        //         grounds[x].GetComponent<MeshRenderer>().material = original;
-        //      }
-        //   }
-        // }
+        if (updateMap)
+        {
+            for (int x = 0; x < grounds.Count; x++)
+            {
+                if (!groundsWalkedOn.Contains(grounds[x]))
+                {
+                    grounds[x].GetComponent<MeshRenderer>().material = transparent;
+                }
+            }
+            updateMap = false;
+        }
+        else if (!updateMap && movement.Count == 0)
+        {
+            for (int x = 0; x < grounds.Count; x++)
+            {
+                if (!groundsWalkedOn.Contains(grounds[x]))
+                {
+                    //grounds[x].GetComponent<MeshRenderer>().material = original;
+                }
+            }
+        }
 
         if (walk)
         {
@@ -90,7 +95,7 @@ public class Grid : MonoBehaviour
                 }
                 for (int x = 0; x < pfScript.character.GetComponent<CharacterInfo>().currentMovementDistance; x++)
                 {
-                    FinalPath[x].ground.GetComponent<MeshRenderer>().material.color = Color.green;
+                    FinalPath[x].ground.GetComponent<MeshRenderer>().material = green;
                     movement.Add(FinalPath[x].worldPosition);
                     groundsWalkedOn.Add(FinalPath[x].ground);
                 }
@@ -102,20 +107,22 @@ public class Grid : MonoBehaviour
             }
             else
             {
+                Debug.Log("FINAL PATH COUNT: " + FinalPath.Count);
                 for (int i = 0; i < FinalPath.Count; i++)
                 {
                     if(pfScript.character.GetComponent<CharacterInfo>().currentMovementDistance >= FinalPath.Count)
                     {
-                        FinalPath[i].ground.GetComponent<MeshRenderer>().material.color = Color.green;
+                        FinalPath[i].ground.GetComponent<MeshRenderer>().material = green;
+                        //Debug.Log("HERE NOW " + FinalPath[i].ground.GetComponent<MeshRenderer>().material.color);
                         movement.Add(FinalPath[i].worldPosition);
                         groundsWalkedOn.Add(FinalPath[i].ground);
-                    
+                        
                         walk = false;
                     }
                     else
                     {
-                       FinalPath[i].ground.GetComponent<MeshRenderer>().material.color = Color.red;
-                      walk = false;
+                       FinalPath[i].ground.GetComponent<MeshRenderer>().material = red;
+                       walk = false;
                     }
                 }
             }
@@ -130,7 +137,8 @@ public class Grid : MonoBehaviour
         {
             for (int y = 0; y < iGridSizeY; y++)
             {
-                Vector3 worldPoint = bottomLeft + Vector3.right * (x * fNodeDiameter + fNodeRadius) + Vector3.forward * (y * fNodeDiameter + fNodeRadius);
+                Vector3 worldPoint = bottomLeft + Vector3.right * (x * fNodeDiameter - fDistanceBetweenNodes + fNodeRadius) + Vector3.forward * (y * fNodeDiameter - fDistanceBetweenNodes + fNodeRadius);
+                //Vector3 worldPoint = bottomLeft + Vector3.right * (x * fNodeDiameter + fNodeRadius) + Vector3.forward * (y * fNodeDiameter + fNodeRadius);
                 bool Wall = true;
 
                 if (Physics.CheckSphere(worldPoint, fNodeRadius, WallMask))
@@ -208,38 +216,42 @@ public class Grid : MonoBehaviour
     }
 
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireCube(transform.position, new Vector3(vGridWorldSize.x, .2f, vGridWorldSize.y));//Draw a wire cube with the given dimensions from the Unity inspector
+        
+    }
     //Function that draws the wireframe
-    //private void OnDrawGizmos()
-    //{
-
-    //    Gizmos.DrawWireCube(transform.position, new Vector3(vGridWorldSize.x, .2f, vGridWorldSize.y));//Draw a wire cube with the given dimensions from the Unity inspector
-
-    //    if (NodeArray != null)//If the grid is not empty
-    //    {
-    //        foreach (Node n in NodeArray)//Loop through every node in the grid
-    //        {
-    //            if (n.blocked)//If the current node is a wall node
-    //            {
-    //                Gizmos.color = Color.white;//Set the color of the node
-    //            }
-    //            else
-    //            {
-    //                Gizmos.color = Color.red;//Set the color of the node
-    //            }
+    private void OnDrawGizmos()
+    {
 
 
-    //            if (FinalPath != null)//If the final path is not empty
-    //            {
-    //                if (FinalPath.Contains(n))//If the current node is in the final path
-    //                {
-    //                    Gizmos.color = Color.green;//Set the color of that node
-    //                }
+        //if (NodeArray != null)//If the grid is not empty
+        //{
+        //    foreach (Node n in NodeArray)//Loop through every node in the grid
+        //    {
+        //        if (n.blocked)//If the current node is a wall node
+        //        {
+        //            Gizmos.color = Color.white;//Set the color of the node
+        //        }
+        //        else
+        //        {
+        //            Gizmos.color = Color.red;//Set the color of the node
+        //        }
 
-    //            }
+
+        //        if (FinalPath != null)//If the final path is not empty
+        //        {
+        //            if (FinalPath.Contains(n))//If the current node is in the final path
+        //            {
+        //                Gizmos.color = Color.green;//Set the color of that node
+        //            }
+
+        //        }
 
 
-    //            Gizmos.DrawCube(n.worldPosition, new Vector3(1, 0.2f, 1) * (fNodeDiameter - fDistanceBetweenNodes));//Draw the node at the position of the node.
-    //        }
-    //    }
-    //}
+        //        Gizmos.DrawCube(n.worldPosition, new Vector3(1, 0.2f, 1) * (fNodeDiameter - fDistanceBetweenNodes));//Draw the node at the position of the node.
+        //    }
+        //}
+    }
 }

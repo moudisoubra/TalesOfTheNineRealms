@@ -24,4 +24,4 @@ Material:
     - Vector1_1601D214: 0.9
     m_Colors:
     - Color_ABEE16DA: {r: 0.2509804, g: 5.5529413, b: 5.992157, a: 0}
-    - Vector2_1FC5E314: {r: 30, g: 30, b: 0, a: 0}
+    - Vector2_1FC5E314: {r: 20, g: 20, b: 0, a: 0}

@@ -140,7 +140,7 @@ public class CharacterInfo : MonoBehaviour
 
             if (!frontColor)
             { 
-                Front.GetComponent<MeshRenderer>().material.color = color;
+                Front.GetComponent<MeshRenderer>().material.SetColor("_BaseColor", color);
             }
 
             frontTemp = Front;
@@ -151,11 +151,13 @@ public class CharacterInfo : MonoBehaviour
             if (Back != backTemp && backTemp)
             {
                 backTemp.GetComponent<MeshRenderer>().material = gridScipt.original;
+                Debug.Log("MAKING BACK ORIGINAL");
             }
 
             if (!backColor)
             { 
-                Back.GetComponent<MeshRenderer>().material.color = color;
+                Back.GetComponent<MeshRenderer>().material.SetColor("_BaseColor", color);
+                Debug.Log("Coloring Back");
             }
 
             backTemp = Back;
@@ -170,7 +172,7 @@ public class CharacterInfo : MonoBehaviour
 
             if (!rightColor)
             {
-                Right.GetComponent<MeshRenderer>().material.color = color;
+                Right.GetComponent<MeshRenderer>().material.SetColor("_BaseColor", color);
             }
 
             rightTemp = Right;
@@ -185,7 +187,7 @@ public class CharacterInfo : MonoBehaviour
 
             if (!leftColor)
             {   
-                Left.GetComponent<MeshRenderer>().material.color = color;
+                Left.GetComponent<MeshRenderer>().material.SetColor("_BaseColor", color);
             }
             leftTemp = Left;
         }

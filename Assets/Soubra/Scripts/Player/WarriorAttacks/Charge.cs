@@ -16,10 +16,10 @@ public class Charge : Attacks
     {
         Debug.Log("This is Charge " + sizeValue);
         //--------------------------------Coloring Tiles---------------------------------------//
-        for (int i = 0; i < currentCharacter.grounds.Count; i++)
-        {
-            currentCharacter.grounds[i].GetComponent<MeshRenderer>().material = gridScipt.original;
-        }
+        //for (int i = 0; i < currentCharacter.grounds.Count; i++)
+        //{
+        //    currentCharacter.grounds[i].GetComponent<MeshRenderer>().material = gridScipt.original;
+        //}
 
         
         gridScipt.walk = false;
@@ -52,7 +52,8 @@ public class Charge : Attacks
         for (int i = 0; i < tiles.Count; i++)
         {
             Debug.Log("Setting Colors to Black");
-            tiles[i].GetComponent<MeshRenderer>().material.color = Color.black;
+            tiles[i].GetComponent<MeshRenderer>().material.SetColor("_BaseColor", Color.black);
+
         }
 
         //--------------------------------Dealing Damage---------------------------------------//
@@ -73,8 +74,8 @@ public class Charge : Attacks
             }
         }
 
-
-        if (timer > attackDuration || index >= currentCharacter.enemies.Count)
+        Debug.Log(timer);
+        if (timer > attackDuration)
         {
             Debug.Log("Charge Done");
             index = 0;
