@@ -205,7 +205,8 @@ public class TileMap : MonoBehaviour
             foreach (Node v in u.neighbours)
             {
                 //float alt = dist[u] + u.DistanceTo(v);
-                
+                if (v != null)
+                {
 
                     float alt = dist[u] + CostToEnterTile(v.x, v.y);
 
@@ -214,7 +215,7 @@ public class TileMap : MonoBehaviour
                         dist[v] = alt;
                         prev[v] = u;
                     }
-                
+                }
             }
         }
 

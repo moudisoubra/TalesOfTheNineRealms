@@ -97,7 +97,6 @@ public class CellPositions : MonoBehaviour
         if (direction == Direction.Right)
         {
             TileMap.Node n = currentNode.neighbours[2];
-            Debug.Log(n.x + " " + n.y);
             //attackNodes.Add(n);
             //attackNodes.Add(map.graph[n.x + 1, n.y]);
             //attackNodes.Add(map.graph[n.x + 2, n.y]);
@@ -153,14 +152,17 @@ public class CellPositions : MonoBehaviour
 
     public void AddNode(TileMap.Node n, int x, int y)
     {
-        if (n.x + x > -1 && n.x + x < map.mapSizeX &&
+        if (n != null && n.x + x > -1 && n.x + x < map.mapSizeX &&
             n.y + y > -1 && n.y + y < map.mapSizeY)
         {
             attackNodes.Add(map.graph[n.x + x, n.y + y]);
         }
         else
         {
-            Debug.Log("This Does Not Exist: " + (n.x + x) + " ," + (n.y + y));
+            if (n != null)
+            {
+                Debug.Log("This Does Not Exist: " + (n.x + x) + " ," + (n.y + y));
+            }
         }
     }
 }
