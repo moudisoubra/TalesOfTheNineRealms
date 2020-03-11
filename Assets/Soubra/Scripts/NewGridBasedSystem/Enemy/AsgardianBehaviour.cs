@@ -27,29 +27,30 @@ public class AsgardianBehaviour : MonoBehaviour
 
     void Update()
     {
+        if (findPath)
+        {
+            gbScript.endObject = player.GetComponent<CurrentPosition>().currentPosition;
+            gbScript.startObject = this.cpScript.currentPosition;
+
+            pathToWalk.Clear();
+            index = 0;
+
+            Pathfinding();
+            for (int i = 0; i < path.Count; i++)
+            {
+                path[i].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.blue);
+            }
+            for (int i = 1; i < moveDistance + 1; i++)
+            {
+                //Debug.Log("Added: " + path[path.Count - i].name);
+                pathToWalk.Add(path[path.Count - i - 1]);
+            }
+            findPath = false;
+        }
         if (move)
         {
 
-            if (findPath)
-            {
-                gbScript.endObject = player.GetComponent<CurrentPosition>().currentPosition;
-                gbScript.startObject = this.cpScript.currentPosition;
-
-                pathToWalk.Clear();
-                index = 0;
-
-                Pathfinding();
-                for (int i = 0; i < path.Count; i++)
-                {
-                    path[i].GetComponent<Renderer>().material.SetColor("_BaseColor", Color.blue);
-                }
-                for (int i = 1; i < moveDistance + 1; i++)
-                {
-                    Debug.Log("Added: " + path[path.Count - i].name);
-                    pathToWalk.Add(path[path.Count - i - 1]);
-                }
-                findPath = false;
-            }
+            
 
             if (Vector3.Distance(transform.position, pathToWalk[index].transform.position) < 0.1f && pathToWalk.Count > 0)
             {
@@ -64,7 +65,7 @@ public class AsgardianBehaviour : MonoBehaviour
             {
                 asScript.currentCell = pathToWalk[pathToWalk.Count - 1].GetComponent<GridStat>();
                 gbScript.endObject = player.GetComponent<CurrentPosition>().currentPosition;
-                gbScript.startObject = this.cpScript.currentPosition;
+                gbScript.startObject = asScript.currentCell;
                 //pathToWalk.Clear();
                 move = false;
             }
@@ -73,7 +74,6 @@ public class AsgardianBehaviour : MonoBehaviour
 
     void Pathfinding()
     {
-        gbScript.path.Clear();
         gbScript.SetPath();
         gbScript.SetDistance();
         path = gbScript.path;

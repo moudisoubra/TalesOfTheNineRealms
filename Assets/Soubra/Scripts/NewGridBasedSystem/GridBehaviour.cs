@@ -22,12 +22,16 @@ public class GridBehaviour : MonoBehaviour
     public GridStat endObject;
     public GridStat endObjectTemp;
     public GridStat[,] gridArray;
-    public List<GameObject> path = new List<GameObject>(); 
-    
+    public List<GameObject> path = new List<GameObject>();
+
+    public GridNodes gnScript;
+
     public float speed = 10;
     public int moveStep = 0;
+    public GameObject prefab;
     private void Awake()
     {
+        gnScript = GetComponent<GridNodes>();
         gridArray = new GridStat[columns, rows];
         if (gridPrefab)
         {
@@ -69,14 +73,17 @@ public class GridBehaviour : MonoBehaviour
         //}
 
         if (startObject)
+        {
             startObject.rend.material.SetColor("_BaseColor", Color.green);
+            Debug.Log(startObject.name);
+        }
         if (endObject)
             endObject.rend.material.SetColor("_BaseColor", Color.red);
 
         if (findDistance)
         {
-            SetPath();
             SetDistance();
+            SetPath();
             //ColorPath(Color.blue);
         }
             //MoveObject(agent.transform);
@@ -110,6 +117,7 @@ public class GridBehaviour : MonoBehaviour
     }
     void GenerateGrid()
     {
+
         for (int i = 0; i < columns; i++)
         {
             for (int g = 0; g < rows; g++)
@@ -122,6 +130,11 @@ public class GridBehaviour : MonoBehaviour
                 obj.y = g;
                 obj.name = "Cell: " + i + " , " + g;
                 gridArray[i, g] = obj;
+                Instantiate(prefab, obj.transform.position, Quaternion.identity);
+                //gnScript.NodeArray[i, g].worldPosition = obj.transform.position;
+                //gnScript.NodeArray[i, g].ground.transform.position = gnScript.NodeArray[i, g].worldPosition;
+                //gnScript.NodeArray[i, g].ground.transform.parent = transform;
+
             }
         }
     }
@@ -132,7 +145,7 @@ public class GridBehaviour : MonoBehaviour
         int x = startObject.x;
         int y = startObject.y;
         int[] testArray = new int[rows * columns];
-        for(int step = 1; step < rows* columns; step++)
+        for(int step = 1; step < rows * columns; step++)
         {
             foreach(var obj in gridArray)
             {

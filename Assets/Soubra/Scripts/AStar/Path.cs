@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Pathfinding : MonoBehaviour
+public class Path : MonoBehaviour
 {
     Grid GridReference;//For referencing the grid class
     public Transform StartPosition;//Starting position to pathfind from
@@ -113,6 +113,8 @@ public class Pathfinding : MonoBehaviour
         FinalPath.Reverse();//Reverse the path to get the correct order
 
         GridReference.FinalPath = FinalPath;//Set the final path
+        Debug.Log(FinalPath.Count);
+        //GridReference.MakeList();
         walk = true;
     }
 

@@ -8,7 +8,7 @@ public class FollowPath : MonoBehaviour
     public float speed;
 
     public Grid gridScript;
-    public Pathfinding pfScript;
+    public Path pfScript;
     public bool walk;
     public bool gameStart;
 
@@ -20,7 +20,7 @@ public class FollowPath : MonoBehaviour
         gameStart = false;
         index = 0;
         gridScript = FindObjectOfType<Grid>();
-        pfScript = FindObjectOfType<Pathfinding>();
+        pfScript = FindObjectOfType<Path>();
     }
 
     public void startGame()

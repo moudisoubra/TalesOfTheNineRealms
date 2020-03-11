@@ -7,7 +7,7 @@ public class MouseClicks : MonoBehaviour
     public GameObject start;
     public GameObject end;
     public GameObject player;
-    public Pathfinding pfScript;
+    public Path pfScript;
     public Grid gridScript;
     public CharacterInitiatives ciScript;
     public FollowPath fpScript;
@@ -18,7 +18,7 @@ public class MouseClicks : MonoBehaviour
 
     public void Start()
     {
-        pfScript = FindObjectOfType<Pathfinding>();
+        pfScript = FindObjectOfType<Path>();
         fpScript = FindObjectOfType<FollowPath>();
         gridScript = FindObjectOfType<Grid>();
         ciScript = FindObjectOfType<CharacterInitiatives>();
