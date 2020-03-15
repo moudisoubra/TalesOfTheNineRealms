@@ -7,7 +7,7 @@ public class CellPositions : MonoBehaviour
     public int tileX;
     public int tileZ;
     public Color originalColor;
-    public enum Direction { Up, Down, Left, Right };
+    public enum Direction { Up, Down, Left, Right, None };
     public Direction direction;
     public TileMap.Node currentNode;
     public List<TileMap.Node> attackNodes;
@@ -32,6 +32,12 @@ public class CellPositions : MonoBehaviour
             CheckAttack();
             ColorAttacks();
         }
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            SecondAttack();
+            //CheckAttack();
+            ColorAttacks();
+        }
     }
 
     public void NeighCells()
@@ -51,62 +57,19 @@ public class CellPositions : MonoBehaviour
             }
         }
     }
-    public void FirstAttack()
+    public virtual void FirstAttack()
     {
-        attackNodes.Clear();
+       
+    }
 
-        if (direction == Direction.Up)
-        {
-            TileMap.Node n = currentNode.neighbours[1];
-            //attackNodes.Add(n);
-            //attackNodes.Add(map.graph[n.x, n.y + 1]);
-            //attackNodes.Add(map.graph[n.x, n.y + 2]);
-            //attackNodes.Add(map.graph[n.x, n.y + 3]);
+    public virtual void SecondAttack()
+    {
 
-            AddNode(n, 0, 0);
-            AddNode(n, 0, 1);
-            AddNode(n, 0, 2);
-            AddNode(n, 0, 3);
-        }
-        if (direction == Direction.Down)
-        {
-            TileMap.Node n = currentNode.neighbours[3];
-            //attackNodes.Add(n);
-            //attackNodes.Add(map.graph[n.x, n.y - 1]);
-            //attackNodes.Add(map.graph[n.x, n.y - 2]);
-            //attackNodes.Add(map.graph[n.x, n.y - 3]);
+    }
 
-            AddNode(n, 0, 0);
-            AddNode(n, 0, -1);
-            AddNode(n, 0, -2);
-            AddNode(n, 0, -3);
-        }
-        if (direction == Direction.Left)
-        {
-            TileMap.Node n = currentNode.neighbours[0];
-            //attackNodes.Add(n);
-            //attackNodes.Add(map.graph[n.x - 1, n.y]);
-            //attackNodes.Add(map.graph[n.x - 2, n.y]);
-            //attackNodes.Add(map.graph[n.x - 3, n.y]);
+    public virtual void ThirdAttack()
+    {
 
-            AddNode(n, 0, 0);
-            AddNode(n, -1, 0);
-            AddNode(n, -2, 0);
-            AddNode(n, -3, 0);
-        }
-        if (direction == Direction.Right)
-        {
-            TileMap.Node n = currentNode.neighbours[2];
-            //attackNodes.Add(n);
-            //attackNodes.Add(map.graph[n.x + 1, n.y]);
-            //attackNodes.Add(map.graph[n.x + 2, n.y]);
-            //attackNodes.Add(map.graph[n.x + 3, n.y]);
-
-            AddNode(n, 0, 0);
-            AddNode(n, 1, 0);
-            AddNode(n, 2, 0);
-            AddNode(n, 3, 0);
-        }
     }
 
     public void CheckAttack()
@@ -152,17 +115,36 @@ public class CellPositions : MonoBehaviour
 
     public void AddNode(TileMap.Node n, int x, int y)
     {
-        if (n != null && n.x + x > -1 && n.x + x < map.mapSizeX &&
-            n.y + y > -1 && n.y + y < map.mapSizeY)
+        if (direction == Direction.None)
         {
-            attackNodes.Add(map.graph[n.x + x, n.y + y]);
+            if (n != null && n.x + x > -1 && n.x + x < map.mapSizeX &&
+                n.y + y > -1 && n.y + y < map.mapSizeY && map.UnitCanEnterTile(n.x + x, n.y + y))
+            {
+                attackNodes.Add(map.graph[n.x + x, n.y + y]);
+            }
+            else
+            {
+                if (n != null)
+                {
+                    Debug.Log("This Does Not Exist: " + (n.x + x) + " ," + (n.y + y));
+                }
+            }
         }
         else
         {
-            if (n != null)
+            if (n != null && n.x + x > -1 && n.x + x < map.mapSizeX &&
+                n.y + y > -1 && n.y + y < map.mapSizeY)
             {
-                Debug.Log("This Does Not Exist: " + (n.x + x) + " ," + (n.y + y));
+                attackNodes.Add(map.graph[n.x + x, n.y + y]);
+            }
+            else
+            {
+                if (n != null)
+                {
+                    Debug.Log("This Does Not Exist: " + (n.x + x) + " ," + (n.y + y));
+                }
             }
         }
+
     }
 }
