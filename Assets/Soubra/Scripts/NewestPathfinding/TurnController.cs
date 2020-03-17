@@ -10,9 +10,6 @@ public class TurnController : MonoBehaviour
 
     public void ChangeUnit()
     {
-        units[index].GetComponent<Unit>().enabled = false;
-        units[index].GetComponent<CellPositions>().enabled = false;
-
         if (index < units.Count - 1)
         {
             index++;
@@ -23,9 +20,36 @@ public class TurnController : MonoBehaviour
         }
 
         tmScript.selectedUnit = units[index].gameObject; 
-        units[index].GetComponent<Unit>().enabled = true;
-        units[index].GetComponent<CellPositions>().enabled = true;
     }
 
-    
+    public void Update()
+    {
+
+        for (int i = 0; i < units.Count; i++)
+        {
+            if (units[i].gameObject == tmScript.selectedUnit)
+            {
+                Debug.Log(tmScript.selectedUnit);
+                units[i].GetComponent<Unit>().enabled = true;
+                units[i].GetComponent<CellPositions>().enabled = true;
+
+                if (units[i].GetComponent<EnemyAgent>())
+                {
+                    units[i].GetComponent<EnemyAgent>().enabled = true;
+                }
+            }
+            else
+            {
+                units[i].GetComponent<Unit>().enabled = false;
+                units[i].GetComponent<CellPositions>().enabled = false;
+
+                if (units[i].GetComponent<EnemyAgent>())
+                {
+                    units[i].GetComponent<EnemyAgent>().enabled = false;
+                }
+            }
+        }
+    }
+
+
 }

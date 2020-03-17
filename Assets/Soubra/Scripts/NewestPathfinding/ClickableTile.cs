@@ -8,10 +8,12 @@ public class ClickableTile : MonoBehaviour
     public int tileZ;
     public TileMap map;
     public Renderer rend;
+    public GivePosition gp;
 
     private void Start()
     {
         rend = GetComponent<Renderer>();
+        gp = GetComponentInChildren<GivePosition>();
     }
 
     private void OnMouseUp()

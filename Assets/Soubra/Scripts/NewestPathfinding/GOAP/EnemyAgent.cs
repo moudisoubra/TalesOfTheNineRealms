@@ -7,7 +7,13 @@ public class EnemyAgent : GAgent
     void Start()
     {
         base.Start();
-        SubGoal s1 = new SubGoal("kitchen", 1, true);
-        goals.Add(s1, 3);
+
+        //SubGoal s1 = new SubGoal("kitchen", 1, true);
+        //SubGoal s2 = new SubGoal("livingRoom", 1, true);
+        //goals.Add(s1, 1);
+        //goals.Add(s2, 1);
+
+        SubGoal s = new SubGoal("clearActions", 1, true);
+        goals.Add(s, 1);
     }
 }

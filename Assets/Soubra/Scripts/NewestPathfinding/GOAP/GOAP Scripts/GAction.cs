@@ -23,7 +23,10 @@ public abstract class GAction : MonoBehaviour
 
     public WorldStates agentBeliefs;
 
+    public Unit unit;
+
     public bool running = false;
+    public bool done = false;
 
 
     public GAction()
@@ -35,6 +38,7 @@ public abstract class GAction : MonoBehaviour
     public void Awake()
     {
         agent = this.gameObject;
+        unit = GetComponent<Unit>();
 
         if(preconditions != null)
             foreach (WorldState w in preConditions)
@@ -64,6 +68,7 @@ public abstract class GAction : MonoBehaviour
         return true;
     }
 
+    public abstract void Perform();
     public abstract bool PrePerform();
     public abstract bool PostPerform();
 }

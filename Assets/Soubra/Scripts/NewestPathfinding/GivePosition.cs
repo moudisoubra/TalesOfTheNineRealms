@@ -4,8 +4,26 @@ using UnityEngine;
 
 public class GivePosition : MonoBehaviour
 {
+    public Unit unitGameobject;
     public ClickableTile ct;
     public bool full;
+
+    public void Update()
+    {
+        if (unitGameobject)
+        {
+            full = true;
+
+            if (unitGameobject.tileX != ct.tileX || unitGameobject.tileZ != ct.tileZ)
+            {
+                unitGameobject = null;
+            }
+        }
+        else
+        {
+            full = false;
+        }
+    }
     private void OnMouseUp()
     {
         ct.map.gpNode = this;
@@ -13,18 +31,21 @@ public class GivePosition : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Unit>())
-        {
-            Debug.Log(other.name);
-            other.GetComponent<Unit>().tileX = ct.tileX;
-            other.GetComponent<Unit>().tileZ = ct.tileZ;
-        }
-
         if (other.GetComponentInParent<Unit>())
         {
             Debug.Log(other.name);
+            other.GetComponentInParent<Unit>().ct = ct;
             other.GetComponentInParent<Unit>().tileX = ct.tileX;
             other.GetComponentInParent<Unit>().tileZ = ct.tileZ;
+            unitGameobject = other.GetComponentInParent<Unit>();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (unitGameobject != null && other.GetComponent<Unit>() && other == unitGameobject.gameObject)
+        {
+            unitGameobject = null;
         }
     }
 

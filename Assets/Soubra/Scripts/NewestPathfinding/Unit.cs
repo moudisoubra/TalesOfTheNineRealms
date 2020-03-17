@@ -11,6 +11,8 @@ public class Unit : MonoBehaviour
     public int remainingMovement = 3;
     public bool move;
     public bool reset;
+    public Unit targetEnemy;
+    public ClickableTile ct;
     public TileMap map;
     public List<TileMap.Node> currentPath = null;
 

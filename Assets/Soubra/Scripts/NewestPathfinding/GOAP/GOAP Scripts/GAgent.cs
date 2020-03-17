@@ -21,7 +21,7 @@ public class GAgent : MonoBehaviour
     public Dictionary<SubGoal, int> goals = new Dictionary<SubGoal, int>();
     bool invoked = false;
     GPlanner planner;
-    Queue<GAction> actionQueue;
+    public Queue<GAction> actionQueue;
     public GAction currentAction;
     SubGoal currentGoal;
 
@@ -38,6 +38,7 @@ public class GAgent : MonoBehaviour
     void CompleteAction()
     {
         currentAction.running = false;
+        currentAction.done = false;
         currentAction.PostPerform();
         invoked = false;
     }
@@ -47,7 +48,9 @@ public class GAgent : MonoBehaviour
     {
         if(currentAction != null && currentAction.running)
         {
-            if(Vector3.Distance(currentAction.agent.transform.position, currentAction.target.transform.position) < 1f)//NAVMESH // Changed it
+            currentAction.Perform();
+            //if(Vector3.Distance(currentAction.agent.transform.position, currentAction.target.transform.position) < 1f)//NAVMESH // Changed it
+            if(currentAction.done)//Done needs to be called by the action logic for the action to move on
             {
                 if (!invoked)
                 {
@@ -91,13 +94,13 @@ public class GAgent : MonoBehaviour
             currentAction = actionQueue.Dequeue();
             if(currentAction.PrePerform())
             {
-                if (currentAction.target == null && currentAction.targetTag != "")
-                    currentAction.target = GameObject.FindWithTag(currentAction.targetTag);
-                if(currentAction.target != null)
-                {
+                //if (currentAction.target == null && currentAction.targetTag != "")
+                //    currentAction.target = GameObject.FindWithTag(currentAction.targetTag);
+                //if(currentAction.target != null)
+                //{
                     currentAction.running = true;
-                    currentAction.agent.transform.position = currentAction.target.transform.position;//MORE NAVMESH // Changed it
-                }
+                    //currentAction.agent.transform.position = currentAction.target.transform.position;//MORE NAVMESH // Changed it
+                //}
             }
             else
             {

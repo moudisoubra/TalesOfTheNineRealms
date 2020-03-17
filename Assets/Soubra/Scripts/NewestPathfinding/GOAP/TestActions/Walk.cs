@@ -4,9 +4,20 @@ using UnityEngine;
 
 public class Walk : GAction
 {
+    public float timer;
     public override bool PrePerform()
     {
         return true;
+    }
+    public override void Perform()
+    {
+        timer += Time.deltaTime;
+
+        if (timer > 2)
+        {
+            Debug.Log(this.actionName + " Timer Done");
+            this.done = true;
+        }
     }
     public override bool PostPerform()
     {
