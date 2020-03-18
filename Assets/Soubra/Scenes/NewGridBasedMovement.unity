@@ -390,14 +390,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 279280758}
-  - component: {fileID: 279280757}
   - component: {fileID: 279280756}
-  - component: {fileID: 279280755}
+  - component: {fileID: 279280757}
   - component: {fileID: 279280761}
   - component: {fileID: 279280759}
   - component: {fileID: 279280760}
   - component: {fileID: 279280762}
   - component: {fileID: 279280763}
+  - component: {fileID: 279280755}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -412,17 +412,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279280754}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec35f1ebd71640e4084621127a2654c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 860a83bfaf0fa6b4aa14b86f20a4df50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tileX: 0
   tileZ: 0
   originalColor: {r: 0, g: 0, b: 0, a: 0}
+  attack: 0
   direction: 0
-  map: {fileID: 1575594555}
-  unit: {fileID: 279280757}
+  map: {fileID: 0}
+  unit: {fileID: 0}
 --- !u!54 &279280756
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3172,6 +3173,7 @@ MonoBehaviour:
   tileX: 0
   tileZ: 0
   originalColor: {r: 0, g: 0, b: 0, a: 0}
+  attack: 0
   direction: 0
   map: {fileID: 1575594555}
   unit: {fileID: 1160577638}
@@ -3774,6 +3776,7 @@ MonoBehaviour:
   tileX: 0
   tileZ: 0
   originalColor: {r: 0, g: 0, b: 0, a: 0}
+  attack: 0
   direction: 0
   map: {fileID: 1575594555}
   unit: {fileID: 1342266164}
@@ -4728,6 +4731,7 @@ MonoBehaviour:
   tileX: 0
   tileZ: 0
   originalColor: {r: 0, g: 0, b: 0, a: 0}
+  attack: 0
   direction: 0
   map: {fileID: 1575594555}
   unit: {fileID: 1719858250}

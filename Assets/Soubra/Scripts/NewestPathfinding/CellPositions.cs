@@ -7,6 +7,8 @@ public class CellPositions : MonoBehaviour
     public int tileX;
     public int tileZ;
     public Color originalColor;
+    public enum Attacks { First, Second, Third};
+    public Attacks attack;
     public enum Direction { Up, Down, Left, Right, None };
     public Direction direction;
     public TileMap.Node currentNode;
@@ -28,16 +30,26 @@ public class CellPositions : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Q))
         {
-            FirstAttack();
-            CheckAttack();
-            ColorAttacks();
+            ExecuteAll(attack);
         }
-        if (Input.GetKeyUp(KeyCode.E))
+    }
+
+    public void ExecuteAll(Attacks a)
+    {
+        if (a == Attacks.First)
+        {
+            FirstAttack();
+        }
+        if(a == Attacks.Second)
         {
             SecondAttack();
-            //CheckAttack();
-            ColorAttacks();
         }
+        if (a == Attacks.Third)
+        {
+            ThirdAttack();
+        }
+        CheckAttack();
+        ColorAttacks();
     }
 
     public void NeighCells()
