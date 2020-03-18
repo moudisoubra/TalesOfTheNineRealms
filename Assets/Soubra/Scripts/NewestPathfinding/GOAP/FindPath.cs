@@ -13,7 +13,10 @@ public class FindPath : GAction
     {
         Debug.Log("FINDING PATH");
         unit.ct.map.gpNode = unit.ct.gp;
-        unit.ct.map.MoveUnitTo(unit.targetEnemy.tileX, unit.targetEnemy.tileZ);
+        if (unit.targetEnemy)
+        { 
+            unit.ct.map.MoveUnitTo(unit.targetEnemy.tileX, unit.targetEnemy.tileZ);
+        }
         done = true;
     }
     public override bool PostPerform()

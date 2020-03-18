@@ -6,11 +6,16 @@ public class TileMap : MonoBehaviour
 {
     public GivePosition gpNode;
     public GameObject selectedUnit;
+    public GameObject positioner;
     public Node[,] graph;
     public TileType[] tileTypes;
     public int[,] tiles;
     public int mapSizeX = 10;
     public int mapSizeY = 10;
+    public int tileSize = 10;
+    public float positionerx = 0;
+    public float positionery = 0;
+    public float positionerz = 0;
     //List<Node> currentPath = null;
     private void Start()
     {
@@ -18,6 +23,10 @@ public class TileMap : MonoBehaviour
         GenerateWorldArray();
         GeneratePathFindingGraph();
         GenerateWorldVisual();
+        this.transform.localScale = new Vector3(tileSize, tileSize, tileSize);
+        positioner.transform.position = new Vector3(positioner.transform.position.x + positionerx,
+            positioner.transform.position.y + positionery,
+            positioner.transform.position.z + positionerz);
     }
 
     public float CostToEnterTile(int x, int y)
@@ -117,8 +126,8 @@ public class TileMap : MonoBehaviour
             for (int y = 0; y < mapSizeY; y++)
             {
                 TileType tt = tileTypes[tiles[x,y]];
-                GameObject go = Instantiate(tt.tileVisualPrefab, new Vector3(transform.position.x + x, 0, transform.position.z + y), Quaternion.identity);
-                go.transform.SetParent(transform);
+                GameObject go = Instantiate(tt.tileVisualPrefab, new Vector3(positioner.transform.position.x + x, 0, positioner.transform.position.z + y), Quaternion.identity);
+                go.transform.SetParent(positioner.transform);
                 ClickableTile ct = go.GetComponent<ClickableTile>();
                 ct.tileX = x;   
                 ct.tileZ = y;
