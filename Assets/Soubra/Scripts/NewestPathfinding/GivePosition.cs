@@ -7,10 +7,11 @@ public class GivePosition : MonoBehaviour
     public Unit unitGameobject;
     public ClickableTile ct;
     public bool full;
+    public bool blocked;
 
     public void Update()
     {
-        if (unitGameobject)
+        if (unitGameobject && unitGameobject.GetComponent<Unit>().enabled == false)
         {
             full = true;
 
@@ -22,6 +23,15 @@ public class GivePosition : MonoBehaviour
         else
         {
             full = false;
+        }
+
+        if (full || blocked)
+        {
+            ct.map.tiles[ct.tileX, ct.tileZ] = 1;
+        }
+        else
+        {
+            ct.map.tiles[ct.tileX, ct.tileZ] = 0;
         }
     }
     private void OnMouseUp()

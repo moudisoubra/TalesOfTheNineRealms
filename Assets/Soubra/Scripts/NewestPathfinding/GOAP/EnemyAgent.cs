@@ -13,7 +13,7 @@ public class EnemyAgent : GAgent
         //goals.Add(s1, 1);
         //goals.Add(s2, 1);
 
-        SubGoal s = new SubGoal("clearActions", 1, true);
+        SubGoal s = new SubGoal("attacked", 1, true);
         goals.Add(s, 1);
     }
 }

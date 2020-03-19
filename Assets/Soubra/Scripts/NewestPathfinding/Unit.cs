@@ -9,6 +9,7 @@ public class Unit : MonoBehaviour
     public int index = 0;
     public int moveSpeed = 3;
     public int remainingMovement = 3;
+    public int health = 10;
     public bool move;
     public bool reset;
     public Unit targetEnemy;

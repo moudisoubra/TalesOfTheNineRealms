@@ -19,19 +19,6 @@ public sealed class GWorld
 
     }
 
-    public void AddPatient(GameObject p)
-    {
-        patients.Enqueue(p);
-    }
-
-    public GameObject RemovePatient()
-    {
-        if (patients.Count == 0)
-            return null;
-
-        return patients.Dequeue();
-    }
-
     public static GWorld Instance
     {
         get { return instance; }

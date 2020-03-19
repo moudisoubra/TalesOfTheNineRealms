@@ -9,17 +9,23 @@ public class CellPositions : MonoBehaviour
     public Color originalColor;
     public enum Attacks { First, Second, Third};
     public Attacks attack;
-    public enum Direction { Up, Down, Left, Right, None };
+    public enum Direction { Up, Down, Left, Right, DownLeft, DownRight, UpLeft, UpRight, None};
     public Direction direction;
+    public int range;
     public TileMap.Node currentNode;
     public List<TileMap.Node> attackNodes;
     public List<TileMap.Node> colorNodes;
     public TileMap map;
+    public TurnController tcScript;
     public Unit unit;
+    public List<Unit> units = new List<Unit>();
+    public List<Unit> effectedUnits = new List<Unit>();
 
     private void Start()
     {
         attackNodes = new List<TileMap.Node>();
+
+        units = tcScript.units;
     }
     private void Update()
     {
@@ -27,15 +33,18 @@ public class CellPositions : MonoBehaviour
         tileZ = unit.tileZ;
         currentNode = map.graph[tileX, tileZ];
         NeighCells();
+        direction = CheckDirection();
 
         if (Input.GetKeyUp(KeyCode.Q))
         {
-            ExecuteAll(attack);
+            direction = CheckDirection();
+            ExecuteAll(attack, range);
         }
     }
 
-    public void ExecuteAll(Attacks a)
+    public void ExecuteAll(Attacks a, int range)
     {
+
         if (a == Attacks.First)
         {
             FirstAttack();
@@ -46,10 +55,12 @@ public class CellPositions : MonoBehaviour
         }
         if (a == Attacks.Third)
         {
-            ThirdAttack();
+            ThirdAttack(range);
         }
+
         CheckAttack();
         ColorAttacks();
+        CheckHit();
     }
 
     public void NeighCells()
@@ -79,7 +90,7 @@ public class CellPositions : MonoBehaviour
 
     }
 
-    public virtual void ThirdAttack()
+    public virtual void ThirdAttack(int range)
     {
 
     }
@@ -93,7 +104,7 @@ public class CellPositions : MonoBehaviour
         {
             TileMap.Node n = attackNodes[i];
 
-            if (!map.UnitCanEnterTile(n.x, n.y))
+            if (!map.UnitCanEnterTile(n.x, n.y) && !map.graph[n.x, n.y].ground.GetComponentInChildren<GivePosition>().full)
             {
                 temp = attackNodes.IndexOf(n);
                 //attackNodes.Remove(attackNodes[i]);
@@ -109,12 +120,12 @@ public class CellPositions : MonoBehaviour
                 attackNodes[q] = null;
             }
         }
-        Debug.Log("DONE");
+        //Debug.Log("DONE");
     }
 
     public void ColorAttacks()
     {
-        Debug.Log(attackNodes.Count);
+        //Debug.Log(attackNodes.Count);
 
         for (int i = 0; i < attackNodes.Count; i++)
         {
@@ -123,6 +134,72 @@ public class CellPositions : MonoBehaviour
                 attackNodes[i].GiveColor(Color.blue);
             }
         }
+    }
+
+    public void CheckHit()
+    {
+        
+
+        for (int i = 0; i < attackNodes.Count; i++)
+        {
+            for (int x = 0; x < units.Count; x++)
+            {
+                if (units[x] != null && units[x].tileX == attackNodes[i].x && units[x].tileZ == attackNodes[i].y)
+                {
+                    if (!effectedUnits.Contains(units[x]))
+                    {
+                        effectedUnits.Add(units[x]);
+                    }
+                    Debug.Log("HIT: " + units[x].name);
+                }
+            }
+
+        }
+    }
+
+    public Direction CheckDirection()
+    {
+        int myX = unit.tileX;
+        int myZ = unit.tileZ;
+        int targetX = unit.targetEnemy.tileX;
+        int targetZ = unit.targetEnemy.tileZ;
+        Direction direction = Direction.None;
+
+        if (targetZ == myZ && targetX < myX)
+        {
+            direction = Direction.Left;
+        }
+        if (targetZ == myZ && targetX > myX)
+        {
+            direction = Direction.Right;
+        }
+        if (targetZ < myZ && targetX == myX)
+        {
+            direction = Direction.Down;
+        }
+        if (targetZ > myZ && targetX == myX)
+        {
+            direction = Direction.Up;
+        }
+
+        if (targetZ < myZ && targetX < myX)
+        {
+            direction = Direction.DownLeft;
+        }
+        if (targetZ < myZ && targetX > myX)
+        {
+            direction = Direction.DownRight;
+        }
+        if (targetZ > myZ && targetX < myX)
+        {
+            direction = Direction.UpLeft;
+        }
+        if (targetZ > myZ && targetX > myX)
+        {
+            direction = Direction.UpRight;
+        }
+
+        return direction;
     }
 
     public void AddNode(TileMap.Node n, int x, int y)

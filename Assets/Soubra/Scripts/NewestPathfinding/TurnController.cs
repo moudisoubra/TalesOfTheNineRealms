@@ -19,7 +19,16 @@ public class TurnController : MonoBehaviour
             index = 0;
         }
 
-        tmScript.selectedUnit = units[index].gameObject; 
+        tmScript.selectedUnit = units[index].gameObject;
+
+        if (tmScript.selectedUnit.GetComponent<EnemyAgent>())
+        {
+            tmScript.selectedUnit.GetComponent<EnemyAgent>().actionQueue = null;
+            SubGoal s = new SubGoal("getToEnemy", 1, true);
+            tmScript.selectedUnit.GetComponent<EnemyAgent>().goals.Add(s, 1);
+            tmScript.selectedUnit.GetComponent<EnemyAgent>().currentAction = null;
+            Debug.Log("Cleared It");
+        }
     }
 
     public void Update()
@@ -29,7 +38,7 @@ public class TurnController : MonoBehaviour
         {
             if (units[i].gameObject == tmScript.selectedUnit)
             {
-                Debug.Log(tmScript.selectedUnit);
+                //Debug.Log(tmScript.selectedUnit);
                 units[i].GetComponent<Unit>().enabled = true;
                 units[i].GetComponent<CellPositions>().enabled = true;
 

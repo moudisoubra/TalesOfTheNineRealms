@@ -124,6 +124,7 @@ public class GPlanner
             if (!state.ContainsKey(g.Key))
                 return false;
         }
+        Debug.Log("GOAL ACHEIVED");
         return true;
     }
 

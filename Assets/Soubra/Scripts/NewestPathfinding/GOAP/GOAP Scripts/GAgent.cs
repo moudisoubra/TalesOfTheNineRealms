@@ -20,7 +20,7 @@ public class GAgent : MonoBehaviour
     public List<GAction> actions = new List<GAction>();
     public Dictionary<SubGoal, int> goals = new Dictionary<SubGoal, int>();
     bool invoked = false;
-    GPlanner planner;
+    public GPlanner planner;
     public Queue<GAction> actionQueue;
     public GAction currentAction;
     SubGoal currentGoal;

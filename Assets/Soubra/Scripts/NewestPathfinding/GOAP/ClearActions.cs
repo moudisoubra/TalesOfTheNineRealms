@@ -14,10 +14,10 @@ public class ClearActions : GAction
     }
     public override bool PostPerform()
     {
-        //EnemyAgent eaScript = GetComponent<EnemyAgent>();
-        //eaScript.actionQueue= null;
-        //TurnController tc = FindObjectOfType<TurnController>();
-        //tc.ChangeUnit();
+        EnemyAgent eaScript = GetComponent<EnemyAgent>();
+        eaScript.actionQueue = null;
+        TurnController tc = FindObjectOfType<TurnController>();
+        tc.ChangeUnit();
         return true;
     }
 }

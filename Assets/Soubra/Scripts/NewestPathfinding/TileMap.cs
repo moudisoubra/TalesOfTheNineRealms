@@ -146,8 +146,9 @@ public class TileMap : MonoBehaviour
     {
         selectedUnit.GetComponent<Unit>().currentPath = null;
 
-        if (!UnitCanEnterTile(x,z))
+        if (!UnitCanEnterTile(x, z) && !graph[x, z].ground.GetComponentInChildren<GivePosition>().full)
         {
+            Debug.Log("Nope");
             return;
         }
 
