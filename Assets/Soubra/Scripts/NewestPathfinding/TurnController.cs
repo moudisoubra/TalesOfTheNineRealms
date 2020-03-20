@@ -23,8 +23,12 @@ public class TurnController : MonoBehaviour
 
         if (tmScript.selectedUnit.GetComponent<EnemyAgent>())
         {
+            tmScript.selectedUnit.GetComponent<Unit>().animator.ResetTrigger("Flip");
+            tmScript.selectedUnit.GetComponent<Unit>().animator.ResetTrigger("Throw");
+            tmScript.selectedUnit.GetComponent<Unit>().animator.ResetTrigger("Slap");
+            tmScript.selectedUnit.GetComponent<Unit>().animator.SetBool("Idle", false);
             tmScript.selectedUnit.GetComponent<EnemyAgent>().actionQueue = null;
-            SubGoal s = new SubGoal("getToEnemy", 1, true);
+            SubGoal s = new SubGoal("attacked", 1, true);
             tmScript.selectedUnit.GetComponent<EnemyAgent>().goals.Add(s, 1);
             tmScript.selectedUnit.GetComponent<EnemyAgent>().currentAction = null;
             Debug.Log("Cleared It");

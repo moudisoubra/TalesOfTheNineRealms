@@ -9,13 +9,17 @@ public class Unit : MonoBehaviour
     public int index = 0;
     public int moveSpeed = 3;
     public int remainingMovement = 3;
+    public int attackType = 1;
     public int health = 10;
+    public float distance = 0.5f;
     public bool move;
     public bool reset;
+    public bool enemy;
     public Unit targetEnemy;
     public ClickableTile ct;
     public TileMap map;
     public Animator animator;
+    public List<GAction> actions;
     public List<TileMap.Node> currentPath = null;
 
     public void Update()
@@ -45,15 +49,29 @@ public class Unit : MonoBehaviour
         if (move)
         {
             RecursiveMoveToNextTile();
-            animator.SetBool("Walking", true);
+            if (enemy)
+            {
+                animator.SetBool("Walking", true);
+            }
         }
         else
         {
             remainingMovement = moveSpeed;
-            animator.SetBool("Walking", false);
+            if (enemy)
+            {
+                animator.SetBool("Walking", false);
+            }
         }
     }
-
+    public void FinishAttackAnimation()
+    {
+        Debug.Log("Finished!!");
+        animator.SetBool("Idle", true);
+        for (int i = 0; i < actions.Count; i++)
+        {
+            actions[i].done = true;
+        }
+    }
     public void MoveCharacter()
     {
         if (currentPath != null)
@@ -67,6 +85,7 @@ public class Unit : MonoBehaviour
             Vector3 position = currentPath[index].ground.transform.position;
             if (transform.position != position)
             {
+                
                 transform.position = Vector3.MoveTowards(transform.position, position, 0.1f);
                 if (transform.position == position)
                 {
@@ -103,7 +122,7 @@ public class Unit : MonoBehaviour
     {
         if (currentPath != null)
         {
-            if (Vector3.Distance(transform.position, currentPath[0].ground.transform.position) < 0.1f)
+            if (Vector3.Distance(transform.position, currentPath[0].ground.transform.position) < distance)
             {
                 if (currentPath == null)
                     return;
@@ -120,16 +139,23 @@ public class Unit : MonoBehaviour
                 remainingMovement -= (int)map.CostToEnterTile(currentPath[0].x, currentPath[0].y);
 
                 currentPath.RemoveAt(0);
-
+                Debug.Log("Still Asking TO Walk");
                 if (currentPath.Count == 1)
                 {
+                    Debug.Log("Current Path Count: " + currentPath.Count);
                     currentPath = null;
                 }
             }
             else
             {
+                Debug.Log("Still Walking");
+                transform.LookAt(currentPath[0].ground.transform.position);
                 transform.position = Vector3.Lerp(transform.position, currentPath[0].ground.transform.position, 5f * Time.deltaTime);
             }
+        }
+        else
+        {
+            move = false;
         }
     }
 }

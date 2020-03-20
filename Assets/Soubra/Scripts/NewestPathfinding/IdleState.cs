@@ -4,20 +4,10 @@ using UnityEngine;
 
 public class IdleState : MonoBehaviour
 {
-    public Animator animator;
     public Unit unit;
-    // Start is called before the first frame update
-    void Start()
+    
+    public void TriggerAnimationEventPlease()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (unit.enabled)
-        {
-            
-        }
+        unit.FinishAttackAnimation();
     }
 }

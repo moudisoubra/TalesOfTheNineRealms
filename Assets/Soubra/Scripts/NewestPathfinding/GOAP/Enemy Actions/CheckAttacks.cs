@@ -4,41 +4,83 @@ using UnityEngine;
 
 public class CheckAttacks : GAction
 {
+    public bool decision = false;
     public string attackName = "";
     public int range = 3;
     public float timer = 0;
     public override bool PrePerform()
     {
+        Debug.Log("PRE");
+        decision = false;
         return true;
     }
     public override void Perform()
     {
         timer += Time.deltaTime;
         AsgardianMClass amClass = GetComponent<AsgardianMClass>();
-        CellPositions.Attacks attack = CellPositions.Attacks.First;
-        amClass.ExecuteAll(attack, range);
-
-        if (amClass.effectedUnits.Count > 0)
+        
+        if (!decision)
         {
-            attackName = "firstAttack";
-        }
+            CellPositions.Attacks attack = CellPositions.Attacks.First;
+            if (attack == CellPositions.Attacks.First)
+            {
+                amClass.ExecuteAll(attack, range);
 
-        attack = CellPositions.Attacks.Second;
-        amClass.ExecuteAll(attack, range);
+                if (amClass.effectedUnits.Count > 0 && !decision)
+                {
+                    Debug.Log(amClass.effectedUnits.Count);
+                    attackName = "firstAttack";
+                    amClass.unit.attackType = 1;
+                    decision = true;
+                }
+                else
+                {
+                    attack = CellPositions.Attacks.Second;
+                }
+            }
 
-        if (amClass.effectedUnits.Count > 0)
-        {
-            attackName = "secondAttack";
-        }
 
-        attack = CellPositions.Attacks.Third;
-        amClass.ExecuteAll(attack, range);
+            if (attack == CellPositions.Attacks.Second)
+            {
+                amClass.ExecuteAll(attack, range);
 
-        if (amClass.effectedUnits.Count > 0)
-        {
-            attackName = "thirdAttack";
-        }
-        amClass.attackNodes.Clear();
+                if (amClass.effectedUnits.Count > 0 && !decision)
+                {
+                    amClass.unit.attackType = 2;
+                    attackName = "secondAttack";
+                    decision = true;
+                }
+                else
+                {
+                    attack = CellPositions.Attacks.Third;
+                }
+            }
+
+
+
+            if (attack == CellPositions.Attacks.Third)
+            {
+                amClass.ExecuteAll(attack, range);
+
+                if (amClass.effectedUnits.Count > 0 && !decision)
+                {
+                    amClass.unit.attackType = 3;
+                    attackName = "thirdAttack";
+                    decision = true;
+                }
+                else
+                {
+                    if (amClass.effectedUnits.Count <= 0 && !decision)
+                    {
+                        amClass.unit.attackType = 0;
+                        decision = true;
+                    }
+                }
+            }
+
+            Debug.Log(attackName);
+            decision = true;
+
 
             if (attackName != "")
             {
@@ -48,13 +90,15 @@ public class CheckAttacks : GAction
             {
                 GWorld.Instance.GetWorld().ModifyState("noAttacks", 1);
             }
-            done = true;
+        }
+        done = true;
 
         
         //done = true;
     }
     public override bool PostPerform()
     {
+        //decision = false;
         return true;
     }
 }

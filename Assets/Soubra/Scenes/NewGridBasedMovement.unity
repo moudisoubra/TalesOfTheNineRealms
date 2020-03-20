@@ -413,7 +413,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279280754}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 860a83bfaf0fa6b4aa14b86f20a4df50, type: 3}
   m_Name: 
@@ -423,7 +423,7 @@ MonoBehaviour:
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   attack: 0
   direction: 0
-  range: 0
+  range: 4
   map: {fileID: 1575594555}
   tcScript: {fileID: 1575594557}
   unit: {fileID: 279280757}
@@ -462,13 +462,18 @@ MonoBehaviour:
   index: 0
   moveSpeed: 3
   remainingMovement: 3
+  attackType: 1
   health: 10
+  distance: 0.1
   move: 0
   reset: 0
+  enemy: 1
   targetEnemy: {fileID: 342836305}
   ct: {fileID: 0}
   map: {fileID: 1575594555}
   animator: {fileID: 499124497}
+  actions:
+  - {fileID: 279280764}
 --- !u!4 &279280758
 Transform:
   m_ObjectHideFlags: 0
@@ -492,7 +497,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279280754}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 108fe1a861656fd4ea303aa7a83f2d07, type: 3}
   m_Name: 
@@ -593,8 +598,9 @@ MonoBehaviour:
   unit: {fileID: 0}
   running: 0
   done: 0
+  decision: 0
   attackName: 
-  range: 3
+  range: 4
   timer: 0
 --- !u!114 &279280764
 MonoBehaviour:
@@ -1015,6 +1021,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &499124498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499124495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820d5770944af334da09136030e89fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 279280757}
 --- !u!1 &506462361
 GameObject:
   m_ObjectHideFlags: 0
@@ -2010,7 +2029,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 1f66b809975c01d4289871058d2fa161,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1f66b809975c01d4289871058d2fa161,
         type: 3}
@@ -2020,7 +2039,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 1f66b809975c01d4289871058d2fa161,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1f66b809975c01d4289871058d2fa161,
         type: 3}
@@ -2035,7 +2054,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 1f66b809975c01d4289871058d2fa161,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 1f66b809975c01d4289871058d2fa161,
         type: 3}
@@ -2094,7 +2113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &786367459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2149,6 +2168,7 @@ MonoBehaviour:
   unit: {fileID: 0}
   running: 0
   done: 0
+  decision: 0
   attackName: 
   range: 3
   timer: 0
@@ -2273,13 +2293,17 @@ MonoBehaviour:
   index: 0
   moveSpeed: 3
   remainingMovement: 3
+  attackType: 1
   health: 10
+  distance: 0.5
   move: 0
   reset: 0
+  enemy: 0
   targetEnemy: {fileID: 342836305}
   ct: {fileID: 0}
   map: {fileID: 1575594555}
   animator: {fileID: 0}
+  actions: []
 --- !u!54 &786367467
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3745,13 +3769,17 @@ MonoBehaviour:
   index: 0
   moveSpeed: 3
   remainingMovement: 3
+  attackType: 1
   health: 10
+  distance: 0.5
   move: 0
   reset: 0
+  enemy: 0
   targetEnemy: {fileID: 0}
   ct: {fileID: 0}
   map: {fileID: 1575594555}
   animator: {fileID: 0}
+  actions: []
 --- !u!4 &1160577639
 Transform:
   m_ObjectHideFlags: 0
@@ -4293,13 +4321,17 @@ MonoBehaviour:
   index: 0
   moveSpeed: 3
   remainingMovement: 3
+  attackType: 1
   health: 10
+  distance: 0.5
   move: 0
   reset: 0
+  enemy: 0
   targetEnemy: {fileID: 0}
   ct: {fileID: 0}
   map: {fileID: 1575594555}
   animator: {fileID: 0}
+  actions: []
 --- !u!114 &1342266165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5482,6 +5514,11 @@ PrefabInstance:
       propertyPath: targetEnemy
       value: 
       objectReference: {fileID: 279280757}
+    - target: {fileID: 3784130665764063466, guid: bdcbf19b648b49d4ca83cbcd9f3ac268,
+        type: 3}
+      propertyPath: enemy
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3784130665764063468, guid: bdcbf19b648b49d4ca83cbcd9f3ac268,
         type: 3}
       propertyPath: map
@@ -5633,7 +5670,7 @@ PrefabInstance:
     - target: {fileID: 8844374439270218161, guid: 446bace21185e3e48802a592fe59c600,
         type: 3}
       propertyPath: units.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8844374439270218161, guid: 446bace21185e3e48802a592fe59c600,
         type: 3}
@@ -5649,7 +5686,7 @@ PrefabInstance:
         type: 3}
       propertyPath: units.Array.data[2]
       value: 
-      objectReference: {fileID: 786367466}
+      objectReference: {fileID: 0}
     - target: {fileID: 8844374439270218166, guid: 446bace21185e3e48802a592fe59c600,
         type: 3}
       propertyPath: m_Name
