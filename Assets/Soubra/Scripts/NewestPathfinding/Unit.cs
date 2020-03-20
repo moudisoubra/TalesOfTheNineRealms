@@ -15,6 +15,7 @@ public class Unit : MonoBehaviour
     public Unit targetEnemy;
     public ClickableTile ct;
     public TileMap map;
+    public Animator animator;
     public List<TileMap.Node> currentPath = null;
 
     public void Update()
@@ -44,10 +45,12 @@ public class Unit : MonoBehaviour
         if (move)
         {
             RecursiveMoveToNextTile();
+            animator.SetBool("Walking", true);
         }
         else
         {
             remainingMovement = moveSpeed;
+            animator.SetBool("Walking", false);
         }
     }
 
