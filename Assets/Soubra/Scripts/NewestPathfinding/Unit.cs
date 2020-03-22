@@ -11,6 +11,7 @@ public class Unit : MonoBehaviour
     public int remainingMovement = 3;
     public int attackType = 1;
     public int health = 10;
+    public int coolDown = 0;
     public float distance = 0.5f;
     public bool move;
     public bool reset;
@@ -21,6 +22,8 @@ public class Unit : MonoBehaviour
     public Animator animator;
     public List<GAction> actions;
     public List<TileMap.Node> currentPath = null;
+    public enum EnemyType { AsgardianMelee, AsgardianRanged, GiantMelee, GiantRanged };
+    public EnemyType enemyType;
 
     public void Update()
     {
@@ -56,11 +59,19 @@ public class Unit : MonoBehaviour
         }
         else
         {
-            remainingMovement = moveSpeed;
+            
             if (enemy)
             {
                 animator.SetBool("Walking", false);
             }
+        }
+    }
+
+    public void CoolDownCheck()
+    {
+        if (coolDown > 0)
+        {
+            coolDown--;
         }
     }
     public void FinishAttackAnimation()

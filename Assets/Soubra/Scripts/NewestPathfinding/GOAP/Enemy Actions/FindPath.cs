@@ -7,6 +7,7 @@ public class FindPath : GAction
     
     public override bool PrePerform()
     {
+        unit.CoolDownCheck();
         return true;
     }
     public override void Perform()

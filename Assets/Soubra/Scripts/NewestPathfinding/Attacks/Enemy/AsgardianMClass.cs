@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AsgardianMClass : CellPositions
 {
+    public EnemyAgent eaScript;
     public override void FirstAttack()
     {
         //This is the attack that both types of Asgardians share; Default attack
@@ -105,6 +106,21 @@ public class AsgardianMClass : CellPositions
                 AddNode(n, i, 0);
             }
         }
+    }
+
+    public void ClearAll()
+    {
+        attackNodes.Clear();
+        effectedUnits.Clear();
+        eaScript.actionQueue = null;
+        unit.animator.ResetTrigger("Flip");
+        unit.animator.ResetTrigger("Throw");
+        unit.animator.ResetTrigger("Slap");
+        unit.animator.SetBool("Idle", false);
+        SubGoal s = new SubGoal(eaScript.goal, 1, true);
+        eaScript.goals.Add(s, 1);
+        eaScript.currentAction = null;
+        unit.remainingMovement = unit.moveSpeed;
     }
 
 

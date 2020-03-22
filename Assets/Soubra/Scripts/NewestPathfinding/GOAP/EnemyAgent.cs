@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyAgent : GAgent
 {
+    public string goal;
     void Start()
     {
         base.Start();
@@ -13,7 +14,8 @@ public class EnemyAgent : GAgent
         //goals.Add(s1, 1);
         //goals.Add(s2, 1);
 
-        SubGoal s = new SubGoal("attacked", 1, true);
+        SubGoal s = new SubGoal(goal, 1, true);
+        //SubGoal s = new SubGoal("attacked", 1, true);
         goals.Add(s, 1);
     }
 }

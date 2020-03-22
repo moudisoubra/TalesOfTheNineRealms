@@ -4,48 +4,90 @@ using UnityEngine;
 
 public class Attack : GAction
 {
-
-    AsgardianMClass amClass;
     public override bool PrePerform()
     {
-        amClass = GetComponent<AsgardianMClass>();
+    //    amClass = GetComponent<AsgardianMClass>();
 
-        amClass.unit.animator.ResetTrigger("Slap");
-        amClass.unit.animator.ResetTrigger("Flip");
-        amClass.unit.animator.ResetTrigger("Throw");
+    //    amClass.unit.animator.ResetTrigger("Slap");
+    //    amClass.unit.animator.ResetTrigger("Flip");
+    //    amClass.unit.animator.ResetTrigger("Throw");
         return true;
     }
     public override void Perform()
     {
-        amClass = GetComponent<AsgardianMClass>();
-        for (int i = 0; i < amClass.effectedUnits.Count; i++)
+        if (unit.attackType == 0)
         {
-            amClass.effectedUnits[i].GetComponent<Unit>().health -= 2;
-            amClass.effectedUnits.Remove(amClass.effectedUnits[i]);
+            Debug.Log("No Attacks Available");
+            done = true;
         }
+        if (unit.enemyType == Unit.EnemyType.AsgardianMelee)
+        {
+            AsgardianMClass amClass = GetComponent<AsgardianMClass>();
+            for (int i = 0; i < amClass.effectedUnits.Count; i++)
+            {
+                amClass.effectedUnits[i].GetComponent<Unit>().health -= 2;
+                amClass.effectedUnits.Remove(amClass.effectedUnits[i]);
+            }
 
-        if (unit.attackType == 1)
-        {
-            Debug.Log("First Attack");
-            amClass.unit.animator.SetTrigger("Slap");
+            if (unit.attackType == 1)
+            {
+                Debug.Log("First Attack");
+                amClass.unit.animator.SetTrigger("Slap");
+            }
+            if (unit.attackType == 2)
+            {
+                Debug.Log("Second Attack");
+                unit.coolDown = 3;
+                amClass.unit.animator.SetTrigger("Flip");
+            }
         }
-        if (unit.attackType == 2)
+        if (unit.enemyType == Unit.EnemyType.AsgardianRanged)
         {
-            Debug.Log("Second Attack");
-            amClass.unit.animator.SetTrigger("Flip");
+            AsgardianMClass amClass = GetComponent<AsgardianMClass>();
+            for (int i = 0; i < amClass.effectedUnits.Count; i++)
+            {
+                amClass.effectedUnits[i].GetComponent<Unit>().health -= 2;
+                amClass.effectedUnits.Remove(amClass.effectedUnits[i]);
+            }
+
+            if (unit.attackType == 1)
+            {
+                Debug.Log("First Attack");
+                amClass.unit.animator.SetTrigger("Slap");
+            }
+            if (unit.attackType == 3)
+            {
+                Debug.Log("Second Attack");
+                unit.coolDown = 3;
+                amClass.unit.animator.SetTrigger("Throw");
+            }
         }
-        if (unit.attackType == 3)
+        if (unit.enemyType == Unit.EnemyType.GiantMelee)
         {
-            Debug.Log("Third Attack");
-            amClass.unit.animator.SetTrigger("Throw");
+            GiantsClass gmClass = GetComponent<GiantsClass>();
+            for (int i = 0; i < gmClass.effectedUnits.Count; i++)
+            {
+                gmClass.effectedUnits[i].GetComponent<Unit>().health -= 2;
+                gmClass.effectedUnits.Remove(gmClass.effectedUnits[i]);
+            }
+
+            if (unit.attackType == 1)
+            {
+                Debug.Log("First Attack");
+                gmClass.unit.animator.SetTrigger("Slap");
+            }
+            if (unit.attackType == 2)
+            {
+                Debug.Log("Second Attack");
+                unit.coolDown = 3;
+                gmClass.unit.animator.SetTrigger("Flip");
+            }
         }
+        
     }
 
     public override bool PostPerform()
     {
-        AsgardianMClass amClass = GetComponent<AsgardianMClass>();
-        amClass.attackNodes.Clear();
-        amClass.effectedUnits.Clear();
         return true;
     }
 }

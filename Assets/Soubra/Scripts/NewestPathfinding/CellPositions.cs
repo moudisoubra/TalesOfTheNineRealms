@@ -37,6 +37,7 @@ public class CellPositions : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Q))
         {
+            Debug.Log("Attacking");
             direction = CheckDirection();
             ExecuteAll(attack, range);
         }
@@ -144,7 +145,7 @@ public class CellPositions : MonoBehaviour
         {
             for (int x = 0; x < units.Count; x++)
             {
-                if (units[x] != null && units[x].tileX == attackNodes[i].x && units[x].tileZ == attackNodes[i].y)
+                if (units[x] != null && units[x].tileX == attackNodes[i].x && units[x].tileZ == attackNodes[i].y && !units[x].enemy)
                 {
                     if (!effectedUnits.Contains(units[x]))
                     {

@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class UsePath : GAction
 {
-    
     public override bool PrePerform()
     {
         return true;
     }
     public override void Perform()
     {
+
         unit.move = true;
+
 
         if (unit.remainingMovement <= 0 || unit.currentPath == null)
         {

@@ -21,16 +21,14 @@ public class TurnController : MonoBehaviour
 
         tmScript.selectedUnit = units[index].gameObject;
 
-        if (tmScript.selectedUnit.GetComponent<EnemyAgent>())
+        if (tmScript.selectedUnit.GetComponent<GiantsClass>())
         {
-            tmScript.selectedUnit.GetComponent<Unit>().animator.ResetTrigger("Flip");
-            tmScript.selectedUnit.GetComponent<Unit>().animator.ResetTrigger("Throw");
-            tmScript.selectedUnit.GetComponent<Unit>().animator.ResetTrigger("Slap");
-            tmScript.selectedUnit.GetComponent<Unit>().animator.SetBool("Idle", false);
-            tmScript.selectedUnit.GetComponent<EnemyAgent>().actionQueue = null;
-            SubGoal s = new SubGoal("attacked", 1, true);
-            tmScript.selectedUnit.GetComponent<EnemyAgent>().goals.Add(s, 1);
-            tmScript.selectedUnit.GetComponent<EnemyAgent>().currentAction = null;
+            tmScript.selectedUnit.GetComponent<GiantsClass>().ClearAll();
+            Debug.Log("Cleared It");
+        }
+        if (tmScript.selectedUnit.GetComponent<AsgardianMClass>())
+        {
+            tmScript.selectedUnit.GetComponent<AsgardianMClass>().ClearAll();
             Debug.Log("Cleared It");
         }
     }
