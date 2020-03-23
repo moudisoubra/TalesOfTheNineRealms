@@ -6,11 +6,6 @@ public class Attack : GAction
 {
     public override bool PrePerform()
     {
-    //    amClass = GetComponent<AsgardianMClass>();
-
-    //    amClass.unit.animator.ResetTrigger("Slap");
-    //    amClass.unit.animator.ResetTrigger("Flip");
-    //    amClass.unit.animator.ResetTrigger("Throw");
         return true;
     }
     public override void Perform()
@@ -83,7 +78,6 @@ public class Attack : GAction
                 gmClass.unit.animator.SetTrigger("Flip");
             }
         }
-        
     }
 
     public override bool PostPerform()
