@@ -110,6 +110,7 @@ public class AsgardianMClass : CellPositions
 
     public void ClearAll()
     {
+        Debug.Log(attackNodes.Count);
         attackNodes.Clear();
         effectedUnits.Clear();
         eaScript.actionQueue = null;
@@ -121,6 +122,7 @@ public class AsgardianMClass : CellPositions
         eaScript.goals.Add(s, 1);
         eaScript.currentAction = null;
         unit.remainingMovement = unit.moveSpeed;
+
     }
 
 

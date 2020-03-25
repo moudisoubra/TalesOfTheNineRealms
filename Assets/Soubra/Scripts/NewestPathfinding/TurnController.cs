@@ -1,13 +1,49 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class TurnController : MonoBehaviour
 {
     public TileMap tmScript;
     public List<Unit> units;
     public int index;
+    public GameObject attackButton;
+    public GameObject goButton;
+    public List<GameObject> buttons;
 
+
+    public void Update()
+    {
+
+        CheckScripts();
+        CheckDeaths();
+
+        if (tmScript.selectedUnit.CompareTag("Player"))
+        {
+            Unit unit = tmScript.selectedUnit.GetComponent<Unit>();
+            if (unit.attackMode)
+            {
+                attackButton.GetComponentInChildren<TextMeshProUGUI>().text = "Walk";
+            }
+            else
+            {
+                attackButton.GetComponentInChildren<TextMeshProUGUI>().text = "Attack";
+            }
+        }
+    }
+
+    public void CheckDeaths()
+    {
+        for (int i = 0; i < units.Count; i++)
+        {
+            if (units[i].dead)
+            {
+                units.Remove(units[i]);
+            }
+        }
+    }
     public void ChangeUnit()
     {
         if (index < units.Count - 1)
@@ -31,36 +67,105 @@ public class TurnController : MonoBehaviour
             tmScript.selectedUnit.GetComponent<AsgardianMClass>().ClearAll();
             Debug.Log("Cleared It");
         }
+        ChangeStatus();
     }
-
-    public void Update()
+    public void CheckScripts()
     {
-
         for (int i = 0; i < units.Count; i++)
         {
-            if (units[i].gameObject == tmScript.selectedUnit)
+            if (units.Count > 0)
             {
-                //Debug.Log(tmScript.selectedUnit);
-                units[i].GetComponent<Unit>().enabled = true;
-                units[i].GetComponent<CellPositions>().enabled = true;
 
-                if (units[i].GetComponent<EnemyAgent>())
+                if (units[i].gameObject == tmScript.selectedUnit && !tmScript.selectedUnit.GetComponent<Unit>().dead)
                 {
-                    units[i].GetComponent<EnemyAgent>().enabled = true;
+                    //Debug.Log(tmScript.selectedUnit);
+                    units[i].GetComponent<Unit>().enabled = true;
+                    units[i].GetComponent<CellPositions>().enabled = true;
+
+                    if (units[i].GetComponent<EnemyAgent>())
+                    {
+                        units[i].GetComponent<EnemyAgent>().enabled = true;
+                    }
                 }
-            }
-            else
-            {
-                units[i].GetComponent<Unit>().enabled = false;
-                units[i].GetComponent<CellPositions>().enabled = false;
-
-                if (units[i].GetComponent<EnemyAgent>())
+                else
                 {
-                    units[i].GetComponent<EnemyAgent>().enabled = false;
+                    units[i].GetComponent<Unit>().enabled = false;
+                    units[i].GetComponent<CellPositions>().enabled = false;
+
+                    if (units[i].GetComponent<EnemyAgent>())
+                    {
+                        units[i].GetComponent<EnemyAgent>().enabled = false;
+                    }
                 }
             }
         }
     }
+    public void ChangeStatus()
+    {
+        if (tmScript.selectedUnit.CompareTag("Player"))
+        {
+            goButton.SetActive(true);
+            attackButton.SetActive(true);
+            for (int i = 0; i < buttons.Count; i++)
+            {
+                buttons[i].SetActive(true);
+                buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = tmScript.selectedUnit.GetComponent<Unit>().attackNames[i];
+            }
+        }
+        else
+        {
+            goButton.SetActive(false);
+            attackButton.SetActive(false);
+            for (int i = 0; i < buttons.Count; i++)
+            {
+                buttons[i].SetActive(false);
+                buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "";
+            }
+        }
+    }
 
+    public void CheckAttack()
+    {
+        Unit unit = tmScript.selectedUnit.GetComponent<Unit>();
+        if (!unit.attackMode)
+        {
+            unit.CheckAttackStatus();
+        }
+        else
+        {
+            unit.attackMode = false;
+        }
+    }
+
+    public void CheckAction()
+    {
+        Unit unit = tmScript.selectedUnit.GetComponent<Unit>();
+        if (unit.attackMode)
+        {
+            
+        }
+        else
+        {
+            unit.move = true;
+        }
+    }
+
+    public void SetAttack(int i)
+    {
+        Unit unit = tmScript.selectedUnit.GetComponent<Unit>();
+
+        if (i == 1)
+        {
+            unit.attack = CellPositions.Attacks.First;
+        }
+        if (i == 2)
+        {
+            unit.attack = CellPositions.Attacks.Second;
+        }
+        if (i == 3)
+        {
+            unit.attack = CellPositions.Attacks.Third;
+        }
+    }
 
 }

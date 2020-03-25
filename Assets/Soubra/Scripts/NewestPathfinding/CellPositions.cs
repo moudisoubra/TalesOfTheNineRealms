@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CellPositions : MonoBehaviour
 {
+    public bool enemy;
+    public bool attackBool;
     public int tileX;
     public int tileZ;
     public Color originalColor;
@@ -20,22 +22,61 @@ public class CellPositions : MonoBehaviour
     public Unit unit;
     public List<Unit> units = new List<Unit>();
     public List<Unit> effectedUnits = new List<Unit>();
+    public EnemyAgent ea;
 
     private void Start()
     {
         attackNodes = new List<TileMap.Node>();
 
         units = tcScript.units;
+
+        if (enemy)
+        {
+            ea = GetComponent<EnemyAgent>();
+        }
     }
     private void Update()
     {
+        
+
         tileX = unit.tileX;
         tileZ = unit.tileZ;
         currentNode = map.graph[tileX, tileZ];
+        unit.currentNode = currentNode;
         NeighCells();
-        direction = CheckDirection();
 
-        if (Input.GetKeyUp(KeyCode.Q))
+        if (enemy)
+        {
+            direction = CheckDirection();
+            if (unit.dead)
+            {
+                ea.enabled = false;
+                ea.currentAction = null;
+                attackNodes.Clear();
+                effectedUnits.Clear();
+                ea.actionQueue = null;
+                unit.animator.ResetTrigger("Flip");
+                unit.animator.ResetTrigger("Throw");
+                unit.animator.ResetTrigger("Slap");
+                unit.animator.SetBool("Idle", false);
+                ea.currentAction = null;
+                ea.enabled = false;
+                this.enabled = false;
+            }
+        }
+        else
+        {
+            direction = unit.direction;
+            attack = unit.attack;
+
+            if (unit.attackNow)
+            {
+                ExecuteAll(attack, range);
+                unit.attackNow = false;
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Q) && enemy)
         {
             Debug.Log("Attacking");
             direction = CheckDirection();

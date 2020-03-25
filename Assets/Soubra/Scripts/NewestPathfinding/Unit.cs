@@ -16,17 +16,31 @@ public class Unit : MonoBehaviour
     public bool move;
     public bool reset;
     public bool enemy;
+    public bool attackNow;
+    public bool attackMode;
+    public bool attackedAlready;
+    public bool dead;
     public Unit targetEnemy;
     public ClickableTile ct;
     public TileMap map;
     public Animator animator;
     public List<GAction> actions;
     public List<TileMap.Node> currentPath = null;
-    public enum EnemyType { AsgardianMelee, AsgardianRanged, GiantMelee, GiantRanged };
+    public TileMap.Node currentNode;
+    public List<string> attackNames;
+    public enum EnemyType { AsgardianMelee, AsgardianRanged, GiantMelee, GiantRanged, Player };
     public EnemyType enemyType;
+
+    public CellPositions.Direction direction;
+    public CellPositions.Attacks attack;
 
     public void Update()
     {
+        if (health <= 0)
+        {
+            this.enabled = false;
+            dead = true;
+        }
         if (currentPath != null)
         {
             int currNode = 0;
@@ -63,6 +77,36 @@ public class Unit : MonoBehaviour
             if (enemy)
             {
                 animator.SetBool("Walking", false);
+            }
+        }
+    }
+
+    public void ChangeAttack(int i)
+    {
+        if (i == 1)
+        {
+            attack = CellPositions.Attacks.First;
+        }
+        if (i == 2)
+        {
+            attack = CellPositions.Attacks.Second;
+        }
+        if (i == 3)
+        {
+            attack = CellPositions.Attacks.Third;
+        }
+    }
+    public void CheckAttackStatus()
+    {
+        if (this.CompareTag("Player"))
+        {
+            if(!attackedAlready)
+            {
+                attackMode = true;
+            }
+            else
+            {
+                attackMode = false;
             }
         }
     }

@@ -37,7 +37,7 @@ public class GivePosition : MonoBehaviour
     private void OnMouseUp()
     {
         ct.map.gpNode = this;
-        ct.map.MoveUnitTo(ct.tileX, ct.tileZ);
+        ct.Check();
     }
     private void OnTriggerEnter(Collider other)
     {

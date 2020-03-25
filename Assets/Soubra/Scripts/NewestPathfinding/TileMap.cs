@@ -12,10 +12,11 @@ public class TileMap : MonoBehaviour
     public int[,] tiles;
     public int mapSizeX = 10;
     public int mapSizeY = 10;
-    public int tileSize = 10;
+    public float tileSize = 10;
     public float positionerx = 0;
     public float positionery = 0;
     public float positionerz = 0;
+    public bool done;
     //List<Node> currentPath = null;
     private void Start()
     {
@@ -27,8 +28,13 @@ public class TileMap : MonoBehaviour
         positioner.transform.position = new Vector3(positioner.transform.position.x + positionerx,
             positioner.transform.position.y + positionery,
             positioner.transform.position.z + positionerz);
+        done = true;
     }
 
+    private void Update()
+    {
+
+    }
     public float CostToEnterTile(int x, int y)
     {
         TileType tt = tileTypes[tiles[x, y]];
@@ -111,13 +117,13 @@ public class TileMap : MonoBehaviour
             }
         }
 
-        tiles[2, 2] = 1;
-        tiles[2, 3] = 1;
-        tiles[2, 4] = 1;
-        tiles[2, 5] = 1;
-        tiles[3, 2] = 1;
-        tiles[4, 2] = 1;
-        tiles[5, 2] = 1;
+        //tiles[2, 2] = 1;
+        //tiles[2, 3] = 1;
+        //tiles[2, 4] = 1;
+        //tiles[2, 5] = 1;
+        //tiles[3, 2] = 1;
+        //tiles[4, 2] = 1;
+        //tiles[5, 2] = 1;
     }
     public void GenerateWorldVisual()
     {
