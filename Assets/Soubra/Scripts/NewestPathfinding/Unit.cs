@@ -34,8 +34,13 @@ public class Unit : MonoBehaviour
     public CellPositions.Direction direction;
     public CellPositions.Attacks attack;
 
+    public GameObject mainCameraPosition;
+    public GameObject sideCameraPosition;
+    public CameraController ccScript;
     public void Update()
     {
+        
+
         if (health <= 0)
         {
             this.enabled = false;

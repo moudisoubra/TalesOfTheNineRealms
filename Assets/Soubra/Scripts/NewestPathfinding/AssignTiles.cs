@@ -21,7 +21,7 @@ public class AssignTiles : MonoBehaviour
         tm = unit.map;
         if (tm.done && assign)
         {
-            transform.position = tm.graph[x, z].ground.transform.position;
+            transform.position = tm.graph[x, z].ground.transform.position - new Vector3(0,1.15f,0);
             assign = false;
         }
     }

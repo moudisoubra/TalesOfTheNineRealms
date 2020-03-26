@@ -201,6 +201,7 @@ public class CellPositions : MonoBehaviour
 
     public Direction CheckDirection()
     {
+        Debug.Log("CHECKING DIRECTION");
         int myX = unit.tileX;
         int myZ = unit.tileZ;
         int targetX = unit.targetEnemy.tileX;
