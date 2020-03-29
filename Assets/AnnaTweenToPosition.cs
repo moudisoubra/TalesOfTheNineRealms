@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AnnaTweenToPosition : MonoBehaviour
 {
+    public GameObject lookAtThis;
     public GameObject moveToThisPosition;
     public float moveSpeed;
     Vector3 cameraOffsetStart;
@@ -16,7 +17,7 @@ public class AnnaTweenToPosition : MonoBehaviour
     private void Update()
     {
         transform.position = Vector3.Lerp(this.transform.position, moveToThisPosition.transform.position, moveSpeed * Time.deltaTime);
-
+        transform.LookAt(lookAtThis.transform.position);
     }
 
     void FixedUpdate()
