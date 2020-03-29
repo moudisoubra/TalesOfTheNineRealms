@@ -65,4 +65,9 @@ public class OdinWarriorClass : CellPositions
     {
         base.ThirdAttack(range);
     }
+
+    public void ClearAll()
+    {
+        unit.remainingMovement = unit.moveSpeed;
+    }
 }

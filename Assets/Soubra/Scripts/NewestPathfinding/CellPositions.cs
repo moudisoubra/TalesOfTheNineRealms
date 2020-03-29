@@ -71,7 +71,11 @@ public class CellPositions : MonoBehaviour
 
             if (unit.attackNow)
             {
-                ExecuteAll(attack, range);
+                ExecuteAllPlayer(attack, range);
+                for (int i = 0; i < effectedUnits.Count; i++)
+                {
+                    effectedUnits[i].health -= 4;
+                }
                 unit.attackNow = false;
             }
         }
@@ -105,6 +109,26 @@ public class CellPositions : MonoBehaviour
         CheckHit();
     }
 
+    public void ExecuteAllPlayer(Attacks a, int range)
+    {
+
+        if (a == Attacks.First)
+        {
+            FirstAttack();
+        }
+        if (a == Attacks.Second)
+        {
+            SecondAttack();
+        }
+        if (a == Attacks.Third)
+        {
+            ThirdAttack(range);
+        }
+
+        CheckAttack();
+        ColorAttacks();
+        CheckHitPlayer();
+    }
     public void NeighCells()
     {
         for (int x = 0; x < map.mapSizeX; x++)
@@ -187,6 +211,27 @@ public class CellPositions : MonoBehaviour
             for (int x = 0; x < units.Count; x++)
             {
                 if (units[x] != null && units[x].tileX == attackNodes[i].x && units[x].tileZ == attackNodes[i].y && !units[x].enemy)
+                {
+                    if (!effectedUnits.Contains(units[x]))
+                    {
+                        effectedUnits.Add(units[x]);
+                    }
+                    Debug.Log("HIT: " + units[x].name);
+                }
+            }
+
+        }
+    }
+
+    public void CheckHitPlayer()
+    {
+
+
+        for (int i = 0; i < attackNodes.Count; i++)
+        {
+            for (int x = 0; x < units.Count; x++)
+            {
+                if (units[x] != null && units[x].tileX == attackNodes[i].x && units[x].tileZ == attackNodes[i].y && units[x].enemy)
                 {
                     if (!effectedUnits.Contains(units[x]))
                     {

@@ -7,7 +7,6 @@ using TMPro;
 public class TurnController : MonoBehaviour
 {
     public TileMap tmScript;
-    public CameraController ccScript;
     public List<Unit> units;
     public int index;
     public GameObject attackButton;
@@ -61,9 +60,6 @@ public class TurnController : MonoBehaviour
         }
 
         tmScript.selectedUnit = units[index].gameObject;
-        ccScript.changing = true;
-        //ccScript.finished = false;
-        //ccScript.MoveCameraLerp(cameraStart);
         if (tmScript.selectedUnit.GetComponent<GiantsClass>())
         {
             tmScript.selectedUnit.GetComponent<GiantsClass>().ClearAll();
@@ -72,6 +68,11 @@ public class TurnController : MonoBehaviour
         if (tmScript.selectedUnit.GetComponent<AsgardianMClass>())
         {
             tmScript.selectedUnit.GetComponent<AsgardianMClass>().ClearAll();
+            Debug.Log("Cleared It");
+        }
+        if (tmScript.selectedUnit.GetComponent<OdinWarriorClass>())
+        {
+            tmScript.selectedUnit.GetComponent<OdinWarriorClass>().ClearAll();
             Debug.Log("Cleared It");
         }
         ChangeStatus();
@@ -83,7 +84,7 @@ public class TurnController : MonoBehaviour
             if (units.Count > 0)
             {
 
-                if (units[i].gameObject == tmScript.selectedUnit && !tmScript.selectedUnit.GetComponent<Unit>().dead && ccScript.finished)
+                if (units[i].gameObject == tmScript.selectedUnit && !tmScript.selectedUnit.GetComponent<Unit>().dead)
                 {
                     //Debug.Log(tmScript.selectedUnit);
                     units[i].GetComponent<Unit>().enabled = true;
@@ -147,7 +148,7 @@ public class TurnController : MonoBehaviour
         Unit unit = tmScript.selectedUnit.GetComponent<Unit>();
         if (unit.attackMode)
         {
-            
+            unit.attackNow = true;
         }
         else
         {

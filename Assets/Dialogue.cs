@@ -5,12 +5,13 @@ using TMPro;
 
 public class Dialogue : MonoBehaviour
 {
-    int index;
+    public int index;
     public float typingSpeed;
     public string[] sentences;
     public GameObject continueBtn;
     public TextMeshProUGUI textDisplay;
     public GameObject panel;
+    public bool done = false;
 
     private void Start()
     {
@@ -46,6 +47,7 @@ public class Dialogue : MonoBehaviour
 
     public void NextSentence()
     {
+
         continueBtn.SetActive(false);
         panel.SetActive(true);
         if (index < sentences.Length - 1)
@@ -58,6 +60,7 @@ public class Dialogue : MonoBehaviour
         {
             textDisplay.text = "";
             panel.SetActive(false);
+            done = true;
         }
     }
 }

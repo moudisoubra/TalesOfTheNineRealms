@@ -13,6 +13,7 @@ public class Unit : MonoBehaviour
     public int health = 10;
     public int coolDown = 0;
     public float distance = 0.5f;
+    public float heightOffset = 0.5f;
     public bool move;
     public bool reset;
     public bool enemy;
@@ -115,7 +116,6 @@ public class Unit : MonoBehaviour
             }
         }
     }
-
     public void CoolDownCheck()
     {
         if (coolDown > 0)
@@ -156,7 +156,6 @@ public class Unit : MonoBehaviour
             }
         }
     }
-
     public void MoveToNextTile()
     {
         int remainingMovement = moveSpeed;
@@ -177,7 +176,6 @@ public class Unit : MonoBehaviour
             }
         }
     }
-
     public void RecursiveMoveToNextTile()
     {
         if (currentPath != null)
