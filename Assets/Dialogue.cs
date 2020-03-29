@@ -7,11 +7,12 @@ public class Dialogue : MonoBehaviour
 {
     public int index;
     public float typingSpeed;
-    public string[] sentences;
+    public List<string> sentences;
     public GameObject continueBtn;
     public TextMeshProUGUI textDisplay;
     public GameObject panel;
     public bool done = false;
+    public bool start = false;
 
     private void Start()
     {
@@ -28,12 +29,17 @@ public class Dialogue : MonoBehaviour
 
     private void Update()
     {
-       
-            if (textDisplay.text == sentences[index])
-            {
-                continueBtn.SetActive(true);
-            }
-        
+
+        if (textDisplay.text == sentences[index])
+        {
+            continueBtn.SetActive(true);
+        }
+
+        if (start)
+        {
+            TalkToNpc();
+            start = false;
+        }
     }
 
     IEnumerator TypeEffect()
@@ -50,7 +56,7 @@ public class Dialogue : MonoBehaviour
 
         continueBtn.SetActive(false);
         panel.SetActive(true);
-        if (index < sentences.Length - 1)
+        if (index < sentences.Count - 1)
         {
             index++;
             textDisplay.text = "";

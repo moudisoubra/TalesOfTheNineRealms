@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class TriggerDialouge : MonoBehaviour
 {
+    public OdinWalkController owcScript;
     public Dialogue dScript;
     public AnnaTweenToPosition attpScript;
     public GameObject tweenTo;
@@ -26,7 +27,7 @@ public class TriggerDialouge : MonoBehaviour
     {
         if (dScript.done && !setup)
         {
-            transitionImage.color = Color.Lerp(transitionImage.color, Color.black, transitionSpeed * Time.deltaTime); //new Vector4(Color.black.r, Color.black.g, Color.black.b, Mathf.Lerp(0, 255, transitionSpeed * Time.deltaTime));
+            transitionImage.color = Color.Lerp(transitionImage.color, Color.black, transitionSpeed * Time.deltaTime);
             attpScript.moveToThisPosition = tweenTo;
             attpScript.lookAtThis = lookAt;
             if (transitionImage.color == Color.black)
@@ -38,6 +39,8 @@ public class TriggerDialouge : MonoBehaviour
         if (setup)
         {
             sbScript.start = true;
+            dScript.enabled = false;
+            this.enabled = false;
         }
     }
 
@@ -46,10 +49,17 @@ public class TriggerDialouge : MonoBehaviour
         transitionImage.color = Color.Lerp(transitionImage.color, Color.clear, transitionSpeed * Time.deltaTime);
     }
 
+    public void BlackPanel()
+    {
+        transitionImage.color = Color.Lerp(transitionImage.color, Color.black, transitionSpeed * Time.deltaTime);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !setup)
         {
+            owcScript.anim.SetBool("Run", false);
+            owcScript.enabled = false;
             dScript.TalkToNpc();
             attpScript.moveToThisPosition = tweenTo;
             attpScript.lookAtThis = lookAt;
