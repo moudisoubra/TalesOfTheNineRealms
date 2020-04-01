@@ -1,0 +1,67 @@
+{
+    "format": {
+        "version": "1.0"
+    },
+    "shaders": {
+        "Main shader": {
+            "parameters": {
+                "Common Parameters": {
+                    "ao_intensity": 0.75,
+                    "emissive_intensity": 1,
+                    "horizonFade": 1.2999999523162842,
+                    "nbSamples": 16
+                },
+                "Parallax Occlusion Mapping": {
+                    "maxPOMSamples": 16,
+                    "minPOMSamples": 4,
+                    "pomStrength": 1,
+                    "usePOM": false
+                },
+                "Subsurface Scattering Parameters": {
+                    "sssColor": [
+                        0.7009999752044678,
+                        0.3009999990463257,
+                        0.3050000071525574
+                    ],
+                    "sssEnabled": true,
+                    "sssScale": 0.5,
+                    "sssType": 1
+                }
+            },
+            "shader": "pbr-metal-rough",
+            "shaderInstance": "Main shader"
+        }
+    },
+    "texturesets": {
+        "YggBossroom": {
+            "shader": "Main shader"
+        },
+        "YggCirclePath1": {
+            "shader": "Main shader"
+        },
+        "YggCirclePath2": {
+            "shader": "Main shader"
+        },
+        "YggCrossroads": {
+            "shader": "Main shader"
+        },
+        "YggCurvePaths": {
+            "shader": "Main shader"
+        },
+        "YggDownPath": {
+            "shader": "Main shader"
+        },
+        "YggMidground": {
+            "shader": "Main shader"
+        },
+        "YggMimirlair": {
+            "shader": "Main shader"
+        },
+        "YggRiver": {
+            "shader": "Main shader"
+        },
+        "YggStraightPaths": {
+            "shader": "Main shader"
+        }
+    }
+}

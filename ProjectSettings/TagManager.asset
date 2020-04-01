@@ -7,7 +7,11 @@ TagManager:
   - Ground
   - Enemy
   - Node
+<<<<<<< HEAD
   - Blockade
+=======
+  - main
+>>>>>>> 668220574e1c0e600824faabe023aee440479968
   layers:
   - Default
   - TransparentFX
