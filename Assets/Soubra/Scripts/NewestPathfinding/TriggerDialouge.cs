@@ -14,18 +14,21 @@ public class TriggerDialouge : MonoBehaviour
     public GameObject odinLookAt;
     public Image transitionImage;
     public bool setup = false;
+    public bool firstTime = false;
     public float transitionSpeed = 2f;
     public SetupBattle sbScript;
+    public NewDialogueNpc ndnScript;
     // Start is called before the first frame update
     void Start()
     {
-        
+        dScript = FindObjectOfType<Dialogue>();
+        ndnScript = GetComponent<NewDialogueNpc>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (dScript.done && !setup)
+        if (dScript.done && !setup && firstTime)
         {
             transitionImage.color = Color.Lerp(transitionImage.color, Color.black, transitionSpeed * Time.deltaTime);
             attpScript.moveToThisPosition = tweenTo;
@@ -39,7 +42,6 @@ public class TriggerDialouge : MonoBehaviour
         if (setup)
         {
             sbScript.start = true;
-            dScript.enabled = false;
             this.enabled = false;
         }
     }
@@ -58,11 +60,12 @@ public class TriggerDialouge : MonoBehaviour
     {
         if (other.CompareTag("Player") && !setup)
         {
+            firstTime = true;
             owcScript.anim.SetBool("Run", false);
             owcScript.enabled = false;
-            dScript.TalkToNpc();
             attpScript.moveToThisPosition = tweenTo;
             attpScript.lookAtThis = lookAt;
+            ndnScript.TriggerThis();
         }
     }
 }
