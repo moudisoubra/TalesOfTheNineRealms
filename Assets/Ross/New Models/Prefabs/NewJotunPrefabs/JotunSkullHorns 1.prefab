@@ -1,0 +1,214 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2574393139443157553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9097102130085705506}
+  m_Layer: 0
+  m_Name: JotunSkullHorns 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9097102130085705506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2574393139443157553}
+  m_LocalRotation: {x: -0.41145515, y: 0.7990139, z: 0.18343134, w: 0.39828938}
+  m_LocalPosition: {x: 1384.7736, y: 802.49036, z: 2870.4836}
+  m_LocalScale: {x: 9.32511, y: 9.3251095, z: 9.3251095}
+  m_Children:
+  - {fileID: 6970549571580042321}
+  - {fileID: 134277805061349199}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &4604241290759093807
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 9097102130085705506}
+    m_Modifications:
+    - target: {fileID: 954406342022588846, guid: 4739ddbc96b40694294182620b617aca,
+        type: 3}
+      propertyPath: m_Name
+      value: JotunSkullHorns
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483476350594130272, guid: 4739ddbc96b40694294182620b617aca,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.07624848
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483476350594130272, guid: 4739ddbc96b40694294182620b617aca,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.058537584
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483476350594130272, guid: 4739ddbc96b40694294182620b617aca,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.20209667
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483476350594130272, guid: 4739ddbc96b40694294182620b617aca,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.041897133
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483476350594130272, guid: 4739ddbc96b40694294182620b617aca,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.07256824
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483476350594130272, guid: 4739ddbc96b40694294182620b617aca,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.86297965
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483476350594130272, guid: 4739ddbc96b40694294182620b617aca,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.49824154
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483476350594130272, guid: 4739ddbc96b40694294182620b617aca,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483476350594130272, guid: 4739ddbc96b40694294182620b617aca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483476350594130272, guid: 4739ddbc96b40694294182620b617aca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483476350594130272, guid: 4739ddbc96b40694294182620b617aca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483476350594130272, guid: 4739ddbc96b40694294182620b617aca,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.10723733
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483476350594130272, guid: 4739ddbc96b40694294182620b617aca,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.10723733
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483476350594130272, guid: 4739ddbc96b40694294182620b617aca,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.10723734
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4739ddbc96b40694294182620b617aca, type: 3}
+--- !u!4 &134277805061349199 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4483476350594130272, guid: 4739ddbc96b40694294182620b617aca,
+    type: 3}
+  m_PrefabInstance: {fileID: 4604241290759093807}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5534104425661991726
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 9097102130085705506}
+    m_Modifications:
+    - target: {fileID: 1246642353080471741, guid: a79bdcf2ed469dc428922e838800ca47,
+        type: 3}
+      propertyPath: m_Name
+      value: JotunSkullhorned snow
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202423548937738111, guid: a79bdcf2ed469dc428922e838800ca47,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202423548937738111, guid: a79bdcf2ed469dc428922e838800ca47,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202423548937738111, guid: a79bdcf2ed469dc428922e838800ca47,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202423548937738111, guid: a79bdcf2ed469dc428922e838800ca47,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202423548937738111, guid: a79bdcf2ed469dc428922e838800ca47,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202423548937738111, guid: a79bdcf2ed469dc428922e838800ca47,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202423548937738111, guid: a79bdcf2ed469dc428922e838800ca47,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202423548937738111, guid: a79bdcf2ed469dc428922e838800ca47,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202423548937738111, guid: a79bdcf2ed469dc428922e838800ca47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202423548937738111, guid: a79bdcf2ed469dc428922e838800ca47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202423548937738111, guid: a79bdcf2ed469dc428922e838800ca47,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202423548937738111, guid: a79bdcf2ed469dc428922e838800ca47,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202423548937738111, guid: a79bdcf2ed469dc428922e838800ca47,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202423548937738111, guid: a79bdcf2ed469dc428922e838800ca47,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a79bdcf2ed469dc428922e838800ca47, type: 3}
+--- !u!4 &6970549571580042321 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3202423548937738111, guid: a79bdcf2ed469dc428922e838800ca47,
+    type: 3}
+  m_PrefabInstance: {fileID: 5534104425661991726}
+  m_PrefabAsset: {fileID: 0}
