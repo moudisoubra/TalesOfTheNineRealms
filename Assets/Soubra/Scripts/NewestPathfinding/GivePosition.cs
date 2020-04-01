@@ -50,7 +50,20 @@ public class GivePosition : MonoBehaviour
             unitGameobject = other.GetComponentInParent<Unit>();
         }
     }
-
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Blockade"))
+        {
+            this.blocked = true;
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Blockade"))
+        {
+            this.blocked = true;
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         if (unitGameobject != null && other.GetComponent<Unit>() && other == unitGameobject.gameObject)

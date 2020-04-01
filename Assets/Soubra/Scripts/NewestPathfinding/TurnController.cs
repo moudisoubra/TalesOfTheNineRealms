@@ -23,7 +23,7 @@ public class TurnController : MonoBehaviour
 
         CheckScripts();
         CheckDeaths();
-
+        ChangeStatus();
         if (tmScript.selectedUnit.CompareTag("Player"))
         {
             Unit unit = tmScript.selectedUnit.GetComponent<Unit>();

@@ -27,7 +27,9 @@ public class CellPositions : MonoBehaviour
     private void Start()
     {
         attackNodes = new List<TileMap.Node>();
-
+        unit = GetComponent<Unit>();
+        map = unit.map;
+        
         units = tcScript.units;
 
         if (enemy)
@@ -44,7 +46,7 @@ public class CellPositions : MonoBehaviour
         currentNode = map.graph[tileX, tileZ];
         unit.currentNode = currentNode;
         NeighCells();
-
+        ColorPath();
         if (enemy)
         {
             direction = CheckDirection();
@@ -55,9 +57,9 @@ public class CellPositions : MonoBehaviour
                 attackNodes.Clear();
                 effectedUnits.Clear();
                 ea.actionQueue = null;
-                unit.animator.ResetTrigger("Flip");
-                unit.animator.ResetTrigger("Throw");
-                unit.animator.ResetTrigger("Slap");
+                unit.animator.ResetTrigger("Attack1");
+                unit.animator.ResetTrigger("Attack2");
+                unit.animator.ResetTrigger("Attack3");
                 unit.animator.SetBool("Idle", false);
                 ea.currentAction = null;
                 ea.enabled = false;
@@ -135,11 +137,50 @@ public class CellPositions : MonoBehaviour
         {
             for (int y = 0; y < map.mapSizeY; y++)
             {
+                if (currentNode != null && !attackNodes.Contains(map.graph[x, y]) && map.UnitCanEnterTile(x, y))
+                {
+                    currentNode.GiveColor(Color.green);
+                }
                 if (currentNode.neighbours.Contains(map.graph[x,y]) && map.UnitCanEnterTile(x,y) && !attackNodes.Contains(map.graph[x, y]))
                 {
                     map.graph[x, y].GiveColor(Color.green);
                 }
                 else if(map.UnitCanEnterTile(x, y) && !attackNodes.Contains(map.graph[x, y]))
+                {
+                    map.graph[x, y].ResetColor();
+                }
+            }
+        }
+    }
+
+    public void ColorPath()
+    {
+        for (int x = 0; x < map.mapSizeX; x++)
+        {
+            for (int y = 0; y < map.mapSizeY; y++)
+            {
+                if (unit.currentPath != null && unit.currentPath.Count > 0 && 
+                    !attackNodes.Contains(map.graph[x, y]) && map.UnitCanEnterTile(x, y) 
+                    && unit.currentPath.Contains(map.graph[x, y]))
+                {
+                    int index = 0;
+                    for (int i = 0; i < unit.currentPath.Count; i++)
+                    {
+                        if (unit.currentPath[i] == map.graph[x, y])
+                        {
+                            index = i;
+                        }
+                    }
+                    if (index > unit.remainingMovement)
+                    {
+                        map.graph[x, y].GiveColor(Color.red);
+                    }
+                    else
+                    {
+                        map.graph[x, y].GiveColor(Color.green);
+                    }
+                }
+                else if (map.UnitCanEnterTile(x, y) && !attackNodes.Contains(map.graph[x, y]))
                 {
                     map.graph[x, y].ResetColor();
                 }

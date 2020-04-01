@@ -14,7 +14,6 @@ public class ClickableTile : MonoBehaviour
 
     private void Start()
     {
-        rend = GetComponent<Renderer>();
         gp = GetComponentInChildren<GivePosition>();
     }
 
