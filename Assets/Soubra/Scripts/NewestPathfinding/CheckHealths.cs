@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CheckHealths : MonoBehaviour
 {
+    public SetupBattle sbScript;
+    public TriggerDialouge tdScript;
     public List<Unit> playableCharacters;
     public List<Unit> enemyCharacters;
     public bool enemiesWon;
@@ -42,6 +44,12 @@ public class CheckHealths : MonoBehaviour
         if (playableCharacters.Count <= 0)
         {
             enemiesWon = true;
+        }
+
+        if (playersWon || enemiesWon)
+        {
+            tdScript.BlackPanel();
+            sbScript.end = true;
         }
     }
 }
