@@ -16,17 +16,23 @@ public class StartGameCutScene : MonoBehaviour
 
     void Start()
     {
+
         CameraTarget.transform.position = startPos.transform.position;
         CameraTarget.stopFollowing = true;
     }
 
+    void StopThingAnna()
+    {
+        CameraTarget.stopFollowing = false;
+    }
+
     void Update()
     {
-        if (next)
+       /* if (next)
         {
             CameraTarget.transform.position = Vector3.Lerp(CameraTarget.transform.position, one.transform.position, cameraMoveSpeedTransition * Time.deltaTime);
             CameraTarget.transform.rotation = Quaternion.Slerp(CameraTarget.transform.rotation, one.transform.rotation, cameraMoveSpeedRotation * Time.deltaTime);
-        }
+        }*/
       /*  if (next)
         {
             for (int i = 0; i < cameraPositions.Length; i++)

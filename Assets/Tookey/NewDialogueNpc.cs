@@ -8,6 +8,9 @@ public class NewDialogueNpc : MonoBehaviour
     //Place this script on any trigger / conversation with NPC.
     public string[] sentences;
     Dialogue dialogue;
+    public bool onStart = false;
+    
+    
     private void Start()
     {
         dialogue = FindObjectOfType<Dialogue>();
@@ -15,7 +18,7 @@ public class NewDialogueNpc : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKey(KeyCode.E) && other.CompareTag("Player")) //**Change the E to a unviersal value.
+        if ((other.CompareTag("Player") && Input.GetKey(KeyCode.E)) || onStart) //**Change the E to a unviersal value.
         {
             dialogue.textDisplay.text = ""; //Resets the text to blank
 
