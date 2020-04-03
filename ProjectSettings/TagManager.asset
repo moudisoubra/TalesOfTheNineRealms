@@ -4,14 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ground
-  - Enemy
-  - Node
-<<<<<<< HEAD
   - Blockade
-=======
-  - main
->>>>>>> 668220574e1c0e600824faabe023aee440479968
   layers:
   - Default
   - TransparentFX
@@ -21,11 +14,11 @@ TagManager:
   - UI
   - 
   - 
-  - Obstacle
-  - Ground
-  - PostPro
-  - PlayerLayer
-  - ActivateChat
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
