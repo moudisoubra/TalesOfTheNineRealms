@@ -36672,22 +36672,22 @@ PrefabInstance:
     - target: {fileID: 6005093899060572348, guid: 050f24635ebf5464396bc4f89f7eac18,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -428.3723
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6005093899060572348, guid: 050f24635ebf5464396bc4f89f7eac18,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6005093899060572348, guid: 050f24635ebf5464396bc4f89f7eac18,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6005093899060572348, guid: 050f24635ebf5464396bc4f89f7eac18,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6005093899060572348, guid: 050f24635ebf5464396bc4f89f7eac18,
         type: 3}
@@ -36717,12 +36717,12 @@ PrefabInstance:
     - target: {fileID: 6005093899060572348, guid: 050f24635ebf5464396bc4f89f7eac18,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -185.9114
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6005093899060572348, guid: 050f24635ebf5464396bc4f89f7eac18,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 22.891518
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6005093899060572348, guid: 050f24635ebf5464396bc4f89f7eac18,
         type: 3}
@@ -40857,6 +40857,7 @@ MonoBehaviour:
   sentences:
   - YOU BEAT TWO MAGIC BOXES!
   - You may pass.....
+  onStart: 0
 --- !u!114 &913712715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51448,6 +51449,7 @@ MonoBehaviour:
   sentences:
   - I AM THE MAGIC BOX
   - FIGHT MEEEEEEEEE!!!!
+  onStart: 0
 --- !u!114 &1231949957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66736,6 +66738,7 @@ MonoBehaviour:
   sentences:
   - YOU HAVE BEAT THE MAGIC BOX!
   - HOW COULD THIS BEEEEE!!!
+  onStart: 0
 --- !u!114 &1549559148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70604,7 +70607,7 @@ PrefabInstance:
     - target: {fileID: 4506220616707219707, guid: 2ee5a983c8bc3d34e98a0640cb15a4cb,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4506220616707219708, guid: 2ee5a983c8bc3d34e98a0640cb15a4cb,
         type: 3}
@@ -79560,6 +79563,7 @@ MonoBehaviour:
   - You beat one magic box!
   - but can you beat....
   - TWO MAGIC BOXES!!!!
+  onStart: 0
 --- !u!65 &1941944966
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -88097,7 +88101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8296172668502218305}
   m_LocalRotation: {x: -0, y: 0.79081196, z: -0, w: -0.6120593}
-  m_LocalPosition: {x: 101.7, y: -46.45, z: 444.6}
+  m_LocalPosition: {x: 177.7, y: -23.4, z: 345.6}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
   - {fileID: 1437487258}

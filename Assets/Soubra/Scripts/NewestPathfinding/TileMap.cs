@@ -33,13 +33,16 @@ public class TileMap : MonoBehaviour
 
     private void Update()
     {
-
+        if (Input.GetKey(KeyCode.R))
+        {
+            GenerateWorldVisual();
+        }
     }
     public float CostToEnterTile(int x, int y)
     {
         TileType tt = tileTypes[tiles[x, y]];
         return tt.movementCost;
-    }
+    }   
     public bool UnitCanEnterTile(int x, int y)
     {
         return tileTypes[tiles[x, y]].isWalkable;
