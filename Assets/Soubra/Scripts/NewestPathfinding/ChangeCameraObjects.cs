@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChangeCameraObjects : MonoBehaviour
 {
+    public ChangeLocation clScript;
     public AnnaTweenToPosition attpScript;
     public Dialogue dScript;
     public GameObject cameraPosition;
@@ -11,13 +12,14 @@ public class ChangeCameraObjects : MonoBehaviour
     public bool done = false;
     void Start()
     {
-        
+        clScript = GetComponent<ChangeLocation>();
+        dScript = FindObjectOfType<Dialogue>();
     }
 
 
     void Update()
     {
-        if (dScript.done && !done)
+        if (dScript.done && !done && clScript.triggerCamera)
         {
             attpScript.moveToThisPosition = cameraPosition;
             attpScript.lookAtThis = cameraLookAt;

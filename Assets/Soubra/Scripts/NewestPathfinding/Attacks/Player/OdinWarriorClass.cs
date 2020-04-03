@@ -63,7 +63,7 @@ public class OdinWarriorClass : CellPositions
 
     public override void ThirdAttack(int range)
     {
-        base.ThirdAttack(range);
+        
     }
 
     public void ClearAll()

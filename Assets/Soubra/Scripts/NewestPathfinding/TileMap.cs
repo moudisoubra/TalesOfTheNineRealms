@@ -139,7 +139,7 @@ public class TileMap : MonoBehaviour
                 ct.tileZ = y;
                 ct.map = this;
                 graph[x, y].ground = go;
-                graph[x, y].rend = go.GetComponent<Renderer>();
+                graph[x, y].rend = ct.rend;
                 graph[x, y].color = graph[x, y].rend.material.color;
             }
         }

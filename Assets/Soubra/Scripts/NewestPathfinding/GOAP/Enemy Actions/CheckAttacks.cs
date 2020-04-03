@@ -222,6 +222,64 @@ public class CheckAttacks : GAction
             }
             done = true;
         }
+        if (unit.enemyType == Unit.EnemyType.TreePerson)
+        {
+            TreePeopleClass amClass = GetComponent<TreePeopleClass>();
+
+            if (!decision)
+            {
+                CellPositions.Attacks attack = CellPositions.Attacks.Second;
+                if (attack == CellPositions.Attacks.Second)
+                {
+                    if (unit.health <= 2)
+                    {
+                        amClass.ExecuteAll(attack, range);
+
+                        if (amClass.effectedUnits.Count > 0 && !decision)
+                        {
+                            Debug.Log(amClass.effectedUnits.Count);
+                            attackName = "secondAttack";
+                            amClass.unit.attackType = 2;
+                            decision = true;
+                        }
+                        else
+                        {
+                            attack = CellPositions.Attacks.First;
+                        }
+                    }
+                    else
+                    {
+                        attack = CellPositions.Attacks.First;
+                    }
+
+                }
+
+
+                if (attack == CellPositions.Attacks.First)
+                {
+                    amClass.ExecuteAll(attack, range);
+
+                    if (amClass.effectedUnits.Count > 0 && !decision)
+                    {
+                        amClass.unit.attackType = 1;
+                        attackName = "firstAttack";
+                        decision = true;
+                    }
+                    else
+                    {
+                        if (amClass.effectedUnits.Count <= 0 && !decision)
+                        {
+                            amClass.unit.attackType = 0;
+                            decision = true;
+                        }
+                    }
+                }
+
+                Debug.Log(attackName);
+                decision = true;
+            }
+            done = true;
+        }
         
 
     }

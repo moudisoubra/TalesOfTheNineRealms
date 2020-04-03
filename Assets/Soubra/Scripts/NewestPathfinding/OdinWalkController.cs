@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class OdinWalkController : MonoBehaviour
 {
+    public Material[] materials;
     public float speed = 5f;
     public float rotationSpeed = 100f;
     public Animator anim;
@@ -17,6 +18,11 @@ public class OdinWalkController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        for (int i = 0; i < materials.Length; i++)
+        {
+            materials[i].SetVector("_playerPosition", transform.position);
+        }
+
         if (!noWalkie)
         {
             float translation = Input.GetAxis("Vertical") * speed;

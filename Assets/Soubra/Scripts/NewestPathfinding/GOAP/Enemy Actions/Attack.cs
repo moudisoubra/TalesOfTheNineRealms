@@ -27,13 +27,13 @@ public class Attack : GAction
             if (unit.attackType == 1)
             {
                 Debug.Log("First Attack");
-                amClass.unit.animator.SetTrigger("Slap");
+                amClass.unit.animator.SetTrigger("Attack1");
             }
             if (unit.attackType == 2)
             {
                 Debug.Log("Second Attack");
                 unit.coolDown = 3;
-                amClass.unit.animator.SetTrigger("Flip");
+                amClass.unit.animator.SetTrigger("Attack2");
             }
         }
         if (unit.enemyType == Unit.EnemyType.AsgardianRanged)
@@ -48,13 +48,13 @@ public class Attack : GAction
             if (unit.attackType == 1)
             {
                 Debug.Log("First Attack");
-                amClass.unit.animator.SetTrigger("Slap");
+                amClass.unit.animator.SetTrigger("Attack1");
             }
             if (unit.attackType == 3)
             {
                 Debug.Log("Second Attack");
                 unit.coolDown = 3;
-                amClass.unit.animator.SetTrigger("Throw");
+                amClass.unit.animator.SetTrigger("Attack3");
             }
         }
         if (unit.enemyType == Unit.EnemyType.GiantMelee)
@@ -69,13 +69,34 @@ public class Attack : GAction
             if (unit.attackType == 1)
             {
                 Debug.Log("First Attack");
-                gmClass.unit.animator.SetTrigger("Slap");
+                gmClass.unit.animator.SetTrigger("Attack1");
             }
             if (unit.attackType == 2)
             {
                 Debug.Log("Second Attack");
                 unit.coolDown = 3;
-                gmClass.unit.animator.SetTrigger("Flip");
+                gmClass.unit.animator.SetTrigger("Attack2");
+            }
+        }
+        if (unit.enemyType == Unit.EnemyType.TreePerson)
+        {
+            TreePeopleClass gmClass = GetComponent<TreePeopleClass>();
+            for (int i = 0; i < gmClass.effectedUnits.Count; i++)
+            {
+                gmClass.effectedUnits[i].GetComponent<Unit>().health -= 2;
+                gmClass.effectedUnits.Remove(gmClass.effectedUnits[i]);
+            }
+
+            if (unit.attackType == 1)
+            {
+                Debug.Log("First Attack");
+                gmClass.unit.animator.SetTrigger("Attack1");
+            }
+            if (unit.attackType == 2)
+            {
+                Debug.Log("Second Attack");
+
+                gmClass.unit.animator.SetTrigger("Attack2");
             }
         }
     }

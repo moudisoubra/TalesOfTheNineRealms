@@ -40,10 +40,15 @@ public class Dialogue : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (textDisplay.text == sentences[index])
+        if (sentences.Length > 0)
         {
-            continueBtn.SetActive(true);
+            if (textDisplay.text == sentences[index])
+            {
+                continueBtn.SetActive(true);
+            }
+
         }
+
 
         if (start)
         {

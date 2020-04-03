@@ -15,11 +15,39 @@ public class NewDialogueNpc : MonoBehaviour
     {
         dialogue = FindObjectOfType<Dialogue>();
     }
+    public void TriggerThisNoCollider()
+    {
+        dialogue.done = false;
+        dialogue.textDisplay.text = ""; //Resets the text to blank
+
+        dialogue.sentences = null;
+        dialogue.sentences = new string[sentences.Length];
+        dialogue.sentences = sentences;
+        dialogue.index = 0;
+        dialogue.panel.SetActive(true);
+        dialogue.StartCoroutine(dialogue.TypeEffect());
+        dialogue.odinWalk.noWalkie = true;
+    }
+    public void TriggerThis()
+    {
+        dialogue.done = false;
+        dialogue.textDisplay.text = ""; //Resets the text to blank
+
+        dialogue.sentences = null;
+        dialogue.sentences = new string[sentences.Length];
+        dialogue.sentences = sentences;
+        dialogue.index = 0;
+        dialogue.panel.SetActive(true);
+        dialogue.StartCoroutine(dialogue.TypeEffect());
+        dialogue.odinWalk.noWalkie = true;
+        this.GetComponent<Collider>().enabled = false;
+    }
 
     private void OnTriggerStay(Collider other)
     {
         if ((other.CompareTag("Player") && Input.GetKey(KeyCode.E)) || onStart) //**Change the E to a unviersal value.
         {
+            dialogue.done = false;
             dialogue.textDisplay.text = ""; //Resets the text to blank
 
             dialogue.sentences = null;

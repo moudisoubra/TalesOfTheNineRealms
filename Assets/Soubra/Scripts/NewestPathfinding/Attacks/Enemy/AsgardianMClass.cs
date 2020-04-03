@@ -114,9 +114,9 @@ public class AsgardianMClass : CellPositions
         attackNodes.Clear();
         effectedUnits.Clear();
         eaScript.actionQueue = null;
-        unit.animator.ResetTrigger("Flip");
-        unit.animator.ResetTrigger("Throw");
-        unit.animator.ResetTrigger("Slap");
+        unit.animator.ResetTrigger("Attack1");
+        unit.animator.ResetTrigger("Attack2");
+        unit.animator.ResetTrigger("Attack3");
         unit.animator.SetBool("Idle", false);
         SubGoal s = new SubGoal(eaScript.goal, 1, true);
         eaScript.goals.Add(s, 1);

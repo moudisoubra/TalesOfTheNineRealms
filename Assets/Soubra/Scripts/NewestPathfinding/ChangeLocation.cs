@@ -7,6 +7,7 @@ public class ChangeLocation : MonoBehaviour
     public Dialogue dScript;
     public TriggerDialouge tdScript;
     public AnnaTweenToPosition attpScript;
+    public NewDialogueNpc ndnScript;
 
     public List<GameObject> originals;
     public List<GameObject> newLocation;
@@ -17,11 +18,13 @@ public class ChangeLocation : MonoBehaviour
     public bool goBlack = false;
     public bool clear = false;
     public bool talkToNPC = false;
+    public bool triggerCamera = false;
     public float timer = 0;
     public float timerDuration = 2;
     void Start()
     {
-        
+        dScript = FindObjectOfType<Dialogue>();
+        ndnScript = GetComponent<NewDialogueNpc>();
     }
 
     // Update is called once per frame
@@ -65,8 +68,9 @@ public class ChangeLocation : MonoBehaviour
         }
         if (talkToNPC)
         {
-            dScript.TalkToNpc();
+            ndnScript.TriggerThisNoCollider();
             talkToNPC = false;
+            triggerCamera = true;
         }
     }
 }

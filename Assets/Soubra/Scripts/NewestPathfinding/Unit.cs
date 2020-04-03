@@ -29,7 +29,7 @@ public class Unit : MonoBehaviour
     public List<TileMap.Node> currentPath = null;
     public TileMap.Node currentNode;
     public List<string> attackNames;
-    public enum EnemyType { AsgardianMelee, AsgardianRanged, GiantMelee, GiantRanged, Player };
+    public enum EnemyType { AsgardianMelee, AsgardianRanged, GiantMelee, GiantRanged, TreePerson, Dragon, Player };
     public EnemyType enemyType;
 
     public CellPositions.Direction direction;
