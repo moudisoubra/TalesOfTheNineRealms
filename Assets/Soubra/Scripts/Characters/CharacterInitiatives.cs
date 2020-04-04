@@ -74,8 +74,6 @@ public class CharacterInitiatives : MonoBehaviour
         {
             Characters[index].gameObject.GetComponent<AttackPlayer>().attack = true;
         }
-        
-
     }
     public void ReOrder()
     {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
+    public int initiative;
     public int tileX;
     public int tileZ;
     public int index = 0;
@@ -38,6 +39,12 @@ public class Unit : MonoBehaviour
     public GameObject mainCameraPosition;
     public GameObject sideCameraPosition;
     public CameraController ccScript;
+    public AssignTiles atScript;
+
+    private void Start()
+    {
+        atScript = GetComponent<AssignTiles>();
+    }
     public void Update()
     {
         
@@ -207,8 +214,8 @@ public class Unit : MonoBehaviour
             else
             {
                 Debug.Log("Still Walking");
-                transform.LookAt(currentPath[0].ground.transform.position);
-                transform.position = Vector3.Lerp(transform.position, currentPath[0].ground.transform.position, 5f * Time.deltaTime);
+                transform.LookAt(currentPath[0].ground.transform.position + atScript.offset);
+                transform.position = Vector3.Lerp(transform.position, currentPath[0].ground.transform.position + atScript.offset, 5f * Time.deltaTime);
             }
         }
         else
