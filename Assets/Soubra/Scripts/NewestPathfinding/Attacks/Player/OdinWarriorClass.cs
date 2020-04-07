@@ -14,8 +14,6 @@ public class OdinWarriorClass : CellPositions
 
             AddNode(n, 0, 0);
             AddNode(n, 0, 1);
-            AddNode(n, 0, 2);
-            AddNode(n, 0, 3);
         }
         if (direction == Direction.Down)
         {
@@ -23,8 +21,6 @@ public class OdinWarriorClass : CellPositions
 
             AddNode(n, 0, 0);
             AddNode(n, 0, -1);
-            AddNode(n, 0, -2);
-            AddNode(n, 0, -3);
         }
         if (direction == Direction.Left)
         {
@@ -32,8 +28,6 @@ public class OdinWarriorClass : CellPositions
 
             AddNode(n, 0, 0);
             AddNode(n, -1, 0);
-            AddNode(n, -2, 0);
-            AddNode(n, -3, 0);
         }
         if (direction == Direction.Right)
         {
@@ -41,8 +35,6 @@ public class OdinWarriorClass : CellPositions
 
             AddNode(n, 0, 0);
             AddNode(n, 1, 0);
-            AddNode(n, 2, 0);
-            AddNode(n, 3, 0);
         }
     }
 
