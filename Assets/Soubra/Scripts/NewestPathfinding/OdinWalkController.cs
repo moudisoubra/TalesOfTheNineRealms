@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class OdinWalkController : MonoBehaviour
 {
+    public Material transparentMaterial;
     public Material[] materials;
     public float speed = 5f;
     public float rotationSpeed = 100f;
@@ -22,6 +23,8 @@ public class OdinWalkController : MonoBehaviour
         {
             materials[i].SetVector("_playerPosition", transform.position);
         }
+
+        transparentMaterial.SetVector("_playerPosition", transform.position);
 
         if (!noWalkie)
         {

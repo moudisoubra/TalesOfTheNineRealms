@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AssignTiles : MonoBehaviour
 {
+    public Vector3 offset;
     public Vector3 rotate;
     public TileMap tm;
     public Unit unit;
@@ -22,7 +23,7 @@ public class AssignTiles : MonoBehaviour
         tm = unit.map;
         if (tm.done && assign)
         {
-            transform.position = tm.graph[x, z].ground.transform.position;
+            transform.position = tm.graph[x, z].ground.transform.position + offset;
             transform.Rotate(rotate);
             assign = false;
         }
