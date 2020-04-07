@@ -19,12 +19,12 @@ public class OdinWalkController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < materials.Length; i++)
-        {
-            materials[i].SetVector("_playerPosition", transform.position);
-        }
+        //for (int i = 0; i < materials.Length; i++)
+        //{
+        //    materials[i].SetVector("_playerPosition", transform.position);
+        //}
 
-        transparentMaterial.SetVector("_playerPosition", transform.position);
+        //transparentMaterial.SetVector("_playerPosition", transform.position);
 
         if (!noWalkie)
         {

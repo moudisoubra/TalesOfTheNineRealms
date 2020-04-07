@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 358c7bb2edb35f648b862730ed3cb53e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tile: {fileID: 6857755521553206095}
   tileX: 0
   tileZ: 0
   map: {fileID: 0}
@@ -155,7 +156,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a1cf402c8ab66714596076d75dc71af4, type: 2}
+  - {fileID: 2100000, guid: 02b770e401e9906418783450de15ab19, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -203,7 +204,7 @@ GameObject:
   - component: {fileID: 3800989178665105115}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248,7 +249,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aeecc0c85d561614aa89a4571d6eb5de, type: 2}
+  - {fileID: 2100000, guid: a1cf402c8ab66714596076d75dc71af4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

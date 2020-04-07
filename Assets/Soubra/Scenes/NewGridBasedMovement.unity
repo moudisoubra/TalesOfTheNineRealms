@@ -1317,7 +1317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &592985986
 Transform:
   m_ObjectHideFlags: 0
@@ -2085,6 +2085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba0b015390cf974d9bb88e88d7369fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initiative: 0
   tileX: 0
   tileZ: 0
   index: 0
@@ -2114,6 +2115,7 @@ MonoBehaviour:
   mainCameraPosition: {fileID: 727628532}
   sideCameraPosition: {fileID: 1487905048}
   ccScript: {fileID: 1541038403}
+  atScript: {fileID: 0}
 --- !u!54 &786367467
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3366,6 +3368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba0b015390cf974d9bb88e88d7369fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initiative: 0
   tileX: 0
   tileZ: 0
   index: 0
@@ -3395,6 +3398,7 @@ MonoBehaviour:
   mainCameraPosition: {fileID: 0}
   sideCameraPosition: {fileID: 0}
   ccScript: {fileID: 0}
+  atScript: {fileID: 0}
 --- !u!4 &1160577639
 Transform:
   m_ObjectHideFlags: 0
@@ -8458,16 +8462,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f2817b0f4288e4fb11854285dd63f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodesPaths: {fileID: 1445881855}
-  startPoint: {fileID: 1240610044}
-  lastPoint: {fileID: 371100373}
-  nodeLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  nodeColor: {fileID: 2100000, guid: 2b90aa46db115894b8b6bd48c6c0b949, type: 2}
-  PathPoints: 
-  move: 0
-  speed: 10
 --- !u!1 &1286645406
 GameObject:
   m_ObjectHideFlags: 0
@@ -8685,6 +8679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba0b015390cf974d9bb88e88d7369fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initiative: 0
   tileX: 0
   tileZ: 0
   index: 0
@@ -8714,6 +8709,7 @@ MonoBehaviour:
   mainCameraPosition: {fileID: 0}
   sideCameraPosition: {fileID: 0}
   ccScript: {fileID: 0}
+  atScript: {fileID: 0}
 --- !u!114 &1342266165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9091,11 +9087,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb2f07c047485d41baccc791799cf2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodeColor: {fileID: 2100000, guid: 2b90aa46db115894b8b6bd48c6c0b949, type: 2}
-  nodeLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  nodesShown: []
 --- !u!1 &1469400392
 GameObject:
   m_ObjectHideFlags: 0
@@ -9253,11 +9244,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb2f07c047485d41baccc791799cf2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodeColor: {fileID: 2100000, guid: 2b90aa46db115894b8b6bd48c6c0b949, type: 2}
-  nodeLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  nodesShown: []
 --- !u!1 &1487905048
 GameObject:
   m_ObjectHideFlags: 0
@@ -9550,16 +9536,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f2817b0f4288e4fb11854285dd63f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodesPaths: {fileID: 1483252488}
-  startPoint: {fileID: 1538940480}
-  lastPoint: {fileID: 469115422}
-  nodeLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  nodeColor: {fileID: 2100000, guid: 2b90aa46db115894b8b6bd48c6c0b949, type: 2}
-  PathPoints: 
-  move: 0
-  speed: 1
 --- !u!1 &1541038398
 GameObject:
   m_ObjectHideFlags: 0
@@ -10180,6 +10156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba0b015390cf974d9bb88e88d7369fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initiative: 0
   tileX: 0
   tileZ: 0
   index: 0
@@ -10210,6 +10187,7 @@ MonoBehaviour:
   mainCameraPosition: {fileID: 0}
   sideCameraPosition: {fileID: 0}
   ccScript: {fileID: 1541038403}
+  atScript: {fileID: 0}
 --- !u!54 &3474188821811058185
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10663,6 +10641,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5762626694843939323, guid: 3c0d16e359269894fa50ea8ef60be637,
         type: 3}
+    - target: {fileID: 4506220616707219706, guid: 2ee5a983c8bc3d34e98a0640cb15a4cb,
+        type: 3}
+      propertyPath: range
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506220616707219706, guid: 2ee5a983c8bc3d34e98a0640cb15a4cb,
+        type: 3}
+      propertyPath: maxRange
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506220616707219706, guid: 2ee5a983c8bc3d34e98a0640cb15a4cb,
+        type: 3}
+      propertyPath: rateOfChange
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 4506220616707219707, guid: 2ee5a983c8bc3d34e98a0640cb15a4cb,
         type: 3}
       propertyPath: m_Name

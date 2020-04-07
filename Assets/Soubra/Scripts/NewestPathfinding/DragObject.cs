@@ -4,17 +4,37 @@ using UnityEngine;
 
 public class DragObject : MonoBehaviour
 {
-    private Vector3 mOffset;
+    public Rigidbody rb;
     private float mZCoord;
+    public float power = 1;
+    private Vector3 mOffset;
+    public Vector3 prevPos;
+    public Vector3 afterPos;
 
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+    private void Update()
+    {
+
+    }
     private void OnMouseDown()
     {
-        mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
-        mOffset = gameObject.transform.position - GetMouseWorldPosition();
+        mZCoord = Camera.main.WorldToScreenPoint(transform.position).z;
+        mOffset = transform.position - GetMouseWorldPosition();
+        prevPos = transform.position;
     }
     private void OnMouseDrag()
     {
         transform.position = GetMouseWorldPosition() + mOffset;
+    }
+
+    private void OnMouseUp()
+    {
+        afterPos = transform.position;
+        Vector3 direction = (afterPos - prevPos) / (afterPos - prevPos).magnitude;
+        rb.AddForce(direction * power, ForceMode.Force);
     }
 
     Vector3 GetMouseWorldPosition()

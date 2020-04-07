@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ClickableTile : MonoBehaviour
 {
+    public GameObject tile;
     public int tileX;
     public int tileZ;
     public TileMap map;
