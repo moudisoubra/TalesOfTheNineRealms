@@ -55,6 +55,7 @@ public class GivePosition : MonoBehaviour
         if (collision.gameObject.CompareTag("Blockade"))
         {
             this.blocked = true;
+            this.ct.tile.GetComponent<MeshRenderer>().enabled = false;
         }
     }
     private void OnTriggerStay(Collider other)
@@ -62,6 +63,7 @@ public class GivePosition : MonoBehaviour
         if (other.CompareTag("Blockade"))
         {
             this.blocked = true;
+            this.ct.tile.GetComponent<MeshRenderer>().enabled = false;
         }
     }
     private void OnTriggerExit(Collider other)

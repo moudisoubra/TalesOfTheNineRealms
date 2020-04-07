@@ -21,6 +21,7 @@ public class DragObject : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        rb.velocity = Vector3.zero;
         mZCoord = Camera.main.WorldToScreenPoint(transform.position).z;
         mOffset = transform.position - GetMouseWorldPosition();
         prevPos = transform.position;

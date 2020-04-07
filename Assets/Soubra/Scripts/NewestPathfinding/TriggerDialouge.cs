@@ -42,6 +42,7 @@ public class TriggerDialouge : MonoBehaviour
         if (setup)
         {
             sbScript.start = true;
+            this.GetComponent<BoxCollider>().enabled = false;
             this.enabled = false;
         }
     }

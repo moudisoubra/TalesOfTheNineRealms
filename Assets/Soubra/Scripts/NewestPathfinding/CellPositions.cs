@@ -78,7 +78,7 @@ public class CellPositions : MonoBehaviour
                 {
                     effectedUnits[i].health -= 4;
                 }
-                unit.attackNow = false;
+                unit.animator.SetTrigger("Attack1");
             }
         }
 

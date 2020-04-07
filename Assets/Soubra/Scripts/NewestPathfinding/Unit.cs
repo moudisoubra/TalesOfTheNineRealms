@@ -94,6 +94,11 @@ public class Unit : MonoBehaviour
         }
     }
 
+    public void ResetAnimation()
+    {
+        animator.ResetTrigger("Attack1");
+        attackNow = false;
+    }
     public void ChangeAttack(int i)
     {
         if (i == 1)
