@@ -13,6 +13,7 @@ public class TurnController : MonoBehaviour
     public GameObject goButton;
     public GameObject cameraStart;
     public List<GameObject> buttons;
+    public bool goForIt;
 
     private void Start()
     {
@@ -24,6 +25,7 @@ public class TurnController : MonoBehaviour
         CheckScripts();
         CheckDeaths();
         ChangeStatus();
+
         if (tmScript.selectedUnit.CompareTag("Player"))
         {
             Unit unit = tmScript.selectedUnit.GetComponent<Unit>();
@@ -84,9 +86,8 @@ public class TurnController : MonoBehaviour
             if (units.Count > 0)
             {
 
-                if (units[i].gameObject == tmScript.selectedUnit && !tmScript.selectedUnit.GetComponent<Unit>().dead)
+                if (units[i].gameObject == tmScript.selectedUnit && !tmScript.selectedUnit.GetComponent<Unit>().dead && goForIt)
                 {
-                    //Debug.Log(tmScript.selectedUnit);
                     units[i].GetComponent<Unit>().enabled = true;
                     units[i].GetComponent<CellPositions>().enabled = true;
 

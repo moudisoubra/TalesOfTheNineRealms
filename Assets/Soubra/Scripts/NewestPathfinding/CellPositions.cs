@@ -74,11 +74,11 @@ public class CellPositions : MonoBehaviour
             if (unit.attackNow)
             {
                 ExecuteAllPlayer(attack, range);
-                for (int i = 0; i < effectedUnits.Count; i++)
-                {
-                    effectedUnits[i].health -= 4;
-                }
-                unit.animator.SetTrigger("Attack1");
+                //for (int i = 0; i < effectedUnits.Count; i++)
+                //{
+                //    effectedUnits[i].health -= unit.attackHit;
+                //}
+                //unit.animator.SetTrigger("Attack1");
             }
         }
 

@@ -11,10 +11,13 @@ public class DragObject : MonoBehaviour
     public Vector3 prevPos;
     public Vector3 afterPos;
     public bool turn;
+    public bool notUsed = true;
     public float rotateX;
     public float rotateY;
     public float rotateZ;
     public float rotateSpeed;
+    public GameObject[] sides;
+    public int sideChosen = 1;
 
     private void Start()
     {
@@ -24,8 +27,20 @@ public class DragObject : MonoBehaviour
     {
         if (turn)
         {
-            Debug.Log("ROTATING");
             transform.Rotate(rotateX * rotateSpeed * Time.deltaTime, rotateY * rotateSpeed * Time.deltaTime, rotateZ * rotateSpeed * Time.deltaTime);
+        }
+
+        if (!turn && notUsed)
+        {
+            for (int i = 0; i < sides.Length; i++)
+            {
+                if (sides[i].transform.position.y > sides[sideChosen - 1].transform.position.y)
+                {
+                    sideChosen = i + 1;
+                }
+            }
+
+            notUsed = true;
         }
     }
     private void OnMouseDown()
@@ -34,6 +49,7 @@ public class DragObject : MonoBehaviour
         mZCoord = Camera.main.WorldToScreenPoint(transform.position).z;
         mOffset = transform.position - GetMouseWorldPosition();
         prevPos = transform.position;
+        notUsed = false;
     }
     private void OnMouseDrag()
     {
@@ -60,5 +76,6 @@ public class DragObject : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         turn = false;
+        notUsed = true;
     }
 }

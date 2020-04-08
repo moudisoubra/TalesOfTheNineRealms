@@ -13,6 +13,9 @@ public class Unit : MonoBehaviour
     public int attackType = 1;
     public int health = 10;
     public int coolDown = 0;
+    public int armorClass = 10;
+    public int attackHit = 4;
+
     public float distance = 0.5f;
     public float heightOffset = 0.5f;
     public bool move;
@@ -36,9 +39,6 @@ public class Unit : MonoBehaviour
     public CellPositions.Direction direction;
     public CellPositions.Attacks attack;
 
-    public GameObject mainCameraPosition;
-    public GameObject sideCameraPosition;
-    public CameraController ccScript;
     public AssignTiles atScript;
 
     private void Start()
@@ -47,8 +47,6 @@ public class Unit : MonoBehaviour
     }
     public void Update()
     {
-        
-
         if (health <= 0)
         {
             this.enabled = false;
@@ -86,7 +84,6 @@ public class Unit : MonoBehaviour
         }
         else
         {
-            
             if (enemy)
             {
                 animator.SetBool("Walking", false);
