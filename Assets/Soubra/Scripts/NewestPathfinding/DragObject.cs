@@ -10,6 +10,11 @@ public class DragObject : MonoBehaviour
     private Vector3 mOffset;
     public Vector3 prevPos;
     public Vector3 afterPos;
+    public bool turn;
+    public float rotateX;
+    public float rotateY;
+    public float rotateZ;
+    public float rotateSpeed;
 
     private void Start()
     {
@@ -17,7 +22,11 @@ public class DragObject : MonoBehaviour
     }
     private void Update()
     {
-
+        if (turn)
+        {
+            Debug.Log("ROTATING");
+            transform.Rotate(rotateX * rotateSpeed * Time.deltaTime, rotateY * rotateSpeed * Time.deltaTime, rotateZ * rotateSpeed * Time.deltaTime);
+        }
     }
     private void OnMouseDown()
     {
@@ -33,6 +42,7 @@ public class DragObject : MonoBehaviour
 
     private void OnMouseUp()
     {
+        turn = true;
         afterPos = transform.position;
         Vector3 direction = (afterPos - prevPos) / (afterPos - prevPos).magnitude;
         rb.AddForce(direction * power, ForceMode.Force);
@@ -45,5 +55,10 @@ public class DragObject : MonoBehaviour
         mousePoint.z = mZCoord;
 
         return Camera.main.ScreenToWorldPoint(mousePoint);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        turn = false;
     }
 }
