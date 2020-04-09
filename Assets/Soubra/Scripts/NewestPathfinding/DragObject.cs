@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class DragObject : MonoBehaviour
 {
+    public GameObject[] sides;
     public Rigidbody rb;
-    private float mZCoord;
-    public float power = 1;
     private Vector3 mOffset;
     public Vector3 prevPos;
     public Vector3 afterPos;
     public bool turn;
-    public bool notUsed = true;
+    public bool notUsed = false;
+    public bool bumped = false;
+    private float mZCoord;
+    public float power = 1;
     public float rotateX;
     public float rotateY;
     public float rotateZ;
     public float rotateSpeed;
-    public GameObject[] sides;
     public int sideChosen = 1;
+    public InitiativeRoll irScript;
 
     private void Start()
     {
@@ -39,12 +41,19 @@ public class DragObject : MonoBehaviour
                     sideChosen = i + 1;
                 }
             }
+            notUsed = false;
+        }
 
-            notUsed = true;
+        if (irScript != null && rb.velocity == Vector3.zero && bumped)
+        {
+            Debug.Log("THIS IS RUNNING");
+            irScript.currentCharacter.initiative = sideChosen;
+            irScript.spawn = true;
         }
     }
     private void OnMouseDown()
     {
+
         rb.velocity = Vector3.zero;
         mZCoord = Camera.main.WorldToScreenPoint(transform.position).z;
         mOffset = transform.position - GetMouseWorldPosition();
@@ -58,6 +67,7 @@ public class DragObject : MonoBehaviour
 
     private void OnMouseUp()
     {
+        rb.constraints = RigidbodyConstraints.None;
         turn = true;
         afterPos = transform.position;
         Vector3 direction = (afterPos - prevPos) / (afterPos - prevPos).magnitude;
@@ -77,5 +87,6 @@ public class DragObject : MonoBehaviour
     {
         turn = false;
         notUsed = true;
+        bumped = true;
     }
 }

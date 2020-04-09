@@ -25,6 +25,7 @@ public class Unit : MonoBehaviour
     public bool attackMode;
     public bool attackedAlready;
     public bool dead;
+    public bool getHit;
     public Unit targetEnemy;
     public ClickableTile ct;
     public TileMap map;

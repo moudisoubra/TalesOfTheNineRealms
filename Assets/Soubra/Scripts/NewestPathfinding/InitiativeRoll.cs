@@ -4,27 +4,62 @@ using UnityEngine;
 
 public class InitiativeRoll : MonoBehaviour
 {
-
+    public TileMap tmScript;
     public TurnController tcScript;
     public List<Unit> Characters;
-    public int index;
+    public int index = 0;
+    public GameObject dice;
+    public GameObject currentDice;
+    public Unit currentCharacter;
+    public bool spawn = true;
 
     void Start()
     {
-        tcScript = GetComponent<TurnController>();
         for (int i = 0; i < tcScript.units.Count; i++)
         {
             Characters.Add(tcScript.units[i]);
         }
-        RollAll();
+        //RollAll();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (spawn && tmScript.done)
+        {
+
+            if (index < Characters.Count)
+            {
+                currentCharacter = Characters[index];
+                SpawnDice(currentCharacter);
+
+                if (currentCharacter.enemyType != Unit.EnemyType.Player)
+                {
+                    currentDice.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-700,-100), Random.Range(100, 700), 0));
+                    currentDice.GetComponent<DragObject>().turn = true;
+                    currentDice.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                }
+            }
+            else
+            {
+                ReOrder();
+            }
+            if (index < Characters.Count + 2)
+            {
+                index++;
+            }
+
+            spawn = false;
+        }
     }
 
+    public void SpawnDice(Unit unit)
+    {
+        GameObject temp = Instantiate(dice, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+        temp.GetComponent<DragObject>().irScript = this;
+        temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        currentDice = temp;
+    }
     public void ReOrder()
     {
         for (int i = 0; i < Characters.Count; i++)

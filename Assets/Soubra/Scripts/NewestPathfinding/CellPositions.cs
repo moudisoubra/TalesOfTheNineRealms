@@ -23,6 +23,7 @@ public class CellPositions : MonoBehaviour
     public List<Unit> units = new List<Unit>();
     public List<Unit> effectedUnits = new List<Unit>();
     public EnemyAgent ea;
+    public CheckArmor caScript;
 
     private void Start()
     {
@@ -74,6 +75,15 @@ public class CellPositions : MonoBehaviour
             if (unit.attackNow)
             {
                 ExecuteAllPlayer(attack, range);
+
+                for (int i = 0; i < effectedUnits.Count; i++)
+                {
+                    //if (caScript.CheckIfHit(effectedUnits[i]))
+                    //{
+
+                    //}
+                    
+                }
                 //for (int i = 0; i < effectedUnits.Count; i++)
                 //{
                 //    effectedUnits[i].health -= unit.attackHit;
