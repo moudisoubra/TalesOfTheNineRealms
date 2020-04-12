@@ -8,6 +8,7 @@ public class CellPositions : MonoBehaviour
     public bool attackBool;
     public int tileX;
     public int tileZ;
+    public int damage;
     public Color originalColor;
     public enum Attacks { First, Second, Third};
     public Attacks attack;
@@ -22,9 +23,17 @@ public class CellPositions : MonoBehaviour
     public Unit unit;
     public List<Unit> units = new List<Unit>();
     public List<Unit> effectedUnits = new List<Unit>();
+    public List<Unit> unitsToCheck = new List<Unit>();
+    public List<Unit> hitUnits = new List<Unit>();
     public EnemyAgent ea;
     public CheckArmor caScript;
     public GameObject d20;
+    public GameObject d4;
+    public GameObject d6;
+    public GameObject d8;
+
+    public List<GameObject> spawnedDie = new List<GameObject>();
+    public bool waiting = true;
     private void Start()
     {
         attackNodes = new List<TileMap.Node>();
@@ -82,17 +91,24 @@ public class CellPositions : MonoBehaviour
                 {
                     SpawnDice(effectedUnits[i], unit);
                 }
+                unit.attackDamaged = true;
                 unit.attackNow = false;
-
-                //for (int i = 0; i < effectedUnits.Count; i++)
-                //{
-                //    effectedUnits[i].health -= unit.attackHit;
-                //}
-                //unit.animator.SetTrigger("Attack1");
             }
             else if(unit.attackMode)
             {
                 ColorAttacksPlayer(attack, range);
+            }
+            for (int i = 0; i < effectedUnits.Count; i++)
+            {
+                if (effectedUnits[i].hmScript.HIT != HitOrMiss.Hit.none)
+                {
+                    unitsToCheck.Add(effectedUnits[i]);
+                    effectedUnits.Remove(effectedUnits[i]);
+                }
+            }
+            if (effectedUnits.Count == 0 && unit.attackDamaged)
+            {
+                DealDamage(attack);
             }
         }
 
@@ -102,6 +118,46 @@ public class CellPositions : MonoBehaviour
             direction = CheckDirection();
             ExecuteAll(attack, range);
         }
+    }
+    public void DealDamage(Attacks attack)
+    {
+
+        if (attack == Attacks.First)
+        {
+            for (int i = 0; i < unitsToCheck.Count; i++)
+            {
+                if (unitsToCheck[i].getHit)
+                {
+                    hitUnits.Add(unitsToCheck[i]);
+                    SpawnDamageDice(d6, unitsToCheck[i], unit);
+                    unitsToCheck.Remove(unitsToCheck[i]);
+                }
+            }
+            for (int i = 0; i < spawnedDie.Count; i++)
+            {
+                if (!spawnedDie[i].GetComponent<DragObject>().dealingDamage)
+                {
+                    spawnedDie.Remove(spawnedDie[i]);
+                }
+            }
+            if (spawnedDie.Count == 0 && unitsToCheck.Count == 0)
+            {
+                //unit.animator.SetTrigger("Attack1");
+                hitUnits.Clear();
+                unitsToCheck.Clear();
+                unit.attackDamaged = false;
+            }
+        }
+    }
+    public void SpawnDamageDice(GameObject go,Unit unit, Unit attackingUnit)
+    {
+        GameObject temp = Instantiate(go, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+        temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        DragObject d = temp.GetComponent<DragObject>();
+        d.unit = unit;
+        d.dealingDamage = true;
+        d.attackingUnit = attackingUnit;
+        spawnedDie.Add(go);
     }
     public void SpawnDice(Unit unit, Unit attackingUnit)
     {

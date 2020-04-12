@@ -19,20 +19,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7799682968016126549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2242765418227775302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 820d5770944af334da09136030e89fec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unit: {fileID: 7799682967795758898}
-  eaScript: {fileID: 0}
 --- !u!95 &6067722318212861018
 Animator:
   serializedVersion: 3
@@ -149,6 +135,7 @@ MonoBehaviour:
   armorClass: 10
   attackHit: 4
   distance: 0.1
+  negativeDistanceForWalk: -0.5
   heightOffset: 0.5
   move: 0
   reset: 0
@@ -162,7 +149,8 @@ MonoBehaviour:
   ct: {fileID: 0}
   targetTile: {fileID: 0}
   map: {fileID: 0}
-  animator: {fileID: 7799682968016126550}
+  cubeBase: {fileID: 7799682968657605869}
+  animator: {fileID: 6067722318212861018}
   actions:
   - {fileID: 7799682967795758907}
   attackNames: []
@@ -734,6 +722,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 1f66b809975c01d4289871058d2fa161,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1426312253768358639, guid: 1f66b809975c01d4289871058d2fa161,
         type: 3}

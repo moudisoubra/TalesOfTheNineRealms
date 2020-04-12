@@ -33,7 +33,7 @@ public class TurnController : MonoBehaviour
     public void Update()
     {
         unit = tmScript.selectedUnit.GetComponent<Unit>();
-        if (goForIt && cameraTweened)
+        if (goForIt)
         {
             CheckScripts();
             CheckDeaths();
@@ -91,6 +91,7 @@ public class TurnController : MonoBehaviour
         }
 
         tmScript.selectedUnit = units[index].gameObject;
+        ChangeStatus();
         if (unit.GetComponent<GiantsClass>())
         {
             unit.GetComponent<GiantsClass>().ClearAll();
@@ -106,7 +107,6 @@ public class TurnController : MonoBehaviour
             unit.GetComponent<OdinWarriorClass>().ClearAll();
             Debug.Log("Cleared It");
         }
-        ChangeStatus();
     }
     public void CheckScripts()
     {

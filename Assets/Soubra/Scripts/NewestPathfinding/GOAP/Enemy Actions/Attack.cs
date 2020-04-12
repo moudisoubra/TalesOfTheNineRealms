@@ -103,28 +103,7 @@ public class Attack : GAction
 
     public override bool PostPerform()
     {
-        if (unit.enemyType == Unit.EnemyType.AsgardianMelee)
-        {
-            AsgardianMClass amClass = GetComponent<AsgardianMClass>();
-            amClass.ClearAll();
-        }
-        if (unit.enemyType == Unit.EnemyType.AsgardianRanged)
-        {
-            AsgardianMClass amClass = GetComponent<AsgardianMClass>();
-            amClass.ClearAll();
-        }
-        if (unit.enemyType == Unit.EnemyType.GiantMelee)
-        {
-            GiantsClass gmClass = GetComponent<GiantsClass>();
-            gmClass.ClearAll();
-        }
-        if (unit.enemyType == Unit.EnemyType.TreePerson)
-        {
-            TreePeopleClass gmClass = GetComponent<TreePeopleClass>();
-            gmClass.ClearAll();
-        }
         tcScript.ChangeUnit();
-        
         return true;
     }
 }

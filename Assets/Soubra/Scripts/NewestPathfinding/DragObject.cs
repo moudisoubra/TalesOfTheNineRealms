@@ -7,6 +7,7 @@ public class DragObject : MonoBehaviour
     public GameObject[] sides;
     public Rigidbody rb;
     private Vector3 mOffset;
+    public Vector3 startPos;
     public Vector3 prevPos;
     public Vector3 afterPos;
     public bool turn;
@@ -18,13 +19,17 @@ public class DragObject : MonoBehaviour
     public float rotateY;
     public float rotateZ;
     public float rotateSpeed;
+    public int damageToDeal;
     public int sideChosen = 1;
     public InitiativeRoll irScript;
     public Unit unit;
+    public Unit attackingUnit;
     public CheckArmor caScript;
     public bool attacking;
+    public bool dealingDamage;
     private void Start()
     {
+        startPos = transform.position;
         rb = GetComponent<Rigidbody>();
     }
     private void Update()
@@ -71,6 +76,21 @@ public class DragObject : MonoBehaviour
             caScript.roll = sideChosen;
             caScript.checkHits = true;
         }
+
+        if (dealingDamage && rb.velocity == Vector3.zero && bumped)
+        {
+            if (attackingUnit.raging)
+            {
+                damageToDeal = sideChosen + 2;
+                unit.health -= damageToDeal;
+            }
+            else
+            {
+                damageToDeal = sideChosen;
+                unit.health -= damageToDeal;
+            }
+            dealingDamage = false;
+        }
     }
     private void OnMouseDown()
     {
@@ -106,8 +126,11 @@ public class DragObject : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        turn = false;
-        notUsed = true;
-        bumped = true;
+        if (transform.position != startPos)
+        {
+            turn = false;
+            notUsed = true;
+            bumped = true;
+        }
     }
 }

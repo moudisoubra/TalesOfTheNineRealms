@@ -22,14 +22,17 @@ public class Unit : MonoBehaviour
     public bool reset;
     public bool enemy;
     public bool attackNow;
+    public bool attackDamaged;
     public bool attackMode;
     public bool attackedAlready;
+    public bool raging;
     public bool dead;
     public bool getHit;
     public Unit targetEnemy;
     public ClickableTile ct;
     public ClickableTile targetTile;
     public TileMap map;
+    public GameObject cubeBase;
     public Animator animator;
     public List<GAction> actions;
     public List<TileMap.Node> currentPath = null;
@@ -192,7 +195,7 @@ public class Unit : MonoBehaviour
     {
         if (currentPath != null)
         {
-            if (Vector3.Distance(transform.position, currentPath[0].ground.transform.position) < distance)
+            if (Vector3.Distance(cubeBase.transform.position, currentPath[0].ground.transform.position) < distance)
             {
                 if (currentPath == null)
                     return;
@@ -200,6 +203,7 @@ public class Unit : MonoBehaviour
                 if (remainingMovement <= 0)
                 {
                     move = false;
+                    currentPath = null;
                     return;
                 }
 

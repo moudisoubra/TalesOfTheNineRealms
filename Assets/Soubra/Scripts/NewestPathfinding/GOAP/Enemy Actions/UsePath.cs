@@ -14,7 +14,7 @@ public class UsePath : GAction
         unit.move = true;
 
 
-        if (unit.remainingMovement <= 0 || unit.currentPath == null)
+        if (unit.currentPath == null)
         {
             Debug.Log("DONE Walking");
             done = true;
