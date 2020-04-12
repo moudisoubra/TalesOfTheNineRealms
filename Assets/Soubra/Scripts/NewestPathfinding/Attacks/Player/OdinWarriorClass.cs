@@ -40,8 +40,7 @@ public class OdinWarriorClass : CellPositions
 
     public override void SecondAttack()
     {
-        attackNodes.Clear();
-
+            attackNodes.Clear();
             AddNode(map.graph[tileX,tileZ], 0, 1);
             AddNode(map.graph[tileX,tileZ], 1, 1);
             AddNode(map.graph[tileX,tileZ], -1, 1);

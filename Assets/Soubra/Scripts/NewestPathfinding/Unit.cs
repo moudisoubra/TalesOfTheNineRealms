@@ -28,6 +28,7 @@ public class Unit : MonoBehaviour
     public bool getHit;
     public Unit targetEnemy;
     public ClickableTile ct;
+    public ClickableTile targetTile;
     public TileMap map;
     public Animator animator;
     public List<GAction> actions;
@@ -41,10 +42,11 @@ public class Unit : MonoBehaviour
     public CellPositions.Attacks attack;
 
     public AssignTiles atScript;
-
+    public HitOrMiss hmScript;
     private void Start()
     {
         atScript = GetComponent<AssignTiles>();
+        hmScript = GetComponentInChildren<HitOrMiss>();
     }
     public void Update()
     {

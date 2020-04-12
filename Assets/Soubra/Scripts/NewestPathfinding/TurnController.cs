@@ -6,14 +6,25 @@ using TMPro;
 
 public class TurnController : MonoBehaviour
 {
+    public InitiativeRoll irScript;
     public TileMap tmScript;
     public List<Unit> units;
     public int index;
+    public float nameTransitionSpeed;
     public GameObject attackButton;
     public GameObject goButton;
     public GameObject cameraStart;
     public List<GameObject> buttons;
     public bool goForIt;
+    public bool reordered;
+    public bool firstTime = true;
+    public bool spawnNames;
+    public bool cameraTweened = false;
+    Unit unit;
+    public GameObject nameHolder;
+    public GameObject nameHolderPosition;
+    public GameObject nameHolderPositionBack;
+    public List<GameObject> uiNames;
 
     private void Start()
     {
@@ -21,22 +32,40 @@ public class TurnController : MonoBehaviour
     }
     public void Update()
     {
-
-        CheckScripts();
-        CheckDeaths();
-        ChangeStatus();
-
-        if (tmScript.selectedUnit.CompareTag("Player"))
+        unit = tmScript.selectedUnit.GetComponent<Unit>();
+        if (goForIt && cameraTweened)
         {
-            Unit unit = tmScript.selectedUnit.GetComponent<Unit>();
-            if (unit.attackMode)
-            {
-                attackButton.GetComponentInChildren<TextMeshProUGUI>().text = "Walk";
-            }
-            else
-            {
-                attackButton.GetComponentInChildren<TextMeshProUGUI>().text = "Attack";
-            }
+            CheckScripts();
+            CheckDeaths();
+            ChangeStatus();
+            ControlNames();
+        }
+
+        //if (tmScript.selectedUnit.CompareTag("Player"))
+        //{
+        //    Unit unit = tmScript.selectedUnit.GetComponent<Unit>();
+        //    if (unit.attackMode)
+        //    {
+        //        attackButton.GetComponentInChildren<TextMeshProUGUI>().text = "Walk";
+        //    }
+        //    else
+        //    {
+        //        attackButton.GetComponentInChildren<TextMeshProUGUI>().text = "Attack";
+        //    }
+        //}
+
+        if (!reordered && goForIt && firstTime)
+        {
+            irScript.ReOrder();
+            reordered = true;
+            spawnNames = true;
+            firstTime = false;
+        }
+
+        if (spawnNames)
+        {
+            SpawnNames();
+            spawnNames = false;
         }
     }
 
@@ -62,19 +91,19 @@ public class TurnController : MonoBehaviour
         }
 
         tmScript.selectedUnit = units[index].gameObject;
-        if (tmScript.selectedUnit.GetComponent<GiantsClass>())
+        if (unit.GetComponent<GiantsClass>())
         {
-            tmScript.selectedUnit.GetComponent<GiantsClass>().ClearAll();
+            unit.GetComponent<GiantsClass>().ClearAll();
             Debug.Log("Cleared It");
         }
-        if (tmScript.selectedUnit.GetComponent<AsgardianMClass>())
+        if (unit.GetComponent<AsgardianMClass>())
         {
-            tmScript.selectedUnit.GetComponent<AsgardianMClass>().ClearAll();
+            unit.GetComponent<AsgardianMClass>().ClearAll();
             Debug.Log("Cleared It");
         }
-        if (tmScript.selectedUnit.GetComponent<OdinWarriorClass>())
+        if (unit.GetComponent<OdinWarriorClass>())
         {
-            tmScript.selectedUnit.GetComponent<OdinWarriorClass>().ClearAll();
+            unit.GetComponent<OdinWarriorClass>().ClearAll();
             Debug.Log("Cleared It");
         }
         ChangeStatus();
@@ -83,10 +112,10 @@ public class TurnController : MonoBehaviour
     {
         for (int i = 0; i < units.Count; i++)
         {
-            if (units.Count > 0)
+            if (units.Count > 0 && goForIt && !firstTime)
             {
 
-                if (units[i].gameObject == tmScript.selectedUnit && !tmScript.selectedUnit.GetComponent<Unit>().dead && goForIt)
+                if (units[i].gameObject == tmScript.selectedUnit && !tmScript.selectedUnit.GetComponent<Unit>().dead)
                 {
                     units[i].GetComponent<Unit>().enabled = true;
                     units[i].GetComponent<CellPositions>().enabled = true;
@@ -111,42 +140,50 @@ public class TurnController : MonoBehaviour
     }
     public void ChangeStatus()
     {
-        if (tmScript.selectedUnit.CompareTag("Player"))
+        if (unit.CompareTag("Player"))
         {
-            goButton.SetActive(true);
+            //goButton.SetActive(true);
             attackButton.SetActive(true);
             for (int i = 0; i < buttons.Count; i++)
             {
                 buttons[i].SetActive(true);
-                buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = tmScript.selectedUnit.GetComponent<Unit>().attackNames[i];
+                //buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<Unit>().attackNames[i];
+                buttons[i].GetComponentInChildren<Text>().text = unit.GetComponent<Unit>().attackNames[i];
             }
         }
         else
         {
-            goButton.SetActive(false);
+            //goButton.SetActive(false);
             attackButton.SetActive(false);
             for (int i = 0; i < buttons.Count; i++)
             {
                 buttons[i].SetActive(false);
-                buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "";
+                //buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "";
+                buttons[i].GetComponentInChildren<Text>().text = "";
             }
         }
     }
-    public void CheckAttack()
+    public void CheckAttack(int i)
     {
-        Unit unit = tmScript.selectedUnit.GetComponent<Unit>();
         if (!unit.attackMode)
         {
             unit.CheckAttackStatus();
+            if (unit.attackMode)
+            {
+                SetAttack(i);
+            }
         }
-        else
+        if (unit.attackMode)
         {
-            unit.attackMode = false;
+            SetAttack(i);
         }
+    }
+    public void CheckMove()
+    {
+        unit.attackMode = false;
     }
     public void CheckAction()
     {
-        Unit unit = tmScript.selectedUnit.GetComponent<Unit>();
         if (unit.attackMode)
         {
             unit.attackNow = true;
@@ -158,8 +195,6 @@ public class TurnController : MonoBehaviour
     }
     public void SetAttack(int i)
     {
-        Unit unit = tmScript.selectedUnit.GetComponent<Unit>();
-
         if (i == 1)
         {
             unit.attack = CellPositions.Attacks.First;
@@ -171,6 +206,36 @@ public class TurnController : MonoBehaviour
         if (i == 3)
         {
             unit.attack = CellPositions.Attacks.Third;
+        }
+    }
+    public void SpawnNames()
+    {
+        for (int i = 0; i < units.Count; i++)
+        {
+           GameObject temp = Instantiate(nameHolder, nameHolderPosition.transform.position + new Vector3(0,-40 * i,0), Quaternion.identity);
+            temp.transform.SetParent(nameHolderPosition.transform.parent);
+            UINames uiN = temp.GetComponentInChildren<UINames>();
+            uiN.name = units[i].name;
+            uiN.myUnit = units[i];
+            uiNames.Add(temp);
+        }   
+    }
+    public void ControlNames()
+    {
+        for (int i = 0; i < uiNames.Count; i++)
+        {
+            if (uiNames[i].GetComponentInChildren<UINames>().myUnit == tmScript.selectedUnit.GetComponent<Unit>())
+            {
+                Vector3 position = new Vector3(nameHolderPosition.transform.position.x, uiNames[i].transform.position.y, uiNames[i].transform.position.z);
+                uiNames[i].GetComponentInChildren<UINames>().myTurn = true;
+                uiNames[i].transform.position = Vector3.Lerp(uiNames[i].transform.position, position, nameTransitionSpeed * Time.deltaTime);
+            }
+            else
+            {
+                Vector3 position = new Vector3(nameHolderPositionBack.transform.position.x, uiNames[i].transform.position.y, uiNames[i].transform.position.z);
+                uiNames[i].GetComponentInChildren<UINames>().myTurn = false;
+                uiNames[i].transform.position = Vector3.Lerp(uiNames[i].transform.position, position, nameTransitionSpeed * Time.deltaTime);
+            }
         }
     }
 

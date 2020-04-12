@@ -24,7 +24,7 @@ public class CellPositions : MonoBehaviour
     public List<Unit> effectedUnits = new List<Unit>();
     public EnemyAgent ea;
     public CheckArmor caScript;
-
+    public GameObject d20;
     private void Start()
     {
         attackNodes = new List<TileMap.Node>();
@@ -76,19 +76,23 @@ public class CellPositions : MonoBehaviour
             {
                 ExecuteAllPlayer(attack, range);
 
+
+
                 for (int i = 0; i < effectedUnits.Count; i++)
                 {
-                    //if (caScript.CheckIfHit(effectedUnits[i]))
-                    //{
-
-                    //}
-                    
+                    SpawnDice(effectedUnits[i], unit);
                 }
+                unit.attackNow = false;
+
                 //for (int i = 0; i < effectedUnits.Count; i++)
                 //{
                 //    effectedUnits[i].health -= unit.attackHit;
                 //}
                 //unit.animator.SetTrigger("Attack1");
+            }
+            else if(unit.attackMode)
+            {
+                ColorAttacksPlayer(attack, range);
             }
         }
 
@@ -99,7 +103,16 @@ public class CellPositions : MonoBehaviour
             ExecuteAll(attack, range);
         }
     }
-
+    public void SpawnDice(Unit unit, Unit attackingUnit)
+    {
+        GameObject temp = Instantiate(d20, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+        temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        CheckArmor c = temp.GetComponent<CheckArmor>();
+        DragObject d = temp.GetComponent<DragObject>();
+        c.currentUnit = unit;
+        c.attackingUnit = attackingUnit;
+        d.attacking = true;
+    }
     public void ExecuteAll(Attacks a, int range)
     {
 
@@ -141,19 +154,39 @@ public class CellPositions : MonoBehaviour
         ColorAttacks();
         CheckHitPlayer();
     }
+
+    public void ColorAttacksPlayer(Attacks a, int range)
+    {
+        if (a == Attacks.First)
+        {
+            FirstAttack();
+        }
+        if (a == Attacks.Second)
+        {
+            SecondAttack();
+        }
+        if (a == Attacks.Third)
+        {
+            ThirdAttack(range);
+        }
+
+        CheckAttack();
+        ColorAttacks();
+    }
+
     public void NeighCells()
     {
         for (int x = 0; x < map.mapSizeX; x++)
         {
             for (int y = 0; y < map.mapSizeY; y++)
             {
-                if (currentNode != null && !attackNodes.Contains(map.graph[x, y]) && map.UnitCanEnterTile(x, y))
+                if (currentNode != null && !attackNodes.Contains(map.graph[x, y]) && !attackNodes.Contains(map.graph[x, y]))
                 {
-                    currentNode.GiveColor(Color.green);
+                    currentNode.GiveColor(Color.magenta);
                 }
                 if (currentNode.neighbours.Contains(map.graph[x,y]) && map.UnitCanEnterTile(x,y) && !attackNodes.Contains(map.graph[x, y]))
                 {
-                    map.graph[x, y].GiveColor(Color.green);
+                    map.graph[x, y].GiveColor(Color.magenta);
                 }
                 else if(map.UnitCanEnterTile(x, y) && !attackNodes.Contains(map.graph[x, y]))
                 {
@@ -221,7 +254,8 @@ public class CellPositions : MonoBehaviour
         {
             TileMap.Node n = attackNodes[i];
 
-            if (!map.UnitCanEnterTile(n.x, n.y) && !map.graph[n.x, n.y].ground.GetComponentInChildren<GivePosition>().full)
+            if (!map.UnitCanEnterTile(n.x, n.y) && !map.graph[n.x, n.y].ground.GetComponentInChildren<GivePosition>().full
+                && !map.graph[n.x, n.y].ground.GetComponentInChildren<GivePosition>().blocked)
             {
                 temp = attackNodes.IndexOf(n);
                 //attackNodes.Remove(attackNodes[i]);
@@ -248,7 +282,7 @@ public class CellPositions : MonoBehaviour
         {
             if (attackNodes[i] != null)
             {
-                attackNodes[i].GiveColor(Color.blue);
+                attackNodes[i].GiveColor(Color.black);
             }
         }
     }

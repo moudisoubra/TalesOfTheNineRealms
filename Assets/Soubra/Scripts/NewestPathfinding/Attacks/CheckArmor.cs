@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CheckArmor : MonoBehaviour
 {
-    public TileMap tmScript;
+    public DragObject doScript;
     public Unit currentUnit;
-
-    public int currentRoll;
-    public int index;
+    public Unit attackingUnit;
+    public int roll;
+    public bool checkHits;
 
     // Start is called before the first frame update
     void Start()
@@ -19,12 +19,27 @@ public class CheckArmor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            
+        if (checkHits)
+        {
+            currentUnit.getHit = CheckIfHit(currentUnit);
+
+            if (CheckIfHit(currentUnit))
+            {
+                currentUnit.hmScript.HIT = HitOrMiss.Hit.hit;
+            }
+            else
+            {
+                currentUnit.hmScript.HIT = HitOrMiss.Hit.miss;
+            }
+
+            doScript.enabled = false;
+            checkHits = false;
+        }
     }
 
     public bool CheckIfHit(Unit unit)
     {
-        if (currentRoll > unit.armorClass)
+        if (roll > currentUnit.armorClass)
         {
             return true;
         }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class TileMap : MonoBehaviour
 {
+    public TurnController tcScript;
     public GivePosition gpNode;
     public GameObject selectedUnit;
     public GameObject positioner;
@@ -55,6 +56,7 @@ public class TileMap : MonoBehaviour
                 done = true;
             }
         }
+
 
         if (debug)
         {
@@ -165,6 +167,7 @@ public class TileMap : MonoBehaviour
                 ct.tileX = x;   
                 ct.tileZ = y;
                 ct.map = this;
+                ct.tc = tcScript;
                 graph[x, y].ground = go;
                 graph[x, y].rend = ct.rend;
                 graph[x, y].color = graph[x, y].rend.material.color;

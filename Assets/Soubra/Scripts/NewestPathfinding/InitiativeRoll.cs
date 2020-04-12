@@ -10,8 +10,11 @@ public class InitiativeRoll : MonoBehaviour
     public int index = 0;
     public GameObject dice;
     public GameObject currentDice;
+    public GameObject battleCanvas;
+    public List<GameObject> die;
     public Unit currentCharacter;
     public bool spawn = true;
+    public bool done = false;
 
     void Start()
     {
@@ -40,16 +43,22 @@ public class InitiativeRoll : MonoBehaviour
                     currentDice.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 }
             }
-            else
+            else if(currentDice.GetComponent<Rigidbody>().velocity == Vector3.zero && !done)
             {
                 ReOrder();
+                //for (int i = 0; i < die.Count; i++)
+                //{
+                //    Destroy(die[i].gameObject);
+                //}
+                tcScript.goForIt = true;
+                battleCanvas.SetActive(true);
             }
             if (index < Characters.Count + 2)
             {
                 index++;
             }
 
-            spawn = false;
+            //spawn = false;
         }
     }
 
@@ -58,7 +67,9 @@ public class InitiativeRoll : MonoBehaviour
         GameObject temp = Instantiate(dice, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
         temp.GetComponent<DragObject>().irScript = this;
         temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        temp.GetComponent<DragObject>().unit = unit;
         currentDice = temp;
+        die.Add(temp);
     }
     public void ReOrder()
     {
@@ -81,6 +92,7 @@ public class InitiativeRoll : MonoBehaviour
         }
         tcScript.units = Characters;
         tcScript.tmScript.selectedUnit = Characters[0].gameObject;
+        done = true;
         //ChangeCharacter();
         //fpScript.character = Characters[index].gameObject;
     }

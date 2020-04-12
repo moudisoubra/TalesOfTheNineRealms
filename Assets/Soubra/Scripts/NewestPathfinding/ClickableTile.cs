@@ -10,6 +10,7 @@ public class ClickableTile : MonoBehaviour
     public TileMap map;
     public Renderer rend;
     public GivePosition gp;
+    public TurnController tc;
     public Unit unit;
     public string name;
 
@@ -28,29 +29,44 @@ public class ClickableTile : MonoBehaviour
         {
             if (unit.attackMode)
             {
-                Debug.Log("Unit");
-                if (this == unit.currentNode.neighbours[0].ground.GetComponent<ClickableTile>())
+                if (unit.targetTile == this)
                 {
-                    unit.direction = CellPositions.Direction.Left;
+                    unit.attackNow = true;
                 }
-                if (this == unit.currentNode.neighbours[1].ground.GetComponent<ClickableTile>())
+                else
                 {
-                    unit.direction = CellPositions.Direction.Up;
+                    if (this == unit.currentNode.neighbours[0].ground.GetComponent<ClickableTile>())
+                    {
+                        unit.direction = CellPositions.Direction.Left;
+                    }
+                    if (this == unit.currentNode.neighbours[1].ground.GetComponent<ClickableTile>())
+                    {
+                        unit.direction = CellPositions.Direction.Up;
+                    }
+                    if (this == unit.currentNode.neighbours[2].ground.GetComponent<ClickableTile>())
+                    {
+                        unit.direction = CellPositions.Direction.Right;
+                    }
+                    if (this == unit.currentNode.neighbours[3].ground.GetComponent<ClickableTile>())
+                    {
+                        unit.direction = CellPositions.Direction.Down;
+                    }
+                    unit.targetTile = this;
                 }
-                if (this == unit.currentNode.neighbours[2].ground.GetComponent<ClickableTile>())
-                {
-                    unit.direction = CellPositions.Direction.Right;
-                }
-                if (this == unit.currentNode.neighbours[3].ground.GetComponent<ClickableTile>())
-                {
-                    unit.direction = CellPositions.Direction.Down;
-                }
-                unit.attackNow = true;
+                
             }
             else
             {
-                map.MoveUnitTo(tileX, tileZ);
-                unit.attackNow = false;
+                if (unit.targetTile == this && unit.currentPath.Count > 0)
+                {
+                    unit.move = true;
+                }
+                else
+                {
+                    unit.targetTile = this;
+                    map.MoveUnitTo(tileX, tileZ);
+                    unit.attackNow = false;
+                }
             }
         }
         else

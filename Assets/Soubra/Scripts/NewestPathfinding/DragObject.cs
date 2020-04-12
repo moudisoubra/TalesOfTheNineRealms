@@ -20,7 +20,9 @@ public class DragObject : MonoBehaviour
     public float rotateSpeed;
     public int sideChosen = 1;
     public InitiativeRoll irScript;
-
+    public Unit unit;
+    public CheckArmor caScript;
+    public bool attacking;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -32,7 +34,7 @@ public class DragObject : MonoBehaviour
             transform.Rotate(rotateX * rotateSpeed * Time.deltaTime, rotateY * rotateSpeed * Time.deltaTime, rotateZ * rotateSpeed * Time.deltaTime);
         }
 
-        if (!turn && notUsed)
+        if (!turn && notUsed && rb.velocity == Vector3.zero)
         {
             for (int i = 0; i < sides.Length; i++)
             {
@@ -46,9 +48,28 @@ public class DragObject : MonoBehaviour
 
         if (irScript != null && rb.velocity == Vector3.zero && bumped)
         {
-            Debug.Log("THIS IS RUNNING");
-            irScript.currentCharacter.initiative = sideChosen;
+            //if (unit.enemyType == Unit.EnemyType.Player)
+            //{
+            //    unit.initiative = 0;
+            //    irScript.spawn = true;
+            //}
+            //else
+            //{
+            //    unit.initiative = sideChosen;
+            //    irScript.spawn = true;
+            //}
+
+            unit.initiative = sideChosen;
             irScript.spawn = true;
+            this.enabled = false;
+        }
+
+        if (attacking && rb.velocity == Vector3.zero && bumped)
+        {
+            caScript = GetComponent<CheckArmor>();
+            caScript.doScript = this;
+            caScript.roll = sideChosen;
+            caScript.checkHits = true;
         }
     }
     private void OnMouseDown()
