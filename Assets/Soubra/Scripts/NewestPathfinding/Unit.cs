@@ -15,6 +15,13 @@ public class Unit : MonoBehaviour
     public int coolDown = 0;
     public int armorClass = 10;
     public int attackHit = 4;
+    public int rageNumber = 0;
+    public int rageTime = 0;
+
+    public int ogAttack2CoolDown = 2;
+    public int ogAttack3CoolDown = 5;
+    public int attack2CoolDown = 0;
+    public int attack3CoolDown = 0;
 
     public float distance = 0.5f;
     public float heightOffset = 0.5f;

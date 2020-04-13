@@ -13,12 +13,14 @@ public class DragObject : MonoBehaviour
     public bool turn;
     public bool notUsed = false;
     public bool bumped = false;
+    public bool tutorial = false;
     private float mZCoord;
     public float power = 1;
     public float rotateX;
     public float rotateY;
     public float rotateZ;
     public float rotateSpeed;
+    public float timer = 0;
     public int damageToDeal;
     public int sideChosen = 1;
     public InitiativeRoll irScript;
@@ -27,6 +29,7 @@ public class DragObject : MonoBehaviour
     public CheckArmor caScript;
     public bool attacking;
     public bool dealingDamage;
+    public bool dealEffect;
     private void Start()
     {
         startPos = transform.position;
@@ -63,10 +66,13 @@ public class DragObject : MonoBehaviour
             //    unit.initiative = sideChosen;
             //    irScript.spawn = true;
             //}
-
-            unit.initiative = sideChosen;
-            irScript.spawn = true;
-            Destroy(this.gameObject, 4);
+            timer += Time.deltaTime;
+            if (timer > 2)
+            {
+                unit.initiative = sideChosen;
+                irScript.spawn = true;
+                Destroy(this.gameObject, 4);
+            }
             //this.enabled = false;
         }
 
@@ -76,23 +82,36 @@ public class DragObject : MonoBehaviour
             caScript.doScript = this;
             caScript.roll = sideChosen;
             caScript.checkHits = true;
-            Destroy(this.gameObject, 5);
+            if (!tutorial)
+            {
+                Destroy(this.gameObject, 5);
+            }
         }
 
         if (dealingDamage && rb.velocity == Vector3.zero && bumped)
         {
             if (attackingUnit.raging)
             {
-                damageToDeal = sideChosen + 2;
-                unit.health -= damageToDeal;
+                Debug.Log("This is the damage: " + sideChosen + " This is the RageNumber: " + attackingUnit.rageNumber);
+                damageToDeal = sideChosen + attackingUnit.rageNumber;
+                unit.health -= damageToDeal; 
             }
             else
             {
+                Debug.Log("This is the damage: " + sideChosen);
                 damageToDeal = sideChosen;
                 unit.health -= damageToDeal;
             }
             Destroy(this.gameObject, 5);
             dealingDamage = false;
+        }
+
+        if (dealEffect && rb.velocity == Vector3.zero && bumped)
+        {
+            unit.raging = true;
+            unit.rageNumber = sideChosen;
+            Destroy(this.gameObject, 5);
+            dealEffect = false;
         }
     }
     private void OnMouseDown()

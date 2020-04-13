@@ -12,7 +12,7 @@ public class CellPositions : MonoBehaviour
     public Color originalColor;
     public enum Attacks { None, First, Second, Third};
     public Attacks attack;
-    public enum Direction { Up, Down, Left, Right, DownLeft, DownRight, UpLeft, UpRight, None};
+    public enum Direction {None, Up, Down, Left, Right, DownLeft, DownRight, UpLeft, UpRight};
     public Direction direction;
     public int range;
     public TileMap.Node currentNode;
@@ -31,7 +31,7 @@ public class CellPositions : MonoBehaviour
     public GameObject d4;
     public GameObject d6;
     public GameObject d8;
-    
+   
     public List<GameObject> spawnedDie = new List<GameObject>();
     public bool waiting = true;
     private void Start()
@@ -80,11 +80,6 @@ public class CellPositions : MonoBehaviour
         {
             direction = unit.direction;
             attack = unit.attack;
-            if ((attack == Attacks.Second || attack == Attacks.Third) && unit.preAttack)
-            {
-                unit.attackNow = true;
-                unit.preAttack = false;
-            }
             if (unit.attackNow && !unit.attackedAlready)
             {
                 ExecuteAllPlayer(attack, range);
@@ -131,11 +126,24 @@ public class CellPositions : MonoBehaviour
         if (attack == Attacks.Second)
         {
             DoingAllTheDamageDiceMagic(d8);
+            unit.attack2CoolDown = unit.ogAttack2CoolDown;
         }
         if (attack == Attacks.Third)
         {
-
+            SpawnRageEffectDiceOverPlayer(unit);
+            unit.attackDamaged = false;
+            unit.attackedAlready = true;
+            unit.attack3CoolDown = unit.ogAttack3CoolDown;
         }
+    }
+    public void SpawnRageEffectDiceOverPlayer(Unit cU)
+    {
+        GameObject temp = Instantiate(d4, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+        temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        DragObject d = temp.GetComponent<DragObject>();
+        d.dealEffect = true;
+        d.unit = cU;
+        cU.attackNow = false;
     }
     public void DoingAllTheDamageDiceMagic(GameObject dice)
     {
@@ -172,6 +180,10 @@ public class CellPositions : MonoBehaviour
         d.dealingDamage = true;
         d.attackingUnit = attackingUnit;
         spawnedDie.Add(go);
+        if (unit.GetComponent<TutorialScript>())
+        {
+            unit.GetComponent<TutorialScript>().attackDamage = temp;
+        }
     }
     public void SpawnDice(Unit unit, Unit attackingUnit)
     {
@@ -182,6 +194,11 @@ public class CellPositions : MonoBehaviour
         c.currentUnit = unit;
         c.attackingUnit = attackingUnit;
         d.attacking = true;
+        if (unit.GetComponent<TutorialScript>())
+        {
+            d.tutorial = true;
+            unit.GetComponent<TutorialScript>().attackArmor = temp;
+        }
     }
     public void ExecuteAll(Attacks a, int range)
     {
@@ -225,6 +242,10 @@ public class CellPositions : MonoBehaviour
     }
     public void ColorAttacksPlayer(Attacks a, int range)
     {
+        if (a == Attacks.None)
+        {
+            Debug.Log("No Coloring");
+        }
         if (a == Attacks.First)
         {
             FirstAttack();

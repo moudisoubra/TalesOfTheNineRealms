@@ -10,6 +10,7 @@ public class TurnController : MonoBehaviour
     public TileMap tmScript;
     public List<Unit> units;
     public int index;
+    public int uiStep;
     public float nameTransitionSpeed;
     public GameObject attackButton;
     public GameObject goButton;
@@ -20,7 +21,9 @@ public class TurnController : MonoBehaviour
     public bool firstTime = true;
     public bool spawnNames;
     public bool cameraTweened = false;
-    Unit unit;
+    public bool tutorial = false;
+    public bool showUI = false;
+    public Unit unit;
     public GameObject nameHolder;
     public GameObject nameHolderPosition;
     public GameObject nameHolderPositionBack;
@@ -33,12 +36,20 @@ public class TurnController : MonoBehaviour
     public void Update()
     {
         unit = tmScript.selectedUnit.GetComponent<Unit>();
-        if (goForIt)
+        if (goForIt && !tutorial)
         {
             CheckScripts();
             CheckDeaths();
             ChangeStatus();
             ControlNames();
+        }
+        else if(goForIt && tutorial && showUI)
+        {
+            TutorialStatus();
+            TutorialNames();
+            //CheckScripts();
+            //CheckDeaths();
+            //ControlNames();
         }
 
         //if (tmScript.selectedUnit.CompareTag("Player"))
@@ -54,7 +65,7 @@ public class TurnController : MonoBehaviour
         //    }
         //}
 
-        if (!reordered && goForIt && firstTime)
+        if (!reordered && goForIt && firstTime && !tutorial)
         {
             irScript.ReOrder();
             reordered = true;
@@ -155,6 +166,26 @@ public class TurnController : MonoBehaviour
                 buttons[i].SetActive(true);
                 //buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<Unit>().attackNames[i];
                 buttons[i].GetComponentInChildren<Text>().text = unit.GetComponent<Unit>().attackNames[i];
+
+                if (unit.attack2CoolDown > 0)
+                {
+                    buttons[1].GetComponent<Button>().interactable = false;
+                    buttons[1].GetComponentInChildren<Text>().text = unit.GetComponent<Unit>().attackNames[1] + " (" + unit.attack2CoolDown + ")";
+                }
+                else
+                {
+                    buttons[1].GetComponent<Button>().interactable = true;
+                }
+
+                if (unit.attack3CoolDown > 0)
+                {
+                    buttons[2].GetComponent<Button>().interactable = false;
+                    buttons[2].GetComponentInChildren<Text>().text = unit.GetComponent<Unit>().attackNames[2] + " (" + unit.attack3CoolDown + ")";
+                }
+                else
+                {
+                    buttons[2].GetComponent<Button>().interactable = true;
+                }
             }
         }
         else
@@ -166,6 +197,51 @@ public class TurnController : MonoBehaviour
                 buttons[i].SetActive(false);
                 //buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "";
                 buttons[i].GetComponentInChildren<Text>().text = "";
+            }
+        }
+    }
+    public void TutorialStatus()
+    {
+        if (unit.CompareTag("Player"))
+        {
+            //goButton.SetActive(true);
+            attackButton.SetActive(true);
+            for (int i = 0; i < buttons.Count; i++)
+            {
+
+
+                buttons[i].SetActive(true);
+                //buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<Unit>().attackNames[i];
+                buttons[i].GetComponentInChildren<Text>().text = unit.GetComponent<Unit>().attackNames[i];
+
+                if (i <= uiStep)
+                {
+                    buttons[i].GetComponent<Button>().interactable = true;
+                }
+                else
+                {
+                    buttons[i].GetComponent<Button>().interactable = false;
+                }
+
+                if (unit.attack2CoolDown > 0)
+                {
+                    buttons[1].GetComponent<Button>().interactable = false;
+                    buttons[1].GetComponentInChildren<Text>().text = unit.GetComponent<Unit>().attackNames[1] + " (" + unit.attack2CoolDown + ")";
+                }
+                else
+                {
+                    buttons[1].GetComponent<Button>().interactable = true;
+                }
+
+                if (unit.attack3CoolDown > 0)
+                {
+                    buttons[2].GetComponent<Button>().interactable = false;
+                    buttons[2].GetComponentInChildren<Text>().text = unit.GetComponent<Unit>().attackNames[2] + " (" + unit.attack3CoolDown + ")";
+                }
+                else
+                {
+                    buttons[2].GetComponent<Button>().interactable = true;
+                }
             }
         }
     }
@@ -236,6 +312,24 @@ public class TurnController : MonoBehaviour
         }   
     }
     public void ControlNames()
+    {
+        for (int i = 0; i < uiNames.Count; i++)
+        {
+            if (uiNames[i].GetComponentInChildren<UINames>().myUnit == tmScript.selectedUnit.GetComponent<Unit>())
+            {
+                Vector3 position = new Vector3(nameHolderPosition.transform.position.x, uiNames[i].transform.position.y, uiNames[i].transform.position.z);
+                uiNames[i].GetComponentInChildren<UINames>().myTurn = true;
+                uiNames[i].transform.position = Vector3.Lerp(uiNames[i].transform.position, position, nameTransitionSpeed * Time.deltaTime);
+            }
+            else
+            {
+                Vector3 position = new Vector3(nameHolderPositionBack.transform.position.x, uiNames[i].transform.position.y, uiNames[i].transform.position.z);
+                uiNames[i].GetComponentInChildren<UINames>().myTurn = false;
+                uiNames[i].transform.position = Vector3.Lerp(uiNames[i].transform.position, position, nameTransitionSpeed * Time.deltaTime);
+            }
+        }
+    }
+    public void TutorialNames()
     {
         for (int i = 0; i < uiNames.Count; i++)
         {

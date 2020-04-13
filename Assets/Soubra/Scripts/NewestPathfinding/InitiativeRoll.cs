@@ -16,6 +16,8 @@ public class InitiativeRoll : MonoBehaviour
     public bool spawn = true;
     public bool done = false;
     public bool check = true;
+    public bool tutorial = false;
+    public bool throwTutorial = false;
 
     void Start()
     {
@@ -33,7 +35,19 @@ public class InitiativeRoll : MonoBehaviour
         if (spawn && tmScript.done)
         {
 
-            if (index < Characters.Count)
+            if (index < Characters.Count && !tutorial)
+            {
+                currentCharacter = Characters[index];
+                SpawnDice(currentCharacter);
+                check = false;
+                if (currentCharacter.enemyType != Unit.EnemyType.Player)
+                {
+                    currentDice.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-700, -100), Random.Range(100, 700), 0));
+                    currentDice.GetComponent<DragObject>().turn = true;
+                    currentDice.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                }
+            }
+            if (index < Characters.Count && tutorial)
             {
                 currentCharacter = Characters[index];
                 SpawnDice(currentCharacter);

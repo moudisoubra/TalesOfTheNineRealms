@@ -68,6 +68,30 @@ public class OdinWarriorClass : CellPositions
         hitUnits.Clear();
         unit.targetTile = null;
         unit.preAttack = true;
-        unit.attack = Attacks.None; 
+        unit.attack = Attacks.None;
+        attackNodes.Clear();
+
+        if (unit.raging)
+        {
+            unit.rageTime++;
+
+            if (unit.rageTime > 2)
+            {
+                unit.rageNumber = 0;
+                unit.rageTime = 0;
+                unit.raging = false;
+            }
+        }
+
+        if (unit.attack3CoolDown > 0)
+        {
+            unit.attack3CoolDown--;
+            Debug.Log("This has been called");
+        }
+
+        if (unit.attack2CoolDown > 0)
+        {
+            unit.attack2CoolDown--;
+        }
     }
 }

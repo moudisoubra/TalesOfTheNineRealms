@@ -13,7 +13,6 @@ public class ClickableTile : MonoBehaviour
     public TurnController tc;
     public Unit unit;
     public string name;
-
     private void Start()
     {
         gp = GetComponentInChildren<GivePosition>();
@@ -69,10 +68,6 @@ public class ClickableTile : MonoBehaviour
                     unit.attackNow = false;
                 }
             }
-        }
-        else
-        {
-            map.MoveUnitTo(tileX, tileZ);
         }
     }
 }
