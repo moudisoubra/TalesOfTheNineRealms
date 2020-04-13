@@ -107,6 +107,12 @@ public class TurnController : MonoBehaviour
             unit.GetComponent<OdinWarriorClass>().ClearAll();
             Debug.Log("Cleared It");
         }
+
+        for (int i = 0; i < units.Count; i++)
+        {
+            units[i].hmScript.HIT = HitOrMiss.Hit.none;
+            units[i].getHit = false;
+        }
     }
     public void CheckScripts()
     {
@@ -167,25 +173,31 @@ public class TurnController : MonoBehaviour
     {
         if (!unit.attackMode)
         {
+            unit.targetTile = null;
             unit.CheckAttackStatus();
-            if (unit.attackMode)
+            if (unit.attackMode && !unit.attackedAlready)
             {
+                Debug.Log("You Already Attacked");
                 SetAttack(i);
             }
         }
-        if (unit.attackMode)
+        if (unit.attackMode && !unit.attackedAlready)
         {
+            unit.targetTile = null;
+            Debug.Log("You Already Attacked");
             SetAttack(i);
         }
     }
     public void CheckMove()
     {
+        unit.targetTile = null;
         unit.attackMode = false;
     }
     public void CheckAction()
     {
         if (unit.attackMode)
         {
+
             unit.attackNow = true;
         }
         else
@@ -197,14 +209,17 @@ public class TurnController : MonoBehaviour
     {
         if (i == 1)
         {
+            unit.targetTile = null;
             unit.attack = CellPositions.Attacks.First;
         }
         if (i == 2)
         {
+            unit.targetTile = null;
             unit.attack = CellPositions.Attacks.Second;
         }
         if (i == 3)
         {
+            unit.targetTile = null;
             unit.attack = CellPositions.Attacks.Third;
         }
     }

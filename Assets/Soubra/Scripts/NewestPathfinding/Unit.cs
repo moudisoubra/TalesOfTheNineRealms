@@ -25,6 +25,7 @@ public class Unit : MonoBehaviour
     public bool attackDamaged;
     public bool attackMode;
     public bool attackedAlready;
+    public bool preAttack = true;
     public bool raging;
     public bool dead;
     public bool getHit;

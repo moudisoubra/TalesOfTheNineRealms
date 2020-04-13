@@ -60,5 +60,14 @@ public class OdinWarriorClass : CellPositions
     public void ClearAll()
     {
         unit.remainingMovement = unit.moveSpeed;
+        unit.attackMode = false;
+        unit.attackedAlready = false;
+        unit.attackDamaged = false;
+        effectedUnits.Clear();
+        unitsToCheck.Clear();
+        hitUnits.Clear();
+        unit.targetTile = null;
+        unit.preAttack = true;
+        unit.attack = Attacks.None; 
     }
 }

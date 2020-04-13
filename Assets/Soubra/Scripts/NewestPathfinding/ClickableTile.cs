@@ -32,6 +32,7 @@ public class ClickableTile : MonoBehaviour
                 if (unit.targetTile == this && !unit.attackDamaged)
                 {
                     unit.attackNow = true;
+
                 }
                 else
                 {

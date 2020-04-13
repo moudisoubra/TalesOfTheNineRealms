@@ -66,7 +66,8 @@ public class DragObject : MonoBehaviour
 
             unit.initiative = sideChosen;
             irScript.spawn = true;
-            this.enabled = false;
+            Destroy(this.gameObject, 4);
+            //this.enabled = false;
         }
 
         if (attacking && rb.velocity == Vector3.zero && bumped)
@@ -75,6 +76,7 @@ public class DragObject : MonoBehaviour
             caScript.doScript = this;
             caScript.roll = sideChosen;
             caScript.checkHits = true;
+            Destroy(this.gameObject, 5);
         }
 
         if (dealingDamage && rb.velocity == Vector3.zero && bumped)
@@ -89,6 +91,7 @@ public class DragObject : MonoBehaviour
                 damageToDeal = sideChosen;
                 unit.health -= damageToDeal;
             }
+            Destroy(this.gameObject, 5);
             dealingDamage = false;
         }
     }
@@ -123,7 +126,10 @@ public class DragObject : MonoBehaviour
 
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
-
+    public void GetRidOfThis()
+    {
+        irScript.die.Remove(this.gameObject);
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (transform.position != startPos)
@@ -131,6 +137,10 @@ public class DragObject : MonoBehaviour
             turn = false;
             notUsed = true;
             bumped = true;
+            if (irScript != null)
+            {
+                Invoke("GetRidOfThis", 3);
+            }
         }
     }
 }

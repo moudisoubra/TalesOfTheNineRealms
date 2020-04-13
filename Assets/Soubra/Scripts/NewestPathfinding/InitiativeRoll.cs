@@ -15,6 +15,7 @@ public class InitiativeRoll : MonoBehaviour
     public Unit currentCharacter;
     public bool spawn = true;
     public bool done = false;
+    public bool check = true;
 
     void Start()
     {
@@ -28,6 +29,7 @@ public class InitiativeRoll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (spawn && tmScript.done)
         {
 
@@ -35,24 +37,22 @@ public class InitiativeRoll : MonoBehaviour
             {
                 currentCharacter = Characters[index];
                 SpawnDice(currentCharacter);
-
+                check = false;
                 if (currentCharacter.enemyType != Unit.EnemyType.Player)
                 {
-                    currentDice.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-700,-100), Random.Range(100, 700), 0));
+                    currentDice.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-700, -100), Random.Range(100, 700), 0));
                     currentDice.GetComponent<DragObject>().turn = true;
                     currentDice.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 }
             }
-            else if(currentDice.GetComponent<Rigidbody>().velocity == Vector3.zero && !done)
-            {
-                ReOrder();
-                //for (int i = 0; i < die.Count; i++)
-                //{
-                //    Destroy(die[i].gameObject);
-                //}
-                tcScript.goForIt = true;
-                battleCanvas.SetActive(true);
-            }
+            //else if (currentDice.GetComponent<Rigidbody>().velocity == Vector3.zero && !done)
+            //{
+            //    //for (int i = 0; i < die.Count; i++)
+            //    //{
+            //    //    Destroy(die[i].gameObject);
+            //    //}
+            //    //tcScript.goForIt = true;
+            //}
             if (index < Characters.Count + 2)
             {
                 index++;
@@ -60,6 +60,15 @@ public class InitiativeRoll : MonoBehaviour
 
             //spawn = false;
         }
+
+        if (die.Count == 0 && !check)
+        {
+            ReOrder();
+            battleCanvas.SetActive(true);
+            tcScript.goForIt = true;
+            check = true;
+        }
+
     }
 
     public void SpawnDice(Unit unit)

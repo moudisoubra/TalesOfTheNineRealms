@@ -10,7 +10,7 @@ public class CellPositions : MonoBehaviour
     public int tileZ;
     public int damage;
     public Color originalColor;
-    public enum Attacks { First, Second, Third};
+    public enum Attacks { None, First, Second, Third};
     public Attacks attack;
     public enum Direction { Up, Down, Left, Right, DownLeft, DownRight, UpLeft, UpRight, None};
     public Direction direction;
@@ -31,7 +31,7 @@ public class CellPositions : MonoBehaviour
     public GameObject d4;
     public GameObject d6;
     public GameObject d8;
-
+    
     public List<GameObject> spawnedDie = new List<GameObject>();
     public bool waiting = true;
     private void Start()
@@ -80,13 +80,15 @@ public class CellPositions : MonoBehaviour
         {
             direction = unit.direction;
             attack = unit.attack;
-
-            if (unit.attackNow)
+            if ((attack == Attacks.Second || attack == Attacks.Third) && unit.preAttack)
+            {
+                unit.attackNow = true;
+                unit.preAttack = false;
+            }
+            if (unit.attackNow && !unit.attackedAlready)
             {
                 ExecuteAllPlayer(attack, range);
-
-
-
+                unit.attackedAlready = true;
                 for (int i = 0; i < effectedUnits.Count; i++)
                 {
                     SpawnDice(effectedUnits[i], unit);
@@ -124,29 +126,41 @@ public class CellPositions : MonoBehaviour
 
         if (attack == Attacks.First)
         {
-            for (int i = 0; i < unitsToCheck.Count; i++)
+            DoingAllTheDamageDiceMagic(d6);
+        }
+        if (attack == Attacks.Second)
+        {
+            DoingAllTheDamageDiceMagic(d8);
+        }
+        if (attack == Attacks.Third)
+        {
+
+        }
+    }
+    public void DoingAllTheDamageDiceMagic(GameObject dice)
+    {
+        for (int i = 0; i < unitsToCheck.Count; i++)
+        {
+            if (unitsToCheck[i].getHit)
             {
-                if (unitsToCheck[i].getHit)
-                {
-                    hitUnits.Add(unitsToCheck[i]);
-                    SpawnDamageDice(d6, unitsToCheck[i], unit);
-                    unitsToCheck.Remove(unitsToCheck[i]);
-                }
+                hitUnits.Add(unitsToCheck[i]);
+                SpawnDamageDice(dice, unitsToCheck[i], unit);
+                unitsToCheck.Remove(unitsToCheck[i]);
             }
-            for (int i = 0; i < spawnedDie.Count; i++)
+        }
+        for (int i = 0; i < spawnedDie.Count; i++)
+        {
+            if (!spawnedDie[i].GetComponent<DragObject>().dealingDamage)
             {
-                if (!spawnedDie[i].GetComponent<DragObject>().dealingDamage)
-                {
-                    spawnedDie.Remove(spawnedDie[i]);
-                }
+                spawnedDie.Remove(spawnedDie[i]);
             }
-            if (spawnedDie.Count == 0 && unitsToCheck.Count == 0)
-            {
-                //unit.animator.SetTrigger("Attack1");
-                hitUnits.Clear();
-                unitsToCheck.Clear();
-                unit.attackDamaged = false;
-            }
+        }
+        if (spawnedDie.Count == 0 && unitsToCheck.Count == 0)
+        {
+            //unit.animator.SetTrigger("Attack1");
+            hitUnits.Clear();
+            unitsToCheck.Clear();
+            unit.attackDamaged = false;
         }
     }
     public void SpawnDamageDice(GameObject go,Unit unit, Unit attackingUnit)
@@ -189,7 +203,6 @@ public class CellPositions : MonoBehaviour
         ColorAttacks();
         CheckHit();
     }
-
     public void ExecuteAllPlayer(Attacks a, int range)
     {
 
@@ -210,7 +223,6 @@ public class CellPositions : MonoBehaviour
         ColorAttacks();
         CheckHitPlayer();
     }
-
     public void ColorAttacksPlayer(Attacks a, int range)
     {
         if (a == Attacks.First)
@@ -229,7 +241,6 @@ public class CellPositions : MonoBehaviour
         CheckAttack();
         ColorAttacks();
     }
-
     public void NeighCells()
     {
         for (int x = 0; x < map.mapSizeX; x++)
@@ -251,7 +262,6 @@ public class CellPositions : MonoBehaviour
             }
         }
     }
-
     public void ColorPath()
     {
         for (int x = 0; x < map.mapSizeX; x++)
@@ -290,17 +300,14 @@ public class CellPositions : MonoBehaviour
     {
        
     }
-
     public virtual void SecondAttack()
     {
 
     }
-
     public virtual void ThirdAttack(int range)
     {
 
     }
-
     public void CheckAttack()
     {
         int temp = -1;
@@ -329,7 +336,6 @@ public class CellPositions : MonoBehaviour
         }
         //Debug.Log("DONE");
     }
-
     public void ColorAttacks()
     {
         //Debug.Log(attackNodes.Count);
@@ -342,7 +348,6 @@ public class CellPositions : MonoBehaviour
             }
         }
     }
-
     public void CheckHit()
     {
         
@@ -363,7 +368,6 @@ public class CellPositions : MonoBehaviour
 
         }
     }
-
     public void CheckHitPlayer()
     {
 
@@ -384,7 +388,6 @@ public class CellPositions : MonoBehaviour
 
         }
     }
-
     public Direction CheckDirection()
     {
         Debug.Log("CHECKING DIRECTION");
@@ -430,7 +433,6 @@ public class CellPositions : MonoBehaviour
 
         return direction;
     }
-
     public void AddNode(TileMap.Node n, int x, int y)
     {
         if (direction == Direction.None)
