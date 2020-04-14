@@ -37,6 +37,13 @@ public class DragObject : MonoBehaviour
     }
     private void Update()
     {
+        if (unit != null && unit.GetComponent<TutorialScript>())
+        {
+            unit.GetComponent<TutorialScript>().damagedealt = damageToDeal;
+            unit.GetComponent<TutorialScript>().dealingDamage = dealingDamage;
+            unit.GetComponent<TutorialScript>().dealingEffect = dealEffect;
+            unit.GetComponent<TutorialScript>().damageadded = sideChosen;
+        }
         if (turn)
         {
             transform.Rotate(rotateX * rotateSpeed * Time.deltaTime, rotateY * rotateSpeed * Time.deltaTime, rotateZ * rotateSpeed * Time.deltaTime);
@@ -80,11 +87,15 @@ public class DragObject : MonoBehaviour
         {
             caScript = GetComponent<CheckArmor>();
             caScript.doScript = this;
-            caScript.roll = sideChosen;
             caScript.checkHits = true;
+                caScript.roll = sideChosen;
             if (!tutorial)
             {
                 Destroy(this.gameObject, 5);
+            }
+            else
+            {
+                Destroy(this.gameObject, 10);
             }
         }
 
@@ -102,6 +113,7 @@ public class DragObject : MonoBehaviour
                 damageToDeal = sideChosen;
                 unit.health -= damageToDeal;
             }
+
             Destroy(this.gameObject, 5);
             dealingDamage = false;
         }
@@ -110,8 +122,16 @@ public class DragObject : MonoBehaviour
         {
             unit.raging = true;
             unit.rageNumber = sideChosen;
-            Destroy(this.gameObject, 5);
             dealEffect = false;
+
+            if (!tutorial)
+            {
+                Destroy(this.gameObject, 5);
+            }
+            else
+            {
+                Destroy(this.gameObject, 10);
+            }
         }
     }
     private void OnMouseDown()

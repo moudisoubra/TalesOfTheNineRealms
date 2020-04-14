@@ -11,6 +11,7 @@ public class TurnController : MonoBehaviour
     public List<Unit> units;
     public int index;
     public int uiStep;
+    public int tutorialStep;
     public float nameTransitionSpeed;
     public GameObject attackButton;
     public GameObject goButton;
@@ -27,6 +28,7 @@ public class TurnController : MonoBehaviour
     public GameObject nameHolder;
     public GameObject nameHolderPosition;
     public GameObject nameHolderPositionBack;
+    public GameObject turnButton;
     public List<GameObject> uiNames;
 
     private void Start()
@@ -121,7 +123,7 @@ public class TurnController : MonoBehaviour
 
         for (int i = 0; i < units.Count; i++)
         {
-            units[i].hmScript.HIT = HitOrMiss.Hit.none;
+            //units[i].hmScript.HIT = HitOrMiss.Hit.none;
             units[i].getHit = false;
         }
     }
@@ -206,6 +208,14 @@ public class TurnController : MonoBehaviour
         {
             //goButton.SetActive(true);
             attackButton.SetActive(true);
+            if (tutorialStep == 10)
+            {
+                turnButton.GetComponent<Button>().interactable = true;
+            }
+            else
+            {
+                turnButton.GetComponent<Button>().interactable = false;
+            }
             for (int i = 0; i < buttons.Count; i++)
             {
 
@@ -214,7 +224,8 @@ public class TurnController : MonoBehaviour
                 //buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<Unit>().attackNames[i];
                 buttons[i].GetComponentInChildren<Text>().text = unit.GetComponent<Unit>().attackNames[i];
 
-                if (i <= uiStep)
+
+                if (i == uiStep)
                 {
                     buttons[i].GetComponent<Button>().interactable = true;
                 }
@@ -226,9 +237,9 @@ public class TurnController : MonoBehaviour
                 if (unit.attack2CoolDown > 0)
                 {
                     buttons[1].GetComponent<Button>().interactable = false;
-                    buttons[1].GetComponentInChildren<Text>().text = unit.GetComponent<Unit>().attackNames[1] + " (" + unit.attack2CoolDown + ")";
+                    //buttons[1].GetComponentInChildren<Text>().text = unit.GetComponent<Unit>().attackNames[1] + " (" + unit.attack2CoolDown + ")";
                 }
-                else
+                else if(1 == uiStep)
                 {
                     buttons[1].GetComponent<Button>().interactable = true;
                 }
@@ -236,12 +247,13 @@ public class TurnController : MonoBehaviour
                 if (unit.attack3CoolDown > 0)
                 {
                     buttons[2].GetComponent<Button>().interactable = false;
-                    buttons[2].GetComponentInChildren<Text>().text = unit.GetComponent<Unit>().attackNames[2] + " (" + unit.attack3CoolDown + ")";
+                    //buttons[2].GetComponentInChildren<Text>().text = unit.GetComponent<Unit>().attackNames[2] + " (" + unit.attack3CoolDown + ")";
                 }
-                else
+                else if (2 == uiStep)
                 {
                     buttons[2].GetComponent<Button>().interactable = true;
                 }
+
             }
         }
     }

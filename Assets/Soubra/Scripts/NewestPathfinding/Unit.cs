@@ -222,11 +222,25 @@ public class Unit : MonoBehaviour
 
                 currentPath.RemoveAt(0);
                 Debug.Log("Still Asking TO Walk");
-                if (currentPath.Count == 1)
+                if (enemyType == EnemyType.Player)
                 {
-                    Debug.Log("Current Path Count: " + currentPath.Count);
-                    currentPath = null;
+                    if (currentPath.Count == 0) //This used to be 1 but that would cause it to stop next to the target instead of at the target
+                    {                           //Im sure theirs a reason I set this to 1 instead of 0 but oh well, I need it to be 0 now
+                                                //if errors happen come back and change this back to 1
+                        Debug.Log("Current Path Count: " + currentPath.Count);
+                        currentPath = null;
+                    }
                 }
+                else
+                {
+                    if (currentPath.Count == 1) //This used to be 1 but that would cause it to stop next to the target instead of at the target
+                    {                           //Im sure theirs a reason I set this to 1 instead of 0 but oh well, I need it to be 0 now
+                                                //if errors happen come back and change this back to 1
+                        Debug.Log("Current Path Count: " + currentPath.Count);
+                        currentPath = null;
+                    }
+                }
+
             }
             else
             {

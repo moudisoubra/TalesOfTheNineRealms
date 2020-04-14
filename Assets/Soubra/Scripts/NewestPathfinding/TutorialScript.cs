@@ -5,20 +5,27 @@ using UnityEngine;
 public class TutorialScript : MonoBehaviour
 {
     public bool active = true;
+    public bool dealingDamage = true;
+    public bool dealingEffect = true;
     public int tutorialStep;
     public int uiStep = -1;
+    public int damagedealt = 0;
+    public int damageadded = 0;
     public float timer;
     public Dialogue dScript;
     public ClickableTile ct;
     public ClickableTile walkTo;
+    public ClickableTile startCT;
     public ClickableTile attackTo;
     public AsgardianMClass ac;
     public TurnController tcScript;
     public InitiativeRoll irScript;
+    public CheckHealths chScript;
     public Unit player;
     public Unit enemy;
     public GameObject attackArmor;
     public GameObject attackDamage;
+    public GameObject attackEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -26,11 +33,15 @@ public class TutorialScript : MonoBehaviour
         dScript = FindObjectOfType<Dialogue>();
         enemy = GetComponent<Unit>();
         ac.enabled = true;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        tcScript.uiStep = uiStep;
+        tcScript.tutorialStep = tutorialStep;
+
         if (tutorialStep == 0)
         {
             TeachInitiative();
@@ -78,7 +89,43 @@ public class TutorialScript : MonoBehaviour
         }
         if (tutorialStep == 10)
         {
-
+            EndTurn();
+        }
+        if (tutorialStep == 11)
+        {
+            TeachStatusEffect();
+        }
+        if (tutorialStep == 12)
+        {
+            TryStatusEffect();
+        }
+        if (tutorialStep == 13)
+        {
+            AttackTwo();
+        }
+        if (tutorialStep == 14)
+        {
+            AttackTwoStepForward();
+        }
+        if (tutorialStep == 15)
+        {
+            AttackTwoCheck();
+        }
+        if (tutorialStep == 16)
+        {
+            AttackTwoRolledArmor();
+        }
+        if (tutorialStep == 17)
+        {
+            FixedAttackTwo();
+        }
+        if (tutorialStep == 18)
+        {
+            RollAttackDiceTwo();
+        }
+        if (tutorialStep == 19)
+        {
+            AtTheEnd();
         }
     }
 
@@ -98,6 +145,7 @@ public class TutorialScript : MonoBehaviour
     public void NextStep()
     {
         tutorialStep++;
+        active = true;
     }
     public void TeachInitiative()
     {
@@ -149,6 +197,7 @@ public class TutorialScript : MonoBehaviour
                 }
                 if (dScript.done)
                 {
+                    startCT = player.currentNode.ground.GetComponent<ClickableTile>();
                     player.initiative = enemy.initiative + 1;
                     irScript.ReOrder();
                     tcScript.tmScript.selectedUnit = player.gameObject;
@@ -236,13 +285,14 @@ public class TutorialScript : MonoBehaviour
 
             dialouge[0] = "Odin focus! Please click on the tile infront of me.";
             player.targetTile = null;
+                active = true;
 
             if (active)
             {
                 timer = 0;
                 DoDialouge(dialouge);
                 player.targetTile = null;
-                active = false;
+                active = true;
             }
             if (dScript.done)
             {
@@ -253,7 +303,8 @@ public class TutorialScript : MonoBehaviour
     }
     public void FirstAttack()
     {
-        if (player.currentNode.ground.GetComponent<ClickableTile>() == walkTo)
+        
+        if (player.remainingMovement == 0 && player.currentNode.ground.GetComponent<ClickableTile>() == walkTo)
         {
             string[] dialouge = new string[2];
 
@@ -270,6 +321,26 @@ public class TutorialScript : MonoBehaviour
             {
                 uiStep++;
                 tutorialStep++;
+                active = true;
+            }
+        }
+        if (!player.move && player.remainingMovement == 0 && player.currentNode.ground.GetComponent<ClickableTile>() != walkTo)
+        {
+            string[] dialouge = new string[2];
+
+            dialouge[0] = "Odin please walk to me!";
+            dialouge[1] = "Teleporting you back!";
+
+            if (active)
+            {
+                player.targetTile = null;
+                DoDialouge(dialouge);
+                active = false;
+            }
+            if (dScript.done)
+            {
+                player.GetComponent<AssignTiles>().assign = true;
+                player.remainingMovement = 3;
                 active = true;
             }
         }
@@ -323,12 +394,13 @@ public class TutorialScript : MonoBehaviour
             dialouge[0] = "No Odin, click the tile that is between you and I.";
             player.targetTile = null;
 
+                active = true;
             if (active)
             {
                 player.targetTile = null;
                 timer = 0;
                 DoDialouge(dialouge);
-                active = false;
+                active = true;
             }
             if (dScript.done)
             {
@@ -385,24 +457,88 @@ public class TutorialScript : MonoBehaviour
         if (active)
         {
             enemy.hmScript.HIT = HitOrMiss.Hit.hit;
+            enemy.getHit = true;
+            OdinWarriorClass reference = player.GetComponent<OdinWarriorClass>();
+            reference.DealDamage(reference.attack);
             DoDialouge(dialouge);
             active = false;
         }
         if (dScript.done)
         {
-            tutorialStep ++;
+            tutorialStep++;
             active = true;
         }
     }
     public void RollAttackDice()
     {
-        if (!attackDamage.GetComponent<DragObject>().dealingDamage)
+        if (!dealingDamage && player.attackedAlready)
         {
 
             string[] dialouge = new string[2];
 
             dialouge[0] = "Alright so you rolled!";
-            dialouge[1] = "You did " + attackDamage.GetComponent<DragObject>().damageToDeal +" to me.";
+            dialouge[1] = "You did " + damagedealt + " damage to me.";
+
+            if (active)
+            {
+                DoDialouge(dialouge);
+                active = false;
+            }
+            if (dScript.done)
+            {
+                tutorialStep++;
+                active = true;
+            }
+        }
+    }
+    public void EndTurn()
+    {
+
+        string[] dialouge = new string[2];
+
+        dialouge[0] = "Now that you have moved and dealt damage its time to end you turn!";
+        dialouge[1] = "Clicking the end turn button will refresh your movement and calculate any cooldowns for your attacks.";
+
+        if (active)
+        {
+            player.GetComponent<OdinWarriorClass>().ClearAll();
+            DoDialouge(dialouge);
+            active = false;
+        }
+
+    }
+    public void TeachStatusEffect()
+    {
+        string[] dialouge = new string[6];
+
+        dialouge[0] = "Before we go to your second attack...";
+        dialouge[1] = "We need to talk about your third attack, which is a status effect.";
+        dialouge[2] = "This attack will give you extra damage";
+        dialouge[3] = "The number of extra damage will be determined by the roll";
+        dialouge[4] = "Click the attack once to select it and again to confirm it!";
+        dialouge[5] = "Go ahead and try that attack before we move on";
+
+
+        if (active)
+        {
+            uiStep = 2;
+            DoDialouge(dialouge);
+            active = false;
+        }
+        if (dScript.done)
+        {
+            tutorialStep++;
+            active = true;
+        }
+    }
+    public void TryStatusEffect()
+    {
+        if (player.rageNumber > 0 && !dealingEffect)
+        {
+            string[] dialouge = new string[1];
+
+            dialouge[0] = "You rolled " + damageadded + " this will be added to any damage you do over the next two turns.";
+
 
             if (active)
             {
@@ -418,17 +554,23 @@ public class TutorialScript : MonoBehaviour
     }
     public void AttackTwo()
     {
-        string[] dialouge = new string[4];
+        string[] dialouge = new string[5];
 
         dialouge[0] = "Youre second attack is an AOE attack";
         dialouge[1] = "For this attack you do not chose the attack tiles";
         dialouge[2] = "You click on the attack button and the tiles that will be affect will show up!";
         dialouge[3] = "If you are happy with your attack tiles you click the button again to trigger the attack";
+        dialouge[4] = "Since this attack is shorter range than the other, take a step closer!";
 
 
         if (active)
         {
             DoDialouge(dialouge);
+            player.attackedAlready = false;
+            enemy.hmScript.HIT = HitOrMiss.Hit.none;
+            player.remainingMovement = 3;
+            uiStep = 1;
+            player.GetComponent<OdinWarriorClass>().ClearAll();
             active = false;
         }
         if (dScript.done)
@@ -437,4 +579,198 @@ public class TutorialScript : MonoBehaviour
             active = true;
         }
     }
+    public void AttackTwoStepForward()
+    {
+        if (player.attackMode)
+        {
+            string[] dialouge = new string[1];
+
+            dialouge[0] = "Take a step closer before you try to attack!";
+
+
+            if (active)
+            {
+                DoDialouge(dialouge);
+                active = false;
+            }
+            if (dScript.done)
+            {
+                player.attackMode = false;
+                active = true;
+            }
+        }
+        if (player.targetTile != null && player.targetTile != attackTo)
+        {
+            string[] dialouge = new string[2];
+
+            dialouge[0] = "Dont walk away Odin!";
+            dialouge[1] = "Take a step forward!";
+
+            player.targetTile = null;
+            if (active)
+            {
+                player.targetTile = null;
+                DoDialouge(dialouge);
+                active = true;
+            }
+            if (dScript.done)
+            {
+                player.targetTile = null;
+                player.GetComponent<AssignTiles>().x = walkTo.tileX;
+                player.GetComponent<AssignTiles>().z = walkTo.tileZ;
+                player.GetComponent<AssignTiles>().assign = true;
+                player.remainingMovement = 3;
+                active = true;
+            }
+        }
+        if (player.currentNode.ground.GetComponent<ClickableTile>() == attackTo)
+        {
+            string[] dialouge = new string[2];
+
+            dialouge[0] = "Okay now that you are closer, try your second attack";
+            dialouge[1] = "Click once to show the attack tiles, and click again to confirm it";
+
+
+
+            if (active)
+            {
+                DoDialouge(dialouge);
+                active = false;
+            }
+            if (dScript.done)
+            {
+                player.remainingMovement = 3;
+                tutorialStep++;
+                active = false;
+            }
+        }
+    }
+    public void AttackTwoCheck()
+    {
+        if (player.attackDamaged)
+        {
+            string[] dialouge = new string[2];
+
+            dialouge[0] = "Like last time, roll the armor class check!";
+
+            if (active)
+            {
+                DoDialouge(dialouge);
+                active = false;
+            }
+            if (dScript.done)
+            {
+                tutorialStep++;
+                active = true;
+            }
+        }
+    }
+    public void AttackTwoRolledArmor()
+    {
+        if (enemy.hmScript.HIT == HitOrMiss.Hit.miss)
+        {
+            string[] dialouge = new string[2];
+
+            dialouge[0] = "Okay so the number you rolled was less than my armor class...";
+            dialouge[1] = "Lets Pretend that never happened!";
+
+            if (active)
+            {
+                DoDialouge(dialouge);
+                active = false;
+            }
+            if (dScript.done)
+            {
+                tutorialStep++;
+                active = true;
+            }
+        }
+        if (enemy.hmScript.HIT == HitOrMiss.Hit.hit)
+        {
+            string[] dialouge = new string[2];
+
+            dialouge[0] = "Perfect! The number you rolled is higher than my armor class!";
+            dialouge[1] = "Now you need to roll the damage dice to see how much damage you can do to me.";
+
+            if (active)
+            {
+                DoDialouge(dialouge);
+                active = false;
+            }
+            if (dScript.done)
+            {
+                tutorialStep += 2;
+                active = true;
+            }
+        }
+    }
+    public void FixedAttackTwo()
+    {
+        string[] dialouge = new string[1];
+
+        dialouge[0] = "Now you need to roll the damage dice to see how much damage you can do to me.";
+
+        if (active)
+        {
+            enemy.hmScript.HIT = HitOrMiss.Hit.hit;
+            enemy.getHit = true;
+            OdinWarriorClass reference = player.GetComponent<OdinWarriorClass>();
+            reference.DealDamage(reference.attack);
+            DoDialouge(dialouge);
+            active = false;
+        }
+        if (dScript.done)
+        {
+            tutorialStep++;
+            active = true;
+        }
+
+    }
+    public void RollAttackDiceTwo()
+    {
+        if (!dealingDamage)
+        {
+
+            string[] dialouge = new string[2];
+
+            dialouge[0] = "Alright so you rolled!";
+            dialouge[1] = "You did " + damagedealt + " damage to me.";
+
+            if (active)
+            {
+                DoDialouge(dialouge);
+                active = false;
+            }
+            if (dScript.done)
+            {
+                tutorialStep++;
+                active = true;
+            }
+        }
+    }
+    public void AtTheEnd()
+    {
+        if (!dealingDamage)
+        {
+
+            string[] dialouge = new string[3];
+
+            dialouge[0] = "Well Odin this is all you need to know!";
+            dialouge[1] = "You are ready to head out!";
+            dialouge[2] = "Goodluck!";
+
+            if (active)
+            {
+                DoDialouge(dialouge);
+                active = false;
+            }
+            if (dScript.done)
+            {
+                chScript.playersWon = true;
+                tutorialStep++;
+                active = true;
+            }
+        }
+    }
+
 }

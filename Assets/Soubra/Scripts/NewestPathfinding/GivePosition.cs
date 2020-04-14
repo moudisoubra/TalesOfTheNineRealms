@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GivePosition : MonoBehaviour
 {
@@ -38,6 +39,10 @@ public class GivePosition : MonoBehaviour
     {
         if (ct.tc.goForIt)
         {
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
             ct.map.gpNode = this;
             ct.Check();
         }

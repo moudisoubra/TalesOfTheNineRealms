@@ -10,9 +10,9 @@ public class CellPositions : MonoBehaviour
     public int tileZ;
     public int damage;
     public Color originalColor;
-    public enum Attacks { None, First, Second, Third};
+    public enum Attacks { None, First, Second, Third };
     public Attacks attack;
-    public enum Direction {None, Up, Down, Left, Right, DownLeft, DownRight, UpLeft, UpRight};
+    public enum Direction { None, Up, Down, Left, Right, DownLeft, DownRight, UpLeft, UpRight };
     public Direction direction;
     public int range;
     public TileMap.Node currentNode;
@@ -31,7 +31,7 @@ public class CellPositions : MonoBehaviour
     public GameObject d4;
     public GameObject d6;
     public GameObject d8;
-   
+
     public List<GameObject> spawnedDie = new List<GameObject>();
     public bool waiting = true;
     private void Start()
@@ -39,7 +39,7 @@ public class CellPositions : MonoBehaviour
         attackNodes = new List<TileMap.Node>();
         unit = GetComponent<Unit>();
         map = unit.map;
-        
+
         units = tcScript.units;
 
         if (enemy)
@@ -49,7 +49,7 @@ public class CellPositions : MonoBehaviour
     }
     private void Update()
     {
-        
+
 
         tileX = unit.tileX;
         tileZ = unit.tileZ;
@@ -91,7 +91,7 @@ public class CellPositions : MonoBehaviour
                 unit.attackDamaged = true;
                 unit.attackNow = false;
             }
-            else if(unit.attackMode)
+            else if (unit.attackMode)
             {
                 ColorAttacksPlayer(attack, range);
             }
@@ -144,6 +144,10 @@ public class CellPositions : MonoBehaviour
         d.dealEffect = true;
         d.unit = cU;
         cU.attackNow = false;
+        if (unit.GetComponent<TutorialScript>())
+        {
+            unit.GetComponent<TutorialScript>().attackEffect = temp;
+        }
     }
     public void DoingAllTheDamageDiceMagic(GameObject dice)
     {
