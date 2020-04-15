@@ -20,7 +20,15 @@ public class Attack : GAction
             AsgardianMClass amClass = GetComponent<AsgardianMClass>();
             for (int i = 0; i < amClass.effectedUnits.Count; i++)
             {
-                amClass.effectedUnits[i].GetComponent<Unit>().health -= 2;
+                if (unit.missedAttack)
+                {
+                    unit.targetEnemy.hmScript.HIT = HitOrMiss.Hit.miss;
+                }
+                else
+                {
+                    unit.targetEnemy.hmScript.HIT = HitOrMiss.Hit.hit;
+                    amClass.effectedUnits[i].GetComponent<Unit>().health -= 2;
+                }
                 amClass.effectedUnits.Remove(amClass.effectedUnits[i]);
             }
 
@@ -41,7 +49,15 @@ public class Attack : GAction
             AsgardianMClass amClass = GetComponent<AsgardianMClass>();
             for (int i = 0; i < amClass.effectedUnits.Count; i++)
             {
-                amClass.effectedUnits[i].GetComponent<Unit>().health -= 2;
+                if (unit.missedAttack)
+                {
+                    unit.targetEnemy.hmScript.HIT = HitOrMiss.Hit.miss;
+                }
+                else
+                {
+                    unit.targetEnemy.hmScript.HIT = HitOrMiss.Hit.hit;
+                    amClass.effectedUnits[i].GetComponent<Unit>().health -= 2;
+                }
                 amClass.effectedUnits.Remove(amClass.effectedUnits[i]);
             }
 
@@ -62,7 +78,15 @@ public class Attack : GAction
             GiantsClass gmClass = GetComponent<GiantsClass>();
             for (int i = 0; i < gmClass.effectedUnits.Count; i++)
             {
-                gmClass.effectedUnits[i].GetComponent<Unit>().health -= 2;
+                if (unit.missedAttack)
+                {
+                    unit.targetEnemy.hmScript.HIT = HitOrMiss.Hit.miss;
+                }
+                else
+                {
+                    unit.targetEnemy.hmScript.HIT = HitOrMiss.Hit.hit;
+                    gmClass.effectedUnits[i].GetComponent<Unit>().health -= 2;
+                }
                 gmClass.effectedUnits.Remove(gmClass.effectedUnits[i]);
             }
 
@@ -83,7 +107,15 @@ public class Attack : GAction
             TreePeopleClass gmClass = GetComponent<TreePeopleClass>();
             for (int i = 0; i < gmClass.effectedUnits.Count; i++)
             {
-                gmClass.effectedUnits[i].GetComponent<Unit>().health -= 2;
+                if (unit.missedAttack)
+                {
+                    unit.targetEnemy.hmScript.HIT = HitOrMiss.Hit.miss;
+                }
+                else
+                {
+                    unit.targetEnemy.hmScript.HIT = HitOrMiss.Hit.hit;
+                    gmClass.effectedUnits[i].GetComponent<Unit>().health -= 2;
+                }
                 gmClass.effectedUnits.Remove(gmClass.effectedUnits[i]);
             }
 

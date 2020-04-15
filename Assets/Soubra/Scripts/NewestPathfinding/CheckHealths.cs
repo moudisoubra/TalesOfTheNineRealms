@@ -6,6 +6,7 @@ public class CheckHealths : MonoBehaviour
 {
     public SetupBattle sbScript;
     public TriggerDialouge tdScript;
+    public TurnController tcScript;
     public List<Unit> playableCharacters;
     public List<Unit> enemyCharacters;
     public bool enemiesWon;
@@ -33,6 +34,14 @@ public class CheckHealths : MonoBehaviour
             if (enemyCharacters[i].health <= 0)
             {
                 enemyCharacters.Remove(enemyCharacters[i]);
+            }
+        }
+
+        for (int i = 0; i < tcScript.units.Count; i++)
+        {
+            if (tcScript.units[i].health <= 0)
+            {
+                tcScript.units.Remove(tcScript.units[i]);
             }
         }
 

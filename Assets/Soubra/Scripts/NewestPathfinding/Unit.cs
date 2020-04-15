@@ -17,12 +17,15 @@ public class Unit : MonoBehaviour
     public int attackHit = 4;
     public int rageNumber = 0;
     public int rageTime = 0;
+    public int attackNumber = 0;
+    public int addedAttackRoll = 0;
 
     public int ogAttack2CoolDown = 2;
     public int ogAttack3CoolDown = 5;
     public int attack2CoolDown = 0;
     public int attack3CoolDown = 0;
 
+    public float movingSpeed = 2.5f;
     public float distance = 0.5f;
     public float heightOffset = 0.5f;
     public bool move;
@@ -36,6 +39,7 @@ public class Unit : MonoBehaviour
     public bool raging;
     public bool dead;
     public bool getHit;
+    public bool missedAttack = false;
     public Unit targetEnemy;
     public ClickableTile ct;
     public ClickableTile targetTile;
@@ -91,14 +95,14 @@ public class Unit : MonoBehaviour
         if (move)
         {
             RecursiveMoveToNextTile();
-            if (enemy)
+            if (animator != null)
             {
                 animator.SetBool("Walking", true);
             }
         }
         else
         {
-            if (enemy)
+            if (animator != null)
             {
                 animator.SetBool("Walking", false);
             }
@@ -246,7 +250,7 @@ public class Unit : MonoBehaviour
             {
                 Debug.Log("Still Walking");
                 transform.LookAt(currentPath[0].ground.transform.position + atScript.offset);
-                transform.position = Vector3.Lerp(transform.position, currentPath[0].ground.transform.position + atScript.offset, 5f * Time.deltaTime);
+                transform.position = Vector3.Lerp(transform.position, currentPath[0].ground.transform.position + atScript.offset, movingSpeed * Time.deltaTime);
             }
         }
         else

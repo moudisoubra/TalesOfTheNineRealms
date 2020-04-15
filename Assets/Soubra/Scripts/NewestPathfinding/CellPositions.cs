@@ -195,6 +195,8 @@ public class CellPositions : MonoBehaviour
         temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         CheckArmor c = temp.GetComponent<CheckArmor>();
         DragObject d = temp.GetComponent<DragObject>();
+        d.unit = unit;
+        d.attackingUnit = attackingUnit;
         c.currentUnit = unit;
         c.attackingUnit = attackingUnit;
         d.attacking = true;
@@ -463,7 +465,7 @@ public class CellPositions : MonoBehaviour
         if (direction == Direction.None)
         {
             if (n != null && n.x + x > -1 && n.x + x < map.mapSizeX &&
-                n.y + y > -1 && n.y + y < map.mapSizeY && map.UnitCanEnterTile(n.x + x, n.y + y))
+                n.y + y > -1 && n.y + y < map.mapSizeY /*&& map.UnitCanEnterTile(n.x + x, n.y + y)*/)
             {
                 attackNodes.Add(map.graph[n.x + x, n.y + y]);
             }

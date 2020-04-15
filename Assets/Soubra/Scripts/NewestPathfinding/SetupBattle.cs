@@ -21,11 +21,18 @@ public class SetupBattle : MonoBehaviour
     public bool start;
     public bool end;
     public bool bigMap;
+    public bool getAllMidTiles = true;
 
     public GameObject cameraTarget;
     public GameObject lookAt;
     public GameObject tester;
     public float moveSpeed;
+    public float xOffset;
+    public float yOffset;
+    public float zOffset;
+    public float lookATxOffset;
+    public float lookATyOffset;
+    public float lookATzOffset;
     void Start()
     {
         
@@ -38,13 +45,40 @@ public class SetupBattle : MonoBehaviour
         StartBattle();
         EndBattle();
 
-        if (bigMap)
+        if (bigMap && start)
         {
             //lookAt.transform.position = Vector3.Lerp(lookAt.transform.position, GetClosestCamera(lookAtPositions, tester.transform.position).transform.position, moveSpeed * Time.deltaTime);
-            cameraTarget.transform.position = Vector3.Lerp(cameraTarget.transform.position,
-                GetClosestCamera(cameraPositions, tmScript.selectedUnit.transform.position).gameObject.transform.position, moveSpeed * Time.deltaTime);
+            Vector3 positionWanted = tmScript.selectedUnit.transform.position + new Vector3(xOffset, yOffset, zOffset);
 
-            if (cameraTarget.transform.position == GetClosestCamera(cameraPositions, tmScript.selectedUnit.transform.position).gameObject.transform.position)
+            cameraTarget.transform.position = Vector3.Lerp(cameraTarget.transform.position,
+                positionWanted, moveSpeed * Time.deltaTime);
+
+            if (getAllMidTiles)
+            {
+
+                for (int x = 0; x < tmScript.mapSizeX; x++)
+                {
+                    for (int y = 0; y < tmScript.mapSizeY; y++)
+                    {
+                        if (tmScript.graph[x, y].y == tmScript.mapSizeY / 2)
+                        {
+                            lookAtPositions.Add(tmScript.graph[x, y].ground.transform);
+                        }
+                    }
+                }
+                getAllMidTiles = false;
+            }
+
+            Vector3 lookAtPositionWanted = new Vector3(GetClosestCamera(lookAtPositions, tmScript.selectedUnit.transform.position).position.x,
+                lookAt.transform.position.y, tmScript.selectedUnit.transform.position.z);
+            lookATxOffset = lookAtPositionWanted.x;
+            lookATzOffset = lookAtPositionWanted.z;
+
+            lookAt.transform.position = lookAtPositionWanted;
+                //Vector3.Lerp(lookAt.transform.position,
+                //lookAtPositionWanted, moveSpeed * Time.deltaTime);
+
+            if (cameraTarget.transform.position == positionWanted)
             {
                 tmScript.tcScript.cameraTweened = true;
             }

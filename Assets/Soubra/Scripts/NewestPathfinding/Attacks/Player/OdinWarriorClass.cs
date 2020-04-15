@@ -70,7 +70,7 @@ public class OdinWarriorClass : CellPositions
         unit.preAttack = true;
         unit.attack = Attacks.None;
         attackNodes.Clear();
-
+        unit.hmScript.HIT = HitOrMiss.Hit.none;
         if (unit.raging)
         {
             unit.rageTime++;

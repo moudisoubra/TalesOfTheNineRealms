@@ -19,6 +19,7 @@ public class CheckAttacks : GAction
     public override void Perform()
     {
         timer += Time.deltaTime;
+        transform.LookAt(unit.targetEnemy.transform.position);
         if (unit.enemyType == Unit.EnemyType.AsgardianMelee)
         {
             AsgardianMClass amClass = GetComponent<AsgardianMClass>();
@@ -71,7 +72,10 @@ public class CheckAttacks : GAction
                     }
                 }
 
+                if (true)
+                {
 
+                }
 
                 //if (attack == CellPositions.Attacks.Third)
                 //{
@@ -94,9 +98,16 @@ public class CheckAttacks : GAction
                 //}
 
                 Debug.Log(attackName);
+                unit.attackNumber = Random.Range(0, 20);
+                if (unit.attackNumber > unit.targetEnemy.armorClass)
+                {
+                    unit.missedAttack = false;
+                }
+                else
+                {
+                    unit.missedAttack = true;
+                }
                 decision = true;
-
-
                 //if (attackName != "")
                 //{
                 //    GWorld.Instance.GetWorld().ModifyState(attackName, 1);
@@ -160,6 +171,15 @@ public class CheckAttacks : GAction
                     }
                 }
                 Debug.Log(attackName);
+                unit.attackNumber = Random.Range(0, 20);
+                if (unit.attackNumber > unit.targetEnemy.armorClass)
+                {
+                    unit.missedAttack = false;
+                }
+                else
+                {
+                    unit.missedAttack = true;
+                }
                 decision = true;
             }
             done = true;
@@ -218,6 +238,15 @@ public class CheckAttacks : GAction
                 }
 
                 Debug.Log(attackName);
+                unit.attackNumber = Random.Range(0, 20);
+                if (unit.attackNumber > unit.targetEnemy.armorClass)
+                {
+                    unit.missedAttack = false;
+                }
+                else
+                {
+                    unit.missedAttack = true;
+                }
                 decision = true;
             }
             done = true;
@@ -275,7 +304,16 @@ public class CheckAttacks : GAction
                     }
                 }
 
-                Debug.Log(attackName);
+                Debug.Log(attackName); 
+                unit.attackNumber = Random.Range(0, 20);
+                if (unit.attackNumber > unit.targetEnemy.armorClass)
+                {
+                    unit.missedAttack = false;
+                }
+                else
+                {
+                    unit.missedAttack = true;
+                }
                 decision = true;
             }
             done = true;

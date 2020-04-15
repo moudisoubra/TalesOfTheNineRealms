@@ -115,7 +115,7 @@ public class AsgardianMClass : CellPositions
             Debug.Log(attackNodes.Count);
             attackNodes.Clear();
         }
-
+        unit.hmScript.HIT = HitOrMiss.Hit.none;
         effectedUnits.Clear();
         eaScript.actionQueue = null;
         unit.animator.ResetTrigger("Attack1");

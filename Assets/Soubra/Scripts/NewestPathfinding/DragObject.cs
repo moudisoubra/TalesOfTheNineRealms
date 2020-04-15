@@ -88,7 +88,9 @@ public class DragObject : MonoBehaviour
             caScript = GetComponent<CheckArmor>();
             caScript.doScript = this;
             caScript.checkHits = true;
-                caScript.roll = sideChosen;
+            Debug.Log("Attacking Unit: " + attackingUnit + ". Added Number: " + attackingUnit.addedAttackRoll);
+            int rollNumber = sideChosen + attackingUnit.addedAttackRoll;
+            caScript.roll = rollNumber;
             if (!tutorial)
             {
                 Destroy(this.gameObject, 5);
@@ -105,7 +107,15 @@ public class DragObject : MonoBehaviour
             {
                 Debug.Log("This is the damage: " + sideChosen + " This is the RageNumber: " + attackingUnit.rageNumber);
                 damageToDeal = sideChosen + attackingUnit.rageNumber;
-                unit.health -= damageToDeal; 
+                unit.health -= damageToDeal;
+                if (unit.attack == CellPositions.Attacks.First)
+                {
+                    attackingUnit.animator.SetTrigger("Attack1");
+                }
+                if (unit.attack == CellPositions.Attacks.Second)
+                {
+                    attackingUnit.animator.SetTrigger("Attack2");
+                }
             }
             else
             {
@@ -122,8 +132,7 @@ public class DragObject : MonoBehaviour
         {
             unit.raging = true;
             unit.rageNumber = sideChosen;
-            dealEffect = false;
-
+            unit.animator.SetTrigger("Attack3");
             if (!tutorial)
             {
                 Destroy(this.gameObject, 5);
@@ -132,6 +141,7 @@ public class DragObject : MonoBehaviour
             {
                 Destroy(this.gameObject, 10);
             }
+            dealEffect = false;
         }
     }
     private void OnMouseDown()
