@@ -21,7 +21,7 @@ public class AssignTiles : MonoBehaviour
     void Update()
     {
         tm = unit.map;
-        if (tm.done && assign)
+        if (/*tm.done &&*/ assign)
         {
             transform.position = tm.graph[x, z].ground.transform.position + offset;
             transform.Rotate(rotate);

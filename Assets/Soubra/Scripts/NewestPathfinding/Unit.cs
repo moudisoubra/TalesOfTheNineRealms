@@ -13,18 +13,34 @@ public class Unit : MonoBehaviour
     public int attackType = 1;
     public int health = 10;
     public int coolDown = 0;
+    public int armorClass = 10;
+    public int attackHit = 4;
+    public int rageNumber = 0;
+    public int rageTime = 0;
+
+    public int ogAttack2CoolDown = 2;
+    public int ogAttack3CoolDown = 5;
+    public int attack2CoolDown = 0;
+    public int attack3CoolDown = 0;
+
     public float distance = 0.5f;
     public float heightOffset = 0.5f;
     public bool move;
     public bool reset;
     public bool enemy;
     public bool attackNow;
+    public bool attackDamaged;
     public bool attackMode;
     public bool attackedAlready;
+    public bool preAttack = true;
+    public bool raging;
     public bool dead;
+    public bool getHit;
     public Unit targetEnemy;
     public ClickableTile ct;
+    public ClickableTile targetTile;
     public TileMap map;
+    public GameObject cubeBase;
     public Animator animator;
     public List<GAction> actions;
     public List<TileMap.Node> currentPath = null;
@@ -36,19 +52,15 @@ public class Unit : MonoBehaviour
     public CellPositions.Direction direction;
     public CellPositions.Attacks attack;
 
-    public GameObject mainCameraPosition;
-    public GameObject sideCameraPosition;
-    public CameraController ccScript;
     public AssignTiles atScript;
-
+    public HitOrMiss hmScript;
     private void Start()
     {
         atScript = GetComponent<AssignTiles>();
+        hmScript = GetComponentInChildren<HitOrMiss>();
     }
     public void Update()
     {
-        
-
         if (health <= 0)
         {
             this.enabled = false;
@@ -86,7 +98,6 @@ public class Unit : MonoBehaviour
         }
         else
         {
-            
             if (enemy)
             {
                 animator.SetBool("Walking", false);
@@ -192,7 +203,7 @@ public class Unit : MonoBehaviour
     {
         if (currentPath != null)
         {
-            if (Vector3.Distance(transform.position, currentPath[0].ground.transform.position) < distance)
+            if (Vector3.Distance(cubeBase.transform.position, currentPath[0].ground.transform.position) < distance)
             {
                 if (currentPath == null)
                     return;
@@ -200,6 +211,7 @@ public class Unit : MonoBehaviour
                 if (remainingMovement <= 0)
                 {
                     move = false;
+                    currentPath = null;
                     return;
                 }
 

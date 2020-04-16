@@ -110,8 +110,12 @@ public class AsgardianMClass : CellPositions
 
     public void ClearAll()
     {
-        Debug.Log(attackNodes.Count);
-        attackNodes.Clear();
+        if (attackNodes != null)
+        {
+            Debug.Log(attackNodes.Count);
+            attackNodes.Clear();
+        }
+
         effectedUnits.Clear();
         eaScript.actionQueue = null;
         unit.animator.ResetTrigger("Attack1");

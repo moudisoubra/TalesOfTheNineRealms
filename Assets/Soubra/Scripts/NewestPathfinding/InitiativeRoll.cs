@@ -4,27 +4,96 @@ using UnityEngine;
 
 public class InitiativeRoll : MonoBehaviour
 {
-
+    public TileMap tmScript;
     public TurnController tcScript;
     public List<Unit> Characters;
-    public int index;
+    public int index = 0;
+    public GameObject dice;
+    public GameObject currentDice;
+    public GameObject battleCanvas;
+    public List<GameObject> die;
+    public Unit currentCharacter;
+    public bool spawn = true;
+    public bool done = false;
+    public bool check = true;
+    public bool tutorial = false;
+    public bool throwTutorial = false;
 
     void Start()
     {
-        tcScript = GetComponent<TurnController>();
         for (int i = 0; i < tcScript.units.Count; i++)
         {
             Characters.Add(tcScript.units[i]);
         }
-        RollAll();
+        //RollAll();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (spawn && tmScript.done)
+        {
+
+            if (index < Characters.Count && !tutorial)
+            {
+                currentCharacter = Characters[index];
+                SpawnDice(currentCharacter);
+                check = false;
+                if (currentCharacter.enemyType != Unit.EnemyType.Player)
+                {
+                    currentDice.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-700, -100), Random.Range(100, 700), 0));
+                    currentDice.GetComponent<DragObject>().turn = true;
+                    currentDice.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                }
+            }
+            if (index < Characters.Count && tutorial)
+            {
+                currentCharacter = Characters[index];
+                SpawnDice(currentCharacter);
+                check = false;
+                if (currentCharacter.enemyType != Unit.EnemyType.Player)
+                {
+                    currentDice.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-700, -100), Random.Range(100, 700), 0));
+                    currentDice.GetComponent<DragObject>().turn = true;
+                    currentDice.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                }
+            }
+            //else if (currentDice.GetComponent<Rigidbody>().velocity == Vector3.zero && !done)
+            //{
+            //    //for (int i = 0; i < die.Count; i++)
+            //    //{
+            //    //    Destroy(die[i].gameObject);
+            //    //}
+            //    //tcScript.goForIt = true;
+            //}
+            if (index < Characters.Count + 2)
+            {
+                index++;
+            }
+
+            //spawn = false;
+        }
+
+        if (die.Count == 0 && !check)
+        {
+            ReOrder();
+            battleCanvas.SetActive(true);
+            tcScript.goForIt = true;
+            check = true;
+        }
+
     }
 
+    public void SpawnDice(Unit unit)
+    {
+        GameObject temp = Instantiate(dice, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+        temp.GetComponent<DragObject>().irScript = this;
+        temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        temp.GetComponent<DragObject>().unit = unit;
+        currentDice = temp;
+        die.Add(temp);
+    }
     public void ReOrder()
     {
         for (int i = 0; i < Characters.Count; i++)
@@ -46,6 +115,7 @@ public class InitiativeRoll : MonoBehaviour
         }
         tcScript.units = Characters;
         tcScript.tmScript.selectedUnit = Characters[0].gameObject;
+        done = true;
         //ChangeCharacter();
         //fpScript.character = Characters[index].gameObject;
     }

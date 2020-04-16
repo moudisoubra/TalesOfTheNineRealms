@@ -8,8 +8,9 @@ public class NewDialogueNpc : MonoBehaviour
     //Place this script on any trigger / conversation with NPC.
     public string[] sentences;
     Dialogue dialogue;
+    public GameObject interactiveText;
     public bool onStart = false;
-    
+    public bool interacted = false;
     
     private void Start()
     {
@@ -45,8 +46,23 @@ public class NewDialogueNpc : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if ((other.CompareTag("Player")) && !interacted)
+        {
+            if (interactiveText != null)
+            {
+                interactiveText.SetActive(true);
+            }
+        }
+
         if ((other.CompareTag("Player") && Input.GetKey(KeyCode.E)) || onStart) //**Change the E to a unviersal value.
         {
+
+            interacted = true;
+            if (interactiveText != null)
+            {
+                interactiveText.SetActive(false);
+            }
+
             dialogue.done = false;
             dialogue.textDisplay.text = ""; //Resets the text to blank
 
@@ -58,6 +74,17 @@ public class NewDialogueNpc : MonoBehaviour
             dialogue.StartCoroutine(dialogue.TypeEffect());
             dialogue.odinWalk.noWalkie = true;
             this.GetComponent<Collider>().enabled = false;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if ((other.CompareTag("Player")))
+        {
+            if (interactiveText != null)
+            {
+                interactiveText.SetActive(false);
+            }
         }
     }
 }

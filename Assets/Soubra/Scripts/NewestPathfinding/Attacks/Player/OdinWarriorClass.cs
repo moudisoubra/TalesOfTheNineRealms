@@ -40,8 +40,7 @@ public class OdinWarriorClass : CellPositions
 
     public override void SecondAttack()
     {
-        attackNodes.Clear();
-
+            attackNodes.Clear();
             AddNode(map.graph[tileX,tileZ], 0, 1);
             AddNode(map.graph[tileX,tileZ], 1, 1);
             AddNode(map.graph[tileX,tileZ], -1, 1);
@@ -61,5 +60,38 @@ public class OdinWarriorClass : CellPositions
     public void ClearAll()
     {
         unit.remainingMovement = unit.moveSpeed;
+        unit.attackMode = false;
+        unit.attackedAlready = false;
+        unit.attackDamaged = false;
+        effectedUnits.Clear();
+        unitsToCheck.Clear();
+        hitUnits.Clear();
+        unit.targetTile = null;
+        unit.preAttack = true;
+        unit.attack = Attacks.None;
+        attackNodes.Clear();
+
+        if (unit.raging)
+        {
+            unit.rageTime++;
+
+            if (unit.rageTime > 2)
+            {
+                unit.rageNumber = 0;
+                unit.rageTime = 0;
+                unit.raging = false;
+            }
+        }
+
+        if (unit.attack3CoolDown > 0)
+        {
+            unit.attack3CoolDown--;
+            Debug.Log("This has been called");
+        }
+
+        if (unit.attack2CoolDown > 0)
+        {
+            unit.attack2CoolDown--;
+        }
     }
 }

@@ -8,10 +8,11 @@ public class CellPositions : MonoBehaviour
     public bool attackBool;
     public int tileX;
     public int tileZ;
+    public int damage;
     public Color originalColor;
-    public enum Attacks { First, Second, Third};
+    public enum Attacks { None, First, Second, Third};
     public Attacks attack;
-    public enum Direction { Up, Down, Left, Right, DownLeft, DownRight, UpLeft, UpRight, None};
+    public enum Direction {None, Up, Down, Left, Right, DownLeft, DownRight, UpLeft, UpRight};
     public Direction direction;
     public int range;
     public TileMap.Node currentNode;
@@ -22,8 +23,17 @@ public class CellPositions : MonoBehaviour
     public Unit unit;
     public List<Unit> units = new List<Unit>();
     public List<Unit> effectedUnits = new List<Unit>();
+    public List<Unit> unitsToCheck = new List<Unit>();
+    public List<Unit> hitUnits = new List<Unit>();
     public EnemyAgent ea;
-
+    public CheckArmor caScript;
+    public GameObject d20;
+    public GameObject d4;
+    public GameObject d6;
+    public GameObject d8;
+   
+    public List<GameObject> spawnedDie = new List<GameObject>();
+    public bool waiting = true;
     private void Start()
     {
         attackNodes = new List<TileMap.Node>();
@@ -70,15 +80,32 @@ public class CellPositions : MonoBehaviour
         {
             direction = unit.direction;
             attack = unit.attack;
-
-            if (unit.attackNow)
+            if (unit.attackNow && !unit.attackedAlready)
             {
                 ExecuteAllPlayer(attack, range);
+                unit.attackedAlready = true;
                 for (int i = 0; i < effectedUnits.Count; i++)
                 {
-                    effectedUnits[i].health -= 4;
+                    SpawnDice(effectedUnits[i], unit);
                 }
-                unit.animator.SetTrigger("Attack1");
+                unit.attackDamaged = true;
+                unit.attackNow = false;
+            }
+            else if(unit.attackMode)
+            {
+                ColorAttacksPlayer(attack, range);
+            }
+            for (int i = 0; i < effectedUnits.Count; i++)
+            {
+                if (effectedUnits[i].hmScript.HIT != HitOrMiss.Hit.none)
+                {
+                    unitsToCheck.Add(effectedUnits[i]);
+                    effectedUnits.Remove(effectedUnits[i]);
+                }
+            }
+            if (effectedUnits.Count == 0 && unit.attackDamaged)
+            {
+                DealDamage(attack);
             }
         }
 
@@ -89,7 +116,90 @@ public class CellPositions : MonoBehaviour
             ExecuteAll(attack, range);
         }
     }
+    public void DealDamage(Attacks attack)
+    {
 
+        if (attack == Attacks.First)
+        {
+            DoingAllTheDamageDiceMagic(d6);
+        }
+        if (attack == Attacks.Second)
+        {
+            DoingAllTheDamageDiceMagic(d8);
+            unit.attack2CoolDown = unit.ogAttack2CoolDown;
+        }
+        if (attack == Attacks.Third)
+        {
+            SpawnRageEffectDiceOverPlayer(unit);
+            unit.attackDamaged = false;
+            unit.attackedAlready = true;
+            unit.attack3CoolDown = unit.ogAttack3CoolDown;
+        }
+    }
+    public void SpawnRageEffectDiceOverPlayer(Unit cU)
+    {
+        GameObject temp = Instantiate(d4, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+        temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        DragObject d = temp.GetComponent<DragObject>();
+        d.dealEffect = true;
+        d.unit = cU;
+        cU.attackNow = false;
+    }
+    public void DoingAllTheDamageDiceMagic(GameObject dice)
+    {
+        for (int i = 0; i < unitsToCheck.Count; i++)
+        {
+            if (unitsToCheck[i].getHit)
+            {
+                hitUnits.Add(unitsToCheck[i]);
+                SpawnDamageDice(dice, unitsToCheck[i], unit);
+                unitsToCheck.Remove(unitsToCheck[i]);
+            }
+        }
+        for (int i = 0; i < spawnedDie.Count; i++)
+        {
+            if (!spawnedDie[i].GetComponent<DragObject>().dealingDamage)
+            {
+                spawnedDie.Remove(spawnedDie[i]);
+            }
+        }
+        if (spawnedDie.Count == 0 && unitsToCheck.Count == 0)
+        {
+            //unit.animator.SetTrigger("Attack1");
+            hitUnits.Clear();
+            unitsToCheck.Clear();
+            unit.attackDamaged = false;
+        }
+    }
+    public void SpawnDamageDice(GameObject go,Unit unit, Unit attackingUnit)
+    {
+        GameObject temp = Instantiate(go, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+        temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        DragObject d = temp.GetComponent<DragObject>();
+        d.unit = unit;
+        d.dealingDamage = true;
+        d.attackingUnit = attackingUnit;
+        spawnedDie.Add(go);
+        if (unit.GetComponent<TutorialScript>())
+        {
+            unit.GetComponent<TutorialScript>().attackDamage = temp;
+        }
+    }
+    public void SpawnDice(Unit unit, Unit attackingUnit)
+    {
+        GameObject temp = Instantiate(d20, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+        temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        CheckArmor c = temp.GetComponent<CheckArmor>();
+        DragObject d = temp.GetComponent<DragObject>();
+        c.currentUnit = unit;
+        c.attackingUnit = attackingUnit;
+        d.attacking = true;
+        if (unit.GetComponent<TutorialScript>())
+        {
+            d.tutorial = true;
+            unit.GetComponent<TutorialScript>().attackArmor = temp;
+        }
+    }
     public void ExecuteAll(Attacks a, int range)
     {
 
@@ -110,7 +220,6 @@ public class CellPositions : MonoBehaviour
         ColorAttacks();
         CheckHit();
     }
-
     public void ExecuteAllPlayer(Attacks a, int range)
     {
 
@@ -131,19 +240,41 @@ public class CellPositions : MonoBehaviour
         ColorAttacks();
         CheckHitPlayer();
     }
+    public void ColorAttacksPlayer(Attacks a, int range)
+    {
+        if (a == Attacks.None)
+        {
+            Debug.Log("No Coloring");
+        }
+        if (a == Attacks.First)
+        {
+            FirstAttack();
+        }
+        if (a == Attacks.Second)
+        {
+            SecondAttack();
+        }
+        if (a == Attacks.Third)
+        {
+            ThirdAttack(range);
+        }
+
+        CheckAttack();
+        ColorAttacks();
+    }
     public void NeighCells()
     {
         for (int x = 0; x < map.mapSizeX; x++)
         {
             for (int y = 0; y < map.mapSizeY; y++)
             {
-                if (currentNode != null && !attackNodes.Contains(map.graph[x, y]) && map.UnitCanEnterTile(x, y))
+                if (currentNode != null && !attackNodes.Contains(map.graph[x, y]) && !attackNodes.Contains(map.graph[x, y]))
                 {
-                    currentNode.GiveColor(Color.green);
+                    currentNode.GiveColor(Color.magenta);
                 }
                 if (currentNode.neighbours.Contains(map.graph[x,y]) && map.UnitCanEnterTile(x,y) && !attackNodes.Contains(map.graph[x, y]))
                 {
-                    map.graph[x, y].GiveColor(Color.green);
+                    map.graph[x, y].GiveColor(Color.magenta);
                 }
                 else if(map.UnitCanEnterTile(x, y) && !attackNodes.Contains(map.graph[x, y]))
                 {
@@ -152,7 +283,6 @@ public class CellPositions : MonoBehaviour
             }
         }
     }
-
     public void ColorPath()
     {
         for (int x = 0; x < map.mapSizeX; x++)
@@ -191,17 +321,14 @@ public class CellPositions : MonoBehaviour
     {
        
     }
-
     public virtual void SecondAttack()
     {
 
     }
-
     public virtual void ThirdAttack(int range)
     {
 
     }
-
     public void CheckAttack()
     {
         int temp = -1;
@@ -211,7 +338,8 @@ public class CellPositions : MonoBehaviour
         {
             TileMap.Node n = attackNodes[i];
 
-            if (!map.UnitCanEnterTile(n.x, n.y) && !map.graph[n.x, n.y].ground.GetComponentInChildren<GivePosition>().full)
+            if (!map.UnitCanEnterTile(n.x, n.y) && !map.graph[n.x, n.y].ground.GetComponentInChildren<GivePosition>().full
+                && !map.graph[n.x, n.y].ground.GetComponentInChildren<GivePosition>().blocked)
             {
                 temp = attackNodes.IndexOf(n);
                 //attackNodes.Remove(attackNodes[i]);
@@ -229,7 +357,6 @@ public class CellPositions : MonoBehaviour
         }
         //Debug.Log("DONE");
     }
-
     public void ColorAttacks()
     {
         //Debug.Log(attackNodes.Count);
@@ -238,11 +365,10 @@ public class CellPositions : MonoBehaviour
         {
             if (attackNodes[i] != null)
             {
-                attackNodes[i].GiveColor(Color.blue);
+                attackNodes[i].GiveColor(Color.black);
             }
         }
     }
-
     public void CheckHit()
     {
         
@@ -263,7 +389,6 @@ public class CellPositions : MonoBehaviour
 
         }
     }
-
     public void CheckHitPlayer()
     {
 
@@ -284,7 +409,6 @@ public class CellPositions : MonoBehaviour
 
         }
     }
-
     public Direction CheckDirection()
     {
         Debug.Log("CHECKING DIRECTION");
@@ -330,7 +454,6 @@ public class CellPositions : MonoBehaviour
 
         return direction;
     }
-
     public void AddNode(TileMap.Node n, int x, int y)
     {
         if (direction == Direction.None)

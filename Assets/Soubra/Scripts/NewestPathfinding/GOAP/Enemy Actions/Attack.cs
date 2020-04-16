@@ -103,6 +103,7 @@ public class Attack : GAction
 
     public override bool PostPerform()
     {
+        tcScript.ChangeUnit();
         return true;
     }
 }

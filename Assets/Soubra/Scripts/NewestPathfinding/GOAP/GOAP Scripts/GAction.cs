@@ -24,6 +24,7 @@ public abstract class GAction : MonoBehaviour
     public WorldStates agentBeliefs;
 
     public Unit unit;
+    public TurnController tcScript;
 
     public bool running = false;
     public bool done = false;

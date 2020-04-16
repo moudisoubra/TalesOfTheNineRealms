@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour
         //}
         if (changing)
         {
-            MoveCameraLerp(tmScript.selectedUnit.GetComponent<Unit>().mainCameraPosition);
+            //MoveCameraLerp(tmScript.selectedUnit.GetComponent<Unit>().mainCameraPosition);
         }
         //if (!change && !changing)
         //{
