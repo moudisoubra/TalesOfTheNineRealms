@@ -159,7 +159,7 @@ public class TurnController : MonoBehaviour
     }
     public void ChangeStatus()
     {
-        if (unit.CompareTag("Player"))
+        if (unit != null && unit.CompareTag("Player"))
         {
             //goButton.SetActive(true);
             attackButton.SetActive(true);

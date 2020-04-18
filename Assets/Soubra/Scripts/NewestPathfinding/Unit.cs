@@ -41,6 +41,7 @@ public class Unit : MonoBehaviour
     public bool getHit;
     public bool missedAttack = false;
     public Unit targetEnemy;
+    public Unit chosenPlayer;
     public ClickableTile ct;
     public ClickableTile targetTile;
     public TileMap map;
@@ -50,7 +51,7 @@ public class Unit : MonoBehaviour
     public List<TileMap.Node> currentPath = null;
     public TileMap.Node currentNode;
     public List<string> attackNames;
-    public enum EnemyType { AsgardianMelee, AsgardianRanged, GiantMelee, GiantRanged, TreePerson, Dragon, Player };
+    public enum EnemyType { AsgardianMelee, AsgardianRanged, GiantMelee, GiantRanged, TreePerson, Dragon, Player, Hugin, Munin };
     public EnemyType enemyType;
 
     public CellPositions.Direction direction;
@@ -226,7 +227,7 @@ public class Unit : MonoBehaviour
 
                 currentPath.RemoveAt(0);
                 Debug.Log("Still Asking TO Walk");
-                if (enemyType == EnemyType.Player)
+                if (enemyType == EnemyType.Player || enemyType == EnemyType.Hugin || enemyType == EnemyType.Munin)
                 {
                     if (currentPath.Count == 0) //This used to be 1 but that would cause it to stop next to the target instead of at the target
                     {                           //Im sure theirs a reason I set this to 1 instead of 0 but oh well, I need it to be 0 now

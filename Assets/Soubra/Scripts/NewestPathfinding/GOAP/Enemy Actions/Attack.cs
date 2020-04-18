@@ -102,6 +102,36 @@ public class Attack : GAction
                 gmClass.unit.animator.SetTrigger("Attack2");
             }
         }
+        if (unit.enemyType == Unit.EnemyType.GiantMelee)
+        {
+            GiantsClass gmClass = GetComponent<GiantsClass>();
+            for (int i = 0; i < gmClass.effectedUnits.Count; i++)
+            {
+                if (unit.missedAttack)
+                {
+                    unit.targetEnemy.hmScript.HIT = HitOrMiss.Hit.miss;
+                }
+                else
+                {
+                    unit.targetEnemy.hmScript.HIT = HitOrMiss.Hit.hit;
+                    gmClass.effectedUnits[i].GetComponent<Unit>().health -= 2;
+                }
+                gmClass.effectedUnits.Remove(gmClass.effectedUnits[i]);
+            }
+
+            if (unit.attackType == 1)
+            {
+                Debug.Log("First Attack");
+                gmClass.unit.animator.SetTrigger("Attack1");
+            }
+            if (unit.attackType == 3)
+            {
+                Debug.Log("Third Attack");
+                GameObject stone = Instantiate(gmClass.stone, gmClass.gameObject.transform.position + new Vector3(0,3,0), Quaternion.identity);
+                unit.coolDown = 3;
+                gmClass.unit.animator.SetTrigger("Attack3");
+            }
+        }
         if (unit.enemyType == Unit.EnemyType.TreePerson)
         {
             TreePeopleClass gmClass = GetComponent<TreePeopleClass>();

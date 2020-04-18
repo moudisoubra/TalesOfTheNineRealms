@@ -39,6 +39,7 @@ public class GivePosition : MonoBehaviour
     {
         if (ct.tc.goForIt)
         {
+
             if (EventSystem.current.IsPointerOverGameObject())
             {
                 return;

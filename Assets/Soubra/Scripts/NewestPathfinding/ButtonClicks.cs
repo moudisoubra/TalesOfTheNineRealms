@@ -16,20 +16,30 @@ public class ButtonClicks : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (clicked >= 2)
+        if (clicked >= 2 && tcScript.unit.enemyType == Unit.EnemyType.Player)
         {
             tcScript.unit.attackNow = true;
             clicked = 0;
         }
     }
 
+    public void StartAttackNow()
+    {
+        if (tcScript.unit.enemyType != Unit.EnemyType.Player)
+        {
+            tcScript.unit.attackNow = true;
+        }
+    }
     public void AddToButton()
     {
-        clicked++;
+        if (tcScript.unit.enemyType == Unit.EnemyType.Player)
+        {
+            clicked++;
+        }
     }
 
     public void ClearButton()
-    {
+    { 
         clicked = 0;
     }
 }

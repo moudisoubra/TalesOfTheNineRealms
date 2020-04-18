@@ -40,19 +40,19 @@ public class InitiativeRoll : MonoBehaviour
                 currentCharacter = Characters[index];
                 SpawnDice(currentCharacter);
                 check = false;
-                if (currentCharacter.enemyType != Unit.EnemyType.Player)
+                if (!currentCharacter.CompareTag("Player"))
                 {
                     currentDice.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-700, -100), Random.Range(100, 700), 0));
                     currentDice.GetComponent<DragObject>().turn = true;
                     currentDice.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 }
             }
-            if (index < Characters.Count && tutorial)
+            if (index < Characters.Count && tutorial)   
             {
                 currentCharacter = Characters[index];
                 SpawnDice(currentCharacter);
                 check = false;
-                if (currentCharacter.enemyType != Unit.EnemyType.Player)
+                if (!currentCharacter.CompareTag("Player"))
                 {
                     currentDice.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-700, -100), Random.Range(100, 700), 0));
                     currentDice.GetComponent<DragObject>().turn = true;

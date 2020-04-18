@@ -30,6 +30,8 @@ public class DragObject : MonoBehaviour
     public bool attacking;
     public bool dealingDamage;
     public bool dealEffect;
+    public enum Effect { Heal, Defend, None };
+    public Effect effect;
     private void Start()
     {
         startPos = transform.position;
@@ -130,18 +132,33 @@ public class DragObject : MonoBehaviour
 
         if (dealEffect && rb.velocity == Vector3.zero && bumped)
         {
-            unit.raging = true;
-            unit.rageNumber = sideChosen;
-            unit.animator.SetTrigger("Attack3");
-            if (!tutorial)
+            if (effect == Effect.Heal)
             {
-                Destroy(this.gameObject, 5);
+                unit.health += sideChosen;
+                Destroy(this.gameObject, 7);
+                dealEffect = false;
+            }
+            if (effect == Effect.Heal)
+            {
+                unit.armorClass += sideChosen;
+                Destroy(this.gameObject, 7);
+                dealEffect = false;
             }
             else
             {
-                Destroy(this.gameObject, 10);
+                unit.raging = true;
+                unit.rageNumber = sideChosen;
+                unit.animator.SetTrigger("Attack3");
+                if (!tutorial)
+                {
+                    Destroy(this.gameObject, 5);
+                }
+                else
+                {
+                    Destroy(this.gameObject, 10);
+                }
+                dealEffect = false;
             }
-            dealEffect = false;
         }
     }
     private void OnMouseDown()

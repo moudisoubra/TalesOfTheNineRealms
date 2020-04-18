@@ -5,6 +5,7 @@ using UnityEngine;
 public class GiantsClass : CellPositions
 {
     public EnemyAgent eaScript;
+    public GameObject stone;
     public bool first = false;
     public override void FirstAttack()
     {
@@ -71,43 +72,28 @@ public class GiantsClass : CellPositions
 
     public override void ThirdAttack(int range)
     {
-        
-        if (direction == Direction.Up)
-        {
-            TileMap.Node n = currentNode.neighbours[1];
 
-            for (int i = 0; i < range + 1; i++)
-            {
-                AddNode(n, 0, i);
-            }
-        }
-        if (direction == Direction.Down)
+        int far = map.CheckHowFar(unit.targetEnemy.tileX, unit.targetEnemy.tileZ);
+        giantAttack3 = far;
+        Debug.Log("This is how far he is: " + far);
+        if (far < 11)
         {
-            TileMap.Node n = currentNode.neighbours[3];
-
-            for (int i = 0; i < range + 1; i++)
-            {
-                AddNode(n, 0, -i);
-            }
+            AddNode(currentNode, 0, 0);
+            AddNode(currentNode, 0, 1);
+            AddNode(currentNode, 0, -1);
+            AddNode(currentNode, 1, 1);
+            AddNode(currentNode, 1, 0);
+            AddNode(currentNode, 1, -1);
+            AddNode(currentNode, -1, 1);
+            AddNode(currentNode, -1, 0);
+            AddNode(currentNode, -1, -1);
         }
-        if (direction == Direction.Left)
+        else
         {
-            TileMap.Node n = currentNode.neighbours[0];
-
-            for (int i = 0; i < range + 1; i++)
-            {
-                AddNode(n, -i, 0);
-            }
+            Debug.Log("Enemy is too far");
         }
-        if (direction == Direction.Right)
-        {
-            TileMap.Node n = currentNode.neighbours[2];
 
-            for (int i = 0; i < range + 1; i++)
-            {
-                AddNode(n, i, 0);
-            }
-        }
+
     }
 
     public void ClearAll()

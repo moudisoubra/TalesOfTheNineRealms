@@ -30,8 +30,24 @@ public class ClickableTile : MonoBehaviour
             {
                 if (unit.targetTile == this && !unit.attackDamaged)
                 {
-                    unit.attackNow = true;
+                    if (unit.enemyType == Unit.EnemyType.Munin && unit.attack == CellPositions.Attacks.Second)
+                    {
+                        Debug.Log("I will Heal this guy: " + gp.unitGameobject);
+                        gp.unitGameobject.GetComponent<Unit>().remainingMovement = gp.unitGameobject.GetComponent<Unit>().moveSpeed * 2;
+                        unit.attack2CoolDown = unit.ogAttack2CoolDown;
+                        unit.attackedAlready = true;
+                    }
 
+                    if (unit.enemyType == Unit.EnemyType.Hugin && (unit.attack == CellPositions.Attacks.Second || unit.attack == CellPositions.Attacks.Third))
+                    {
+                        Debug.Log("I will Heal this guy: " + gp.unitGameobject);
+                        unit.chosenPlayer = gp.unitGameobject;
+                        unit.attackDamaged = true;
+                    }
+                    else
+                    {
+                        unit.attackNow = true;
+                    }
                 }
                 else
                 {

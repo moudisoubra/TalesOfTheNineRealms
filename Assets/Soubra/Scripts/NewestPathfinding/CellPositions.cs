@@ -9,6 +9,7 @@ public class CellPositions : MonoBehaviour
     public int tileX;
     public int tileZ;
     public int damage;
+    public int giantAttack3;
     public Color originalColor;
     public enum Attacks { None, First, Second, Third };
     public Attacks attack;
@@ -84,10 +85,21 @@ public class CellPositions : MonoBehaviour
             {
                 ExecuteAllPlayer(attack, range);
                 unit.attackedAlready = true;
-                for (int i = 0; i < effectedUnits.Count; i++)
+                if (unit.enemyType == Unit.EnemyType.Player)
                 {
-                    SpawnDice(effectedUnits[i], unit);
+                    for (int i = 0; i < effectedUnits.Count; i++)
+                    {
+                        SpawnDice(effectedUnits[i], unit);
+                    }
                 }
+                if ((unit.enemyType == Unit.EnemyType.Hugin || unit.enemyType == Unit.EnemyType.Munin) && unit.attack == Attacks.First)
+                {
+                    for (int i = 0; i < effectedUnits.Count; i++)
+                    {
+                        SpawnDamageDice(d4, effectedUnits[i], unit);
+                    }
+                }
+
                 unit.attackDamaged = true;
                 unit.attackNow = false;
             }
@@ -118,22 +130,82 @@ public class CellPositions : MonoBehaviour
     }
     public void DealDamage(Attacks attack)
     {
+        if (unit.enemyType == Unit.EnemyType.Player)
+        {
+            if (attack == Attacks.First)
+            {
+                DoingAllTheDamageDiceMagic(d6);
+            }
+            if (attack == Attacks.Second)
+            {
+                DoingAllTheDamageDiceMagic(d8);
+                unit.attack2CoolDown = unit.ogAttack2CoolDown;
+            }
+            if (attack == Attacks.Third)
+            {
+                SpawnRageEffectDiceOverPlayer(unit);
+                unit.attackDamaged = false;
+                unit.attackedAlready = true;
+                unit.attack3CoolDown = unit.ogAttack3CoolDown;
+            }
+        }
+        if (unit.enemyType == Unit.EnemyType.Munin)
+        {
+            if (attack == Attacks.First)
+            {
 
-        if (attack == Attacks.First)
-        {
-            DoingAllTheDamageDiceMagic(d6);
+                Debug.Log("Caw Caw I am Bird");
+                
+                
+            }
+            if (attack == Attacks.Second)
+            {
+               
+            }
+            if (attack == Attacks.Third)
+            {
+
+            }
         }
-        if (attack == Attacks.Second)
+        if (unit.enemyType == Unit.EnemyType.Hugin)
         {
-            DoingAllTheDamageDiceMagic(d8);
-            unit.attack2CoolDown = unit.ogAttack2CoolDown;
+            if (attack == Attacks.First)
+            {
+
+            }
+            if (attack == Attacks.Second)
+            {
+                if (unit.chosenPlayer != null)
+                {
+                    SpawnSupportEffect(unit, unit.chosenPlayer, DragObject.Effect.Heal);
+                    Debug.Log("HEALING");
+                    unit.attackDamaged = false;
+                    unit.attackedAlready = true;
+                    unit.attack2CoolDown = unit.ogAttack2CoolDown;
+                }
+            }
+            if (attack == Attacks.Third)
+            {
+                SpawnSupportEffect(unit, unit.chosenPlayer, DragObject.Effect.Defend);
+                Debug.Log("Defense Increase");
+                unit.attackDamaged = false;
+                unit.attackedAlready = true;
+                unit.attack3CoolDown = unit.ogAttack3CoolDown;
+            }
         }
-        if (attack == Attacks.Third)
+    }
+    public void SpawnSupportEffect(Unit cU, Unit effectedUnit, DragObject.Effect effect)
+    {
+        GameObject temp = Instantiate(d4, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+        temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        DragObject d = temp.GetComponent<DragObject>();
+        d.effect = effect;
+        d.unit = effectedUnit;
+        d.dealEffect = true;
+        cU.attackNow = false;
+        if (unit.GetComponent<TutorialScript>())
         {
-            SpawnRageEffectDiceOverPlayer(unit);
-            unit.attackDamaged = false;
-            unit.attackedAlready = true;
-            unit.attack3CoolDown = unit.ogAttack3CoolDown;
+            unit.GetComponent<TutorialScript>().attackEffect = temp;
         }
     }
     public void SpawnRageEffectDiceOverPlayer(Unit cU)

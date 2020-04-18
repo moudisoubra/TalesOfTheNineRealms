@@ -22,6 +22,7 @@ public class SetupBattle : MonoBehaviour
     public bool end;
     public bool bigMap;
     public bool getAllMidTiles = true;
+    public bool checkNulls;
 
     public GameObject cameraTarget;
     public GameObject lookAt;
@@ -66,7 +67,19 @@ public class SetupBattle : MonoBehaviour
                         }
                     }
                 }
+                checkNulls = true;
                 getAllMidTiles = false;
+            }
+            if (checkNulls)
+            {
+                for (int i = 0; i < lookAtPositions.Count; i++)
+                {
+                    if (lookAtPositions[i] == null)
+                    {
+                        lookAtPositions.Remove(lookAtPositions[i]);
+                    }
+                }
+                checkNulls = false;
             }
 
             Vector3 lookAtPositionWanted = new Vector3(GetClosestCamera(lookAtPositions, tmScript.selectedUnit.transform.position).position.x,
