@@ -5,12 +5,10 @@ using UnityEngine;
 public class Launcher : MonoBehaviour
 {
     public bool launch;
-    public bool check;
     public Rigidbody rb;
     public Transform target;
     public float height = 15;
     public float gravity = -18;
-    public int i = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -21,21 +19,10 @@ public class Launcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (check)
-        {
-            rb.velocity = Vector3.zero;
-            CalculateVelocity();
-            check = false;
-        }
-        if (launch && !check)
+        if (launch)
         {
             Launch();
-            i++;
             launch = false;
-        }
-        if (i == 2)
-        {
-            launch = true;
         }
     }
 

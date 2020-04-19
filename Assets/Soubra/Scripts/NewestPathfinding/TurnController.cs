@@ -120,6 +120,11 @@ public class TurnController : MonoBehaviour
             unit.GetComponent<OdinWarriorClass>().ClearAll();
             Debug.Log("Cleared It");
         }
+        if (unit.GetComponent<RavensClass>())
+        {
+            unit.GetComponent<RavensClass>().ClearAll();
+            Debug.Log("Cleared It");
+        }
 
         for (int i = 0; i < units.Count; i++)
         {
