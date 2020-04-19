@@ -102,7 +102,7 @@ public class Attack : GAction
                 gmClass.unit.animator.SetTrigger("Attack2");
             }
         }
-        if (unit.enemyType == Unit.EnemyType.GiantMelee)
+        if (unit.enemyType == Unit.EnemyType.GiantRanged)
         {
             GiantsClass gmClass = GetComponent<GiantsClass>();
             for (int i = 0; i < gmClass.effectedUnits.Count; i++)
@@ -127,7 +127,15 @@ public class Attack : GAction
             if (unit.attackType == 3)
             {
                 Debug.Log("Third Attack");
-                GameObject stone = Instantiate(gmClass.stone, gmClass.gameObject.transform.position + new Vector3(0,3,0), Quaternion.identity);
+                if (gmClass.spawn)
+                {
+                    GameObject stone = Instantiate(gmClass.stone, gmClass.gameObject.transform.position + new Vector3(0, 3.5f, 0), Quaternion.identity);
+
+                    stone.GetComponent<Launcher>().target = unit.targetEnemy.transform;
+                    stone.GetComponent<Launcher>().check = true;
+                    //stone.GetComponent<Launcher>().launch = true;
+                    gmClass.spawn = false;
+                }
                 unit.coolDown = 3;
                 gmClass.unit.animator.SetTrigger("Attack3");
             }

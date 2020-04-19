@@ -6,6 +6,7 @@ public class GiantsClass : CellPositions
 {
     public EnemyAgent eaScript;
     public GameObject stone;
+    public bool spawn = true;
     public bool first = false;
     public override void FirstAttack()
     {
@@ -78,15 +79,16 @@ public class GiantsClass : CellPositions
         Debug.Log("This is how far he is: " + far);
         if (far < 11)
         {
-            AddNode(currentNode, 0, 0);
-            AddNode(currentNode, 0, 1);
-            AddNode(currentNode, 0, -1);
-            AddNode(currentNode, 1, 1);
-            AddNode(currentNode, 1, 0);
-            AddNode(currentNode, 1, -1);
-            AddNode(currentNode, -1, 1);
-            AddNode(currentNode, -1, 0);
-            AddNode(currentNode, -1, -1);
+            Debug.Log("Can attack enemy");
+            AddNode(unit.targetEnemy.currentNode, 0, 0);
+            AddNode(unit.targetEnemy.currentNode, 0, 1);
+            AddNode(unit.targetEnemy.currentNode, 0, -1);
+            AddNode(unit.targetEnemy.currentNode, 1, 1);
+            AddNode(unit.targetEnemy.currentNode, 1, 0);
+            AddNode(unit.targetEnemy.currentNode, 1, -1);
+            AddNode(unit.targetEnemy.currentNode, -1, 1);
+            AddNode(unit.targetEnemy.currentNode, -1, 0);
+            AddNode(unit.targetEnemy.currentNode, -1, -1);
         }
         else
         {
@@ -108,6 +110,7 @@ public class GiantsClass : CellPositions
         SubGoal s = new SubGoal(eaScript.goal, 1, true);
         eaScript.goals.Add(s, 1);
         eaScript.currentAction = null;
+        spawn = true;
         unit.remainingMovement = unit.moveSpeed;
     }
 }
