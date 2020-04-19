@@ -30,7 +30,7 @@ public class DragObject : MonoBehaviour
     public bool attacking;
     public bool dealingDamage;
     public bool dealEffect;
-    public enum Effect { Heal, Defend, None };
+    public enum Effect { None, Heal, Defend};
     public Effect effect;
     private void Start()
     {
@@ -138,7 +138,7 @@ public class DragObject : MonoBehaviour
                 Destroy(this.gameObject, 7);
                 dealEffect = false;
             }
-            if (effect == Effect.Heal)
+            if (effect == Effect.Defend)
             {
                 unit.armorClass += sideChosen;
                 Destroy(this.gameObject, 7);
@@ -163,7 +163,7 @@ public class DragObject : MonoBehaviour
     }
     private void OnMouseDown()
     {
-
+        Debug.Log("CLICK ON  " + this.name);
         rb.velocity = Vector3.zero;
         mZCoord = Camera.main.WorldToScreenPoint(transform.position).z;
         mOffset = transform.position - GetMouseWorldPosition();

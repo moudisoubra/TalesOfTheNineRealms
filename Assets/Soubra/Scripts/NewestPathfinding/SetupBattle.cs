@@ -56,21 +56,25 @@ public class SetupBattle : MonoBehaviour
 
             if (getAllMidTiles)
             {
-
-                for (int x = 0; x < tmScript.mapSizeX; x++)
+                if (tmScript != null && tmScript.done)
                 {
-                    for (int y = 0; y < tmScript.mapSizeY; y++)
+
+                    for (int x = 0; x < tmScript.mapSizeX; x++)
                     {
-                        if (tmScript.graph[x, y].y == tmScript.mapSizeY / 2)
+                        for (int y = 0; y < tmScript.mapSizeY; y++)
                         {
-                            lookAtPositions.Add(tmScript.graph[x, y].ground.transform);
+                            if (tmScript.graph[x, y].y == tmScript.mapSizeY / 2)
+                            {
+                                lookAtPositions.Add(tmScript.graph[x, y].ground.transform);
+
+                            }
                         }
                     }
+                    checkNulls = true;
+                    getAllMidTiles = false;
                 }
-                checkNulls = true;
-                getAllMidTiles = false;
             }
-            if (checkNulls)
+            if (tmScript.done && checkNulls)
             {
                 for (int i = 0; i < lookAtPositions.Count; i++)
                 {
@@ -81,23 +85,26 @@ public class SetupBattle : MonoBehaviour
                 }
                 checkNulls = false;
             }
+            if (tmScript.done)
+            {
+                checkNulls = true;
+                Vector3 lookAtPositionWanted = new Vector3(GetClosestCamera(lookAtPositions, tmScript.selectedUnit.transform.position).position.x,
+                    lookAt.transform.position.y, tmScript.selectedUnit.transform.position.z);
+                lookATxOffset = lookAtPositionWanted.x;
+                lookATzOffset = lookAtPositionWanted.z;
 
-            Vector3 lookAtPositionWanted = new Vector3(GetClosestCamera(lookAtPositions, tmScript.selectedUnit.transform.position).position.x,
-                lookAt.transform.position.y, tmScript.selectedUnit.transform.position.z);
-            lookATxOffset = lookAtPositionWanted.x;
-            lookATzOffset = lookAtPositionWanted.z;
-
-            lookAt.transform.position = lookAtPositionWanted;
+                lookAt.transform.position = lookAtPositionWanted;
                 //Vector3.Lerp(lookAt.transform.position,
                 //lookAtPositionWanted, moveSpeed * Time.deltaTime);
 
-            if (cameraTarget.transform.position == positionWanted)
-            {
-                tmScript.tcScript.cameraTweened = true;
-            }
-            else
-            {
-                tmScript.tcScript.cameraTweened = false;
+                if (cameraTarget.transform.position == positionWanted)
+                {
+                    tmScript.tcScript.cameraTweened = true;
+                }
+                else
+                {
+                    tmScript.tcScript.cameraTweened = false;
+                }
             }
         }
     }

@@ -65,7 +65,7 @@ public class NewDialogueNpc : MonoBehaviour
 
             dialogue.done = false;
             dialogue.textDisplay.text = ""; //Resets the text to blank
-
+            other.GetComponent<Animator>().SetBool("Run", false);
             dialogue.sentences = null;
             dialogue.sentences = new string[sentences.Length];
             dialogue.sentences = sentences;

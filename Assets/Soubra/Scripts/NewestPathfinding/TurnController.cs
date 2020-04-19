@@ -30,6 +30,7 @@ public class TurnController : MonoBehaviour
     public GameObject nameHolderPositionBack;
     public GameObject turnButton;
     public List<GameObject> uiNames;
+    public ControlHealthFill chfScript;
 
     private void Start()
     {
@@ -53,7 +54,13 @@ public class TurnController : MonoBehaviour
             //CheckDeaths();
             //ControlNames();
         }
-
+        if (chfScript != null)
+        {
+            Unit unit = tmScript.selectedUnit.GetComponent<Unit>();
+            chfScript.ac = unit.armorClass;
+            chfScript.maxHealth = unit.maxHealth;
+            chfScript.health = unit.health;
+        }
         //if (tmScript.selectedUnit.CompareTag("Player"))
         //{
         //    Unit unit = tmScript.selectedUnit.GetComponent<Unit>();
@@ -172,12 +179,12 @@ public class TurnController : MonoBehaviour
             {
                 buttons[i].SetActive(true);
                 //buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<Unit>().attackNames[i];
-                buttons[i].GetComponentInChildren<Text>().text = unit.GetComponent<Unit>().attackNames[i];
+                buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<Unit>().attackNames[i];
 
                 if (unit.attack2CoolDown > 0)
                 {
                     buttons[1].GetComponent<Button>().interactable = false;
-                    buttons[1].GetComponentInChildren<Text>().text = unit.GetComponent<Unit>().attackNames[1] + " (" + unit.attack2CoolDown + ")";
+                    buttons[1].GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<Unit>().attackNames[1] + " (" + unit.attack2CoolDown + ")";
                 }
                 else
                 {
@@ -187,7 +194,7 @@ public class TurnController : MonoBehaviour
                 if (unit.attack3CoolDown > 0)
                 {
                     buttons[2].GetComponent<Button>().interactable = false;
-                    buttons[2].GetComponentInChildren<Text>().text = unit.GetComponent<Unit>().attackNames[2] + " (" + unit.attack3CoolDown + ")";
+                    buttons[2].GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<Unit>().attackNames[2] + " (" + unit.attack3CoolDown + ")";
                 }
                 else
                 {
@@ -203,7 +210,7 @@ public class TurnController : MonoBehaviour
             {
                 buttons[i].SetActive(false);
                 //buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "";
-                buttons[i].GetComponentInChildren<Text>().text = "";
+                buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "";
             }
         }
     }
@@ -227,7 +234,7 @@ public class TurnController : MonoBehaviour
 
                 buttons[i].SetActive(true);
                 //buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<Unit>().attackNames[i];
-                buttons[i].GetComponentInChildren<Text>().text = unit.GetComponent<Unit>().attackNames[i];
+                buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<Unit>().attackNames[i];
 
 
                 if (i == uiStep)
@@ -320,7 +327,7 @@ public class TurnController : MonoBehaviour
     {
         for (int i = 0; i < units.Count; i++)
         {
-           GameObject temp = Instantiate(nameHolder, nameHolderPosition.transform.position + new Vector3(0,-40 * i,0), Quaternion.identity);
+           GameObject temp = Instantiate(nameHolder, nameHolderPosition.transform.position + new Vector3(0,-25 * i,0), Quaternion.identity);
             temp.transform.SetParent(nameHolderPosition.transform.parent);
             UINames uiN = temp.GetComponentInChildren<UINames>();
             uiN.name = units[i].name;
@@ -336,13 +343,13 @@ public class TurnController : MonoBehaviour
             {
                 Vector3 position = new Vector3(nameHolderPosition.transform.position.x, uiNames[i].transform.position.y, uiNames[i].transform.position.z);
                 uiNames[i].GetComponentInChildren<UINames>().myTurn = true;
-                uiNames[i].transform.position = Vector3.Lerp(uiNames[i].transform.position, position, nameTransitionSpeed * Time.deltaTime);
+                //uiNames[i].transform.position = Vector3.Lerp(uiNames[i].transform.position, position, nameTransitionSpeed * Time.deltaTime);
             }
             else
             {
                 Vector3 position = new Vector3(nameHolderPositionBack.transform.position.x, uiNames[i].transform.position.y, uiNames[i].transform.position.z);
                 uiNames[i].GetComponentInChildren<UINames>().myTurn = false;
-                uiNames[i].transform.position = Vector3.Lerp(uiNames[i].transform.position, position, nameTransitionSpeed * Time.deltaTime);
+                //uiNames[i].transform.position = Vector3.Lerp(uiNames[i].transform.position, position, nameTransitionSpeed * Time.deltaTime);
             }
         }
     }

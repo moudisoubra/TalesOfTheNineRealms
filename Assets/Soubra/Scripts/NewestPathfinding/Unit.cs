@@ -12,6 +12,7 @@ public class Unit : MonoBehaviour
     public int remainingMovement = 3;
     public int attackType = 1;
     public int health = 10;
+    public int maxHealth = 10;
     public int coolDown = 0;
     public int armorClass = 10;
     public int attackHit = 4;

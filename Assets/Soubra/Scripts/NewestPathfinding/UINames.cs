@@ -10,15 +10,17 @@ public class UINames : MonoBehaviour
     public Unit myUnit;
     public Image img;
     public Color chosen;
-    public Color original;
+    public Color notChosen;
     public bool myTurn;
     public string name;
+    public GameObject turn;
+    public GameObject notTurn;
+
     // Start is called before the first frame update
     void Start()
     {
         img = GetComponent<Image>();
         text = GetComponentInChildren<TextMeshProUGUI>();
-        original = img.color;
     }
 
     // Update is called once per frame
@@ -29,10 +31,12 @@ public class UINames : MonoBehaviour
         if (myTurn)
         {
             img.color = chosen;
+            transform.position = Vector3.Lerp(transform.position, turn.transform.position, Time.deltaTime * 2);
         }
         else
         {
-            img.color = original;
+            img.color = notChosen;
+            transform.position = Vector3.Lerp(transform.position, notTurn.transform.position, Time.deltaTime * 2);
         }
     }
 }
