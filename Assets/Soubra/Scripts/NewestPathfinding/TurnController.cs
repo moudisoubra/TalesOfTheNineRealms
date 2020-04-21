@@ -135,7 +135,7 @@ public class TurnController : MonoBehaviour
 
         for (int i = 0; i < units.Count; i++)
         {
-            //units[i].hmScript.HIT = HitOrMiss.Hit.none;
+            units[i].hmScript.HIT = HitOrMiss.Hit.none;
             units[i].getHit = false;
         }
     }

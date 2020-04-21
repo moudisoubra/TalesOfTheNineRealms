@@ -52,6 +52,7 @@ public class Unit : MonoBehaviour
     public List<TileMap.Node> currentPath = null;
     public TileMap.Node currentNode;
     public List<string> attackNames;
+    public List<Unit> unitsToAnimate;
     public enum EnemyType { AsgardianMelee, AsgardianRanged, GiantMelee, GiantRanged, TreePerson, Dragon, Player, Hugin, Munin };
     public EnemyType enemyType;
 
@@ -69,8 +70,9 @@ public class Unit : MonoBehaviour
     {
         if (health <= 0)
         {
-            this.enabled = false;
+            animator.SetBool("Dead", true);
             dead = true;
+            this.enabled = false;
         }
         if (currentPath != null)
         {
@@ -110,7 +112,10 @@ public class Unit : MonoBehaviour
             }
         }
     }
-
+    public void TakeDamage()
+    {
+        animator.SetTrigger("TakeDamage");
+    }
     public void ResetAnimation()
     {
         animator.ResetTrigger("Attack1");

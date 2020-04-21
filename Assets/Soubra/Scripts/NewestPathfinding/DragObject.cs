@@ -13,6 +13,7 @@ public class DragObject : MonoBehaviour
     public bool turn;
     public bool notUsed = false;
     public bool bumped = false;
+    public bool runTimer = false;
     public bool tutorial = false;
     private float mZCoord;
     public float power = 1;
@@ -50,7 +51,14 @@ public class DragObject : MonoBehaviour
         {
             transform.Rotate(rotateX * rotateSpeed * Time.deltaTime, rotateY * rotateSpeed * Time.deltaTime, rotateZ * rotateSpeed * Time.deltaTime);
         }
-
+        if (runTimer && rb.velocity == Vector3.zero)
+        {
+            timer += Time.deltaTime;
+        }
+        if (timer > 1)
+        {
+            bumped = true;
+        }
         if (!turn && notUsed && rb.velocity == Vector3.zero)
         {
             for (int i = 0; i < sides.Length; i++)
@@ -105,6 +113,7 @@ public class DragObject : MonoBehaviour
 
         if (dealingDamage && rb.velocity == Vector3.zero && bumped)
         {
+            attackingUnit.unitsToAnimate.Add(unit);
             if (attackingUnit.raging)
             {
                 Debug.Log("This is the damage: " + sideChosen + " This is the RageNumber: " + attackingUnit.rageNumber);
@@ -124,12 +133,28 @@ public class DragObject : MonoBehaviour
                 Debug.Log("This is the damage: " + sideChosen);
                 damageToDeal = sideChosen;
                 unit.health -= damageToDeal;
+                if (unit.attack == CellPositions.Attacks.First)
+                {
+                    attackingUnit.animator.SetTrigger("Attack1");
+                }
+                if (unit.attack == CellPositions.Attacks.Second)
+                {
+                    attackingUnit.animator.SetTrigger("Attack2");
+                }
             }
 
             Destroy(this.gameObject, 5);
             dealingDamage = false;
         }
 
+        if (dealEffect && bumped)
+        {
+            if (unit.attack == CellPositions.Attacks.Third)
+            {
+                unit.animator.SetTrigger("Attack3");
+                Debug.Log("did this");
+            }
+        }
         if (dealEffect && rb.velocity == Vector3.zero && bumped)
         {
             if (effect == Effect.Heal)
@@ -148,7 +173,7 @@ public class DragObject : MonoBehaviour
             {
                 unit.raging = true;
                 unit.rageNumber = sideChosen;
-                unit.animator.SetTrigger("Attack3");
+                //unit.animator.SetTrigger("Attack3");
                 if (!tutorial)
                 {
                     Destroy(this.gameObject, 5);
@@ -202,7 +227,7 @@ public class DragObject : MonoBehaviour
         {
             turn = false;
             notUsed = true;
-            bumped = true;
+            runTimer = true;
             if (irScript != null)
             {
                 Invoke("GetRidOfThis", 3);

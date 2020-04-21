@@ -77,6 +77,7 @@ public class InitiativeRoll : MonoBehaviour
 
         if (die.Count == 0 && !check)
         {
+            Debug.Log("This reordered");
             ReOrder();
             battleCanvas.SetActive(true);
             tcScript.goForIt = true;
@@ -96,6 +97,7 @@ public class InitiativeRoll : MonoBehaviour
     }
     public void ReOrder()
     {
+        Debug.Log("I was called");
         for (int i = 0; i < Characters.Count; i++)
         {
             for (int x = 0; x < Characters.Count; x++)

@@ -41,6 +41,8 @@ public class CheckHealths : MonoBehaviour
         {
             if (tcScript.units[i].health <= 0)
             {
+                tcScript.units[i].dead = true;
+                tcScript.units[i].animator.SetBool("Dead", true);// Changed Unit to units[i], this should fix it, if not turn it back to Unit.
                 tcScript.units.Remove(tcScript.units[i]);
             }
         }

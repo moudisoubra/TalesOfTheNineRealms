@@ -26,6 +26,7 @@ public class TutorialScript : MonoBehaviour
     public GameObject attackArmor;
     public GameObject attackDamage;
     public GameObject attackEffect;
+    public GameObject canvas;
 
     // Start is called before the first frame update
     void Start()
@@ -767,6 +768,7 @@ public class TutorialScript : MonoBehaviour
             if (dScript.done)
             {
                 chScript.playersWon = true;
+                canvas.SetActive(false);
                 tutorialStep++;
                 active = true;
             }
