@@ -7,17 +7,19 @@ public class InitiativeRoll : MonoBehaviour
     public TileMap tmScript;
     public TurnController tcScript;
     public List<Unit> Characters;
-    public int index = 0;
     public GameObject dice;
     public GameObject currentDice;
     public GameObject battleCanvas;
     public List<GameObject> die;
     public Unit currentCharacter;
+    public int index = 0;
+    public float timer = 0;
     public bool spawn = true;
     public bool done = false;
     public bool check = true;
     public bool tutorial = false;
     public bool throwTutorial = false;
+    public bool start = false;
 
     void Start()
     {
@@ -74,8 +76,11 @@ public class InitiativeRoll : MonoBehaviour
 
             //spawn = false;
         }
-
-        if (die.Count == 0 && !check)
+        //if ()
+        //{
+        //    timer += Time.deltaTime;
+        //}
+        if (die.Count == 0 && !check && start)
         {
             Debug.Log("This reordered");
             ReOrder();

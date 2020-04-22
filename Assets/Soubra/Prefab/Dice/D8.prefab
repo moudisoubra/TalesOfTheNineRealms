@@ -706,11 +706,15 @@ MonoBehaviour:
   turn: 0
   notUsed: 1
   bumped: 0
+  runTimer: 0
+  tutorial: 0
+  spawnNumber: 1
   power: 400
   rotateX: 20
   rotateY: 20
   rotateZ: 20
   rotateSpeed: 500
+  timer: 0
   damageToDeal: 0
   sideChosen: 1
   irScript: {fileID: 0}
@@ -719,6 +723,9 @@ MonoBehaviour:
   caScript: {fileID: 0}
   attacking: 0
   dealingDamage: 0
+  dealEffect: 0
+  effect: 0
+  number: {fileID: 383811447251183716, guid: eb4b35d9499d77d42beabf67ef55cae3, type: 3}
 --- !u!1 &8082622658233287905
 GameObject:
   m_ObjectHideFlags: 0

@@ -353,21 +353,32 @@ MonoBehaviour:
   - {fileID: 9064990802814687173}
   - {fileID: 15526605885539656}
   rb: {fileID: 0}
+  startPos: {x: 0, y: 0, z: 0}
   prevPos: {x: 0, y: 0, z: 0}
   afterPos: {x: 0, y: 0, z: 0}
   turn: 0
   notUsed: 0
   bumped: 0
+  runTimer: 0
+  tutorial: 0
+  spawnNumber: 1
   power: 400
   rotateX: 20
   rotateY: 20
   rotateZ: 20
   rotateSpeed: 500
+  timer: 0
+  damageToDeal: 0
   sideChosen: 1
   irScript: {fileID: 0}
   unit: {fileID: 0}
+  attackingUnit: {fileID: 0}
   caScript: {fileID: 0}
   attacking: 0
+  dealingDamage: 0
+  dealEffect: 0
+  effect: 0
+  number: {fileID: 383811447251183716, guid: eb4b35d9499d77d42beabf67ef55cae3, type: 3}
 --- !u!114 &-4878063407056963494
 MonoBehaviour:
   m_ObjectHideFlags: 0

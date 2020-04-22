@@ -15,6 +15,7 @@ public class DragObject : MonoBehaviour
     public bool bumped = false;
     public bool runTimer = false;
     public bool tutorial = false;
+    public bool spawnNumber = true;
     private float mZCoord;
     public float power = 1;
     public float rotateX;
@@ -33,6 +34,7 @@ public class DragObject : MonoBehaviour
     public bool dealEffect;
     public enum Effect { None, Heal, Defend};
     public Effect effect;
+    public GameObject number;
     private void Start()
     {
         startPos = transform.position;
@@ -58,6 +60,12 @@ public class DragObject : MonoBehaviour
         if (timer > 1)
         {
             bumped = true;
+            if (spawnNumber)
+            {
+                GameObject temp = Instantiate(number, transform.position + new Vector3(0, 2, 0), Quaternion.identity);
+                temp.GetComponent<SelectNumber>().numberChosen = sideChosen - 1;
+                spawnNumber = false;
+            }
         }
         if (!turn && notUsed && rb.velocity == Vector3.zero)
         {
@@ -88,7 +96,7 @@ public class DragObject : MonoBehaviour
             {
                 unit.initiative = sideChosen;
                 irScript.spawn = true;
-                Destroy(this.gameObject, 4);
+                Destroy(this.gameObject, 8);
             }
             //this.enabled = false;
         }
