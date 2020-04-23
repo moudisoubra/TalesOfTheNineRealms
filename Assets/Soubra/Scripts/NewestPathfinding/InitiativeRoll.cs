@@ -80,7 +80,7 @@ public class InitiativeRoll : MonoBehaviour
         //{
         //    timer += Time.deltaTime;
         //}
-        if (die.Count == 0 && !check && start)
+        if (die.Count == 0 && !check)
         {
             Debug.Log("This reordered");
             ReOrder();
