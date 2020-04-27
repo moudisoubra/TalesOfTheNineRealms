@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class ClickableTile : MonoBehaviour
 {
+    public GameObject tile;
     public int tileX;
     public int tileZ;
     public TileMap map;
     public Renderer rend;
     public GivePosition gp;
+    public TurnController tc;
     public Unit unit;
     public string name;
-
     private void Start()
     {
-        rend = GetComponent<Renderer>();
         gp = GetComponentInChildren<GivePosition>();
     }
 
@@ -28,34 +28,62 @@ public class ClickableTile : MonoBehaviour
         {
             if (unit.attackMode)
             {
-                Debug.Log("Unit");
-                if (this == unit.currentNode.neighbours[0].ground.GetComponent<ClickableTile>())
+                if (unit.targetTile == this && !unit.attackDamaged)
                 {
-                    unit.direction = CellPositions.Direction.Left;
+                    if (unit.enemyType == Unit.EnemyType.Munin && unit.attack == CellPositions.Attacks.Second)
+                    {
+                        Debug.Log("I will Heal this guy: " + gp.unitGameobject);
+                        gp.unitGameobject.GetComponent<Unit>().remainingMovement = gp.unitGameobject.GetComponent<Unit>().moveSpeed * 2;
+                        unit.attack2CoolDown = unit.ogAttack2CoolDown;
+                        unit.attackedAlready = true;
+                    }
+
+                    if (unit.enemyType == Unit.EnemyType.Hugin && (unit.attack == CellPositions.Attacks.Second || unit.attack == CellPositions.Attacks.Third))
+                    {
+                        Debug.Log("I will Heal this guy: " + gp.unitGameobject);
+                        unit.chosenPlayer = gp.unitGameobject;
+                        unit.attackDamaged = true;
+                    }
+                    else
+                    {
+                        unit.attackNow = true;
+                    }
                 }
-                if (this == unit.currentNode.neighbours[1].ground.GetComponent<ClickableTile>())
+                else
                 {
-                    unit.direction = CellPositions.Direction.Up;
+                    if (this == unit.currentNode.neighbours[0].ground.GetComponent<ClickableTile>())
+                    {
+                        unit.direction = CellPositions.Direction.Left;
+                    }
+                    if (this == unit.currentNode.neighbours[1].ground.GetComponent<ClickableTile>())
+                    {
+                        unit.direction = CellPositions.Direction.Up;
+                    }
+                    if (this == unit.currentNode.neighbours[2].ground.GetComponent<ClickableTile>())
+                    {
+                        unit.direction = CellPositions.Direction.Right;
+                    }
+                    if (this == unit.currentNode.neighbours[3].ground.GetComponent<ClickableTile>())
+                    {
+                        unit.direction = CellPositions.Direction.Down;
+                    }
+                    unit.targetTile = this;
                 }
-                if (this == unit.currentNode.neighbours[2].ground.GetComponent<ClickableTile>())
-                {
-                    unit.direction = CellPositions.Direction.Right;
-                }
-                if (this == unit.currentNode.neighbours[3].ground.GetComponent<ClickableTile>())
-                {
-                    unit.direction = CellPositions.Direction.Down;
-                }
-                unit.attackNow = true;
+                
             }
             else
             {
-                map.MoveUnitTo(tileX, tileZ);
-                unit.attackNow = false;
+                if (unit.targetTile == this && unit.currentPath.Count > 0)
+                {
+                    unit.move = true;
+                }
+                else
+                {
+                    unit.targetTile = this;
+                    map.MoveUnitTo(tileX, tileZ);
+                    unit.attackNow = false;
+                }
             }
-        }
-        else
-        {
-            map.MoveUnitTo(tileX, tileZ);
         }
     }
 }

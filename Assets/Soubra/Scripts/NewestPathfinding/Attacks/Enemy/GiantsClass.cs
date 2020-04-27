@@ -5,6 +5,8 @@ using UnityEngine;
 public class GiantsClass : CellPositions
 {
     public EnemyAgent eaScript;
+    public GameObject stone;
+    public bool spawn = true;
     public bool first = false;
     public override void FirstAttack()
     {
@@ -71,43 +73,29 @@ public class GiantsClass : CellPositions
 
     public override void ThirdAttack(int range)
     {
-        
-        if (direction == Direction.Up)
-        {
-            TileMap.Node n = currentNode.neighbours[1];
 
-            for (int i = 0; i < range + 1; i++)
-            {
-                AddNode(n, 0, i);
-            }
-        }
-        if (direction == Direction.Down)
+        int far = map.CheckHowFar(unit.targetEnemy.tileX, unit.targetEnemy.tileZ);
+        giantAttack3 = far;
+        Debug.Log("This is how far he is: " + far);
+        if (far < 11)
         {
-            TileMap.Node n = currentNode.neighbours[3];
-
-            for (int i = 0; i < range + 1; i++)
-            {
-                AddNode(n, 0, -i);
-            }
+            Debug.Log("Can attack enemy");
+            AddNode(unit.targetEnemy.currentNode, 0, 0);
+            AddNode(unit.targetEnemy.currentNode, 0, 1);
+            AddNode(unit.targetEnemy.currentNode, 0, -1);
+            AddNode(unit.targetEnemy.currentNode, 1, 1);
+            AddNode(unit.targetEnemy.currentNode, 1, 0);
+            AddNode(unit.targetEnemy.currentNode, 1, -1);
+            AddNode(unit.targetEnemy.currentNode, -1, 1);
+            AddNode(unit.targetEnemy.currentNode, -1, 0);
+            AddNode(unit.targetEnemy.currentNode, -1, -1);
         }
-        if (direction == Direction.Left)
+        else
         {
-            TileMap.Node n = currentNode.neighbours[0];
-
-            for (int i = 0; i < range + 1; i++)
-            {
-                AddNode(n, -i, 0);
-            }
+            Debug.Log("Enemy is too far");
         }
-        if (direction == Direction.Right)
-        {
-            TileMap.Node n = currentNode.neighbours[2];
 
-            for (int i = 0; i < range + 1; i++)
-            {
-                AddNode(n, i, 0);
-            }
-        }
+
     }
 
     public void ClearAll()
@@ -115,13 +103,14 @@ public class GiantsClass : CellPositions
         attackNodes.Clear();
         effectedUnits.Clear();
         eaScript.actionQueue = null;
-        unit.animator.ResetTrigger("Flip");
-        unit.animator.ResetTrigger("Throw");
-        unit.animator.ResetTrigger("Slap");
+        unit.animator.ResetTrigger("Attack1");
+        unit.animator.ResetTrigger("Attack2");
+        unit.animator.ResetTrigger("Attack3");
         unit.animator.SetBool("Idle", false); 
         SubGoal s = new SubGoal(eaScript.goal, 1, true);
         eaScript.goals.Add(s, 1);
         eaScript.currentAction = null;
+        spawn = true;
         unit.remainingMovement = unit.moveSpeed;
     }
 }

@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class FindPath : GAction
 {
-    
+    public CheckHealths chScript;
     public override bool PrePerform()
     {
+        chScript = GetComponentInParent <CheckHealths>();
         unit.CoolDownCheck();
+        unit.targetEnemy = chScript.playableCharacters[0];
+        for (int i = 0; i < chScript.playableCharacters.Count; i++)
+        {
+            if (unit.map.CheckHowFar(unit.targetEnemy.tileX, unit.targetEnemy.tileZ) > 
+                unit.map.CheckHowFar(chScript.playableCharacters[i].tileX, chScript.playableCharacters[i].tileZ))
+            {
+                unit.targetEnemy = chScript.playableCharacters[i];
+            }
+        }
+
         return true;
     }
     public override void Perform()

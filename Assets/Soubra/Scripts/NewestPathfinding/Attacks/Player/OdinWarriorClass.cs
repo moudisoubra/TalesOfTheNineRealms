@@ -14,8 +14,6 @@ public class OdinWarriorClass : CellPositions
 
             AddNode(n, 0, 0);
             AddNode(n, 0, 1);
-            AddNode(n, 0, 2);
-            AddNode(n, 0, 3);
         }
         if (direction == Direction.Down)
         {
@@ -23,8 +21,6 @@ public class OdinWarriorClass : CellPositions
 
             AddNode(n, 0, 0);
             AddNode(n, 0, -1);
-            AddNode(n, 0, -2);
-            AddNode(n, 0, -3);
         }
         if (direction == Direction.Left)
         {
@@ -32,8 +28,6 @@ public class OdinWarriorClass : CellPositions
 
             AddNode(n, 0, 0);
             AddNode(n, -1, 0);
-            AddNode(n, -2, 0);
-            AddNode(n, -3, 0);
         }
         if (direction == Direction.Right)
         {
@@ -41,15 +35,12 @@ public class OdinWarriorClass : CellPositions
 
             AddNode(n, 0, 0);
             AddNode(n, 1, 0);
-            AddNode(n, 2, 0);
-            AddNode(n, 3, 0);
         }
     }
 
     public override void SecondAttack()
     {
-        attackNodes.Clear();
-
+            attackNodes.Clear();
             AddNode(map.graph[tileX,tileZ], 0, 1);
             AddNode(map.graph[tileX,tileZ], 1, 1);
             AddNode(map.graph[tileX,tileZ], -1, 1);
@@ -63,11 +54,44 @@ public class OdinWarriorClass : CellPositions
 
     public override void ThirdAttack(int range)
     {
-        base.ThirdAttack(range);
+        
     }
 
     public void ClearAll()
     {
         unit.remainingMovement = unit.moveSpeed;
+        unit.attackMode = false;
+        unit.attackedAlready = false;
+        unit.attackDamaged = false;
+        effectedUnits.Clear();
+        unitsToCheck.Clear();
+        hitUnits.Clear();
+        unit.targetTile = null;
+        unit.preAttack = true;
+        unit.attack = Attacks.None;
+        attackNodes.Clear();
+        unit.hmScript.HIT = HitOrMiss.Hit.none;
+        if (unit.raging)
+        {
+            unit.rageTime++;
+
+            if (unit.rageTime > 2)
+            {
+                unit.rageNumber = 0;
+                unit.rageTime = 0;
+                unit.raging = false;
+            }
+        }
+
+        if (unit.attack3CoolDown > 0)
+        {
+            unit.attack3CoolDown--;
+            Debug.Log("This has been called");
+        }
+
+        if (unit.attack2CoolDown > 0)
+        {
+            unit.attack2CoolDown--;
+        }
     }
 }

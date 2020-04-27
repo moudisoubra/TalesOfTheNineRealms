@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GivePosition : MonoBehaviour
 {
@@ -36,8 +37,16 @@ public class GivePosition : MonoBehaviour
     }
     private void OnMouseUp()
     {
-        ct.map.gpNode = this;
-        ct.Check();
+        if (ct.tc.goForIt)
+        {
+
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+            ct.map.gpNode = this;
+            ct.Check();
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -50,7 +59,22 @@ public class GivePosition : MonoBehaviour
             unitGameobject = other.GetComponentInParent<Unit>();
         }
     }
-
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Blockade"))
+        {
+            this.blocked = true;
+            this.ct.tile.GetComponent<MeshRenderer>().enabled = false;
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Blockade"))
+        {
+            this.blocked = true;
+            this.ct.tile.GetComponent<MeshRenderer>().enabled = false;
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         if (unitGameobject != null && other.GetComponent<Unit>() && other == unitGameobject.gameObject)

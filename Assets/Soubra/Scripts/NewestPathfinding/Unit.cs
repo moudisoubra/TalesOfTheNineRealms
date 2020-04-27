@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
+    public int initiative;
     public int tileX;
     public int tileZ;
     public int index = 0;
@@ -11,41 +12,67 @@ public class Unit : MonoBehaviour
     public int remainingMovement = 3;
     public int attackType = 1;
     public int health = 10;
+    public int maxHealth = 10;
     public int coolDown = 0;
+    public int armorClass = 10;
+    public int attackHit = 4;
+    public int rageNumber = 0;
+    public int rageTime = 0;
+    public int attackNumber = 0;
+    public int addedAttackRoll = 0;
+
+    public int ogAttack2CoolDown = 2;
+    public int ogAttack3CoolDown = 5;
+    public int attack2CoolDown = 0;
+    public int attack3CoolDown = 0;
+
+    public float movingSpeed = 2.5f;
     public float distance = 0.5f;
     public float heightOffset = 0.5f;
     public bool move;
     public bool reset;
     public bool enemy;
     public bool attackNow;
+    public bool attackDamaged;
     public bool attackMode;
     public bool attackedAlready;
+    public bool preAttack = true;
+    public bool raging;
     public bool dead;
+    public bool getHit;
+    public bool missedAttack = false;
     public Unit targetEnemy;
+    public Unit chosenPlayer;
     public ClickableTile ct;
+    public ClickableTile targetTile;
     public TileMap map;
+    public GameObject cubeBase;
     public Animator animator;
     public List<GAction> actions;
     public List<TileMap.Node> currentPath = null;
     public TileMap.Node currentNode;
     public List<string> attackNames;
-    public enum EnemyType { AsgardianMelee, AsgardianRanged, GiantMelee, GiantRanged, Player };
+    public List<Unit> unitsToAnimate;
+    public enum EnemyType { AsgardianMelee, AsgardianRanged, GiantMelee, GiantRanged, TreePerson, Dragon, Player, Hugin, Munin };
     public EnemyType enemyType;
 
     public CellPositions.Direction direction;
     public CellPositions.Attacks attack;
 
-    public GameObject mainCameraPosition;
-    public GameObject sideCameraPosition;
-    public CameraController ccScript;
+    public AssignTiles atScript;
+    public HitOrMiss hmScript;
+    private void Start()
+    {
+        atScript = GetComponent<AssignTiles>();
+        hmScript = GetComponentInChildren<HitOrMiss>();
+    }
     public void Update()
     {
-        
-
         if (health <= 0)
         {
-            this.enabled = false;
+            animator.SetBool("Dead", true);
             dead = true;
+            this.enabled = false;
         }
         if (currentPath != null)
         {
@@ -72,21 +99,28 @@ public class Unit : MonoBehaviour
         if (move)
         {
             RecursiveMoveToNextTile();
-            if (enemy)
+            if (animator != null)
             {
                 animator.SetBool("Walking", true);
             }
         }
         else
         {
-            
-            if (enemy)
+            if (animator != null)
             {
                 animator.SetBool("Walking", false);
             }
         }
     }
-
+    public void TakeDamage()
+    {
+        animator.SetTrigger("TakeDamage");
+    }
+    public void ResetAnimation()
+    {
+        animator.ResetTrigger("Attack1");
+        attackNow = false;
+    }
     public void ChangeAttack(int i)
     {
         if (i == 1)
@@ -180,7 +214,7 @@ public class Unit : MonoBehaviour
     {
         if (currentPath != null)
         {
-            if (Vector3.Distance(transform.position, currentPath[0].ground.transform.position) < distance)
+            if (Vector3.Distance(cubeBase.transform.position, currentPath[0].ground.transform.position) < distance)
             {
                 if (currentPath == null)
                     return;
@@ -188,6 +222,7 @@ public class Unit : MonoBehaviour
                 if (remainingMovement <= 0)
                 {
                     move = false;
+                    currentPath = null;
                     return;
                 }
 
@@ -198,17 +233,31 @@ public class Unit : MonoBehaviour
 
                 currentPath.RemoveAt(0);
                 Debug.Log("Still Asking TO Walk");
-                if (currentPath.Count == 1)
+                if (enemyType == EnemyType.Player || enemyType == EnemyType.Hugin || enemyType == EnemyType.Munin)
                 {
-                    Debug.Log("Current Path Count: " + currentPath.Count);
-                    currentPath = null;
+                    if (currentPath.Count == 0) //This used to be 1 but that would cause it to stop next to the target instead of at the target
+                    {                           //Im sure theirs a reason I set this to 1 instead of 0 but oh well, I need it to be 0 now
+                                                //if errors happen come back and change this back to 1
+                        Debug.Log("Current Path Count: " + currentPath.Count);
+                        currentPath = null;
+                    }
                 }
+                else
+                {
+                    if (currentPath.Count == 1) //This used to be 1 but that would cause it to stop next to the target instead of at the target
+                    {                           //Im sure theirs a reason I set this to 1 instead of 0 but oh well, I need it to be 0 now
+                                                //if errors happen come back and change this back to 1
+                        Debug.Log("Current Path Count: " + currentPath.Count);
+                        currentPath = null;
+                    }
+                }
+
             }
             else
             {
                 Debug.Log("Still Walking");
-                transform.LookAt(currentPath[0].ground.transform.position);
-                transform.position = Vector3.Lerp(transform.position, currentPath[0].ground.transform.position, 5f * Time.deltaTime);
+                transform.LookAt(currentPath[0].ground.transform.position + atScript.offset);
+                transform.position = Vector3.Lerp(transform.position, currentPath[0].ground.transform.position + atScript.offset, movingSpeed * Time.deltaTime);
             }
         }
         else

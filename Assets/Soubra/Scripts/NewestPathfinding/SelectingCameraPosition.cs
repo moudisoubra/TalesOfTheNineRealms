@@ -26,7 +26,7 @@ public class SelectingCameraPosition : MonoBehaviour
 
             if (timer > timerDuration)
             {
-                ccScript.MoveCameraLerp(tmScript.selectedUnit.GetComponent<Unit>().mainCameraPosition);
+                //ccScript.MoveCameraLerp(tmScript.selectedUnit.GetComponent<Unit>().mainCameraPosition);
                 if (timer > 2.5f)
                 {
                     done = true;

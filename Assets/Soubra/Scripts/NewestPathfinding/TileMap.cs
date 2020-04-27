@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class TileMap : MonoBehaviour
 {
+    public TurnController tcScript;
     public GivePosition gpNode;
     public GameObject selectedUnit;
     public GameObject positioner;
@@ -16,7 +17,14 @@ public class TileMap : MonoBehaviour
     public float positionerx = 0;
     public float positionery = 0;
     public float positionerz = 0;
+    public float range = 1;
+    public float maxRange = 1;
+    public float slope = -0.1f;
+    public float rateOfChange = .2f;
     public bool done;
+    public GameObject midTile;
+    public bool debug;
+    public Color mapColor;
     //List<Node> currentPath = null;
     private void Start()
     {
@@ -28,18 +36,39 @@ public class TileMap : MonoBehaviour
         positioner.transform.position = new Vector3(positioner.transform.position.x + positionerx,
             positioner.transform.position.y + positionery,
             positioner.transform.position.z + positionerz);
-        done = true;
+        midTile = graph[(int)mapSizeX/2, (int)mapSizeY/ 2].ground;
+        SetMaterialForEverything();
+        //done = true;
     }
 
     private void Update()
     {
+        if (Input.GetKey(KeyCode.R))
+        {
+            GenerateWorldVisual();
+        }
+        if (!done)
+        {
+            SetVectorsForEverything();
+            range = Mathf.Lerp(range, maxRange, (rateOfChange/1000) * Time.time);
+            if (range >= maxRange - 0.5f)
+            {
+                done = true;
+            }
+        }
+
+
+        if (debug)
+        {
+            SetVectorsForEverything();
+        }
 
     }
     public float CostToEnterTile(int x, int y)
     {
         TileType tt = tileTypes[tiles[x, y]];
         return tt.movementCost;
-    }
+    }   
     public bool UnitCanEnterTile(int x, int y)
     {
         return tileTypes[tiles[x, y]].isWalkable;
@@ -138,12 +167,42 @@ public class TileMap : MonoBehaviour
                 ct.tileX = x;   
                 ct.tileZ = y;
                 ct.map = this;
+                ct.tc = tcScript;
                 graph[x, y].ground = go;
-                graph[x, y].rend = go.GetComponent<Renderer>();
+                graph[x, y].rend = ct.rend;
                 graph[x, y].color = graph[x, y].rend.material.color;
+                graph[x, y].color = mapColor;
+                graph[x, y].tile = ct.tile;
             }
         }
     }
+
+    public void SetMaterialForEverything()
+    {
+        for (int x = 0; x < mapSizeX; x++)
+        {
+            for (int y = 0; y < mapSizeY; y++)
+            {
+                graph[x, y].rend.material.SetVector("_transparentPosition", midTile.transform.position);
+                graph[x, y].rend.material.SetVector("_objectPosition", graph[x, y].tile.transform.position);
+            }
+        }
+    }
+
+    public void SetVectorsForEverything()
+    {
+        for (int x = 0; x < mapSizeX; x++)
+        {
+            for (int y = 0; y < mapSizeY; y++)
+            {
+                graph[x, y].rend.material.SetFloat("_slope", slope);
+                graph[x, y].rend.material.SetFloat("_Range", range);
+                graph[x, y].rend.material.SetVector("_Color", mapColor);
+
+            }
+        }
+    }
+
     public Vector3 TileToWorld(int x, int z)
     {
         return new Vector3(x, 0, z);
@@ -254,11 +313,91 @@ public class TileMap : MonoBehaviour
         currentPath.Reverse();
         selectedUnit.GetComponent<Unit>().currentPath = currentPath;
     }
+    public int CheckHowFar(int x, int z)
+    {
+        selectedUnit.GetComponent<Unit>().currentPath = null;
+
+        Dictionary<Node, float> dist = new Dictionary<Node, float>();
+        Dictionary<Node, Node> prev = new Dictionary<Node, Node>();
+
+        List<Node> unvisited = new List<Node>();
+
+        Node source = graph[selectedUnit.GetComponent<Unit>().tileX, selectedUnit.GetComponent<Unit>().tileZ];
+        Node target = graph[x, z];
+
+
+        
+
+        dist[source] = 0;
+        prev[source] = null;
+
+        foreach (Node v in graph)
+        {
+            if (v != source)
+            {
+                dist[v] = Mathf.Infinity;
+                prev[v] = null;
+            }
+
+            unvisited.Add(v);
+        }
+
+        while (unvisited.Count > 0)
+        {
+            Node u = null;
+
+            foreach (Node possibleU in unvisited)
+            {
+                if (u == null || dist[possibleU] < dist[u])
+                {
+                    u = possibleU;
+                }
+            }
+
+            if (u == target)
+            {
+                break;
+            }
+
+            unvisited.Remove(u);
+
+            foreach (Node v in u.neighbours)
+            {
+                //float alt = dist[u] + u.DistanceTo(v);
+                if (v != null)
+                {
+
+                    float alt = dist[u] + CostToEnterTile(v.x, v.y);
+
+                    if (alt < dist[v])
+                    {
+                        dist[v] = alt;
+                        prev[v] = u;
+                    }
+                }
+            }
+        }
+
+        List<Node> currentPath = new List<Node>();
+
+        Node curr = target;
+
+        while (curr != null)
+        {
+            currentPath.Add(curr);
+            curr = prev[curr];
+        }
+
+        currentPath.Reverse();
+        selectedUnit.GetComponent<Unit>().currentPath = currentPath;
+        return currentPath.Count;
+    }
 
     public class Node
     {
         public List<Node> neighbours;
         public GameObject ground;
+        public GameObject tile;
         public Renderer rend;
         public Color color;
         public int x;
@@ -270,12 +409,14 @@ public class TileMap : MonoBehaviour
 
         public void ResetColor()
         {
-            rend.material.SetColor("_BaseColor", color);
+            //rend.material.SetColor("_BaseColor", color);
+            rend.material.SetVector("_Color", color);
         }
 
         public void GiveColor(Color colorA)
         {
-            rend.material.SetColor("_BaseColor", colorA);
+            rend.material.SetVector("_Color", colorA);
+            //rend.material.SetColor("_BaseColor", colorA);
         }
 
         public float DistanceTo(Node n)
