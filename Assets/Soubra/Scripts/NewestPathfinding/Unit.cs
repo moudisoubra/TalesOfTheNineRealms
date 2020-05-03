@@ -61,8 +61,13 @@ public class Unit : MonoBehaviour
 
     public AssignTiles atScript;
     public HitOrMiss hmScript;
+
+    public Vector3 ravenFlying;
+    public Vector3 ravenOnGround;
     private void Start()
     {
+        ravenOnGround = animator.gameObject.transform.localPosition;
+        ravenFlying = animator.gameObject.transform.localPosition + new Vector3(0, 1.5f, 0);
         atScript = GetComponent<AssignTiles>();
         hmScript = GetComponentInChildren<HitOrMiss>();
     }

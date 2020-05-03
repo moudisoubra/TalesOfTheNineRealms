@@ -76,17 +76,17 @@ public class InitiativeRoll : MonoBehaviour
 
             //spawn = false;
         }
-        //if ()
-        //{
-        //    timer += Time.deltaTime;
-        //}
-        if (die.Count == 0 && !check)
+        if (!check)
         {
-            Debug.Log("This reordered");
-            ReOrder();
-            battleCanvas.SetActive(true);
-            tcScript.goForIt = true;
-            check = true;
+            timer += Time.deltaTime;
+            if (die.Count == 0 && timer >= 2)
+            {
+                Debug.Log("This reordered");
+                ReOrder();
+                battleCanvas.SetActive(true);
+                tcScript.goForIt = true;
+                check = true;
+            }
         }
 
     }

@@ -153,7 +153,7 @@ public class SetupBattle : MonoBehaviour
             }
         }
 
-        if (tmScript.done && clear)
+        if (tmScript.done)
         {
             tdScript.ClearPanel();
         }
@@ -185,6 +185,8 @@ public class SetupBattle : MonoBehaviour
             {
                 turnOffExtras[i].SetActive(false);
             }
+            this.enabled = false;
+
             this.gameObject.SetActive(false);
         }
     }
