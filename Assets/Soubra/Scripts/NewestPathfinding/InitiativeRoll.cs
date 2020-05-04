@@ -11,6 +11,8 @@ public class InitiativeRoll : MonoBehaviour
     public GameObject currentDice;
     public GameObject battleCanvas;
     public List<GameObject> die;
+    public List<GameObject> dieSpawned;
+    public int dieNumbers;
     public Unit currentCharacter;
     public int index = 0;
     public float timer = 0;
@@ -78,14 +80,17 @@ public class InitiativeRoll : MonoBehaviour
         }
         if (!check)
         {
-            timer += Time.deltaTime;
-            if (die.Count == 0 && timer >= 2)
+            if (dieSpawned.Count == dieNumbers)
             {
-                Debug.Log("This reordered");
-                ReOrder();
-                battleCanvas.SetActive(true);
-                tcScript.goForIt = true;
-                check = true;
+            timer += Time.deltaTime;
+                if (timer >= 3)
+                {
+                    Debug.Log("This reordered");
+                    ReOrder();
+                    battleCanvas.SetActive(true);
+                    tcScript.goForIt = true;
+                    check = true;
+                }
             }
         }
 
@@ -98,6 +103,7 @@ public class InitiativeRoll : MonoBehaviour
         temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         temp.GetComponent<DragObject>().unit = unit;
         currentDice = temp;
+        dieNumbers++;
         die.Add(temp);
     }
     public void ReOrder()

@@ -64,6 +64,7 @@ public class DragObject : MonoBehaviour
             {
                 GameObject temp = Instantiate(number, transform.position + new Vector3(0, 2, 0), Quaternion.identity);
                 temp.GetComponent<SelectNumber>().numberChosen = sideChosen - 1;
+                irScript.dieSpawned.Add(this.gameObject);
                 spawnNumber = false;
             }
         }
@@ -96,7 +97,8 @@ public class DragObject : MonoBehaviour
             {
                 unit.initiative = sideChosen;
                 irScript.spawn = true;
-                Destroy(this.gameObject, 8);
+
+                    Destroy(this.gameObject, 8);
             }
             //this.enabled = false;
         }
