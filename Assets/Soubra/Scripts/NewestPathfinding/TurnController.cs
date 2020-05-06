@@ -132,12 +132,18 @@ public class TurnController : MonoBehaviour
             unit.GetComponent<RavensClass>().ClearAll();
             Debug.Log("Cleared It");
         }
-
+        if (unit.GetComponent<TreePeopleClass>())
+        {
+            unit.GetComponent<TreePeopleClass>().ClearAll();
+            Debug.Log("Cleared It Tree People");
+        }
         for (int i = 0; i < units.Count; i++)
         {
             units[i].hmScript.HIT = HitOrMiss.Hit.none;
             units[i].getHit = false;
         }
+        tmScript.SetVectorsForEverything();
+
     }
     public void CheckScripts()
     {

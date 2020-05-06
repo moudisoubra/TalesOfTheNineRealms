@@ -79,5 +79,22 @@ public class RavensClass : CellPositions
         {
             unit.attack2CoolDown--;
         }
+
+        if (unit.armorClassCheck > 0)
+        {
+            unit.armorClassCheck--;
+        }
+        if (unit.addedAttackCheck > 0)
+        {
+            unit.addedAttackCheck--;
+        }
+        if (unit.armorClassCheck == 0)
+        {
+            unit.armorClass = unit.ogArmorClass;
+        }
+        if (unit.addedAttackCheck == 0)
+        {
+            unit.addedAttackRoll = unit.ogAddedAttackRoll;
+        }
     }
 }

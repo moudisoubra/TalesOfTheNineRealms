@@ -167,6 +167,10 @@ public class Attack : GAction
 
                 gmClass.unit.animator.SetTrigger("Attack2");
             }
+            if (unit.attackType == 3)
+            {
+                gmClass.unit.animator.SetTrigger("Attack3");
+            }
         }
     }
 

@@ -6,6 +6,7 @@ public class CellPositions : MonoBehaviour
 {
     public bool enemy;
     public bool attackBool;
+    public bool boss;
     public int tileX;
     public int tileZ;
     public int damage;
@@ -50,8 +51,6 @@ public class CellPositions : MonoBehaviour
     }
     private void Update()
     {
-
-
         tileX = unit.tileX;
         tileZ = unit.tileZ;
         currentNode = map.graph[tileX, tileZ];
@@ -160,11 +159,22 @@ public class CellPositions : MonoBehaviour
             }
             if (attack == Attacks.Second)
             {
-               
+                if (unit.chosenPlayer != null)
+                {
+                    SpawnSupportEffect(unit, unit.chosenPlayer, DragObject.Effect.Fast);
+                    Debug.Log("HEALING");
+                    unit.attackDamaged = false;
+                    unit.attackedAlready = true;
+                    unit.attack2CoolDown = unit.ogAttack2CoolDown;
+                }
             }
             if (attack == Attacks.Third)
             {
-
+                SpawnSupportEffect(unit, unit.chosenPlayer, DragObject.Effect.Dodgy);
+                Debug.Log("Defense Increase");
+                unit.attackDamaged = false;
+                unit.attackedAlready = true;
+                unit.attack3CoolDown = unit.ogAttack3CoolDown;
             }
         }
         if (unit.enemyType == Unit.EnemyType.Hugin)
@@ -196,7 +206,15 @@ public class CellPositions : MonoBehaviour
     }
     public void SpawnSupportEffect(Unit cU, Unit effectedUnit, DragObject.Effect effect)
     {
-        GameObject temp = Instantiate(d4, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+        GameObject temp = null;
+        if (unit.CompareTag("Dragon"))
+        {
+            temp = Instantiate(d4, unit.dicePosition.transform.position, Quaternion.identity);
+        }
+        else
+        {
+            temp = Instantiate(d4, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+        }
         temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         DragObject d = temp.GetComponent<DragObject>();
         d.effect = effect;
@@ -210,7 +228,15 @@ public class CellPositions : MonoBehaviour
     }
     public void SpawnRageEffectDiceOverPlayer(Unit cU)
     {
-        GameObject temp = Instantiate(d4, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+        GameObject temp = null;
+        if (unit.CompareTag("Dragon"))
+        {
+            temp = Instantiate(d4, unit.dicePosition.transform.position, Quaternion.identity);
+        }
+        else
+        {
+            temp = Instantiate(d4, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+        }
         temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         DragObject d = temp.GetComponent<DragObject>();
         d.dealEffect = true;
@@ -249,7 +275,15 @@ public class CellPositions : MonoBehaviour
     }
     public void SpawnDamageDice(GameObject go,Unit unit, Unit attackingUnit)
     {
-        GameObject temp = Instantiate(go, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+        GameObject temp = null;
+        if (unit.CompareTag("Dragon"))
+        {
+            temp = Instantiate(go, unit.dicePosition.transform.position, Quaternion.identity);
+        }
+        else
+        {
+            temp = Instantiate(go, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+        }
         temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         DragObject d = temp.GetComponent<DragObject>();
         d.unit = unit;
@@ -263,7 +297,15 @@ public class CellPositions : MonoBehaviour
     }
     public void SpawnDice(Unit unit, Unit attackingUnit)
     {
-        GameObject temp = Instantiate(d20, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+        GameObject temp = null;
+        if (unit.CompareTag("Dragon"))
+        {
+            temp = Instantiate(d20, unit.dicePosition.transform.position, Quaternion.identity);
+        }
+        else
+        {
+            temp = Instantiate(d20, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+        }
         temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         CheckArmor c = temp.GetComponent<CheckArmor>();
         DragObject d = temp.GetComponent<DragObject>();
@@ -415,7 +457,11 @@ public class CellPositions : MonoBehaviour
         for (int i = 0; i < attackNodes.Count; i++)
         {
             TileMap.Node n = attackNodes[i];
-
+            if (map.graph[n.x, n.y].ground.GetComponentInChildren<GivePosition>().bossCell)
+            {
+                temp = attackNodes.IndexOf(n);
+            }
+            else
             if (!map.UnitCanEnterTile(n.x, n.y) && !map.graph[n.x, n.y].ground.GetComponentInChildren<GivePosition>().full
                 && !map.graph[n.x, n.y].ground.GetComponentInChildren<GivePosition>().blocked)
             {
@@ -429,8 +475,11 @@ public class CellPositions : MonoBehaviour
             Debug.Log(temp);
             for (int q = temp; q < attackNodes.Count; q++)
             {
-                Debug.Log("Removed Nodes: " + attackNodes[q].x + " ," + attackNodes[q].y);
-                attackNodes[q] = null;
+                if (!map.graph[attackNodes[q].x, attackNodes[q].y].ground.GetComponentInChildren<GivePosition>().bossCell)
+                {
+                    Debug.Log("Removed Nodes: " + attackNodes[q].x + " ," + attackNodes[q].y);
+                    attackNodes[q] = null;
+                }
             }
         }
         //Debug.Log("DONE");
@@ -453,35 +502,48 @@ public class CellPositions : MonoBehaviour
 
         for (int i = 0; i < attackNodes.Count; i++)
         {
-            for (int x = 0; x < units.Count; x++)
-            {
-                if (units[x] != null && units[x].tileX == attackNodes[i].x && units[x].tileZ == attackNodes[i].y && !units[x].enemy)
+            Debug.Log("Checking Hits");
+
+                for (int x = 0; x < units.Count; x++)
                 {
-                    if (!effectedUnits.Contains(units[x]))
+
+                    if (units[x] != null && units[x].tileX == attackNodes[i].x && units[x].tileZ == attackNodes[i].y && !units[x].enemy)
                     {
-                        effectedUnits.Add(units[x]);
+                        if (!effectedUnits.Contains(units[x]))
+                        {
+                            effectedUnits.Add(units[x]);
+                        }
+                        Debug.Log("HIT: " + units[x].name);
                     }
-                    Debug.Log("HIT: " + units[x].name);
                 }
-            }
+            
 
         }
     }
     public void CheckHitPlayer()
     {
-
-
         for (int i = 0; i < attackNodes.Count; i++)
         {
-            for (int x = 0; x < units.Count; x++)
+            if (map.bossTiles.Contains(attackNodes[i].tile))
             {
-                if (units[x] != null && units[x].tileX == attackNodes[i].x && units[x].tileZ == attackNodes[i].y && units[x].enemy)
+                if (!effectedUnits.Contains(map.dragonBoss))
                 {
-                    if (!effectedUnits.Contains(units[x]))
+                    effectedUnits.Add(map.dragonBoss);
+                }
+                Debug.Log("HIT: " + map.dragonBoss.name);
+            }
+            else
+            {
+                for (int x = 0; x < units.Count; x++)
+                {
+                    if (units[x] != null && units[x].tileX == attackNodes[i].x && units[x].tileZ == attackNodes[i].y && units[x].enemy)
                     {
-                        effectedUnits.Add(units[x]);
+                        if (!effectedUnits.Contains(units[x]))
+                        {
+                            effectedUnits.Add(units[x]);
+                        }
+                        Debug.Log("HIT: " + units[x].name);
                     }
-                    Debug.Log("HIT: " + units[x].name);
                 }
             }
 

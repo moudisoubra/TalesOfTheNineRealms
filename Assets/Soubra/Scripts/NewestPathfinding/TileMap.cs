@@ -25,6 +25,8 @@ public class TileMap : MonoBehaviour
     public GameObject midTile;
     public bool debug;
     public Color mapColor;
+    public List<GameObject> bossTiles;
+    public Unit dragonBoss;
     //List<Node> currentPath = null;
     private void Start()
     {
@@ -49,7 +51,7 @@ public class TileMap : MonoBehaviour
         }
         if (!done)
         {
-            SetVectorsForEverything();
+            //SetVectorsForEverything();
             range = Mathf.Lerp(range, maxRange, (rateOfChange/1000) * Time.time);
             if (range >= maxRange - 0.5f)
             {
