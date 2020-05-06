@@ -5,17 +5,24 @@ using UnityEngine.PlayerLoop;
 
 public class CameraFollowObject : MonoBehaviour
 {
-
     public float moveSpeed;
     public GameObject odinModel;
 
     Vector3 currentPosition;
     Vector3 shift;
     public bool stopFollowing;
+   
+    public bool level2;
+    public GameObject[] binguPosition;
+    public int currentPositionIndex;
 
     private void Awake()
     {
         shift = transform.position - odinModel.transform.position;
+    }
+
+    private void Start()
+    {
     }
 
     private void FixedUpdate()
@@ -23,7 +30,8 @@ public class CameraFollowObject : MonoBehaviour
         if (!stopFollowing)
         {
             currentPosition = odinModel.transform.position + shift;
-            transform.position = Vector3.Lerp(transform.position, currentPosition, moveSpeed * Time.deltaTime);
         }
+        currentPosition = binguPosition[currentPositionIndex].transform.position + shift;
+        transform.position = Vector3.Lerp(transform.position, currentPosition, moveSpeed * Time.deltaTime);
     }
 }
