@@ -12,7 +12,7 @@ public class CellPositions : MonoBehaviour
     public int damage;
     public int giantAttack3;
     public Color originalColor;
-    public enum Attacks { None, First, Second, Third };
+    public enum Attacks { None, First, Second, Third, Fourth};
     public Attacks attack;
     public enum Direction { None, Up, Down, Left, Right, DownLeft, DownRight, UpLeft, UpRight };
     public Direction direction;
@@ -122,7 +122,7 @@ public class CellPositions : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Q) && enemy)
         {
-            Debug.Log("Attacking");
+            Debug.Log("Attacking Manually");
             direction = CheckDirection();
             ExecuteAll(attack, range);
         }
@@ -446,6 +446,10 @@ public class CellPositions : MonoBehaviour
 
     }
     public virtual void ThirdAttack(int range)
+    {
+
+    }
+    public virtual void FourthAttack()
     {
 
     }

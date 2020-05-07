@@ -46,6 +46,7 @@ public class Unit : MonoBehaviour
     public bool dead;
     public bool getHit;
     public bool missedAttack = false;
+    public bool boss = false;
     public Unit targetEnemy;
     public Unit chosenPlayer;
     public ClickableTile ct;
@@ -70,8 +71,13 @@ public class Unit : MonoBehaviour
 
     public Vector3 ravenFlying;
     public Vector3 ravenOnGround;
+
+    public Vector3 bossPosition;
+    public Quaternion bossRotation;
     private void Start()
     {
+        bossPosition = transform.position;
+        bossRotation = transform.rotation;
         ravenOnGround = animator.gameObject.transform.localPosition;
         ravenFlying = animator.gameObject.transform.localPosition + new Vector3(0, 1.5f, 0);
         atScript = GetComponent<AssignTiles>();
@@ -81,6 +87,11 @@ public class Unit : MonoBehaviour
     }
     public void Update()
     {
+        if (boss)
+        {
+            transform.position = bossPosition;
+            transform.rotation = bossRotation;
+        }
         if (health <= 0)
         {
             animator.SetBool("Dead", true);
@@ -112,14 +123,14 @@ public class Unit : MonoBehaviour
         if (move)
         {
             RecursiveMoveToNextTile();
-            if (animator != null)
+            if (animator != null && !boss)
             {
                 animator.SetBool("Walking", true);
             }
         }
         else
         {
-            if (animator != null)
+            if (animator != null && !boss)
             {
                 animator.SetBool("Walking", false);
             }

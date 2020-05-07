@@ -3862,6 +3862,7 @@ MonoBehaviour:
   dead: 0
   getHit: 0
   missedAttack: 0
+  boss: 0
   targetEnemy: {fileID: 1136352337}
   chosenPlayer: {fileID: 0}
   ct: {fileID: 0}
@@ -3881,6 +3882,8 @@ MonoBehaviour:
   hmScript: {fileID: 1268895601}
   ravenFlying: {x: 0, y: 0, z: 0}
   ravenOnGround: {x: 0, y: 0, z: 0}
+  bossPosition: {x: 0, y: 0, z: 0}
+  bossRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &300655790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4309,6 +4312,9 @@ MonoBehaviour:
   moveSpeed: 5
   odinModel: {fileID: 1831380899}
   stopFollowing: 0
+  level2: 0
+  binguPosition: []
+  currentPositionIndex: 0
 --- !u!4 &323481536
 Transform:
   m_ObjectHideFlags: 0
@@ -5859,6 +5865,7 @@ MonoBehaviour:
   dead: 0
   getHit: 0
   missedAttack: 0
+  boss: 0
   targetEnemy: {fileID: 1136352337}
   chosenPlayer: {fileID: 0}
   ct: {fileID: 0}
@@ -5878,6 +5885,8 @@ MonoBehaviour:
   hmScript: {fileID: 508202341}
   ravenFlying: {x: 0, y: 0, z: 0}
   ravenOnGround: {x: 0, y: 0, z: 0}
+  bossPosition: {x: 0, y: 0, z: 0}
+  bossRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &469409217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9240,6 +9249,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 695770084}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &695770088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695770085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820d5770944af334da09136030e89fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 709871124}
+  eaScript: {fileID: 709871123}
 --- !u!1 &699701948 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3824583055739005027, guid: 7148c137699e1ce4f9b5835cbeed8298,
@@ -9528,9 +9551,7 @@ MonoBehaviour:
   cost: 1
   duration: 0
   target: {fileID: 0}
-  preConditions:
-  - key: inRange
-    value: 1
+  preConditions: []
   afterEffects:
   - key: getAttack
     value: 1
@@ -9574,8 +9595,8 @@ MonoBehaviour:
   tileX: 0
   tileZ: 0
   index: 0
-  moveSpeed: 3
-  remainingMovement: 3
+  moveSpeed: 0
+  remainingMovement: 0
   attackType: 1
   health: 10
   maxHealth: 10
@@ -9594,7 +9615,7 @@ MonoBehaviour:
   attack3CoolDown: 0
   armorClassCheck: 0
   addedAttackCheck: 0
-  movingSpeed: 2.5
+  movingSpeed: 0
   distance: 1.84
   heightOffset: 0.5
   move: 0
@@ -9609,16 +9630,18 @@ MonoBehaviour:
   dead: 0
   getHit: 0
   missedAttack: 0
-  targetEnemy: {fileID: 1136352337}
+  boss: 1
+  targetEnemy: {fileID: 1029655164}
   chosenPlayer: {fileID: 0}
   ct: {fileID: 0}
   targetTile: {fileID: 0}
   map: {fileID: 2145130476}
   cubeBase: {fileID: 299625353}
   dicePosition: {fileID: 2131665492}
-  animator: {fileID: 1815075361}
+  animator: {fileID: 695770086}
   actions:
-  - {fileID: 984994541}
+  - {fileID: 709871122}
+  - {fileID: 709871125}
   attackNames: []
   unitsToAnimate: []
   enemyType: 5
@@ -9628,6 +9651,8 @@ MonoBehaviour:
   hmScript: {fileID: 1917338064}
   ravenFlying: {x: 0, y: 0, z: 0}
   ravenOnGround: {x: 0, y: 0, z: 0}
+  bossPosition: {x: 0, y: 0, z: 0}
+  bossRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &709871125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14029,6 +14054,7 @@ MonoBehaviour:
   dead: 0
   getHit: 0
   missedAttack: 0
+  boss: 0
   targetEnemy: {fileID: 1136352337}
   chosenPlayer: {fileID: 0}
   ct: {fileID: 0}
@@ -14048,6 +14074,8 @@ MonoBehaviour:
   hmScript: {fileID: 1917338064}
   ravenFlying: {x: 0, y: 0, z: 0}
   ravenOnGround: {x: 0, y: 0, z: 0}
+  bossPosition: {x: 0, y: 0, z: 0}
+  bossRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &984994541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14661,7 +14689,7 @@ MonoBehaviour:
   unit: {fileID: 0}
   assign: 1
   x: 10
-  z: 4
+  z: 10
 --- !u!1 &1029840031 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2455037184384259855, guid: 7b221484376e97a4aab999716b8c341e,
@@ -15384,7 +15412,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1052780497}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -221, y: -93, z: 37.341293}
+  m_LocalPosition: {x: -221, y: -10.8, z: 37.341293}
   m_LocalScale: {x: 1379.552, y: 1379.552, z: 1379.552}
   m_Children: []
   m_Father: {fileID: 0}
@@ -16197,7 +16225,7 @@ PrefabInstance:
     - target: {fileID: 4506220616707219706, guid: 2ee5a983c8bc3d34e98a0640cb15a4cb,
         type: 3}
       propertyPath: debug
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4506220616707219706, guid: 2ee5a983c8bc3d34e98a0640cb15a4cb,
         type: 3}
@@ -24868,6 +24896,7 @@ MonoBehaviour:
   dead: 0
   getHit: 0
   missedAttack: 0
+  boss: 0
   targetEnemy: {fileID: 1136352337}
   chosenPlayer: {fileID: 0}
   ct: {fileID: 0}
@@ -24887,6 +24916,8 @@ MonoBehaviour:
   hmScript: {fileID: 1559875341}
   ravenFlying: {x: 0, y: 0, z: 0}
   ravenOnGround: {x: 0, y: 0, z: 0}
+  bossPosition: {x: 0, y: 0, z: 0}
+  bossRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1763624448
 MonoBehaviour:
   m_ObjectHideFlags: 0

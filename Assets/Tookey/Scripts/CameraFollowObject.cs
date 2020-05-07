@@ -31,7 +31,7 @@ public class CameraFollowObject : MonoBehaviour
         {
             currentPosition = odinModel.transform.position + shift;
         }
-        currentPosition = binguPosition[currentPositionIndex].transform.position + shift;
+
         transform.position = Vector3.Lerp(transform.position, currentPosition, moveSpeed * Time.deltaTime);
     }
 }

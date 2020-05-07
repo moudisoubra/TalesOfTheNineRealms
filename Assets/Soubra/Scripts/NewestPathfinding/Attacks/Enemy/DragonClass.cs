@@ -7,73 +7,109 @@ public class DragonClass : CellPositions
     public BoxCollider cube;
     public override void FirstAttack()
     {
+        #region First Row
+        AddNode(currentNode, 5, 0);
+        AddNode(currentNode, 4, 0);
+        AddNode(currentNode, 3, 0);
+        AddNode(currentNode, 2, 0);
+        AddNode(currentNode, 1, 0);
+        AddNode(currentNode, 0, 0);
+        AddNode(currentNode, -1, 0);
+        AddNode(currentNode, -2, 0);
+        AddNode(currentNode, -3, 0);
+        AddNode(currentNode, -4, 0);
+        AddNode(currentNode, -5, 0);
+        #endregion
+        #region Second Row
+        AddNode(currentNode, 5, -1);
+        AddNode(currentNode, 4, -1);
+        AddNode(currentNode, 3, -1);
+        AddNode(currentNode, 2, -1);
+        AddNode(currentNode, 1, -1);
+        AddNode(currentNode, 0, -1);
+        AddNode(currentNode, -1, -1);
+        AddNode(currentNode, -2, -1);
+        AddNode(currentNode, -3, -1);
+        AddNode(currentNode, -4, -1);
+        AddNode(currentNode, -5, -1);
+        #endregion
+        #region Third Row
+        AddNode(currentNode, 5, -2);
+        AddNode(currentNode, 4, -2);
+        AddNode(currentNode, 3, -2);
+        AddNode(currentNode, 2, -2);
+        AddNode(currentNode, 1, -2);
+        AddNode(currentNode, 0, -2);
+        AddNode(currentNode, -1, -2);
+        AddNode(currentNode, -2, -2);
+        AddNode(currentNode, -3, -2);
+        AddNode(currentNode, -4, -2);
+        AddNode(currentNode, -5, -2);
+        #endregion
+        #region 1 Back Row
+        AddNode(currentNode, 5,  1);
+        AddNode(currentNode, 4,  1);
+        AddNode(currentNode, 3,  1);
+        AddNode(currentNode, 2,  1);
 
-        if (direction == Direction.Up)
-        {
-            TileMap.Node n = currentNode.neighbours[1];
-
-            AddNode(n, 0, 0);
-        }
-        if (direction == Direction.Down)
-        {
-            TileMap.Node n = currentNode.neighbours[3];
-
-            AddNode(n, 0, 0);
-        }
-        if (direction == Direction.Left)
-        {
-            TileMap.Node n = currentNode.neighbours[0];
-
-            AddNode(n, 0, 0);
-        }
-        if (direction == Direction.Right)
-        {
-            TileMap.Node n = currentNode.neighbours[2];
-
-            AddNode(n, 0, 0);
-        }
+        AddNode(currentNode, -2, 1);
+        AddNode(currentNode, -3, 1);
+        AddNode(currentNode, -4, 1);
+        AddNode(currentNode, -5, 1);
+        #endregion
+        #region 2 Back Row
+        AddNode(currentNode, 5,  2);
+        AddNode(currentNode, 4,  2);
+        AddNode(currentNode, 3,  2);
+        AddNode(currentNode, 2,  2);
+                                 
+        AddNode(currentNode, -2, 2);
+        AddNode(currentNode, -3, 2);
+        AddNode(currentNode, -4, 2);
+        AddNode(currentNode, -5, 2);
+        #endregion
+        #region 3 Back Row
+        AddNode(currentNode, 5,  3);
+        AddNode(currentNode, 4,  3);
+        AddNode(currentNode, 3,  3);
+        AddNode(currentNode, 2,  3);
+                                 
+        AddNode(currentNode, -2, 3);
+        AddNode(currentNode, -3, 3);
+        AddNode(currentNode, -4, 3);
+        AddNode(currentNode, -5, 3);
+        #endregion
+        #region 4 Back Row
+        AddNode(currentNode, 5,  4);
+        AddNode(currentNode, 4,  4);
+        AddNode(currentNode, 3,  4);
+        AddNode(currentNode, 2,  4);
+                                 
+        AddNode(currentNode, -2, 4);
+        AddNode(currentNode, -3, 4);
+        AddNode(currentNode, -4, 4);
+        AddNode(currentNode, -5, 4);
+        #endregion
     }
 
     public override void SecondAttack()
     {
-        if (direction == Direction.Up)
-        {
-            TileMap.Node n = currentNode.neighbours[1];
-
-            AddNode(n, 0, 0);
-        }
-        if (direction == Direction.Down)
-        {
-            TileMap.Node n = currentNode.neighbours[3];
-
-            AddNode(n, 0, 0);
-        }
-        if (direction == Direction.Left)
-        {
-            TileMap.Node n = currentNode.neighbours[0];
-
-            AddNode(n, 0, 0);
-        }
-        if (direction == Direction.Right)
-        {
-            TileMap.Node n = currentNode.neighbours[2];
-
-            AddNode(n, 0, 0);
-        }
+        AddNode(currentNode, 1, 0);
+        AddNode(currentNode, 0, 0);
+        AddNode(currentNode, -1, 0);
+        AddNode(currentNode, 1, -1);
+        AddNode(currentNode, 0, -1);
+        AddNode(currentNode, -1, -1);
     }
 
     public override void ThirdAttack(int range)
     {
-        AddNode(currentNode, 0, 1);
-        AddNode(currentNode, 0, -1);
-        AddNode(currentNode, 1, 1);
-        AddNode(currentNode, 1, 0);
-        AddNode(currentNode, 1, -1);
-        AddNode(currentNode, -1, 1);
-        AddNode(currentNode, -1, 0);
-        AddNode(currentNode, -1, -1);
+       
     }
+    public override void FourthAttack()
+    {
 
+    }
     public void ClearAll()
     {
         attackNodes.Clear();

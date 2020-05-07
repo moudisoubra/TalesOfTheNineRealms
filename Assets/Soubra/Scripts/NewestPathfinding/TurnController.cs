@@ -137,6 +137,11 @@ public class TurnController : MonoBehaviour
             unit.GetComponent<TreePeopleClass>().ClearAll();
             Debug.Log("Cleared It Tree People");
         }
+        if (unit.GetComponent<DragonClass>())
+        {
+            unit.GetComponent<DragonClass>().ClearAll();
+            Debug.Log("Cleared It Dragon");
+        }
         for (int i = 0; i < units.Count; i++)
         {
             units[i].hmScript.HIT = HitOrMiss.Hit.none;
