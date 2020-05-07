@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraPosSwapBingu : MonoBehaviour
 {
-    public int BinguPositionFeeder;
+    /*public int BinguPositionFeeder;
     CameraFollowObject CameraFollowObj;
 
     private void Start()
@@ -16,5 +16,5 @@ public class CameraPosSwapBingu : MonoBehaviour
     {
         Debug.Log("i am doing a bingu position");
         CameraFollowObj.currentPositionIndex = BinguPositionFeeder;
-    }
+    }*/
 }
