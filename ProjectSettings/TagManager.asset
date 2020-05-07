@@ -7,6 +7,7 @@ TagManager:
   - Blockade
   - Node
   - Tile
+  - Dragon
   layers:
   - Default
   - TransparentFX

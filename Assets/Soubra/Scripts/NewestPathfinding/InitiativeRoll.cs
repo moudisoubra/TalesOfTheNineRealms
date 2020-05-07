@@ -85,6 +85,10 @@ public class InitiativeRoll : MonoBehaviour
             timer += Time.deltaTime;
                 if (timer >= 3)
                 {
+                    if (tmScript.dragonBoss != null)
+                    {
+                        tmScript.dragonBoss.GetComponent<DragonClass>().cube.enabled = false;
+                    }
                     Debug.Log("This reordered");
                     ReOrder();
                     battleCanvas.SetActive(true);

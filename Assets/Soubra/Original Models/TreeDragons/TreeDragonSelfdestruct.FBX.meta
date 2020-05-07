@@ -1,0 +1,753 @@
+fileFormatVersion: 2
+guid: 3cce54a40ae730d4ab7b5ec94ebf2117
+ModelImporter:
+  serializedVersion: 19300
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Attack3
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'TreeDragonChest' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Attack3
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 145
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 1
+        functionName: TriggerAnimationEventPlease
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.26968879
+        functionName: GOBOOM
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: TreeDragonSelfdestruct(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TreeDragonRig
+      parentName: TreeDragonSelfdestruct(Clone)
+      position: {x: -0.000000058207657, y: 2.028614, z: -0.5093504}
+      rotation: {x: -0.7071068, y: 0.000000061817246, z: 0.000000061817246, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armor
+      parentName: TreeDragonSelfdestruct(Clone)
+      position: {x: -0.000000046100464, y: 1.7727317, z: -0.14532438}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TreeDragon
+      parentName: TreeDragonSelfdestruct(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.5000001, y: -0.50000006, z: -0.4999999, w: 0.49999997}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TreeDragonRArmIKTarget
+      parentName: TreeDragonSelfdestruct(Clone)
+      position: {x: 1.2193185, y: 1.5148855, z: 0.06851841}
+      rotation: {x: 0.056078654, y: -0.309677, z: -0.490921, w: 0.81237423}
+      scale: {x: 0.9999993, y: 0.9999996, z: 1.0000011}
+    - name: TreeDragonGizmoHolder
+      parentName: TreeDragonSelfdestruct(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: TreeDragonPelvisGizmo
+      parentName: TreeDragonGizmoHolder
+      position: {x: 0.019990377, y: 0.004417308, z: 1.7097939}
+      rotation: {x: -0.67503595, y: 0.09391972, z: 0.72211945, w: 0.11852858}
+      scale: {x: 1, y: 1.0000002, z: 1.0000004}
+    - name: TreeDragonPelvisGizmoGizmo
+      parentName: TreeDragonPelvisGizmo
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.0000000036088752, y: -1.0083081e-17, z: 0.0000000027939677,
+        w: 1}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: TreeDragonSpine2Gizmo
+      parentName: TreeDragonPelvisGizmoGizmo
+      position: {x: -0.33076262, y: 0.02773285, z: -0.0043094084}
+      rotation: {x: -0.095372684, y: -0.028437395, z: -0.26964495, w: 0.95780325}
+      scale: {x: 0.9999998, y: 1.0000001, z: 0.99999964}
+    - name: TreeDragonSpine3Gizmo
+      parentName: TreeDragonSpine2Gizmo
+      position: {x: -0.33195138, y: 0, z: -0.000000014901161}
+      rotation: {x: -0.072399735, y: -0.034996685, z: -0.24206954, w: 0.96692085}
+      scale: {x: 0.99999934, y: 0.99999964, z: 1.0000004}
+    - name: TreeDragonChest 1
+      parentName: TreeDragonSpine3Gizmo
+      position: {x: -0.33195138, y: 0, z: 0}
+      rotation: {x: -0.011738211, y: -0.006838565, z: -0.04372803, w: 0.99895114}
+      scale: {x: 0.9999999, y: 1.0000001, z: 1.0000001}
+    - name: TreeDragonNeckGizmo
+      parentName: TreeDragonChest 1
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.006105357, y: 0.000497384, z: 0.101953425, w: 0.99477035}
+      scale: {x: 1.0000002, y: 1.0000004, z: 0.99999964}
+    - name: TreeDragonHeadGizmo
+      parentName: TreeDragonNeckGizmo
+      position: {x: -0.5660521, y: 0.00000011920929, z: 0.0000000055879354}
+      rotation: {x: 0.006078039, y: 0.0009701972, z: 0.15683608, w: 0.9876055}
+      scale: {x: 1.0000002, y: 1.0000005, z: 0.9999999}
+    - name: TreeDragonLArmCollarboneGizmo
+      parentName: TreeDragonChest 1
+      position: {x: -0.083453536, y: 0.21314836, z: 0.17725366}
+      rotation: {x: 0.18136539, y: 0.7529404, z: 0.17855316, w: 0.6068823}
+      scale: {x: 0.9999992, y: 0.9999999, z: 1.0000008}
+    - name: TreeDragonLArm1Gizmo
+      parentName: TreeDragonLArmCollarboneGizmo
+      position: {x: -0.44161093, y: 0.00000023841858, z: 0}
+      rotation: {x: -0.0030673943, y: 0.32317263, z: -0.30352607, w: 0.8963381}
+      scale: {x: 0.999999, y: 0.99999964, z: 1.0000017}
+    - name: TreeDragonLArm0Gizmo
+      parentName: TreeDragonLArm1Gizmo
+      position: {x: -0.7042998, y: 0, z: 0}
+      rotation: {x: -0.0050519314, y: 0.0017126492, z: -0.5284889, w: 0.8489235}
+      scale: {x: 0.9999989, y: 1.0000006, z: 1.0000011}
+    - name: TreeDragonLArmPalmGizmo
+      parentName: TreeDragonLArm0Gizmo
+      position: {x: -0.5927081, y: -0.000000059604645, z: 0}
+      rotation: {x: -0.6025866, y: -0.09197932, z: -0.22333334, w: 0.76062566}
+      scale: {x: 0.9999998, y: 0.9999975, z: 1.0000029}
+    - name: TreeDragonLArmThumb1Gizmo
+      parentName: TreeDragonLArmPalmGizmo
+      position: {x: -0.090664744, y: 0.012796402, z: 0.039589345}
+      rotation: {x: 0.21287076, y: 0.6104845, z: 0.3771813, w: 0.6631207}
+      scale: {x: 0.9999988, y: 0.99999714, z: 1.0000043}
+    - name: TreeDragonLArmThumb2Gizmo
+      parentName: TreeDragonLArmThumb1Gizmo
+      position: {x: -0.104619265, y: 0, z: 0}
+      rotation: {x: 0.0494574, y: 0.060025807, z: 0.041850977, w: 0.9960921}
+      scale: {x: 0.9999998, y: 0.9999989, z: 1.0000007}
+    - name: TreeDragonLArmThumb3Gizmo
+      parentName: TreeDragonLArmThumb2Gizmo
+      position: {x: -0.13815165, y: -0.000000059604645, z: 0}
+      rotation: {x: 0.05874401, y: -0.46503705, z: 0.08779376, w: 0.8789664}
+      scale: {x: 0.99999756, y: 0.9999993, z: 1.0000044}
+    - name: TreeDragonLArmIndex1Gizmo
+      parentName: TreeDragonLArmPalmGizmo
+      position: {x: -0.3577295, y: 0.01072824, z: 0.09678894}
+      rotation: {x: -0.015419467, y: 0.063225955, z: -0.037630945, w: 0.9971703}
+      scale: {x: 0.99999917, y: 1.0000007, z: 0.99999964}
+    - name: TreeDragonLArmIndex2Gizmo
+      parentName: TreeDragonLArmIndex1Gizmo
+      position: {x: -0.15014791, y: 0, z: -0.000000059604645}
+      rotation: {x: 0.000000055281145, y: -0.00000014867555, z: 0.18967856, w: 0.9818463}
+      scale: {x: 1.0000001, y: 1.0000005, z: 0.99999994}
+    - name: TreeDragonLArmIndex3Gizmo
+      parentName: TreeDragonLArmIndex2Gizmo
+      position: {x: -0.116093814, y: 0, z: 0.00000011920929}
+      rotation: {x: 0.00000002351934, y: -0.00000014080406, z: 0.2906636, w: 0.9568253}
+      scale: {x: 0.99999946, y: 1.0000004, z: 1}
+    - name: TreeDragonLArmMiddle1Gizmo
+      parentName: TreeDragonLArmPalmGizmo
+      position: {x: -0.35468227, y: 0.019304872, z: -0.014154434}
+      rotation: {x: -0.0006399729, y: -0.038062904, z: -0.046930112, w: 0.9981725}
+      scale: {x: 1.0000005, y: 1.0000007, z: 0.9999996}
+    - name: TreeDragonLArmMiddle2Gizmo
+      parentName: TreeDragonLArmMiddle1Gizmo
+      position: {x: -0.17491472, y: 0, z: 0.000000059604645}
+      rotation: {x: 0.000000042598636, y: -0.00000014697174, z: 0.21941213, w: 0.9756323}
+      scale: {x: 0.9999992, y: 1.0000001, z: 0.9999999}
+    - name: TreeDragonLArmMiddle3Gizmo
+      parentName: TreeDragonLArmMiddle2Gizmo
+      position: {x: -0.11957669, y: 0, z: -0.000000059604645}
+      rotation: {x: -0.00000013747143, y: -0.00000024509518, z: 0.17126758, w: 0.98522455}
+      scale: {x: 1.0000004, y: 0.9999992, z: 0.99999994}
+    - name: TreeDragonLArmPinky1Gizmo
+      parentName: TreeDragonLArmPalmGizmo
+      position: {x: -0.3548149, y: -0.0020780563, z: -0.10606831}
+      rotation: {x: -0.0013106002, y: -0.15366612, z: 0.2373354, w: 0.959196}
+      scale: {x: 0.99999964, y: 0.99999946, z: 1.0000007}
+    - name: TreeDragonLArmPinky2Gizmo
+      parentName: TreeDragonLArmPinky1Gizmo
+      position: {x: -0.13660371, y: 0, z: 0}
+      rotation: {x: 0.000000087534445, y: -0.000000057486176, z: 0.31242397, w: 0.94994277}
+      scale: {x: 0.9999994, y: 0.9999989, z: 1}
+    - name: TreeDragonLArmPinky3Gizmo
+      parentName: TreeDragonLArmPinky2Gizmo
+      position: {x: -0.11609399, y: 0, z: -0.000000059604645}
+      rotation: {x: 0.000000059971065, y: -0.000000027335457, z: 0.312424, w: 0.94994277}
+      scale: {x: 0.99999917, y: 0.99999887, z: 0.99999994}
+    - name: TreeDragonRArmCollarboneGizmo
+      parentName: TreeDragonChest 1
+      position: {x: -0.08345258, y: 0.21314883, z: -0.17725453}
+      rotation: {x: -0.18136519, y: -0.75294054, z: 0.17855324, w: 0.60688215}
+      scale: {x: 1.0000019, y: 1.0000002, z: 0.99999905}
+    - name: TreeDragonRArm1Gizmo
+      parentName: TreeDragonRArmCollarboneGizmo
+      position: {x: -0.44161093, y: 0, z: 0}
+      rotation: {x: -0.14130703, y: -0.32957256, z: -0.1642549, w: 0.91893125}
+      scale: {x: 0.9999998, y: 1.0000005, z: 0.9999992}
+    - name: TreeDragonRArm0Gizmo
+      parentName: TreeDragonRArm1Gizmo
+      position: {x: -0.7043001, y: 0, z: 0}
+      rotation: {x: 0.004691992, y: -0.0021043234, z: -0.61667264, w: 0.7872029}
+      scale: {x: 0.9999996, y: 0.9999996, z: 1.0000008}
+    - name: TreeDragonRArmPalmGizmo
+      parentName: TreeDragonRArm0Gizmo
+      position: {x: -0.59270835, y: 0, z: 0}
+      rotation: {x: 0.695986, y: 0.0050510173, z: -0.21008827, w: 0.6866156}
+      scale: {x: 1.0000002, y: 1, z: 0.99999905}
+    - name: TreeDragonRArmThumb1Gizmo
+      parentName: TreeDragonRArmPalmGizmo
+      position: {x: -0.090664625, y: 0.012796402, z: -0.039589375}
+      rotation: {x: -0.10470098, y: -0.68624735, z: 0.27808362, w: 0.66390646}
+      scale: {x: 1.0000017, y: 1.0000005, z: 0.9999976}
+    - name: TreeDragonRArmThumb2Gizmo
+      parentName: TreeDragonRArmThumb1Gizmo
+      position: {x: -0.104619205, y: 0, z: -0.00000011920929}
+      rotation: {x: -0.053522766, y: -0.0011778867, z: -0.034070957, w: 0.9979845}
+      scale: {x: 0.9999996, y: 1.0000001, z: 1.0000012}
+    - name: TreeDragonRArmThumb3Gizmo
+      parentName: TreeDragonRArmThumb2Gizmo
+      position: {x: -0.1381517, y: 0, z: -0.00000011920929}
+      rotation: {x: 0.015269774, y: 0.3017708, z: 0.1326624, w: 0.94398195}
+      scale: {x: 0.9999997, y: 1.0000001, z: 1.0000005}
+    - name: TreeDragonRArmIndex1Gizmo
+      parentName: TreeDragonRArmPalmGizmo
+      position: {x: -0.35772943, y: 0.010728121, z: -0.09678885}
+      rotation: {x: 0.0019430923, y: -0.054131757, z: 0.16217688, w: 0.9852739}
+      scale: {x: 1.0000005, y: 1.000001, z: 1.0000002}
+    - name: TreeDragonRArmIndex2Gizmo
+      parentName: TreeDragonRArmIndex1Gizmo
+      position: {x: -0.15014803, y: 0, z: -0.000000029802322}
+      rotation: {x: 0.000000054230814, y: 0.0000003056452, z: 0.10774178, w: 0.9941789}
+      scale: {x: 1.0000005, y: 0.99999934, z: 1}
+    - name: TreeDragonRArmIndex3Gizmo
+      parentName: TreeDragonRArmIndex2Gizmo
+      position: {x: -0.116093874, y: 0, z: 0.00000008940697}
+      rotation: {x: -0.000000053587122, y: 0.00000028285402, z: 0.36105695, w: 0.93254375}
+      scale: {x: 1.0000011, y: 0.9999998, z: 1.0000002}
+    - name: TreeDragonRArmMiddle1Gizmo
+      parentName: TreeDragonRArmPalmGizmo
+      position: {x: -0.3546821, y: 0.01930499, z: 0.014154345}
+      rotation: {x: 0.0068832296, y: 0.03460762, z: 0.17092676, w: 0.98465174}
+      scale: {x: 0.99999964, y: 1.0000014, z: 1.0000001}
+    - name: TreeDragonRArmMiddle2Gizmo
+      parentName: TreeDragonRArmMiddle1Gizmo
+      position: {x: -0.17491472, y: 0, z: 0}
+      rotation: {x: 0.000000007116229, y: 0.00000004579496, z: 0.11251382, w: 0.9936502}
+      scale: {x: 0.9999999, y: 1.0000001, z: 1.0000001}
+    - name: TreeDragonRArmMiddle3Gizmo
+      parentName: TreeDragonRArmMiddle2Gizmo
+      position: {x: -0.11957681, y: 0, z: -0.000000059604645}
+      rotation: {x: 0.000000022933184, y: 0.00000019929793, z: 0.26281628, w: 0.9648459}
+      scale: {x: 0.9999997, y: 1.0000011, z: 1}
+    - name: TreeDragonRArmPinky1Gizmo
+      parentName: TreeDragonRArmPalmGizmo
+      position: {x: -0.3548147, y: -0.0020780563, z: 0.1060684}
+      rotation: {x: 0.0028821721, y: 0.13705139, z: 0.21221235, w: 0.9675612}
+      scale: {x: 1.0000005, y: 0.99999994, z: 0.9999994}
+    - name: TreeDragonRArmPinky2Gizmo
+      parentName: TreeDragonRArmPinky1Gizmo
+      position: {x: -0.13660371, y: -0.00000011920929, z: 0.000000059604645}
+      rotation: {x: 0.0000000066815486, y: 0.00000030340027, z: 0.3229554, w: 0.9464142}
+      scale: {x: 1.0000008, y: 0.9999987, z: 1.0000001}
+    - name: TreeDragonRArmPinky3Gizmo
+      parentName: TreeDragonRArmPinky2Gizmo
+      position: {x: -0.116093636, y: 0, z: 0}
+      rotation: {x: 0.000000020685937, y: 0.00000003166024, z: 0.3229555, w: 0.9464142}
+      scale: {x: 1.0000001, y: 1.0000004, z: 0.99999994}
+    - name: TreeDragonTail1Gizmo
+      parentName: TreeDragonPelvisGizmo
+      position: {x: -0.02507031, y: -0.21122737, z: 0.000000014901161}
+      rotation: {x: 0.00000007100778, y: 0.000000034732828, z: 0.8703914, w: 0.49236047}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: TreeDragonTail2Gizmo
+      parentName: TreeDragonTail1Gizmo
+      position: {x: -0.6858432, y: 0, z: -0.000000029802322}
+      rotation: {x: -0.000000010795431, y: 0.000000004020572, z: -0.11130818, w: 0.9937859}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: TreeDragonTail3Gizmo
+      parentName: TreeDragonTail2Gizmo
+      position: {x: -0.6646761, y: 0, z: 0}
+      rotation: {x: 0.0000000111120535, y: -0.000000001327103, z: -0.17007172, w: 0.9854317}
+      scale: {x: 0.99999976, y: 0.9999999, z: 1.0000001}
+    - name: TreeDragonRLegPlatform
+      parentName: TreeDragonGizmoHolder
+      position: {x: 1.0187289, y: -0.5387634, z: -0.000000012569086}
+      rotation: {x: 0.69192994, y: 0.14571677, z: -0.6919294, w: 0.14571689}
+      scale: {x: 1.0000001, y: 0.99999964, z: 0.99999964}
+    - name: TreeDragonRLegAnkleGizmo
+      parentName: TreeDragonRLegPlatform
+      position: {x: -0.6409246, y: -0.25991124, z: 0.16300517}
+      rotation: {x: -0.24497695, y: 0.9599008, z: -0.03373133, w: -0.13205695}
+      scale: {x: 1.0000054, y: 0.99999976, z: 0.99999684}
+    - name: TreeDragonRFootGizmo
+      parentName: TreeDragonRLegAnkleGizmo
+      position: {x: -0.58684725, y: -0.041695952, z: -0.022501111}
+      rotation: {x: 0.0980288, y: -0.05819758, z: -0.45681098, w: 0.88222855}
+      scale: {x: 1.0000044, y: 0.999997, z: 0.99999976}
+    - name: TreeDragonRToesGizmo
+      parentName: TreeDragonRFootGizmo
+      position: {x: -0.33527893, y: 0, z: 0}
+      rotation: {x: 0.00000007031486, y: 0.000000022933822, z: 0.000000029802322,
+        w: 1}
+      scale: {x: 0.99999994, y: 0.9999999, z: 0.99999994}
+    - name: TreeDragonLLegPlatform
+      parentName: TreeDragonGizmoHolder
+      position: {x: -1.1054087, y: 0.27905267, z: 0.097949095}
+      rotation: {x: 0.69745076, y: -0.12692116, z: -0.6788801, w: -0.19124673}
+      scale: {x: 0.99999976, y: 1.0000004, z: 1.0000005}
+    - name: TreeDragonLLegAnkleGizmo
+      parentName: TreeDragonLLegPlatform
+      position: {x: -0.64111483, y: -0.2600849, z: -0.16336173}
+      rotation: {x: -0.2450659, y: 0.95985806, z: 0.033753086, w: 0.13219665}
+      scale: {x: 0.9999874, y: 1.0000027, z: 1.0000101}
+    - name: TreeDragonLFootGizmo
+      parentName: TreeDragonLLegAnkleGizmo
+      position: {x: -0.5868475, y: -0.041695982, z: 0.02250123}
+      rotation: {x: -0.098026834, y: 0.058195896, z: -0.45680657, w: 0.8822311}
+      scale: {x: 0.99998975, y: 1.0000101, z: 1.000001}
+    - name: TreeDragonLToesGizmo
+      parentName: TreeDragonLFootGizmo
+      position: {x: -0.335279, y: -0.000000029802322, z: 0}
+      rotation: {x: 0.00000004563481, y: -0.000000053434633, z: 0.000000014901165,
+        w: 1}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: TreeDragonRArmUpVectorNode
+      parentName: TreeDragonSelfdestruct(Clone)
+      position: {x: 2.3334672, y: 2.567977, z: -2.5085769}
+      rotation: {x: 0.36295086, y: 0.59645635, z: 0.5559245, w: 0.4510593}
+      scale: {x: 1.0000006, y: 1, z: 1.0000011}
+    - name: SideCam
+      parentName: TreeDragonSelfdestruct(Clone)
+      position: {x: 10.124838, y: 1.9535213, z: 0.15386759}
+      rotation: {x: -0.0039410484, y: 0.7072246, z: 0.003942484, w: 0.70696706}
+      scale: {x: 1, y: 1, z: 1}
+    - name: SideCam.Target
+      parentName: TreeDragonSelfdestruct(Clone)
+      position: {x: 6.350664, y: 1.911441, z: 0.155242}
+      rotation: {x: 0.000000057601167, y: 0.7071067, z: -0.000000057601156, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R3QuarterCam
+      parentName: TreeDragonSelfdestruct(Clone)
+      position: {x: -7.763371, y: 6.321259, z: 7.8861766}
+      rotation: {x: -0.17588824, y: -0.37016618, z: -0.07159841, w: 0.90934813}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R3QuarterCam.Target
+      parentName: TreeDragonSelfdestruct(Clone)
+      position: {x: 35.289726, y: -18.452538, z: -36.23305}
+      rotation: {x: -0.15018463, y: -0.27638385, z: -0.043774825, w: 0.9482301}
+      scale: {x: 1.0000002, y: 1.0000001, z: 0.99999994}
+    - name: FrontCam
+      parentName: TreeDragonSelfdestruct(Clone)
+      position: {x: 0.17439307, y: 2.0461276, z: 10.283332}
+      rotation: {x: -0.005127095, y: 0.00018258428, z: 0.00000093613926, w: 0.9999868}
+      scale: {x: 1, y: 1, z: 1}
+    - name: FrontCam.Target
+      parentName: TreeDragonSelfdestruct(Clone)
+      position: {x: 0.1726453, y: 1.9970474, z: 5.4971485}
+      rotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L3QuarterCam
+      parentName: TreeDragonSelfdestruct(Clone)
+      position: {x: 9.23049, y: 7.146554, z: 6.232374}
+      rotation: {x: -0.2083546, y: 0.47787982, z: 0.11780642, w: 0.84518695}
+      scale: {x: 1, y: 1.0000001, z: 0.9999999}
+    - name: L3QuarterCam.Target
+      parentName: TreeDragonSelfdestruct(Clone)
+      position: {x: -0.2608968, y: 1.332012, z: 0.52233183}
+      rotation: {x: -0.19849336, y: 0.48668987, z: 0.11460023, w: 0.8429711}
+      scale: {x: 1.0000002, y: 1, z: 0.99999994}
+    - name: TreeDragonLArmUpVectorNode
+      parentName: TreeDragonSelfdestruct(Clone)
+      position: {x: -1.574288, y: 2.9983761, z: -1.1055585}
+      rotation: {x: 0.55587107, y: 0.45106745, z: 0.36295715, w: 0.5964961}
+      scale: {x: 0.9999993, y: 0.99999976, z: 1.0000007}
+    - name: TreeDragonLArmIKTarget
+      parentName: TreeDragonSelfdestruct(Clone)
+      position: {x: -1.2566984, y: 1.3901054, z: 0.5809363}
+      rotation: {x: -0.31547636, y: 0.8159834, z: 0.1227454, w: -0.46859288}
+      scale: {x: 0.9999996, y: 0.9999996, z: 1.0000007}
+    - name: TreeDragonLLegUpVectorNode
+      parentName: TreeDragonSelfdestruct(Clone)
+      position: {x: -2.7014763, y: 1.1086285, z: 2.503367}
+      rotation: {x: 0.5000001, y: -0.49999973, z: -0.49999988, w: 0.50000024}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TreeDragonRLegUpVectorNode
+      parentName: TreeDragonSelfdestruct(Clone)
+      position: {x: 0.7733961, y: 1.1086285, z: 2.502997}
+      rotation: {x: 0.50000024, y: -0.4999996, z: -0.49999973, w: 0.5000004}
+      scale: {x: 1, y: 1, z: 1}
+    - name: TreeDragonPelvis
+      parentName: TreeDragonSelfdestruct(Clone)
+      position: {x: 0.019990375, y: 2.2508729, z: -0.0044173077}
+      rotation: {x: 0.50000006, y: -0.49999994, z: -0.49999994, w: 0.5000001}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1.0000002}
+    - name: TreeDragonLLeg1
+      parentName: TreeDragonPelvis
+      position: {x: 0.00000011920929, y: 0.000000007450581, z: 0.23404539}
+      rotation: {x: -0.11318953, y: 0.99174744, z: 0.001377046, w: 0.060192697}
+      scale: {x: 0.9999987, y: 0.99999976, z: 1.0000015}
+    - name: TreeDragonLLeg2
+      parentName: TreeDragonLLeg1
+      position: {x: -0.98981416, y: 0.00000035762787, z: -0.0000072717667}
+      rotation: {x: -0.006629211, y: 0.022289667, z: 0.33187586, w: 0.94303644}
+      scale: {x: 0.99998885, y: 1.0000033, z: 1.0000094}
+    - name: TreeDragonLLegAnkle
+      parentName: TreeDragonLLeg2
+      position: {x: -0.7494319, y: 0, z: -0.00000011920929}
+      rotation: {x: -0.046055015, y: -0.08284232, z: -0.45392507, w: 0.88598424}
+      scale: {x: 0.99998635, y: 1.0000142, z: 1.0000002}
+    - name: TreeDragonLFoot
+      parentName: TreeDragonLLegAnkle
+      position: {x: -0.5868475, y: -0.041695982, z: 0.02250123}
+      rotation: {x: -0.098028526, y: 0.058197275, z: -0.4568098, w: 0.88222915}
+      scale: {x: 0.99998444, y: 1.0000151, z: 1.0000015}
+    - name: TreeDragonLToes
+      parentName: TreeDragonLFoot
+      position: {x: -0.335279, y: -0.000000029802322, z: 0}
+      rotation: {x: -0, y: -0, z: -0.000000005122273, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: TreeDragonTail1
+      parentName: TreeDragonPelvis
+      position: {x: -0.02507031, y: -0.21122737, z: 0.000000014901161}
+      rotation: {x: -0.00000014901161, y: -0.000000059604645, z: 0.9079077, w: 0.41917014}
+      scale: {x: 1.0000005, y: 1.0000004, z: 1.0000002}
+    - name: TreeDragonTail2
+      parentName: TreeDragonTail1
+      position: {x: -0.6858432, y: 0, z: -0.000000029802322}
+      rotation: {x: 0.000000034464552, y: -0.00000010706192, z: -0.111307934, w: 0.993786}
+      scale: {x: 1, y: 0.9999998, z: 1.0000001}
+    - name: TreeDragonTail3
+      parentName: TreeDragonTail2
+      position: {x: -0.6646761, y: 0, z: 0}
+      rotation: {x: 0.00000003069865, y: 0.00000007168275, z: -0.17007163, w: 0.9854317}
+      scale: {x: 0.99999994, y: 0.9999999, z: 1.0000007}
+    - name: TreeDragonSpine1
+      parentName: TreeDragonPelvis
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.000000014901161, y: 0.00000013411045, z: 0.019411623, w: -0.9998116}
+      scale: {x: 0.99999976, y: 0.9999994, z: 1.0000005}
+    - name: TreeDragonSpine2
+      parentName: TreeDragonSpine1
+      position: {x: -0.33195138, y: 0, z: -0.000000014901161}
+      rotation: {x: -0.000000014901161, y: -0, z: -0.11125614, w: 0.99379176}
+      scale: {x: 1.0000008, y: 1.0000017, z: 1}
+    - name: TreeDragonSpine3
+      parentName: TreeDragonSpine2
+      position: {x: -0.33195138, y: 0, z: -0.000000014901161}
+      rotation: {x: 0.00000001201657, y: 0.000000026351184, z: -0.11125618, w: 0.99379176}
+      scale: {x: 0.9999993, y: 0.99999946, z: 1.0000004}
+    - name: TreeDragonChest
+      parentName: TreeDragonSpine3
+      position: {x: -0.33195138, y: 0, z: 0}
+      rotation: {x: -0.000000059604645, y: -0.00000011920929, z: -0.019411549, w: 0.99981165}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: TreeDragonNeck
+      parentName: TreeDragonChest
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.0000025277018, y: 0.00016236107, z: 0.017746445, w: 0.9998425}
+      scale: {x: 1.000001, y: 1.0000011, z: 1.0000001}
+    - name: TreeDragonHead
+      parentName: TreeDragonNeck
+      position: {x: -0.5660521, y: 0.00000011920929, z: 0.0000000055879354}
+      rotation: {x: 0.000044701945, y: -0.00022471417, z: -0.037752215, w: 0.9992871}
+      scale: {x: 1.0000002, y: 1.0000006, z: 1.0000001}
+    - name: TreeDragonLArmCollarbone
+      parentName: TreeDragonChest
+      position: {x: -0.083453536, y: 0.21314836, z: 0.17725366}
+      rotation: {x: -0.106320895, y: -0.74054825, z: -0.10343384, w: -0.6554279}
+      scale: {x: 0.9999992, y: 1, z: 1.000001}
+    - name: TreeDragonLArm1
+      parentName: TreeDragonLArmCollarbone
+      position: {x: -0.44161093, y: 0.00000023841858, z: 0}
+      rotation: {x: 0.059148543, y: -0.054387968, z: -0.14767668, w: 0.9857662}
+      scale: {x: 0.99999946, y: 1.0000011, z: 1.000003}
+    - name: TreeDragonLArm0
+      parentName: TreeDragonLArm1
+      position: {x: -0.7042998, y: 0, z: 0}
+      rotation: {x: -0.009675032, y: -0.012995223, z: -0.02487372, w: 0.9995594}
+      scale: {x: 0.9999997, y: 1.0000001, z: 1.0000012}
+    - name: TreeDragonLArmPalm
+      parentName: TreeDragonLArm0
+      position: {x: -0.5927081, y: -0.000000059604645, z: 0}
+      rotation: {x: -0.78096956, y: 0.107582025, z: 0.050997205, w: 0.6131166}
+      scale: {x: 1.0000004, y: 0.99999744, z: 1.0000029}
+    - name: TreeDragonLArmIndex1
+      parentName: TreeDragonLArmPalm
+      position: {x: -0.3577295, y: 0.01072824, z: 0.09678894}
+      rotation: {x: 0.00087332696, y: -0.008136503, z: 0.052468333, w: 0.99858904}
+      scale: {x: 0.9999989, y: 1.0000014, z: 0.9999997}
+    - name: TreeDragonLArmIndex2
+      parentName: TreeDragonLArmIndex1
+      position: {x: -0.15014791, y: 0, z: -0.000000059604645}
+      rotation: {x: 0.00000018411072, y: -0.000000020489084, z: 0.04102523, w: 0.9991581}
+      scale: {x: 1, y: 1.0000004, z: 1}
+    - name: TreeDragonLArmIndex3
+      parentName: TreeDragonLArmIndex2
+      position: {x: -0.116093814, y: 0, z: 0.00000011920929}
+      rotation: {x: -0.000000022351742, y: -0.00000022351742, z: 0.0762309, w: 0.9970902}
+      scale: {x: 1.0000006, y: 0.99999946, z: 1}
+    - name: TreeDragonLArmThumb1
+      parentName: TreeDragonLArmPalm
+      position: {x: -0.090664744, y: 0.012796402, z: 0.039589345}
+      rotation: {x: 0.20517398, y: 0.3227684, z: -0.17829336, w: 0.90660673}
+      scale: {x: 0.9999997, y: 0.99999565, z: 1.0000072}
+    - name: TreeDragonLArmThumb2
+      parentName: TreeDragonLArmThumb1
+      position: {x: -0.104619265, y: 0, z: 0}
+      rotation: {x: -0.0000001341104, y: -0.038417798, z: 0.00000051036454, w: 0.99926186}
+      scale: {x: 1, y: 0.9999993, z: 1.0000014}
+    - name: TreeDragonLArmThumb3
+      parentName: TreeDragonLArmThumb2
+      position: {x: -0.13815165, y: -0.000000059604645, z: 0}
+      rotation: {x: 0.00000009859194, y: -0.16620047, z: 0.0000002986037, w: 0.986092}
+      scale: {x: 0.999999, y: 0.9999991, z: 1.0000039}
+    - name: TreeDragonLArmPinky1
+      parentName: TreeDragonLArmPalm
+      position: {x: -0.3548149, y: -0.0020780563, z: -0.10606831}
+      rotation: {x: -0.009081328, y: -0.05989458, z: 0.0407828, w: 0.99732995}
+      scale: {x: 0.9999997, y: 1.000001, z: 1.0000001}
+    - name: TreeDragonLArmPinky2
+      parentName: TreeDragonLArmPinky1
+      position: {x: -0.13660371, y: 0, z: 0}
+      rotation: {x: 0.00000011082731, y: 0.0000001229345, z: 0.041085545, w: 0.99915564}
+      scale: {x: 0.99999917, y: 0.9999995, z: 1}
+    - name: TreeDragonLArmPinky3
+      parentName: TreeDragonLArmPinky2
+      position: {x: -0.11609399, y: 0, z: -0.000000059604645}
+      rotation: {x: 0.0000001299195, y: -0.00000013457611, z: 0.050785355, w: 0.9987096}
+      scale: {x: 0.9999992, y: 0.9999998, z: 0.99999994}
+    - name: TreeDragonLArmMiddle1
+      parentName: TreeDragonLArmPalm
+      position: {x: -0.35468227, y: 0.019304872, z: -0.014154434}
+      rotation: {x: -0.0022578822, y: -0.027601125, z: 0.053063385, w: 0.99820703}
+      scale: {x: 1.0000004, y: 1.000002, z: 0.9999996}
+    - name: TreeDragonLArmMiddle2
+      parentName: TreeDragonLArmMiddle1
+      position: {x: -0.17491472, y: 0, z: 0.000000059604645}
+      rotation: {x: 0.0000000039581196, y: 0.000000055879333, z: 0.041339092, w: 0.99914527}
+      scale: {x: 0.9999991, y: 1.0000002, z: 1}
+    - name: TreeDragonLArmMiddle3
+      parentName: TreeDragonLArmMiddle2
+      position: {x: -0.11957669, y: 0, z: -0.000000059604645}
+      rotation: {x: 0.00000006705522, y: -0.0000003185123, z: 0.11581205, w: 0.9932711}
+      scale: {x: 1.0000008, y: 0.9999996, z: 1}
+    - name: TreeDragonRArmCollarbone
+      parentName: TreeDragonChest
+      position: {x: -0.08345258, y: 0.21314883, z: -0.17725453}
+      rotation: {x: -0.1063208, y: -0.74054825, z: 0.10343367, w: 0.65542775}
+      scale: {x: 1.0000017, y: 1.0000007, z: 0.9999991}
+    - name: TreeDragonRArm1
+      parentName: TreeDragonRArmCollarbone
+      position: {x: -0.44161093, y: 0, z: 0}
+      rotation: {x: -0.059320718, y: 0.054414026, z: -0.14766647, w: 0.985756}
+      scale: {x: 1.0000012, y: 1.0000007, z: 0.9999986}
+    - name: TreeDragonRArm0
+      parentName: TreeDragonRArm1
+      position: {x: -0.7043001, y: 0, z: 0}
+      rotation: {x: 0.009714639, y: 0.013007437, z: -0.024871554, w: 0.99955887}
+      scale: {x: 1.0000001, y: 0.99999815, z: 1.0000001}
+    - name: TreeDragonRArmPalm
+      parentName: TreeDragonRArm0
+      position: {x: -0.59270835, y: 0, z: 0}
+      rotation: {x: 0.7810662, y: -0.10761263, z: 0.050999876, w: 0.61298794}
+      scale: {x: 1.0000013, y: 0.99999887, z: 1.0000014}
+    - name: TreeDragonRArmIndex1
+      parentName: TreeDragonRArmPalm
+      position: {x: -0.35772943, y: 0.010728121, z: -0.09678885}
+      rotation: {x: -0.000873178, y: 0.008136002, z: 0.05247013, w: 0.998589}
+      scale: {x: 1.0000007, y: 1.0000004, z: 0.9999997}
+    - name: TreeDragonRArmIndex2
+      parentName: TreeDragonRArmIndex1
+      position: {x: -0.15014803, y: 0, z: -0.000000029802322}
+      rotation: {x: 0.00000013352832, y: 0.000000038184208, z: 0.041025538, w: 0.9991581}
+      scale: {x: 1.0000002, y: 0.99999946, z: 0.9999997}
+    - name: TreeDragonRArmIndex3
+      parentName: TreeDragonRArmIndex2
+      position: {x: -0.116093874, y: 0, z: 0.00000008940697}
+      rotation: {x: 0.0000001825392, y: 0.00000017881392, z: 0.076230936, w: 0.99709016}
+      scale: {x: 1.0000001, y: 1.0000007, z: 1.0000006}
+    - name: TreeDragonRArmThumb1
+      parentName: TreeDragonRArmPalm
+      position: {x: -0.090664625, y: 0.012796402, z: -0.039589375}
+      rotation: {x: -0.20517941, y: -0.32277718, z: -0.17827854, w: 0.90660524}
+      scale: {x: 0.9999997, y: 1.0000026, z: 0.9999976}
+    - name: TreeDragonRArmThumb2
+      parentName: TreeDragonRArmThumb1
+      position: {x: -0.104619205, y: 0, z: -0.00000011920929}
+      rotation: {x: 0.00000019371502, y: 0.038420662, z: 0.00000035390246, w: 0.9992617}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1.0000017}
+    - name: TreeDragonRArmThumb3
+      parentName: TreeDragonRArmThumb2
+      position: {x: -0.1381517, y: 0, z: -0.00000011920929}
+      rotation: {x: -0.00000017232344, y: 0.16620047, z: 0.00000051142734, w: 0.986092}
+      scale: {x: 0.9999997, y: 0.9999998, z: 1.000001}
+    - name: TreeDragonRArmPinky1
+      parentName: TreeDragonRArmPalm
+      position: {x: -0.3548147, y: -0.0020780563, z: 0.1060684}
+      rotation: {x: 0.009081064, y: 0.05989462, z: 0.040783957, w: 0.9973299}
+      scale: {x: 1.0000021, y: 0.99999934, z: 0.9999992}
+    - name: TreeDragonRArmPinky2
+      parentName: TreeDragonRArmPinky1
+      position: {x: -0.13660371, y: -0.00000011920929, z: 0.000000059604645}
+      rotation: {x: 0.00000014621763, y: 0.00000026449558, z: 0.041083507, w: 0.99915576}
+      scale: {x: 1.0000007, y: 0.99999946, z: 1.0000006}
+    - name: TreeDragonRArmPinky3
+      parentName: TreeDragonRArmPinky2
+      position: {x: -0.116093636, y: 0, z: 0}
+      rotation: {x: 0.00000002142042, y: 0.00000008335337, z: 0.05078554, w: 0.9987096}
+      scale: {x: 0.99999875, y: 1.0000019, z: 1.0000001}
+    - name: TreeDragonRArmMiddle1
+      parentName: TreeDragonRArmPalm
+      position: {x: -0.3546821, y: 0.01930499, z: 0.014154345}
+      rotation: {x: 0.0022572272, y: 0.027601184, z: 0.05306572, w: 0.99820703}
+      scale: {x: 1.000001, y: 1.000001, z: 1.0000002}
+    - name: TreeDragonRArmMiddle2
+      parentName: TreeDragonRArmMiddle1
+      position: {x: -0.17491472, y: 0, z: 0}
+      rotation: {x: 0.00000026542676, y: 0.00000014528624, z: 0.041337155, w: 0.99914527}
+      scale: {x: 1, y: 0.9999998, z: 1.0000002}
+    - name: TreeDragonRArmMiddle3
+      parentName: TreeDragonRArmMiddle2
+      position: {x: -0.11957681, y: 0, z: -0.000000059604645}
+      rotation: {x: 0.00000020116569, y: 0.00000024959448, z: 0.11581186, w: 0.9932712}
+      scale: {x: 1.0000002, y: 1.0000008, z: 1}
+    - name: TreeDragonRLeg1
+      parentName: TreeDragonPelvis
+      position: {x: 0.00000035762787, y: 0.0000000037252903, z: -0.23404488}
+      rotation: {x: -0.11319113, y: 0.9917478, z: -0.0013334751, w: -0.06018646}
+      scale: {x: 1.0000014, y: 1.0000001, z: 1.0000002}
+    - name: TreeDragonRLeg2
+      parentName: TreeDragonRLeg1
+      position: {x: -0.98981416, y: 0, z: 0.000007212162}
+      rotation: {x: 0.0066701495, y: -0.02230524, z: 0.3318787, w: 0.9430348}
+      scale: {x: 1.0000054, y: 0.9999998, z: 0.9999978}
+    - name: TreeDragonRLegAnkle
+      parentName: TreeDragonRLeg2
+      position: {x: -0.74943197, y: 0, z: 0.000000059604645}
+      rotation: {x: 0.046056394, y: 0.08285424, z: -0.4539253, w: 0.885983}
+      scale: {x: 1.0000058, y: 0.9999952, z: 0.99999994}
+    - name: TreeDragonRFoot
+      parentName: TreeDragonRLegAnkle
+      position: {x: -0.58684725, y: -0.041695952, z: -0.022501111}
+      rotation: {x: 0.09802841, y: -0.058197185, z: -0.45680964, w: 0.88222927}
+      scale: {x: 1.0000058, y: 0.9999948, z: 0.99999917}
+    - name: TreeDragonRToes
+      parentName: TreeDragonRFoot
+      position: {x: -0.33527893, y: 0, z: 0}
+      rotation: {x: -0, y: -0, z: 0.000000013038516, w: 1}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.9999998}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
