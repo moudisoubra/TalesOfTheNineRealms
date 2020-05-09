@@ -51,7 +51,7 @@ public class TileMap : MonoBehaviour
         }
         if (!done)
         {
-            //SetVectorsForEverything();
+            SetVectorsForEverything();
             range = Mathf.Lerp(range, maxRange, (rateOfChange/1000) * Time.time);
             if (range >= maxRange - 0.5f)
             {
