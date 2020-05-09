@@ -31,7 +31,7 @@ public class TurnController : MonoBehaviour
     public GameObject turnButton;
     public List<GameObject> uiNames;
     public ControlHealthFill chfScript;
-
+    public TriggerDragonAttacks tdaScript;
     private void Start()
     {
         ChangeStatus();
@@ -148,7 +148,11 @@ public class TurnController : MonoBehaviour
             units[i].getHit = false;
         }
         tmScript.SetVectorsForEverything();
-
+        if (tdaScript != null)
+        {
+            tdaScript.MaintainFireSystems();
+            tdaScript.ResetThings();
+        }
     }
     public void CheckScripts()
     {
