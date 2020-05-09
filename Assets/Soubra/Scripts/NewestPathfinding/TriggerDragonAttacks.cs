@@ -15,11 +15,13 @@ public class TriggerDragonAttacks : MonoBehaviour
     public CheckHealths chScript;
     public TileMap tmScript;
 
+    public bool turnFireOn = false;
     public bool fireCheck = false;
     public bool rootCheck = false;
     public bool reset = false;
     public int fireDuration;
-
+    public List<ParticleSystem> fireIntro;
+    public List<ParticleSystem> fireAttack;
     void Start()
     {
         
@@ -43,6 +45,44 @@ public class TriggerDragonAttacks : MonoBehaviour
             cells.Clear();
             grounds.Clear();
             reset = false;
+        }
+    }
+    public void FlameOn(int index)
+    {
+        if (index == 0)
+        {
+        Debug.Log("IM TURNED ON 0");
+            for (int i = 0; i < fireIntro.Count; i++)
+            {
+                fireIntro[i].Play();
+            }
+        }
+        if (index == 1)
+        {
+        Debug.Log("IM TURNED ON 1");
+            for (int i = 0; i < fireAttack.Count; i++)
+            {
+                fireAttack[i].Play();
+            }
+        }
+    }
+    public void FlameOff(int index)
+    {
+        if (index == 0)
+        {
+        Debug.Log("IM TURNED OFF 0");
+            for (int i = 0; i < fireIntro.Count; i++)
+            {
+                fireIntro[i].Stop();
+            }
+        }
+        if (index == 1)
+        {
+        Debug.Log("IM TURNED OFF 1");
+            for (int i = 0; i < fireAttack.Count; i++)
+            {
+                fireAttack[i].Stop();
+            }
         }
     }
     public void TriggerRoot()

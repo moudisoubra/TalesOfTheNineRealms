@@ -59,15 +59,29 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.99425083
-        functionName: TriggerAnimationEventPlease
+      - time: 0.34736842
+        functionName: FlameOn
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.36114338
+        functionName: TriggerFire
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.5736434
-        functionName: TriggerFire
+      - time: 0.86118346
+        functionName: FlameOff
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.99425083
+        functionName: TriggerAnimationEventPlease
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
