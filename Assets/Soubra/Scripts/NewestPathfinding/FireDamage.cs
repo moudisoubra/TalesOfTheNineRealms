@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class FireDamage : MonoBehaviour
 {
+    public Unit temp;
     public Unit unit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,14 +16,25 @@ public class FireDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (temp != unit)
+        {
+            unit.health -= 2;
+            temp = unit;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Unit>() != unit)
+        if (other.GetComponentInParent<Unit>() != unit)
         {
-            unit = other.GetComponent<Unit>();
+            unit = other.GetComponentInParent<Unit>();
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponentInParent<Unit>() == unit)
+        {
+            unit = null;
         }
     }
 }

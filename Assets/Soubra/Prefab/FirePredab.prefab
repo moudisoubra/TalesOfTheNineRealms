@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8705298554150411961}
+  - component: {fileID: 9085876785417969795}
+  - component: {fileID: 463525578945552679}
   m_Layer: 0
   m_Name: FirePredab
   m_TagString: Untagged
@@ -33,6 +35,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9085876785417969795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8705298554150411960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94dbcd2a0718fcf498b4ae643b39faba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temp: {fileID: 0}
+  unit: {fileID: 0}
+  damage: 0
+--- !u!65 &463525578945552679
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8705298554150411960}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.097023, y: 6.268052, z: 1.9760399}
+  m_Center: {x: 0.04390335, y: 2.634026, z: -0.25283623}
 --- !u!1 &8705298554519263875
 GameObject:
   m_ObjectHideFlags: 0

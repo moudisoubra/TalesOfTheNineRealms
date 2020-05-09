@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 10e89ea096fa2b1428234f3c72e1317b
+guid: 0f601a9e813a8824ab8cb29397e22072
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Fire Breath
+    second: Take 001
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Fire Breath
+      name: Take 001
       takeName: Take 001
       internalID: 0
-      firstFrame: 0
-      lastFrame: 190
+      firstFrame: 140
+      lastFrame: 165
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -59,15 +59,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.99425083
-        functionName: TriggerAnimationEventPlease
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.5736434
-        functionName: TriggerFire
+      - time: 0.9832762
+        functionName: KillSelf
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -76,7 +69,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 28
     isReadable: 0
   meshes:
     lODScreenPercentages: []

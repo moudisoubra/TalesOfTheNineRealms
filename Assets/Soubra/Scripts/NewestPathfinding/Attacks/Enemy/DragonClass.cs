@@ -5,6 +5,7 @@ using UnityEngine;
 public class DragonClass : CellPositions
 {
     public BoxCollider cube;
+    public TriggerDragonAttacks tda;
     public override void FirstAttack()
     {
         #region First Row
@@ -123,5 +124,6 @@ public class DragonClass : CellPositions
         ea.goals.Add(s, 1);
         ea.currentAction = null;
         unit.remainingMovement = unit.moveSpeed;
+        tda.KillEverything();
     }
 }

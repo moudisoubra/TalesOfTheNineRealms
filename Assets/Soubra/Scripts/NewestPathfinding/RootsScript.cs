@@ -6,9 +6,10 @@ public class RootsScript : MonoBehaviour
 {
     public GameObject bottomRoot;
     public GameObject topRoot;
-    public float speed;
     public Animator anim;
-
+    public float speed;
+    public bool die;
+    
     void Start()
     {
         
@@ -19,14 +20,16 @@ public class RootsScript : MonoBehaviour
     {
         if (bottomRoot.transform.position != topRoot.transform.position)
         {
-            bottomRoot.transform.position = Vector3.Lerp(bottomRoot.transform.position, topRoot.transform.position, (speed / 1000) * Time.time);
+            bottomRoot.transform.position = Vector3.Lerp(bottomRoot.transform.position, topRoot.transform.position, (speed / 100) * Time.time);
         }
-        else
+
+        if (anim != null)
         {
-            if (anim != null)
-            {
-                anim.SetBool("Start", true);
-            }
+            anim.SetBool("Die", die);
         }
+    }
+    public void KillSelf()
+    {
+        Destroy(this.gameObject);
     }
 }

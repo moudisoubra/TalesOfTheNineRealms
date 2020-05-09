@@ -19,14 +19,25 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
+      in configuration does not match rotation in animation file:\n\t'Giant 2 RigLDigit11'
+      : rotation error = 0.085664 deg\n\t'Giant 2 RigRDigit11' : rotation error =
+      5.128063 deg\n\t'Giant 2 RigSpine4' : rotation error = 10.445241 deg\n\t'Giant
+      2 RigRibcage' : rotation error = 3.517064 deg\n"
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Giant 2 RigLDigit11' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'Giant 2 RigRDigit11'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Giant
+      2 RigSpine4' is inbetween humanoid transforms and has rotation animation that
+      will be discarded.\n\t'Giant 2 RigRibcage' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -61,6 +72,13 @@ ModelImporter:
       events:
       - time: 0.99447745
         functionName: TriggerAnimationEventPlease
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5865717
+        functionName: DoDamage
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -111,7 +129,337 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: giant 2 smash(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R-Eye002
+      parentName: giant 2 smash(Clone)
+      position: {x: -19.333096, y: 97.91333, z: -3.9615378}
+      rotation: {x: -0.40343323, y: 0.47141543, z: 0.5807263, w: 0.5270352}
+      scale: {x: 0.5184583, y: 0.5184588, z: 0.51845795}
+    - name: R-Eye003
+      parentName: giant 2 smash(Clone)
+      position: {x: -14.87177, y: 97.88376, z: -4.102238}
+      rotation: {x: -0.4405054, y: 0.4357754, z: 0.55313337, w: 0.55686474}
+      scale: {x: 0.5184583, y: 0.51845855, z: 0.5184578}
+    - name: Giant 2 Rig
+      parentName: giant 2 smash(Clone)
+      position: {x: -0.22529148, y: 0, z: 4.627896}
+      rotation: {x: 0.5000001, y: -0.50000006, z: -0.4999999, w: 0.49999997}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Giant 2 mesh
+      parentName: giant 2 smash(Clone)
+      position: {x: 40.154434, y: 57.57587, z: -140.94008}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: top pauldron
+      parentName: giant 2 smash(Clone)
+      position: {x: -4.8482065, y: 94.42272, z: -20.05477}
+      rotation: {x: 0.39018357, y: 0.4493083, z: 0.79123884, w: 0.14078338}
+      scale: {x: 14.455364, y: 2.8025284, z: 8.365466}
+    - name: mid pauldron
+      parentName: giant 2 smash(Clone)
+      position: {x: 3.2797182, y: 93.46196, z: -21.21744}
+      rotation: {x: 0.5033506, y: 0.44518417, z: 0.71255827, w: 0.20176697}
+      scale: {x: 13.201259, y: 2.4503717, z: 10.002581}
+    - name: lower pauldron
+      parentName: giant 2 smash(Clone)
+      position: {x: 5.6394153, y: 89.421295, z: -20.549816}
+      rotation: {x: 0.54669505, y: 0.45405456, z: 0.6734467, w: 0.20353994}
+      scale: {x: 10.972027, y: 2.0365877, z: 8.313491}
+    - name: giantcape
+      parentName: giant 2 smash(Clone)
+      position: {x: -16.444181, y: 87.73592, z: -17.531752}
+      rotation: {x: -0.0035938702, y: 0.3254092, z: 0.9454363, w: -0.01569218}
+      scale: {x: 37.746445, y: 37.74641, z: 37.74644}
+    - name: Giant 2 RigLPlatform
+      parentName: giant 2 smash(Clone)
+      position: {x: -24.78368, y: -0.000021778098, z: -7.6196094}
+      rotation: {x: 0.5200948, y: -0.5200947, z: -0.47906303, w: 0.47906315}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Giant 2 RigRPlatform
+      parentName: giant 2 smash(Clone)
+      position: {x: -0.08169734, y: -0.39465398, z: -39.737423}
+      rotation: {x: 0.47735515, y: -0.47677925, z: -0.5225451, w: 0.5213064}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rock
+      parentName: giant 2 smash(Clone)
+      position: {x: -14.097706, y: -13.747301, z: 37.3109}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 0.8938264}
+    - name: Giant 2 RigPelvis
+      parentName: giant 2 smash(Clone)
+      position: {x: -0.04640293, y: 64.10287, z: -3.0207977}
+      rotation: {x: 0.49912703, y: -0.5008716, z: -0.49912694, w: 0.5008715}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: Giant 2 RigSpine1
+      parentName: Giant 2 RigPelvis
+      position: {x: -2.966586, y: -0.22697683, z: -0.0000011627196}
+      rotation: {x: 0.0000002980232, y: 0.000000014901159, z: 0.21293023, w: -0.9770674}
+      scale: {x: 1.0000004, y: 1.0000001, z: 1}
+    - name: Giant 2 RigSpine2
+      parentName: Giant 2 RigSpine1
+      position: {x: -7.467674, y: -0.0000046508785, z: 0}
+      rotation: {x: 0.00000020861626, y: 0.000000014901161, z: 0.089270145, w: 0.9960075}
+      scale: {x: 1.0000002, y: 0.9999999, z: 1}
+    - name: Giant 2 RigSpine3
+      parentName: Giant 2 RigSpine2
+      position: {x: -6.361458, y: 0, z: 0.0000011627196}
+      rotation: {x: -0.000000029802319, y: -0.000000014901159, z: 0.028591122, w: 0.9995912}
+      scale: {x: 1.0000006, y: 1.0000002, z: 1.0000002}
+    - name: Giant 2 RigSpine4
+      parentName: Giant 2 RigSpine3
+      position: {x: -6.836187, y: -0.0000046508785, z: 0.0000011627196}
+      rotation: {x: -0.000000029802322, y: -0.000000014901161, z: 0.0877177, w: -0.9961454}
+      scale: {x: 1, y: 0.9999991, z: 0.9999999}
+    - name: Giant 2 RigRibcage
+      parentName: Giant 2 RigSpine4
+      position: {x: -9.21199, y: -0.0000046508785, z: 0.0000011627196}
+      rotation: {x: 0.00000008940697, y: 0.000000044703484, z: 0.057744265, w: 0.9983314}
+      scale: {x: 0.9999997, y: 1.0000007, z: 1.0000008}
+    - name: Giant 2 RigLCollarbone
+      parentName: Giant 2 RigRibcage
+      position: {x: 1.1266754, y: 6.5882998, z: 1.9545933}
+      rotation: {x: 0.056555104, y: 0.675439, z: 0.17425086, w: 0.71429706}
+      scale: {x: 1.0000013, y: 0.9999996, z: 0.9999998}
+    - name: Giant 2 RigLUpperarm
+      parentName: Giant 2 RigLCollarbone
+      position: {x: -16.616915, y: 0, z: -0.0000046508785}
+      rotation: {x: 0.22661918, y: 0.020857332, z: -0.15467545, w: 0.96139705}
+      scale: {x: 1.0000013, y: 1.0000007, z: 0.9999996}
+    - name: Giant 2 RigLForearm
+      parentName: Giant 2 RigLUpperarm
+      position: {x: -21.120274, y: -0.000009301757, z: 0}
+      rotation: {x: 0.11078255, y: -0.012564604, z: -0.024140269, w: 0.99347204}
+      scale: {x: 1.0000001, y: 0.9999996, z: 1.0000001}
+    - name: Giant 2 RigLPalm
+      parentName: Giant 2 RigLForearm
+      position: {x: -18.35771, y: 0, z: -0.0000046508785}
+      rotation: {x: -0.7108585, y: -0.045209557, z: 0.11436197, w: 0.69250107}
+      scale: {x: 0.99999875, y: 1.0000011, z: 1.0000001}
+    - name: Giant 2 RigLDigit11 1
+      parentName: Giant 2 RigLPalm
+      position: {x: 1.3243982, y: -1.3168544, z: 2.980427}
+      rotation: {x: 0.23292612, y: 0.25609133, z: -0.041094966, w: 0.93726945}
+      scale: {x: 0.999999, y: 1.0000017, z: 0.9999984}
+    - name: Giant 2 RigLDigit12 1
+      parentName: Giant 2 RigLDigit11 1
+      position: {x: -5.8676972, y: 0, z: -0.0000046508785}
+      rotation: {x: -0.10410271, y: -0.019793663, z: 0.03244053, w: 0.9938403}
+      scale: {x: 1.0000015, y: 0.9999991, z: 0.99999875}
+    - name: Giant 2 RigLDigit13
+      parentName: Giant 2 RigLDigit12 1
+      position: {x: -3.8208292, y: -0.0000023254393, z: 0}
+      rotation: {x: 0.003561526, y: -0.050364118, z: 0.06036518, w: 0.99689865}
+      scale: {x: 1.0000014, y: 0.9999986, z: 1}
+    - name: Giant 2 RigLDigit21
+      parentName: Giant 2 RigLPalm
+      position: {x: -8.323279, y: 0.31188792, z: 3.4735086}
+      rotation: {x: 0.007781322, y: 0.18808337, z: 0.063488804, w: 0.98006797}
+      scale: {x: 1.000001, y: 0.99999875, z: 1.0000001}
+    - name: Giant 2 RigLDigit22
+      parentName: Giant 2 RigLDigit21
+      position: {x: -4.2514563, y: -0.0000046508785, z: 0}
+      rotation: {x: -0.0000010482032, y: -0.0000011622901, z: 0.029485274, w: 0.99956524}
+      scale: {x: 1.000001, y: 0.99999875, z: 0.9999997}
+    - name: Giant 2 RigLDigit23
+      parentName: Giant 2 RigLDigit22
+      position: {x: -2.0535443, y: -0.0000023254393, z: -0.0000046508785}
+      rotation: {x: -0.0000015188692, y: -0.00000070041756, z: -0.060644455, w: 0.9981594}
+      scale: {x: 1.0000031, y: 0.99999726, z: 0.9999998}
+    - name: Giant 2 RigLDigit31
+      parentName: Giant 2 RigLPalm
+      position: {x: -8.634019, y: 0.7423872, z: -0.2394877}
+      rotation: {x: -0.00828969, y: 0.1652252, z: 0.052541688, w: 0.9848205}
+      scale: {x: 1.0000006, y: 0.999999, z: 1.0000001}
+    - name: Giant 2 RigLDigit32
+      parentName: Giant 2 RigLDigit31
+      position: {x: -4.3445067, y: 0, z: 0}
+      rotation: {x: -0.000054543805, y: -0.000050976843, z: 0.03852588, w: 0.9992576}
+      scale: {x: 1.0000023, y: 0.9999973, z: 1.0000002}
+    - name: Giant 2 RigLDigit33
+      parentName: Giant 2 RigLDigit32
+      position: {x: -2.5718336, y: 0, z: 0.0000046508785}
+      rotation: {x: -0.0000011081863, y: -0.0000010547226, z: -0.08932481, w: 0.9960026}
+      scale: {x: 1.0000023, y: 0.9999974, z: 1.0000006}
+    - name: Giant 2 RigLDigit41
+      parentName: Giant 2 RigLPalm
+      position: {x: -8.414483, y: -0.15755317, z: -3.7512126}
+      rotation: {x: -0.062120885, y: 0.14387164, z: 0.042250488, w: 0.9867405}
+      scale: {x: 1.0000011, y: 0.999999, z: 1.0000004}
+    - name: Giant 2 RigLDigit42
+      parentName: Giant 2 RigLDigit41
+      position: {x: -4.3518877, y: 0, z: 0}
+      rotation: {x: -0.012237586, y: 0.010463842, z: 0.03177615, w: 0.9993653}
+      scale: {x: 1.0000013, y: 0.99999887, z: 1.0000004}
+    - name: Giant 2 RigLDigit43
+      parentName: Giant 2 RigLDigit42
+      position: {x: -2.1917567, y: 0, z: -0.0000046508785}
+      rotation: {x: -0.00000025331968, y: -0.00000018998976, z: -0.024091514, w: 0.99970984}
+      scale: {x: 1.0000012, y: 0.9999993, z: 1.0000005}
+    - name: Giant 2 RigRCollarbone
+      parentName: Giant 2 RigRibcage
+      position: {x: 1.1266707, y: 6.5883183, z: -1.9545991}
+      rotation: {x: 0.049646467, y: 0.6751678, z: -0.14934665, w: -0.7206797}
+      scale: {x: 1.0000014, y: 0.99999994, z: 0.99999994}
+    - name: Giant 2 RigRUpperarm
+      parentName: Giant 2 RigRCollarbone
+      position: {x: -15.973033, y: 0.0000046508785, z: -0.0000046508785}
+      rotation: {x: -0.27437127, y: -0.011131281, z: -0.15481488, w: 0.94901466}
+      scale: {x: 0.99999875, y: 1.0000027, z: 0.99999934}
+    - name: Giant 2 RigRForearm
+      parentName: Giant 2 RigRUpperarm
+      position: {x: -22.035475, y: 0.0000046508785, z: 0}
+      rotation: {x: 0.005007504, y: 0.013288004, z: -0.022672517, w: 0.99964213}
+      scale: {x: 1.0000056, y: 0.9999951, z: 0.9999998}
+    - name: Giant 2 RigRPalm
+      parentName: Giant 2 RigRForearm
+      position: {x: -18.751347, y: 0.0000046508785, z: 0.0000046508785}
+      rotation: {x: 0.71137, y: 0.03870108, z: 0.14086182, w: 0.6874685}
+      scale: {x: 1.00002, y: 0.99999464, z: 0.99998504}
+    - name: Giant 2 RigRDigit11 1
+      parentName: Giant 2 RigRPalm
+      position: {x: 0.5683746, y: -0.8656424, z: -4.3341446}
+      rotation: {x: -0.25746337, y: -0.24380802, z: -0.028443722, w: 0.9345914}
+      scale: {x: 1.000038, y: 1.0000032, z: 0.9999592}
+    - name: Giant 2 RigRDigit12 1
+      parentName: Giant 2 RigRDigit11 1
+      position: {x: -4.570767, y: 0.0000023254393, z: 0.0000023254393}
+      rotation: {x: 0.118402466, y: 0.020400507, z: 0.030382525, w: 0.99229115}
+      scale: {x: 1.0000174, y: 0.99999547, z: 0.9999871}
+    - name: Giant 2 RigRDigit13
+      parentName: Giant 2 RigRDigit12 1
+      position: {x: -3.7925496, y: 0, z: 0.0000023254393}
+      rotation: {x: -0.005029379, y: 0.009039452, z: -0.049067006, w: 0.9987419}
+      scale: {x: 1.0000172, y: 1.0000007, z: 0.99998224}
+    - name: Giant 2 RigRDigit21
+      parentName: Giant 2 RigRPalm
+      position: {x: -8.329956, y: 0.40803784, z: -3.553227}
+      rotation: {x: -0.0093981875, y: -0.1773355, z: 0.052613247, w: 0.98269814}
+      scale: {x: 1.0000252, y: 0.99999565, z: 0.99998}
+    - name: Giant 2 RigRDigit22
+      parentName: Giant 2 RigRDigit21
+      position: {x: -4.2435336, y: -0.0000046508785, z: 0}
+      rotation: {x: -0.000011288555, y: 0.0000012516967, z: 0.031087166, w: 0.9995167}
+      scale: {x: 1.0000162, y: 1.0000019, z: 0.99998176}
+    - name: Giant 2 RigRDigit23
+      parentName: Giant 2 RigRDigit22
+      position: {x: -2.0535395, y: 0, z: 0}
+      rotation: {x: -0.00000028121207, y: -0.00000010127062, z: -0.060642004, w: 0.9981596}
+      scale: {x: 1.0000119, y: 1.0000057, z: 0.99998164}
+    - name: Giant 2 RigRDigit31
+      parentName: Giant 2 RigRPalm
+      position: {x: -8.888243, y: 1.4745727, z: -0.2360437}
+      rotation: {x: 0.0014525647, y: -0.16146755, z: 0.039852276, w: 0.986072}
+      scale: {x: 1.0000237, y: 0.9999935, z: 0.9999823}
+    - name: Giant 2 RigRDigit32
+      parentName: Giant 2 RigRDigit31
+      position: {x: -4.34451, y: 0, z: 0}
+      rotation: {x: 0.000049830967, y: 0.00005158779, z: 0.03853235, w: 0.99925745}
+      scale: {x: 1.0000235, y: 0.99999386, z: 0.9999813}
+    - name: Giant 2 RigRDigit33
+      parentName: Giant 2 RigRDigit32
+      position: {x: -2.5718336, y: 0, z: 0}
+      rotation: {x: -0.0000019632057, y: 0.0000022076415, z: -0.08932461, w: 0.9960026}
+      scale: {x: 1.0000117, y: 1.0000057, z: 0.9999819}
+    - name: Giant 2 RigRDigit41
+      parentName: Giant 2 RigRPalm
+      position: {x: -8.645016, y: 0.6459047, z: 3.8083487}
+      rotation: {x: 0.050110836, y: -0.14149563, z: 0.027090153, w: 0.9882986}
+      scale: {x: 1.0000231, y: 0.9999963, z: 0.9999812}
+    - name: Giant 2 RigRDigit42
+      parentName: Giant 2 RigRDigit41
+      position: {x: -3.8108602, y: 0.0000046508785, z: 0}
+      rotation: {x: -0.000058039994, y: -0.000013321632, z: 0.031139916, w: 0.9995151}
+      scale: {x: 1.0000376, y: 0.9999799, z: 0.9999812}
+    - name: Giant 2 RigRDigit43
+      parentName: Giant 2 RigRDigit42
+      position: {x: -2.1917567, y: 0, z: 0}
+      rotation: {x: 0.00000035390258, y: 0.00000013969839, z: -0.024091572, w: 0.99970984}
+      scale: {x: 0.999996, y: 1.0000218, z: 0.99998206}
+    - name: Giant 2 RigNeck1
+      parentName: Giant 2 RigRibcage
+      position: {x: -0.051531732, y: -0.22698148, z: 0}
+      rotation: {x: 0.0007359358, y: 0.011083005, z: -0.11749469, w: 0.9930114}
+      scale: {x: 1.0000006, y: 1.0000006, z: 1.0000005}
+    - name: Giant 2 RigNeck2
+      parentName: Giant 2 RigNeck1
+      position: {x: -5.410418, y: 0, z: 0}
+      rotation: {x: -0.00000006635673, y: -0.00000009126961, z: 0.072707795, w: 0.9973533}
+      scale: {x: 1.0000012, y: 1.0000006, z: 1.0000008}
+    - name: Giant 2 RigHead
+      parentName: Giant 2 RigNeck2
+      position: {x: -5.136672, y: -0.0000046508785, z: 0}
+      rotation: {x: -0.002200798, y: -0.01669866, z: 0.24017808, w: 0.9705827}
+      scale: {x: 1.0000005, y: 0.9999996, z: 0.99999994}
+    - name: Point003
+      parentName: Giant 2 RigHead
+      position: {x: -4.2722783, y: 5.481693, z: 2.6611524}
+      rotation: {x: 0.5070799, y: -0.4955845, z: -0.45806795, w: 0.5361341}
+      scale: {x: 1.0000001, y: 0.99999934, z: 0.9999978}
+    - name: Point004
+      parentName: Giant 2 RigHead
+      position: {x: -4.3342376, y: 5.542596, z: -1.8027502}
+      rotation: {x: 0.5293389, y: -0.45534888, z: -0.49886987, w: 0.5134069}
+      scale: {x: 1.0000002, y: 0.9999992, z: 0.99999785}
+    - name: Circle002
+      parentName: Giant 2 RigHead
+      position: {x: -7.3982177, y: 40.331917, z: 0.31702247}
+      rotation: {x: -0.09124439, y: 0.7221368, z: 0.6784657, w: -0.099384524}
+      scale: {x: 0.75967425, y: 1.0000004, z: 1.0000005}
+    - name: Giant 2 RigLThigh
+      parentName: Giant 2 RigPelvis
+      position: {x: -1.0209097, y: 3.017962, z: 6.152118}
+      rotation: {x: -0.05951585, y: 0.99632037, z: -0.017583802, w: 0.059114397}
+      scale: {x: 0.9999999, y: 1.0000004, z: 1.0000002}
+    - name: Giant 2 RigLCalf
+      parentName: Giant 2 RigLThigh
+      position: {x: -25.019053, y: 0.000048834223, z: 0.000011627197}
+      rotation: {x: -0.008702356, y: 0.0264793, z: 0.18605803, w: 0.98214334}
+      scale: {x: 1.0000005, y: 0.9999998, z: 1.0000002}
+    - name: Giant 2 RigLFoot
+      parentName: Giant 2 RigLCalf
+      position: {x: -38.926903, y: 0.0000011627196, z: 0.0000023254393}
+      rotation: {x: -0.056156024, y: 0.006566584, z: -0.7566413, w: 0.6513812}
+      scale: {x: 1.0000004, y: 0.99999946, z: 1.0000001}
+    - name: Giant 2 RigLDigit11
+      parentName: Giant 2 RigLFoot
+      position: {x: -9.713902, y: -0.0000002906799, z: 0}
+      rotation: {x: 0.003347985, y: 0.0004899613, z: -0.049711283, w: 0.9987579}
+      scale: {x: 0.99999994, y: 0.99999964, z: 1}
+    - name: Giant 2 RigLDigit12
+      parentName: Giant 2 RigLDigit11
+      position: {x: -7.340026, y: 0, z: 0}
+      rotation: {x: -0.000000030500807, y: 0.00017129026, z: 0.000022046179, w: 1}
+      scale: {x: 1.0000001, y: 1, z: 1.0000004}
+    - name: Giant 2 RigRThigh
+      parentName: Giant 2 RigPelvis
+      position: {x: -1.0060315, y: 3.0307426, z: -6.2449265}
+      rotation: {x: -0.046541255, y: 0.9964982, z: 0.011972485, w: -0.06842362}
+      scale: {x: 1.0000001, y: 1.0000005, z: 1.0000006}
+    - name: Giant 2 RigRCalf
+      parentName: Giant 2 RigRThigh
+      position: {x: -25.66415, y: 0.000044183347, z: -0.000073251336}
+      rotation: {x: 0.009259285, y: -0.030265458, z: 0.16833961, w: 0.9852208}
+      scale: {x: 1.0000017, y: 1, z: 0.99999917}
+    - name: Giant 2 RigRFoot
+      parentName: Giant 2 RigRCalf
+      position: {x: -38.16677, y: 0.0000046508785, z: 0}
+      rotation: {x: 0.045452334, y: -0.020192422, z: -0.75355834, w: 0.6554969}
+      scale: {x: 1.0000017, y: 0.9999997, z: 1.0000008}
+    - name: Giant 2 RigRDigit11
+      parentName: Giant 2 RigRFoot
+      position: {x: -9.713908, y: -0.00000014533995, z: 0}
+      rotation: {x: -0.00333273, y: -0.0007977607, z: -0.049736217, w: 0.9987566}
+      scale: {x: 1.0000001, y: 0.99999994, z: 1.0000001}
+    - name: Giant 2 RigRDigit12
+      parentName: Giant 2 RigRDigit11
+      position: {x: -7.3400283, y: 0.00000014533995, z: 0}
+      rotation: {x: 0.000000009778886, y: -0.00017115205, z: 0.000022085174, w: 1}
+      scale: {x: 0.9999997, y: 0.9999998, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -122,13 +470,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

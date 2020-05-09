@@ -16,6 +16,7 @@ public class TriggerDragonAttacks : MonoBehaviour
     public TileMap tmScript;
 
     public bool fireCheck = false;
+    public bool rootCheck = false;
     public bool reset = false;
     public int fireDuration;
 
@@ -24,9 +25,13 @@ public class TriggerDragonAttacks : MonoBehaviour
         
     }
 
-
     void Update()
     {
+        if (rootCheck)
+        {
+            GetRandomCharacter();
+            rootCheck = false;
+        }
         if (fireCheck)
         {
             GetCellPositions();
@@ -40,7 +45,30 @@ public class TriggerDragonAttacks : MonoBehaviour
             reset = false;
         }
     }
-
+    public void TriggerRoot()
+    {
+        rootCheck = true;
+    }
+    public void TriggerFire()
+    {
+        fireCheck = true;
+    }
+    public void KillEverything()
+    {
+        for (int i = 0; i < roots.Count; i++)
+        {
+            roots[i].GetComponent<RootsScript>().die = true;
+            roots.Remove(roots[i]);
+        }
+    }
+    public void GetRandomCharacter()
+    {
+        int randomNumber = 0;
+        randomNumber = Random.Range(0, chScript.playableCharacters.Count);
+        TileMap.Node currentNode = chScript.playableCharacters[randomNumber].currentNode;
+        GameObject temp = Instantiate(rootPrefab, currentNode.ground.transform.position + new Vector3(0,1,0), Quaternion.identity);
+        roots.Add(temp);
+    }
     public void GetCellPositions()
     {
         int randomNumber = 0;
