@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: gridanna
+  m_Name: gridanna 1
   m_Shader: {fileID: -6465566751694194690, guid: 0dcedd8e42e242e4191044c860324e8a,
     type: 3}
   m_ShaderKeywords: 
@@ -24,5 +24,5 @@ Material:
     - Vector1_1601D214: 0.9
     m_Colors:
     - Color_ABEE16DA: {r: 0.2509804, g: 5.5529413, b: 5.992157, a: 0}
-    - Vector2_1FC5E314: {r: 20, g: 20, b: 0, a: 0}
-    - _BaseColorA: {r: 1.889262, g: 0, b: 0, a: 0}
+    - Vector2_1FC5E314: {r: 15, g: 15, b: 0, a: 0}
+    - _BaseColorA: {r: 0.7490196, g: 0.7490196, b: 0.7490196, a: 0.6313726}
