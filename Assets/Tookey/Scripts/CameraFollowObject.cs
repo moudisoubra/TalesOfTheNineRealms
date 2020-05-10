@@ -6,19 +6,19 @@ using UnityEngine.PlayerLoop;
 public class CameraFollowObject : MonoBehaviour
 {
     public float moveSpeed;
+    public float rotationSpeed;
     public GameObject odinModel;
 
     Vector3 currentPosition;
-    Vector3 shift;
+    [HideInInspector]public Vector3 shift;
+    Vector3 startingShift;
+    Quaternion currentRotation;
     public bool stopFollowing;
-   
-    public bool level2;
-    public GameObject[] binguPosition;
-    public int currentPositionIndex;
 
     private void Awake()
     {
         shift = transform.position - odinModel.transform.position;
+        startingShift = transform.position - odinModel.transform.position; 
     }
 
     private void Start()
@@ -30,8 +30,14 @@ public class CameraFollowObject : MonoBehaviour
         if (!stopFollowing)
         {
             currentPosition = odinModel.transform.position + shift;
+            transform.position = Vector3.Lerp(transform.position, currentPosition, moveSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, currentRotation, rotationSpeed * Time.deltaTime);
         }
+    }
 
-        transform.position = Vector3.Lerp(transform.position, currentPosition, moveSpeed * Time.deltaTime);
+    public void SwapCameraAngle(Quaternion newRotation)
+    {
+        shift = newRotation * shift;
+        currentRotation = newRotation * currentRotation;
     }
 }

@@ -15,8 +15,8 @@ public class AnnaTweenToPosition : MonoBehaviour
         cameraOffsetStart = moveToThisPosition.transform.position;
     }
 
-    private void Update()
-    {
+    private void FixedUpdate()
+    {     
         transform.position = Vector3.Lerp(this.transform.position, moveToThisPosition.transform.position, moveSpeed * Time.deltaTime); 
         transform.LookAt(lookAtThis.transform.position);    
     }
