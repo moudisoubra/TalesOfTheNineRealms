@@ -32,7 +32,7 @@ public class DragObject : MonoBehaviour
     public bool attacking;
     public bool dealingDamage;
     public bool dealEffect;
-    public enum Effect { None, Heal, Defend};
+    public enum Effect { None, Heal, Defend, Fast, Dodgy};
     public Effect effect;
     public GameObject number;
     private void Start()
@@ -64,6 +64,10 @@ public class DragObject : MonoBehaviour
             {
                 GameObject temp = Instantiate(number, transform.position + new Vector3(0, 2, 0), Quaternion.identity);
                 temp.GetComponent<SelectNumber>().numberChosen = sideChosen - 1;
+                if (irScript != null)
+                {
+                    irScript.dieSpawned.Add(this.gameObject);
+                }
                 spawnNumber = false;
             }
         }
@@ -96,7 +100,8 @@ public class DragObject : MonoBehaviour
             {
                 unit.initiative = sideChosen;
                 irScript.spawn = true;
-                Destroy(this.gameObject, 8);
+
+                    Destroy(this.gameObject, 8);
             }
             //this.enabled = false;
         }
@@ -174,6 +179,20 @@ public class DragObject : MonoBehaviour
             if (effect == Effect.Defend)
             {
                 unit.armorClass += sideChosen;
+                unit.armorClassCheck = 3;
+                Destroy(this.gameObject, 7);
+                dealEffect = false;
+            }
+            if (effect == Effect.Fast)
+            {
+                unit.remainingMovement += unit.remainingMovement;
+                Destroy(this.gameObject, 7);
+                dealEffect = false;
+            }
+            if (effect == Effect.Dodgy)
+            {
+                unit.addedAttackRoll += 200;
+                unit.addedAttackCheck = 3;
                 Destroy(this.gameObject, 7);
                 dealEffect = false;
             }

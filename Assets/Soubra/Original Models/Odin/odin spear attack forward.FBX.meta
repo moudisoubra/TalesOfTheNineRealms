@@ -19,14 +19,30 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
+      in configuration does not match rotation in animation file:\n\t'OdinLForearm2'
+      : rotation error = 9.892329 deg\n\t'OdinLPalm' : rotation error = 47.526798
+      deg\n\t'OdinRForearm2' : rotation error = 23.036562 deg\n\t'OdinRPalm' : rotation
+      error = 45.113808 deg\n"
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'OdinLDigit11' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'OdinRDigit11' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'OdinLUpperarm'
+      has scale animation that will be discarded.\n\t'OdinLForearm1' has scale animation
+      that will be discarded.\n\t'OdinLForearm2' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'OdinLPalm' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'OdinLPalm'
+      has scale animation that will be discarded.\n\t'OdinLDigit11 1' has scale animation
+      that will be discarded.\n\t'OdinRForearm2' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'OdinRPalm' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -58,7 +74,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.61346203
+        functionName: DoDamage
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -104,7 +127,377 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: odin spear attack forward(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: beltstrap
+      parentName: odin spear attack forward(Clone)
+      position: {x: 15.109326, y: 1.831767, z: -0.18194495}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 8.798995, y: 8.798995, z: 8.798995}
+    - name: Object064
+      parentName: odin spear attack forward(Clone)
+      position: {x: 15.2063675, y: 1.573972, z: -0.16398154}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 8.798995, y: 7.636779, z: 8.798995}
+    - name: cape
+      parentName: odin spear attack forward(Clone)
+      position: {x: 14.728762, y: 2.0790668, z: -0.29816997}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 8.798995, y: 8.798995, z: 8.798995}
+    - name: Odin
+      parentName: odin spear attack forward(Clone)
+      position: {x: 0.050934102, y: 0, z: -0.042144734}
+      rotation: {x: 0.5000001, y: -0.50000006, z: -0.4999999, w: 0.49999997}
+      scale: {x: 1, y: 1, z: 1}
+    - name: OdinLPlatform
+      parentName: odin spear attack forward(Clone)
+      position: {x: -0.4917991, y: 0.041802183, z: -0.28463235}
+      rotation: {x: 0.69631785, y: -0.6963177, z: 0.123051316, w: -0.123051345}
+      scale: {x: 1, y: 1, z: 1}
+    - name: OdinRPlatform
+      parentName: odin spear attack forward(Clone)
+      position: {x: 0.16311146, y: 0.04180227, z: 0.85770696}
+      rotation: {x: 0.5323809, y: -0.5323807, z: -0.46537152, w: 0.46537164}
+      scale: {x: 1, y: 1, z: 1}
+    - name: odinbase004
+      parentName: odin spear attack forward(Clone)
+      position: {x: 0.0321944, y: 1.3004546, z: -0.04504478}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Spear
+      parentName: odin spear attack forward(Clone)
+      position: {x: -0.45612064, y: 1.3660942, z: 1.1647873}
+      rotation: {x: -0.05357357, y: 0.99747545, z: -0.044263728, w: 0.014608575}
+      scale: {x: 0.059259865, y: 0.07555153, z: 0.1850522}
+    - name: gems
+      parentName: Spear
+      position: {x: 0.4770045, y: 0.0042995494, z: -2.1390762}
+      rotation: {x: 6.123234e-17, y: 6.123234e-17, z: -6.123234e-17, w: 1}
+      scale: {x: 1.0000006, y: 1, z: 0.99999946}
+    - name: OdinPelvis
+      parentName: odin spear attack forward(Clone)
+      position: {x: -0.00000044703484, y: 1.3347117, z: 0.1862263}
+      rotation: {x: 0.49912202, y: -0.5008678, z: -0.49913073, w: 0.5008765}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: OdinSpine1
+      parentName: OdinPelvis
+      position: {x: -0.062748566, y: 0.020490427, z: 0.0000046508785}
+      rotation: {x: -0.0000053644176, y: -0.0003609955, z: 0.016981779, w: 0.99985576}
+      scale: {x: 1.0000006, y: 1.0000013, z: 1.0000004}
+    - name: OdinSpine2
+      parentName: OdinSpine1
+      position: {x: -0.2904058, y: 0, z: -0.000000009083747}
+      rotation: {x: 0.000031083822, y: 0.00011599064, z: 0.041772604, w: 0.99912715}
+      scale: {x: 1.0000006, y: 1.0000008, z: 1.0000014}
+    - name: OdinRibcage
+      parentName: OdinSpine2
+      position: {x: -0.38352424, y: -0.00000003633499, z: 0}
+      rotation: {x: 0.000009738186, y: 0.0002409901, z: 0.016997702, w: 0.9998555}
+      scale: {x: 0.99999994, y: 0.99999946, z: 0.9999998}
+    - name: OdinRCollarbone
+      parentName: OdinRibcage
+      position: {x: 0.05063397, y: 0.15639324, z: -0.045262314}
+      rotation: {x: 0.059890784, y: 0.6629139, z: -0.15361755, w: -0.73031485}
+      scale: {x: 1.000002, y: 1.0000008, z: 1.0000014}
+    - name: Obj_Avatar_Shape011
+      parentName: OdinRCollarbone
+      position: {x: -0.2540005, y: 0.046516925, z: 0.18875183}
+      rotation: {x: -0.08677435, y: 0.06428991, z: 0.9552109, w: 0.2755161}
+      scale: {x: 8.798989, y: 8.799003, z: 8.798992}
+    - name: OdinRUpperarm
+      parentName: OdinRCollarbone
+      position: {x: -0.2952394, y: 0.00000003633499, z: 0}
+      rotation: {x: -0.18169445, y: -0.042535067, z: -0.15610684, w: 0.9699529}
+      scale: {x: 1.0000014, y: 1.000001, z: 0.9999998}
+    - name: OdinRForearm1
+      parentName: OdinRUpperarm
+      position: {x: -0.47664484, y: 0, z: 0.00000007266998}
+      rotation: {x: -0.098238, y: 0.011855961, z: -0.02332039, w: 0.99481905}
+      scale: {x: 0.99999994, y: 0.99999875, z: 1.0000011}
+    - name: OdinRForearm2
+      parentName: OdinRForearm1
+      position: {x: -0.11137383, y: 0, z: -0.00000014533995}
+      rotation: {x: 0.013207046, y: -0.000000005587935, z: -0.000000033323882, w: 0.9999128}
+      scale: {x: 1.000001, y: 1.0000002, z: 1.0000008}
+    - name: OdinRForearm3
+      parentName: OdinRForearm2
+      position: {x: -0.111373864, y: 0, z: 0.00000003633499}
+      rotation: {x: 0.024506183, y: -0.00000002048193, z: -0.000000061028906, w: 0.99969965}
+      scale: {x: 1.0000017, y: 1.0000007, z: 1.0000012}
+    - name: OdinRPalm
+      parentName: OdinRForearm3
+      position: {x: -0.11137379, y: -0.00000014533995, z: 0}
+      rotation: {x: 0.71484286, y: -0.0004869066, z: 0.065559186, w: 0.6962051}
+      scale: {x: 1.0000007, y: 0.9999978, z: 1.0000018}
+    - name: OdinRDigit51
+      parentName: OdinRPalm
+      position: {x: -0.14117724, y: 0.01123972, z: 0.06733978}
+      rotation: {x: 0.010127455, y: 0.013398135, z: -0.01099513, w: 0.99979854}
+      scale: {x: 0.9999991, y: 1.000001, z: 0.9999997}
+    - name: OdinRDigit52
+      parentName: OdinRDigit51
+      position: {x: -0.0469948, y: 0.000000109004965, z: 0}
+      rotation: {x: 0.0130740255, y: 0.010324772, z: 0.037792664, w: 0.9991467}
+      scale: {x: 0.9999978, y: 1.0000024, z: 0.9999997}
+    - name: OdinRDigit53
+      parentName: OdinRDigit52
+      position: {x: -0.02970814, y: 0, z: 0}
+      rotation: {x: -0.08817524, y: -0.017858185, z: -0.026523441, w: 0.99559164}
+      scale: {x: 0.9999984, y: 1.0000025, z: 0.9999992}
+    - name: OdinRDigit41
+      parentName: OdinRPalm
+      position: {x: -0.1544629, y: 0.017050412, z: 0.03473988}
+      rotation: {x: 0.0029155908, y: 0.0017612681, z: 0.0022977137, w: 0.9999916}
+      scale: {x: 0.9999991, y: 1.0000012, z: 0.99999994}
+    - name: OdinRDigit42
+      parentName: OdinRDigit41
+      position: {x: -0.07178805, y: 0, z: 0.00000007266998}
+      rotation: {x: 0.016852768, y: 0.0026020105, z: 0.038691938, w: 0.99910575}
+      scale: {x: 0.99999875, y: 1.0000021, z: 1.0000004}
+    - name: OdinRDigit43
+      parentName: OdinRDigit42
+      position: {x: -0.04537219, y: 0, z: 0.00000007266998}
+      rotation: {x: -0.08598432, y: 0.021330787, z: -0.006169683, w: 0.99604905}
+      scale: {x: 0.99999887, y: 1.0000011, z: 1}
+    - name: OdinRDigit31
+      parentName: OdinRPalm
+      position: {x: -0.16929358, y: 0.025214447, z: -0.008977939}
+      rotation: {x: -0.035718374, y: -0.0307383, z: 0.011232891, w: 0.99882597}
+      scale: {x: 0.9999992, y: 1.0000013, z: 1.0000001}
+    - name: OdinRDigit32
+      parentName: OdinRDigit31
+      position: {x: -0.08748913, y: 0, z: 0.00000007266998}
+      rotation: {x: -0.14219172, y: 0.0010506993, z: 0.035414796, w: 0.9892048}
+      scale: {x: 1.0000035, y: 0.9999977, z: 1.0000008}
+    - name: OdinRDigit33
+      parentName: OdinRDigit32
+      position: {x: -0.04383086, y: 0, z: 0}
+      rotation: {x: 0.0028669229, y: -0.04700158, z: -0.07320706, w: 0.99620444}
+      scale: {x: 0.9999978, y: 1.0000021, z: 0.99999994}
+    - name: OdinRDigit11 1
+      parentName: OdinRPalm
+      position: {x: -0.023038018, y: 0.014341856, z: -0.053956587}
+      rotation: {x: -0.10808266, y: -0.4127448, z: -0.1407987, w: 0.8933844}
+      scale: {x: 0.9999992, y: 0.99999636, z: 1.0000029}
+    - name: OdinRDigit12 1
+      parentName: OdinRDigit11 1
+      position: {x: -0.070953585, y: 0, z: 0}
+      rotation: {x: -0.02154893, y: -0.0028412924, z: 0.030969877, w: 0.99928397}
+      scale: {x: 1.0000011, y: 0.99999684, z: 1.0000029}
+    - name: OdinRDigit13
+      parentName: OdinRDigit12 1
+      position: {x: -0.0661223, y: 0, z: 0}
+      rotation: {x: 0.05737287, y: -0.045470983, z: -0.009202988, w: 0.9972743}
+      scale: {x: 0.99999875, y: 0.99999726, z: 1.000004}
+    - name: OdinRDigit21
+      parentName: OdinRPalm
+      position: {x: -0.16237605, y: 0.015616633, z: -0.058267586}
+      rotation: {x: -0.012604323, y: -0.07586965, z: -0.0014087182, w: 0.9970372}
+      scale: {x: 0.99999994, y: 1.0000018, z: 1.0000004}
+    - name: OdinRDigit22
+      parentName: OdinRDigit21
+      position: {x: -0.07201725, y: -0.00000003633499, z: 0}
+      rotation: {x: 0.016160203, y: -0.013683765, z: 0.030487366, w: 0.99931085}
+      scale: {x: 0.9999997, y: 1.000002, z: 1.0000004}
+    - name: OdinRDigit23
+      parentName: OdinRDigit22
+      position: {x: -0.042329863, y: 0, z: 0}
+      rotation: {x: 0.066326424, y: 0.011598023, z: 0.05026121, w: 0.9964638}
+      scale: {x: 0.9999983, y: 1.0000017, z: 1}
+    - name: OdinNeck
+      parentName: OdinRibcage
+      position: {x: -0.08276064, y: 0.062434047, z: 0.0000023799416}
+      rotation: {x: 0.0000023181196, y: 0.000013107184, z: -0.0528647, w: 0.9986017}
+      scale: {x: 1.0000005, y: 1.0000015, z: 1.0000007}
+    - name: OdinHead
+      parentName: OdinNeck
+      position: {x: -0.25033543, y: 0, z: 0.00000003633499}
+      rotation: {x: -0.0000023245811, y: -0.000013127923, z: 0.05286467, w: 0.99860173}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: Group006
+      parentName: OdinHead
+      position: {x: -0.12635614, y: 0.11434475, z: -0.00032425343}
+      rotation: {x: -0.7071015, y: -0.0024865167, z: 0.7071034, w: -0.0024746035}
+      scale: {x: 1.0000005, y: 0.99999964, z: 1.0000002}
+    - name: Sphere016
+      parentName: Group006
+      position: {x: 0.039404567, y: 0.001404965, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 8.798995, y: 8.798995, z: 8.798995}
+    - name: Sphere015
+      parentName: Group006
+      position: {x: -0.039404567, y: -0.001404965, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 8.798995, y: 8.798995, z: 8.798995}
+    - name: L eye
+      parentName: OdinHead
+      position: {x: -0.04501905, y: 0.12819041, z: 0.040710885}
+      rotation: {x: 0.57350403, y: -0.4136341, z: -0.5735039, w: -0.41363418}
+      scale: {x: 0.29342812, y: 0.29342833, z: 0.29342788}
+    - name: R eye
+      parentName: OdinHead
+      position: {x: -0.045019105, y: 0.12819041, z: -0.041107807}
+      rotation: {x: 0.57350403, y: -0.4136341, z: -0.5735039, w: -0.41363418}
+      scale: {x: 0.29342812, y: 0.29342833, z: 0.29342788}
+    - name: OdinLCollarbone
+      parentName: OdinRibcage
+      position: {x: 0.05782728, y: 0.11897078, z: 0.028930826}
+      rotation: {x: 0.07258997, y: 0.6663341, z: 0.15209235, w: 0.72635907}
+      scale: {x: 0.99999994, y: 1.0000004, z: 1.0000007}
+    - name: OdinLUpperarm
+      parentName: OdinLCollarbone
+      position: {x: -0.3047126, y: -0.00000003633499, z: 0}
+      rotation: {x: 0.12002516, y: 0.04510759, z: -0.15822166, w: 0.979043}
+      scale: {x: 0.9999918, y: 1.0000116, z: 1.0000027}
+    - name: OdinLForearm1
+      parentName: OdinLUpperarm
+      position: {x: -0.4326684, y: -0.00000014533995, z: 0}
+      rotation: {x: 0.099535644, y: -0.01486052, z: -0.025956895, w: 0.9945844}
+      scale: {x: 0.99999624, y: 1.0000087, z: 1.0000094}
+    - name: OdinLForearm2
+      parentName: OdinLForearm1
+      position: {x: -0.11267102, y: -0.00000003633499, z: 0.00000007266998}
+      rotation: {x: -0.012359878, y: -0.00000004097819, z: -0.000000047730275, w: 0.9999237}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.000001}
+    - name: OdinLForearm3
+      parentName: OdinLForearm2
+      position: {x: -0.11267102, y: 0, z: 0}
+      rotation: {x: -0.02572822, y: -0.000000041737692, z: 0.000000053038374, w: 0.999669}
+      scale: {x: 1.0000002, y: 1, z: 1.0000001}
+    - name: OdinLPalm
+      parentName: OdinLForearm3
+      position: {x: -0.112670876, y: 0.00000003633499, z: 0.00000007266998}
+      rotation: {x: -0.7144179, y: 0.0295721, z: 0.07668976, w: 0.69487506}
+      scale: {x: 1.0000255, y: 0.99996674, z: 0.9999967}
+    - name: OdinLDigit11 1
+      parentName: OdinLPalm
+      position: {x: -0.04015207, y: -0.0065767784, z: 0.04329659}
+      rotation: {x: 0.114740916, y: 0.42293516, z: -0.101098254, w: 0.8931626}
+      scale: {x: 0.99999565, y: 0.99997234, z: 1.0000328}
+    - name: OdinLDigit12 1
+      parentName: OdinLDigit11 1
+      position: {x: -0.08766383, y: 0, z: 0}
+      rotation: {x: 0.2678572, y: -0.006677535, z: 0.03590993, w: 0.96276605}
+      scale: {x: 1.0000433, y: 0.9999523, z: 1.0000062}
+    - name: OdinLDigit13
+      parentName: OdinLDigit12 1
+      position: {x: -0.052548822, y: 0, z: -0.00000007266998}
+      rotation: {x: -0.05785777, y: 0.05069726, z: 0.008211105, w: 0.9970029}
+      scale: {x: 1.0000129, y: 0.9999943, z: 0.9999955}
+    - name: OdinLDigit51
+      parentName: OdinLPalm
+      position: {x: -0.14193897, y: -0.0034883043, z: -0.061314493}
+      rotation: {x: 0.007566329, y: -0.032694615, z: -0.014809048, w: 0.99932706}
+      scale: {x: 1.0000228, y: 0.9999816, z: 0.9999966}
+    - name: OdinLDigit52
+      parentName: OdinLDigit51
+      position: {x: -0.0555554, y: 0, z: 0}
+      rotation: {x: -0.007065966, y: -0.0010540214, z: 0.034179285, w: 0.9993902}
+      scale: {x: 1.0000275, y: 0.9999704, z: 1.0000025}
+    - name: OdinLDigit53
+      parentName: OdinLDigit52
+      position: {x: -0.038684845, y: 0, z: 0.000000018167494}
+      rotation: {x: 0.05296117, y: -0.050002664, z: -0.0031876457, w: 0.9973388}
+      scale: {x: 0.99998397, y: 1.0000107, z: 1.0000066}
+    - name: OdinLDigit21
+      parentName: OdinLPalm
+      position: {x: -0.16112973, y: 0.0096296435, z: 0.0578231}
+      rotation: {x: 0.020871265, y: 0.062797815, z: 0.019269833, w: 0.997622}
+      scale: {x: 1.0000066, y: 0.9999805, z: 1.0000134}
+    - name: OdinLDigit22
+      parentName: OdinLDigit21
+      position: {x: -0.06758424, y: 0.00000007266998, z: 0}
+      rotation: {x: -0.0066781165, y: 0.0080655385, z: 0.031628914, w: 0.99944484}
+      scale: {x: 1.0000626, y: 0.9999378, z: 1.0000033}
+    - name: OdinLDigit23
+      parentName: OdinLDigit22
+      position: {x: -0.049634248, y: -0.00000007266998, z: 0.000000018167494}
+      rotation: {x: -0.06651744, y: -0.019227928, z: 0.025665121, w: 0.9972698}
+      scale: {x: 1.0000281, y: 0.99997383, z: 0.9999996}
+    - name: OdinLDigit41
+      parentName: OdinLPalm
+      position: {x: -0.17871752, y: 0.000069472495, z: -0.033425175}
+      rotation: {x: 0.0052274135, y: -0.017073391, z: 0.0060692113, w: 0.9998222}
+      scale: {x: 1.0000315, y: 0.9999821, z: 0.9999873}
+    - name: OdinLDigit42
+      parentName: OdinLDigit41
+      position: {x: -0.06811037, y: 0, z: -0.000000018167494}
+      rotation: {x: -0.016374217, y: 0.0005973052, z: 0.033868603, w: 0.9992921}
+      scale: {x: 1.0000408, y: 0.99995613, z: 1.0000036}
+    - name: OdinLDigit43
+      parentName: OdinLDigit42
+      position: {x: -0.04010874, y: -0.00000007266998, z: 0}
+      rotation: {x: 0.087710254, y: -0.018155342, z: -0.06375539, w: 0.99393797}
+      scale: {x: 1.0000271, y: 0.99995494, z: 1.0000194}
+    - name: OdinLDigit31
+      parentName: OdinLPalm
+      position: {x: -0.18870972, y: 0.0146723585, z: 0.011615859}
+      rotation: {x: -0.0023892203, y: 0.02260572, z: 0.023596818, w: 0.9994631}
+      scale: {x: 1.0000236, y: 0.9999749, z: 1.000002}
+    - name: OdinLDigit32
+      parentName: OdinLDigit31
+      position: {x: -0.062451124, y: 0.000000054502483, z: 0}
+      rotation: {x: 0.09798035, y: 0.008191225, z: 0.035979185, w: 0.99450403}
+      scale: {x: 1.0000364, y: 0.99995786, z: 1.0000085}
+    - name: OdinLDigit33
+      parentName: OdinLDigit32
+      position: {x: -0.047006648, y: 0, z: 0}
+      rotation: {x: -0.044867687, y: 0.032842953, z: 0.027787352, w: 0.9980662}
+      scale: {x: 1.0000153, y: 0.9999815, z: 1.0000045}
+    - name: OdinRThigh
+      parentName: OdinPelvis
+      position: {x: -0.024910469, y: 0.024861598, z: -0.1265237}
+      rotation: {x: -0.025983319, y: 0.99776995, z: 0.005723685, w: -0.06121531}
+      scale: {x: 1.0000007, y: 1.0000008, z: 1.0000006}
+    - name: OdinRCalf
+      parentName: OdinRThigh
+      position: {x: -0.6058537, y: -0.0000013807296, z: 0.000015188025}
+      rotation: {x: -0.0022753845, y: -0.038079984, z: 0.10356872, w: 0.9938905}
+      scale: {x: 1.0000007, y: 1.0000013, z: 1.0000004}
+    - name: OdinRFoot
+      parentName: OdinRCalf
+      position: {x: -0.68785024, y: 0.00000003633499, z: 0}
+      rotation: {x: 0.07899997, y: 0.025176376, z: -0.67773837, w: 0.7306134}
+      scale: {x: 1.000001, y: 1.0000001, z: 1.0000011}
+    - name: OdinRDigit11
+      parentName: OdinRFoot
+      position: {x: -0.13828835, y: -0.0057794433, z: 0.00000078120223}
+      rotation: {x: 0.00075867015, y: -0.0009677799, z: -0.07894968, w: 0.9968778}
+      scale: {x: 1, y: 1, z: 1.0000002}
+    - name: OdinRDigit12
+      parentName: OdinRDigit11
+      position: {x: -0.06481987, y: 0, z: 0}
+      rotation: {x: -0.0012271263, y: 0.0027657447, z: -0.03299136, w: 0.99945104}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000006}
+    - name: OdinLThigh
+      parentName: OdinPelvis
+      position: {x: -0.024913594, y: 0.023944613, z: 0.12652367}
+      rotation: {x: -0.02273467, y: 0.99791753, z: -0.00707966, w: 0.059946157}
+      scale: {x: 1.000001, y: 1.0000004, z: 1.0000007}
+    - name: OdinLCalf
+      parentName: OdinLThigh
+      position: {x: -0.6079295, y: -0.00000007266998, z: 0.000005777263}
+      rotation: {x: -0.00024512026, y: 0.0389643, z: 0.097064726, w: 0.994515}
+      scale: {x: 1.0000004, y: 1.0000006, z: 1.0000002}
+    - name: OdinLFoot
+      parentName: OdinLCalf
+      position: {x: -0.6845545, y: 0.00000003633499, z: 0.00000003633499}
+      rotation: {x: -0.07883993, y: -0.028513787, z: -0.6754371, w: 0.7326364}
+      scale: {x: 1.0000005, y: 1.0000006, z: 1.0000002}
+    - name: OdinLDigit11
+      parentName: OdinLFoot
+      position: {x: -0.13828845, y: -0.005779498, z: 0.00000078120223}
+      rotation: {x: 0.0008499919, y: -0.0021205319, z: -0.07872164, w: 0.99689406}
+      scale: {x: 0.9999997, y: 0.9999996, z: 0.99999994}
+    - name: OdinLDigit12
+      parentName: OdinLDigit11
+      position: {x: -0.064819835, y: -0.0000000045418735, z: 0}
+      rotation: {x: -0.0012272391, y: 0.0027655663, z: -0.032991424, w: 0.9994511}
+      scale: {x: 0.99999994, y: 0.9999998, z: 1.0000002}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -115,13 +508,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

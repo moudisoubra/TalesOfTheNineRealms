@@ -5,25 +5,36 @@ using UnityEngine.EventSystems;
 
 public class GivePosition : MonoBehaviour
 {
+    public GameObject dragon;
     public Unit unitGameobject;
     public ClickableTile ct;
     public bool full;
     public bool blocked;
+    public bool bossCell;
 
     public void Update()
     {
-        if (unitGameobject && unitGameobject.GetComponent<Unit>().enabled == false)
+        if (bossCell)
         {
+            unitGameobject = dragon.GetComponent<Unit>();
             full = true;
-
-            if (unitGameobject.tileX != ct.tileX || unitGameobject.tileZ != ct.tileZ)
-            {
-                unitGameobject = null;
-            }
         }
         else
         {
-            full = false;
+
+            if (unitGameobject && unitGameobject.GetComponent<Unit>().enabled == false)
+            {
+                full = true;
+
+                if (unitGameobject.tileX != ct.tileX || unitGameobject.tileZ != ct.tileZ)
+                {
+                    unitGameobject = null;
+                }
+            }
+            else
+            {
+                full = false;
+            }
         }
 
         if (full || blocked)
@@ -50,6 +61,17 @@ public class GivePosition : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Dragon"))
+        {
+            dragon = other.GetComponentInParent<Unit>().gameObject;
+            ct.map.bossTiles.Add(this.ct.tile);
+            if (ct.map.dragonBoss == null)
+            {
+                ct.map.dragonBoss = dragon.GetComponent<Unit>();
+            }
+            bossCell = true;
+        }
+        else
         if (other.GetComponentInParent<Unit>())
         {
             Debug.Log(other.name);
@@ -57,6 +79,11 @@ public class GivePosition : MonoBehaviour
             other.GetComponentInParent<Unit>().tileX = ct.tileX;
             other.GetComponentInParent<Unit>().tileZ = ct.tileZ;
             unitGameobject = other.GetComponentInParent<Unit>();
+        }
+        if (other.GetComponent<DragonTile>())
+        {
+            other.GetComponent<DragonTile>().tileX = ct.tileX;
+            other.GetComponent<DragonTile>().tileZ = ct.tileZ;
         }
     }
     private void OnCollisionStay(Collision collision)
@@ -77,9 +104,12 @@ public class GivePosition : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (unitGameobject != null && other.GetComponent<Unit>() && other == unitGameobject.gameObject)
+        if (!bossCell)
         {
-            unitGameobject = null;
+            if (unitGameobject != null && other.GetComponent<Unit>() && other == unitGameobject.gameObject)
+            {
+                unitGameobject = null;
+            }
         }
     }
 

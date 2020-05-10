@@ -167,6 +167,47 @@ public class Attack : GAction
 
                 gmClass.unit.animator.SetTrigger("Attack2");
             }
+            if (unit.attackType == 3)
+            {
+                gmClass.unit.animator.SetTrigger("Attack3");
+            }
+        }
+        if (unit.enemyType == Unit.EnemyType.Dragon)
+        {
+            DragonClass gmClass = GetComponent<DragonClass>();
+            for (int i = 0; i < gmClass.effectedUnits.Count; i++)
+            {
+                if (unit.missedAttack)
+                {
+                    unit.targetEnemy.hmScript.HIT = HitOrMiss.Hit.miss;
+                }
+                else
+                {
+                    unit.targetEnemy.hmScript.HIT = HitOrMiss.Hit.hit;
+                    gmClass.effectedUnits[i].GetComponent<Unit>().health -= 2;
+                }
+                gmClass.effectedUnits.Remove(gmClass.effectedUnits[i]);
+            }
+
+            if (unit.attackType == 1)
+            {
+                Debug.Log("First Attack");
+                gmClass.unit.animator.SetTrigger("Attack1");
+            }
+            if (unit.attackType == 2)
+            {
+                Debug.Log("Second Attack");
+
+                gmClass.unit.animator.SetTrigger("Attack2");
+            }
+            if (unit.attackType == 3)
+            {
+                gmClass.unit.animator.SetTrigger("Attack3");
+            }
+            if (unit.attackType == 4)
+            {
+                gmClass.unit.animator.SetTrigger("Attack4");
+            }
         }
     }
 

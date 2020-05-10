@@ -23,6 +23,7 @@ public class ChangeCameraObjects : MonoBehaviour
         {
             attpScript.moveToThisPosition = cameraPosition;
             attpScript.lookAtThis = cameraLookAt;
+            this.gameObject.SetActive(false);
             done = true;
         }   
     }

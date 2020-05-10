@@ -313,8 +313,8 @@ public class CheckAttacks : GAction
 
             if (!decision)
             {
-                CellPositions.Attacks attack = CellPositions.Attacks.Second;
-                if (attack == CellPositions.Attacks.Second)
+                CellPositions.Attacks attack = CellPositions.Attacks.Third;
+                if (attack == CellPositions.Attacks.Third)
                 {
                     if (unit.health <= 2)
                     {
@@ -323,18 +323,34 @@ public class CheckAttacks : GAction
                         if (amClass.effectedUnits.Count > 0 && !decision)
                         {
                             Debug.Log(amClass.effectedUnits.Count);
-                            attackName = "secondAttack";
-                            amClass.unit.attackType = 2;
+                            attackName = "thirdAttack";
+                            amClass.unit.attackType = 3;
                             decision = true;
                         }
                         else
                         {
-                            attack = CellPositions.Attacks.First;
+                            int random = Random.Range(0, 10);
+                            if (random <= 5)
+                            {
+                                attack = CellPositions.Attacks.First;
+                            }
+                            if (random >= 6)
+                            {
+                                attack = CellPositions.Attacks.Second;
+                            }
                         }
                     }
                     else
                     {
-                        attack = CellPositions.Attacks.First;
+                        int random = Random.Range(0, 10);
+                        if (random <= 5)
+                        {
+                            attack = CellPositions.Attacks.First;
+                        }
+                        if (random >= 6)
+                        {
+                            attack = CellPositions.Attacks.Second;
+                        }
                     }
 
                 }
@@ -359,7 +375,25 @@ public class CheckAttacks : GAction
                         }
                     }
                 }
+                if (attack == CellPositions.Attacks.Second)
+                {
+                    amClass.ExecuteAll(attack, range);
 
+                    if (amClass.effectedUnits.Count > 0 && !decision)
+                    {
+                        amClass.unit.attackType = 2;
+                        attackName = "secondAttack";
+                        decision = true;
+                    }
+                    else
+                    {
+                        if (amClass.effectedUnits.Count <= 0 && !decision)
+                        {
+                            amClass.unit.attackType = 0;
+                            decision = true;
+                        }
+                    }
+                }
                 Debug.Log(attackName); 
                 unit.attackNumber = Random.Range(0, 20);
                 if (unit.attackNumber > unit.targetEnemy.armorClass)
@@ -374,7 +408,71 @@ public class CheckAttacks : GAction
             }
             done = true;
         }
-        
+        if (unit.enemyType == Unit.EnemyType.Dragon)
+        {
+            DragonClass amClass = GetComponent<DragonClass>();
+
+            if (!decision)
+            {
+                CellPositions.Attacks attack = CellPositions.Attacks.Second;
+
+                if (attack == CellPositions.Attacks.Second)
+                {
+                    amClass.ExecuteAll(attack, range);
+
+                    if (amClass.effectedUnits.Count > 0 && !decision)
+                    {
+                        amClass.unit.attackType = 2;
+                        attackName = "secondAttack";
+                        decision = true;
+                    }
+                    else
+                    {
+                        attack = CellPositions.Attacks.First;
+                    }
+                }
+                if (attack == CellPositions.Attacks.First)
+                {
+                    amClass.ExecuteAll(attack, range);
+
+                    if (amClass.effectedUnits.Count > 0 && !decision)
+                    {
+                        amClass.unit.attackType = 1;
+                        attackName = "firstAttack";
+                        decision = true;
+                    }
+                    else
+                    {
+                        int randomNumber = Random.Range(0, 10);
+
+                        if (randomNumber <= 5)
+                        {
+                            attack = CellPositions.Attacks.Third;
+                            amClass.unit.attackType = 3;
+                            attackName = "thirdAttack";
+                        }
+                        else if(randomNumber >= 6)
+                        {
+                            attack = CellPositions.Attacks.Fourth;
+                            amClass.unit.attackType = 4;
+                            attackName = "fourthAttack";
+                        }
+                    }
+                }
+                Debug.Log(attackName);
+                unit.attackNumber = Random.Range(5, 20);
+                if (unit.attackNumber > unit.targetEnemy.armorClass)
+                {
+                    unit.missedAttack = false;
+                }
+                else
+                {
+                    unit.missedAttack = true;
+                }
+                decision = true;
+            }
+            done = true;
+        }
 
     }
     public override bool PostPerform()

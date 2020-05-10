@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: gridanna 1
+  m_Shader: {fileID: -6465566751694194690, guid: 0dcedd8e42e242e4191044c860324e8a,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - Vector1_1601D214: 0.9
+    m_Colors:
+    - Color_ABEE16DA: {r: 0.2509804, g: 5.5529413, b: 5.992157, a: 0}
+    - Vector2_1FC5E314: {r: 15, g: 15, b: 0, a: 0}
+    - _BaseColorA: {r: 0.7490196, g: 0.7490196, b: 0.7490196, a: 0.6313726}

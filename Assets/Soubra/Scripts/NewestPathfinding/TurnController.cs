@@ -31,7 +31,7 @@ public class TurnController : MonoBehaviour
     public GameObject turnButton;
     public List<GameObject> uiNames;
     public ControlHealthFill chfScript;
-
+    public TriggerDragonAttacks tdaScript;
     private void Start()
     {
         ChangeStatus();
@@ -132,11 +132,26 @@ public class TurnController : MonoBehaviour
             unit.GetComponent<RavensClass>().ClearAll();
             Debug.Log("Cleared It");
         }
-
+        if (unit.GetComponent<TreePeopleClass>())
+        {
+            unit.GetComponent<TreePeopleClass>().ClearAll();
+            Debug.Log("Cleared It Tree People");
+        }
+        if (unit.GetComponent<DragonClass>())
+        {
+            unit.GetComponent<DragonClass>().ClearAll();
+            Debug.Log("Cleared It Dragon");
+        }
         for (int i = 0; i < units.Count; i++)
         {
             units[i].hmScript.HIT = HitOrMiss.Hit.none;
             units[i].getHit = false;
+        }
+        tmScript.SetVectorsForEverything();
+        if (tdaScript != null)
+        {
+            tdaScript.MaintainFireSystems();
+            tdaScript.ResetThings();
         }
     }
     public void CheckScripts()

@@ -32,7 +32,7 @@ public class PlayerMovementController : MonoBehaviour
         else
         {
             //Turn this "stopMovement" to true when you do cutscenes/dialogue.
-            movement = new Vector2(0, 0); //Sets the speed to zero so he cant move.
+            //movement = new Vector2(0, 0); //Sets the speed to zero so he cant move.
         }
 
         Vector3 cameraForward = mainCameraValues.forward; //We want to make the player move based on the camrea directions/position so we can change the camera.
@@ -53,7 +53,7 @@ public class PlayerMovementController : MonoBehaviour
 
         if (direction.magnitude != 0) //If there is input, then rotate object based on direction.
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), /*Time.deltaTime **/ rotationSlerpSpeed);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * rotationSlerpSpeed);
         }
 
         if (direction.magnitude > 0)

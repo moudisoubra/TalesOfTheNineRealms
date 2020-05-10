@@ -15,16 +15,21 @@ public class Unit : MonoBehaviour
     public int maxHealth = 10;
     public int coolDown = 0;
     public int armorClass = 10;
+    public int ogArmorClass;
     public int attackHit = 4;
     public int rageNumber = 0;
     public int rageTime = 0;
     public int attackNumber = 0;
     public int addedAttackRoll = 0;
+    public int ogAddedAttackRoll;
 
     public int ogAttack2CoolDown = 2;
     public int ogAttack3CoolDown = 5;
     public int attack2CoolDown = 0;
     public int attack3CoolDown = 0;
+    
+    public int armorClassCheck;
+    public int addedAttackCheck;
 
     public float movingSpeed = 2.5f;
     public float distance = 0.5f;
@@ -41,12 +46,14 @@ public class Unit : MonoBehaviour
     public bool dead;
     public bool getHit;
     public bool missedAttack = false;
+    public bool boss = false;
     public Unit targetEnemy;
     public Unit chosenPlayer;
     public ClickableTile ct;
     public ClickableTile targetTile;
     public TileMap map;
     public GameObject cubeBase;
+    public GameObject dicePosition;
     public Animator animator;
     public List<GAction> actions;
     public List<TileMap.Node> currentPath = null;
@@ -64,15 +71,27 @@ public class Unit : MonoBehaviour
 
     public Vector3 ravenFlying;
     public Vector3 ravenOnGround;
+
+    Vector3 bossPosition;
+    Quaternion bossRotation;
     private void Start()
     {
+        bossPosition = transform.position;
+        bossRotation = transform.rotation;
         ravenOnGround = animator.gameObject.transform.localPosition;
         ravenFlying = animator.gameObject.transform.localPosition + new Vector3(0, 1.5f, 0);
         atScript = GetComponent<AssignTiles>();
         hmScript = GetComponentInChildren<HitOrMiss>();
+        ogAddedAttackRoll = addedAttackRoll;
+        ogArmorClass = armorClass;
     }
     public void Update()
     {
+        if (boss)
+        {
+            transform.position = bossPosition;
+            transform.rotation = bossRotation;
+        }
         if (health <= 0)
         {
             animator.SetBool("Dead", true);
@@ -104,14 +123,14 @@ public class Unit : MonoBehaviour
         if (move)
         {
             RecursiveMoveToNextTile();
-            if (animator != null)
+            if (animator != null && !boss)
             {
                 animator.SetBool("Walking", true);
             }
         }
         else
         {
-            if (animator != null)
+            if (animator != null && !boss)
             {
                 animator.SetBool("Walking", false);
             }

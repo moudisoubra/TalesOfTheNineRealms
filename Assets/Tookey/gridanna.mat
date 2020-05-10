@@ -25,3 +25,4 @@ Material:
     m_Colors:
     - Color_ABEE16DA: {r: 0.2509804, g: 5.5529413, b: 5.992157, a: 0}
     - Vector2_1FC5E314: {r: 20, g: 20, b: 0, a: 0}
+    - _BaseColorA: {r: 1.889262, g: 0, b: 0, a: 0}
