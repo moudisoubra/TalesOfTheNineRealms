@@ -32,9 +32,11 @@ public class DragObject : MonoBehaviour
     public bool attacking;
     public bool dealingDamage;
     public bool dealEffect;
+    public bool enemy;
     public enum Effect { None, Heal, Defend, Fast, Dodgy};
     public Effect effect;
     public GameObject number;
+    
     private void Start()
     {
         startPos = transform.position;
@@ -82,7 +84,19 @@ public class DragObject : MonoBehaviour
             }
             notUsed = false;
         }
+        //if (irScript != null && enemy)
+        //{
+        //    float timer = 0;
+        //    timer += Time.deltaTime;
 
+        //    if (timer > 5)
+        //    {
+        //        unit.initiative = sideChosen;
+        //        irScript.spawn = true;
+
+        //        Destroy(this.gameObject, 8);
+        //    }
+        //}
         if (irScript != null && rb.velocity == Vector3.zero && bumped)
         {
             //if (unit.enemyType == Unit.EnemyType.Player)

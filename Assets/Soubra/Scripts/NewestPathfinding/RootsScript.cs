@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class RootsScript : MonoBehaviour
 {
+    public Unit unit;
     public GameObject bottomRoot;
     public GameObject topRoot;
     public Animator anim;
     public float speed;
     public bool die;
-    
     void Start()
     {
         
@@ -27,6 +27,10 @@ public class RootsScript : MonoBehaviour
         {
             anim.SetBool("Die", die);
         }
+    }
+    public void DamageUnit()
+    {
+        unit.health -= 2;
     }
     public void KillSelf()
     {
