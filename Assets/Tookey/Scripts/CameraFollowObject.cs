@@ -38,6 +38,7 @@ public class CameraFollowObject : MonoBehaviour
     public void SwapCameraAngle(Quaternion newRotation)
     {
         shift = newRotation * shift;
+        //currentRotation = newRotation;
         currentRotation = newRotation * currentRotation;
     }
 }
