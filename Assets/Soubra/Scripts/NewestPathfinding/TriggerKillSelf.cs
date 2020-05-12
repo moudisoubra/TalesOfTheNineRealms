@@ -10,4 +10,8 @@ public class TriggerKillSelf : MonoBehaviour
     {
         rScript.KillSelf();
     }
+    public void DamageUnit()
+    {
+        rScript.DamageUnit();
+    }
 }

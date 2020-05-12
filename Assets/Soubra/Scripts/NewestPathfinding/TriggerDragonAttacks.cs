@@ -107,6 +107,7 @@ public class TriggerDragonAttacks : MonoBehaviour
         randomNumber = Random.Range(0, chScript.playableCharacters.Count);
         TileMap.Node currentNode = chScript.playableCharacters[randomNumber].currentNode;
         GameObject temp = Instantiate(rootPrefab, currentNode.ground.transform.position + new Vector3(0,1,0), Quaternion.identity);
+        temp.GetComponent<RootsScript>().unit = chScript.playableCharacters[randomNumber];
         roots.Add(temp);
     }
     public void GetCellPositions()

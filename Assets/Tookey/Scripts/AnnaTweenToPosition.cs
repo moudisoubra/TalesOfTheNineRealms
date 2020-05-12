@@ -16,8 +16,11 @@ public class AnnaTweenToPosition : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {     
-        transform.position = Vector3.Lerp(this.transform.position, moveToThisPosition.transform.position, moveSpeed * Time.deltaTime); 
-        transform.LookAt(lookAtThis.transform.position);    
+    {
+        if (moveToThisPosition != null)
+        {
+            transform.position = Vector3.Lerp(this.transform.position, moveToThisPosition.transform.position, moveSpeed * Time.deltaTime);
+            transform.LookAt(lookAtThis.transform.position);
+        }
     }
 }
