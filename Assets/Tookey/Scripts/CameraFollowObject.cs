@@ -15,14 +15,27 @@ public class CameraFollowObject : MonoBehaviour
     Quaternion currentRotation;
     public bool stopFollowing;
 
+    public GameObject Pos1;
+
     private void Awake()
     {
         shift = transform.position - odinModel.transform.position;
-        startingShift = transform.position - odinModel.transform.position; 
+        startingShift = transform.position - odinModel.transform.position;
+        currentPosition = odinModel.transform.position + shift;
+
     }
 
     private void Start()
     {
+    }
+
+
+
+    public void SwapCameraAngle(Vector3 newPosition, Quaternion newRotation)
+    {
+        currentPosition = newPosition;
+        currentRotation = newRotation;
+        //currentRotation = newRotation * currentRotation;
     }
 
     private void FixedUpdate()
@@ -33,12 +46,5 @@ public class CameraFollowObject : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, currentPosition, moveSpeed * Time.deltaTime);
             transform.rotation = Quaternion.Slerp(transform.rotation, currentRotation, rotationSpeed * Time.deltaTime);
         }
-    }
-
-    public void SwapCameraAngle(Quaternion newRotation)
-    {
-        shift = newRotation * shift;
-        //currentRotation = newRotation;
-        currentRotation = newRotation * currentRotation;
     }
 }
