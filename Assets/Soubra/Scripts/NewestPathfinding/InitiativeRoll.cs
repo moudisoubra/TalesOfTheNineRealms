@@ -102,7 +102,8 @@ public class InitiativeRoll : MonoBehaviour
 
     public void SpawnDice(Unit unit)
     {
-        GameObject temp = Instantiate(dice, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+        GameObject temp = Instantiate(dice, unit.transform.position + new Vector3(0, 6, 0), Quaternion.identity);
+        temp.transform.localScale = temp.transform.localScale * 2;
         temp.GetComponent<DragObject>().irScript = this;
         temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         temp.GetComponent<DragObject>().unit = unit;
