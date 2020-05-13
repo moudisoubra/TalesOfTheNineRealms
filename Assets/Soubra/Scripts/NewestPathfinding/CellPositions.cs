@@ -213,9 +213,10 @@ public class CellPositions : MonoBehaviour
         }
         else
         {
-            temp = Instantiate(d4, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+            temp = Instantiate(d4, unit.transform.position + new Vector3(0, unit.irScript.diceHeight, 0), Quaternion.identity);
         }
         temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        temp.transform.localScale = temp.transform.localScale * unit.irScript.diceSize;
         DragObject d = temp.GetComponent<DragObject>();
         d.effect = effect;
         d.unit = effectedUnit;
@@ -235,9 +236,11 @@ public class CellPositions : MonoBehaviour
         }
         else
         {
-            temp = Instantiate(d4, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+            temp = Instantiate(d4, unit.transform.position + new Vector3(0, unit.irScript.diceHeight, 0), Quaternion.identity);
         }
         temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
+        temp.transform.localScale = temp.transform.localScale * unit.irScript.diceSize;
         DragObject d = temp.GetComponent<DragObject>();
         d.dealEffect = true;
         d.unit = cU;
@@ -282,9 +285,10 @@ public class CellPositions : MonoBehaviour
         }
         else
         {
-            temp = Instantiate(go, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+            temp = Instantiate(go, unit.transform.position + new Vector3(0, unit.irScript.diceHeight, 0), Quaternion.identity);
         }
         temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        temp.transform.localScale = temp.transform.localScale * unit.irScript.diceSize;
         DragObject d = temp.GetComponent<DragObject>();
         d.unit = unit;
         d.dealingDamage = true;
@@ -304,9 +308,10 @@ public class CellPositions : MonoBehaviour
         }
         else
         {
-            temp = Instantiate(d20, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+            temp = Instantiate(d20, unit.transform.position + new Vector3(0, unit.irScript.diceHeight, 0), Quaternion.identity);
         }
         temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        temp.transform.localScale = temp.transform.localScale * unit.irScript.diceSize;
         CheckArmor c = temp.GetComponent<CheckArmor>();
         DragObject d = temp.GetComponent<DragObject>();
         d.unit = unit;

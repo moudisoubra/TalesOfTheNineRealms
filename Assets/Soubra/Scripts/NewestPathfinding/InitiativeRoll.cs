@@ -10,6 +10,8 @@ public class InitiativeRoll : MonoBehaviour
     public GameObject dice;
     public GameObject currentDice;
     public GameObject battleCanvas;
+    public int diceSize;
+    public int diceHeight;
     public List<GameObject> die;
     public List<GameObject> dieSpawned;
     public int dieNumbers;
@@ -102,7 +104,8 @@ public class InitiativeRoll : MonoBehaviour
 
     public void SpawnDice(Unit unit)
     {
-        GameObject temp = Instantiate(dice, unit.transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+        GameObject temp = Instantiate(dice, unit.transform.position + new Vector3(0, diceHeight, 0), Quaternion.identity);
+        temp.transform.localScale = temp.transform.localScale * diceSize;
         temp.GetComponent<DragObject>().irScript = this;
         temp.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
         temp.GetComponent<DragObject>().unit = unit;

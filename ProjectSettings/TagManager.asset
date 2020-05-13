@@ -10,6 +10,7 @@ TagManager:
   - Dragon
   - Cube
   - Ground
+  - InstantGround
   layers:
   - Default
   - TransparentFX

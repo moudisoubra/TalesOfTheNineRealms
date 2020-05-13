@@ -47,7 +47,7 @@ public class ClickableTile : MonoBehaviour
                     else
                     {
                         unit.attackNow = true;
-                        unit.gameObject.transform.LookAt(this.gameObject.transform.position);
+                        unit.gameObject.transform.LookAt(this.gameObject.transform.position + new Vector3(0,1,0));
                     }
                 }
                 else
