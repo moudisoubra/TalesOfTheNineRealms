@@ -6,24 +6,23 @@ using TMPro;
 
 public class ControlHealthFill : MonoBehaviour
 {
-    public Image img;
+    public RawImage playerCharacter;
+    public Image playerIcon;
+    public Image healthFill;
     public float fill;
-    public float maxHealth = 20;
+    public float maxHealth;
     public float health;
-    public int ac;
-    public TextMeshProUGUI acText;
 
     // Start is called before the first frame update
     void Start()
     {
-        img = GetComponent<Image>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        acText.text = ac.ToString();
         fill = health / maxHealth;
-        img.fillAmount = fill;
+        healthFill.fillAmount = fill;
     }
 }

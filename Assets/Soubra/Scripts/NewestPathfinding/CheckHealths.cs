@@ -60,6 +60,7 @@ public class CheckHealths : MonoBehaviour
         if (playersWon || enemiesWon)
         {
             tdScript.BlackPanel();
+            sbScript.clScript.enemyWon = enemiesWon;
             sbScript.end = true;
         }
     }

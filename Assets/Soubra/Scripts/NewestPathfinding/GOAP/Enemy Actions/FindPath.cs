@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class FindPath : GAction
 {
+    public bool CHSCRIPT;
     public CheckHealths chScript;
     public override bool PrePerform()
     {
-        chScript = GetComponentInParent <CheckHealths>();
+        if (!CHSCRIPT)
+        {
+            chScript = GetComponentInParent<CheckHealths>();
+        }
         unit.CoolDownCheck();
         unit.targetEnemy = chScript.playableCharacters[0];
         for (int i = 0; i < chScript.playableCharacters.Count; i++)

@@ -14,7 +14,7 @@ public class PlayerMovementController : MonoBehaviour
     private Rigidbody RB; 
     private Transform mainCameraValues;
 
-    Vector2 movement;
+    public Vector2 movement;
 
     void Start()
     {

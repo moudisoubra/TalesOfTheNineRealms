@@ -141,7 +141,7 @@ public class TutorialScript : MonoBehaviour
         dScript.index = 0;
         dScript.panel.SetActive(true);
         dScript.StartCoroutine(dScript.TypeEffect());
-        dScript.odinWalk.noWalkie = true;
+        //dScript.odinWalk.noWalkie = true;
     }
     public void NextStep()
     {

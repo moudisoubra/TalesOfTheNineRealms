@@ -146,11 +146,11 @@ public class DragObject : MonoBehaviour
                 Debug.Log("This is the damage: " + sideChosen + " This is the RageNumber: " + attackingUnit.rageNumber);
                 damageToDeal = sideChosen + attackingUnit.rageNumber;
                 unit.health -= damageToDeal;
-                if (unit.attack == CellPositions.Attacks.First)
+                if (attackingUnit.attack == CellPositions.Attacks.First)
                 {
                     attackingUnit.animator.SetTrigger("Attack1");
                 }
-                if (unit.attack == CellPositions.Attacks.Second)
+                if (attackingUnit.attack == CellPositions.Attacks.Second)
                 {
                     attackingUnit.animator.SetTrigger("Attack2");
                 }
@@ -160,14 +160,15 @@ public class DragObject : MonoBehaviour
                 Debug.Log("This is the damage: " + sideChosen);
                 damageToDeal = sideChosen;
                 unit.health -= damageToDeal;
-                if (unit.attack == CellPositions.Attacks.First)
+                if (attackingUnit.attack == CellPositions.Attacks.First)
                 {
                     attackingUnit.animator.SetTrigger("Attack1");
                 }
-                if (unit.attack == CellPositions.Attacks.Second)
+                if (attackingUnit.attack == CellPositions.Attacks.Second)
                 {
                     attackingUnit.animator.SetTrigger("Attack2");
                 }
+
             }
 
             Destroy(this.gameObject, 5);

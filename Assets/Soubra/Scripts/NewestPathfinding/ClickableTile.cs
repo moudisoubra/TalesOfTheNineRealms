@@ -47,6 +47,7 @@ public class ClickableTile : MonoBehaviour
                     else
                     {
                         unit.attackNow = true;
+                        unit.gameObject.transform.LookAt(this.gameObject.transform.position);
                     }
                 }
                 else
@@ -79,9 +80,12 @@ public class ClickableTile : MonoBehaviour
                 }
                 else
                 {
-                    unit.targetTile = this;
-                    map.MoveUnitTo(tileX, tileZ);
-                    unit.attackNow = false;
+                    if (!gp.full)
+                    {
+                        unit.targetTile = this;
+                        map.MoveUnitTo(tileX, tileZ);
+                        unit.attackNow = false;
+                    }
                 }
             }
         }

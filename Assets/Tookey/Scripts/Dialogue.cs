@@ -80,7 +80,7 @@ public class Dialogue : MonoBehaviour
         {
             textDisplay.text = "";
             panel.SetActive(false);
-            odinWalk.noWalkie = false;
+            //odinWalk.noWalkie = false;
             done = true;
         }
     }

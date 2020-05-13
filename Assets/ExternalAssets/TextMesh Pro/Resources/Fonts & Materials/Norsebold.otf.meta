@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 5edfc62865bf7f04fa4714fc26ab0748
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Norse
+  fontNames:
+  - Norse
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 778558d2cb859ae419486a0e37fdaf18, type: 3}
+  - {fileID: 12800000, guid: 64cf3c4509469574e91f8e0f1730dcea, type: 3}
+  - {fileID: 12800000, guid: 082af71e8efad0946a6207594993f5d3, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -26,7 +26,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -75,7 +75,582 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: AsgardianSpearBaseModelv2(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asgardian2Body
+      parentName: AsgardianSpearBaseModelv2(Clone)
+      position: {x: -0.0026401898, y: 0.027293187, z: -0.00096792297}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asgardian
+      parentName: AsgardianSpearBaseModelv2(Clone)
+      position: {x: -0.0026401898, y: 0.023437174, z: 4.2299494e-19}
+      rotation: {x: 0.5000001, y: -0.50000006, z: -0.4999999, w: 0.49999997}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Asgardian2GizmoHolder
+      parentName: AsgardianSpearBaseModelv2(Clone)
+      position: {x: 0.012348199, y: 0, z: -0.04853365}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AsgardianPelvisGizmo
+      parentName: Asgardian2GizmoHolder
+      position: {x: -0.012199748, y: -0.009628565, z: 0.5215557}
+      rotation: {x: 0.7071057, y: -0.0012335968, z: -0.7071057, w: 0.0012335026}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AsgardianSpine1Gizmo
+      parentName: AsgardianPelvisGizmo
+      position: {x: -0.0062925224, y: -0.0075243367, z: 0.000000029096377}
+      rotation: {x: 0.000000016459085, y: -0.000000049820898, z: -0.20183703, w: 0.9794192}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: AsgardianSpine2Gizmo 1
+      parentName: AsgardianSpine1Gizmo
+      position: {x: -0.079048455, y: 0, z: 4.967674e-10}
+      rotation: {x: -0.0000000029541831, y: 0.000000017857793, z: 0.12133674, w: 0.9926114}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: AsgardianSpine3Gizmo
+      parentName: AsgardianSpine2Gizmo 1
+      position: {x: -0.07037977, y: 0.000351105, z: 1.8451361e-10}
+      rotation: {x: -0.000000004251359, y: 0.0000000254608, z: 0.13278417, w: 0.99114496}
+      scale: {x: 0.9999998, y: 0.9999999, z: 1}
+    - name: AsgardianChestGizmo
+      parentName: AsgardianSpine3Gizmo
+      position: {x: -0.15653986, y: -0.0000000072669977, z: 7.238611e-10}
+      rotation: {x: -0.0000000044245976, y: -0.000000014681944, z: -0.09984649, w: 0.99500287}
+      scale: {x: 0.9999999, y: 1, z: 1}
+    - name: AsgardianNeckGizmo
+      parentName: AsgardianChestGizmo
+      position: {x: -0.0004289854, y: -0.0018888817, z: -0.0000000035909187}
+      rotation: {x: -0.0000000011117379, y: 0.000000017371194, z: -0.14411551, w: 0.9895609}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: AsgardianHeadGizmo
+      parentName: AsgardianNeckGizmo
+      position: {x: -0.06358233, y: 0.00000002906799, z: 0}
+      rotation: {x: -0.000000005882867, y: -0.000000014409343, z: 0.19014218, w: 0.98175657}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: AsgardianLCollarboneGizmo
+      parentName: AsgardianChestGizmo
+      position: {x: 0.033122685, y: 0.057051696, z: 0.016266255}
+      rotation: {x: 0.17410733, y: 0.633127, z: 0.2670758, w: 0.7053421}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: AsgardianLUpperarmGizmo
+      parentName: AsgardianLCollarboneGizmo
+      position: {x: -0.11542017, y: -0.000000050868984, z: 0.00000011627196}
+      rotation: {x: 0.19539341, y: 0.58129746, z: -0.19272844, w: 0.7660094}
+      scale: {x: 1.0000001, y: 1.0000001, z: 0.99999976}
+    - name: AsgardianLForearmGizmo
+      parentName: AsgardianLUpperarmGizmo
+      position: {x: -0.15859082, y: 0, z: 0}
+      rotation: {x: 0.09666614, y: -0.011954939, z: -0.30286798, w: 0.9480421}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
+    - name: AsgardianLPalmGizmo
+      parentName: AsgardianLForearmGizmo
+      position: {x: -0.1338072, y: 0.000000014533995, z: 0}
+      rotation: {x: -0.8242873, y: -0.0039518015, z: 0.10220941, w: 0.55685556}
+      scale: {x: 0.9999998, y: 1.0000002, z: 0.9999999}
+    - name: AsgardianLThumb1Gizmo
+      parentName: AsgardianLPalmGizmo
+      position: {x: -0.015938677, y: -0.011312855, z: 0.023023855}
+      rotation: {x: 0.3356477, y: 0.46809444, z: -0.062950335, w: 0.81502485}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: AsgardianLThumb2Gizmo
+      parentName: AsgardianLThumb1Gizmo
+      position: {x: -0.01217568, y: 0, z: 0}
+      rotation: {x: 0.059589185, y: 0.004908284, z: 0.19300821, w: 0.9793737}
+      scale: {x: 0.99999934, y: 0.99999785, z: 1.000003}
+    - name: AsgardianLThumb3Gizmo
+      parentName: AsgardianLThumb2Gizmo
+      position: {x: -0.02214808, y: 0.00000002906799, z: -0.00000002906799}
+      rotation: {x: 0.001018495, y: 0.007780697, z: 0.106353514, w: 0.99429744}
+      scale: {x: 0.99999833, y: 0.99999875, z: 1.000003}
+    - name: AsgardianLIndex1Gizmo
+      parentName: AsgardianLPalmGizmo
+      position: {x: -0.06202115, y: -0.0005549661, z: 0.020930057}
+      rotation: {x: 0.084709294, y: 0.13195239, z: 0.07665085, w: 0.98465097}
+      scale: {x: 0.99999994, y: 1, z: 0.9999999}
+    - name: AsgardianLIndex2Gizmo
+      parentName: AsgardianLIndex1Gizmo
+      position: {x: -0.018094795, y: 0.00000005813598, z: 0}
+      rotation: {x: 0.0043374044, y: -0.03125649, z: 0.1376128, w: 0.9899833}
+      scale: {x: 0.9999978, y: 1.0000025, z: 0.99999976}
+    - name: AsgardianLIndex3Gizmo
+      parentName: AsgardianLIndex2Gizmo
+      position: {x: -0.013438132, y: 0.00000005813598, z: 0.00000002906799}
+      rotation: {x: 0.0026884375, y: 0.016513528, z: 0.08500449, w: 0.99624014}
+      scale: {x: 0.9999964, y: 1.0000038, z: 0.9999999}
+    - name: AsgardianLMiddle1Gizmo
+      parentName: AsgardianLPalmGizmo
+      position: {x: -0.061364505, y: 0.0049318206, z: -0.00090099144}
+      rotation: {x: 0.10579193, y: 0.048209786, z: 0.07754562, w: 0.99018717}
+      scale: {x: 0.99999994, y: 1, z: 0.99999994}
+    - name: AsgardianLMiddle2Gizmo
+      parentName: AsgardianLMiddle1Gizmo
+      position: {x: -0.022737099, y: 0.00000008720397, z: 0.00000002906799}
+      rotation: {x: 0.013071264, y: -0.028223647, z: 0.17828009, w: 0.9834881}
+      scale: {x: 0.9999969, y: 1.000003, z: 1.0000001}
+    - name: AsgardianLMiddle3Gizmo
+      parentName: AsgardianLMiddle2Gizmo
+      position: {x: -0.018023694, y: 0.00000008720397, z: -0.000000043601986}
+      rotation: {x: 0.013182877, y: 0.031475954, z: 0.13498023, w: 0.9902605}
+      scale: {x: 0.9999948, y: 1.0000049, z: 1.0000002}
+    - name: AsgardianLPinky1Gizmo
+      parentName: AsgardianLPalmGizmo
+      position: {x: -0.05946334, y: 0.0040294337, z: -0.021160683}
+      rotation: {x: 0.115528785, y: -0.047513355, z: 0.09644247, w: 0.9874687}
+      scale: {x: 0.9999999, y: 0.99999994, z: 0.99999994}
+    - name: AsgardianLPinky2Gizmo
+      parentName: AsgardianLPinky1Gizmo
+      position: {x: -0.016129391, y: 0.00000002906799, z: 0.000000021800993}
+      rotation: {x: 0.049503427, y: -0.013075053, z: 0.14659533, w: 0.9878706}
+      scale: {x: 0.99999666, y: 1.000003, z: 1.0000005}
+    - name: AsgardianLPinky3Gizmo
+      parentName: AsgardianLPinky2Gizmo
+      position: {x: -0.013055481, y: 0.00000002906799, z: 0.0000000072669977}
+      rotation: {x: -0.008882646, y: 0.036752712, z: 0.14767101, w: 0.98831356}
+      scale: {x: 0.9999961, y: 1.0000038, z: 1.0000005}
+    - name: AsgardianRArmCollarboneGizmo
+      parentName: AsgardianChestGizmo
+      position: {x: 0.033122685, y: 0.057051696, z: -0.016266258}
+      rotation: {x: -0.17410785, y: -0.633127, z: 0.2670751, w: 0.7053422}
+      scale: {x: 0.99999994, y: 1.0000001, z: 0.9999999}
+    - name: AsgardianRArmUpperarmGizmo
+      parentName: AsgardianRArmCollarboneGizmo
+      position: {x: -0.115420155, y: 0.000000050868984, z: 0}
+      rotation: {x: -0.17505099, y: -0.59287786, z: -0.17352161, w: 0.7666441}
+      scale: {x: 0.9999999, y: 0.9999998, z: 1.0000001}
+    - name: AsgardianRArmForearmGizmo
+      parentName: AsgardianRArmUpperarmGizmo
+      position: {x: -0.15859088, y: -0.0000000036334988, z: 0}
+      rotation: {x: -0.101435475, y: -0.0030183205, z: -0.30111858, w: 0.9481716}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: AsgardianRArmPalmGizmo
+      parentName: AsgardianRArmForearmGizmo
+      position: {x: -0.1338072, y: -0.000000014533995, z: 0}
+      rotation: {x: 0.80703574, y: 0.00019942902, z: 0.10884921, w: 0.58038366}
+      scale: {x: 1.0000006, y: 0.9999997, z: 1.0000001}
+    - name: AsgardianRArmIndex1Gizmo
+      parentName: AsgardianRArmPalmGizmo
+      position: {x: -0.06414983, y: -0.002388226, z: -0.021535689}
+      rotation: {x: -0.084709324, y: -0.1319525, z: 0.07665085, w: 0.98465097}
+      scale: {x: 0.9999999, y: 1, z: 0.99999994}
+    - name: AsgardianRArmIndex2Gizmo
+      parentName: AsgardianRArmIndex1Gizmo
+      position: {x: -0.018094825, y: -0.00000005813598, z: 0}
+      rotation: {x: -0.0043387795, y: 0.03125606, z: 0.13761622, w: 0.98998284}
+      scale: {x: 1.0000024, y: 0.9999979, z: 0.9999999}
+    - name: AsgardianRArmIndex3Gizmo
+      parentName: AsgardianRArmIndex2Gizmo
+      position: {x: -0.013438161, y: -0.00000005813598, z: -0.00000002906799}
+      rotation: {x: -0.0026895278, y: -0.01651304, z: 0.085005686, w: 0.99624}
+      scale: {x: 1.0000038, y: 0.9999968, z: 0.9999998}
+    - name: AsgardianRArmPinky1Gizmo
+      parentName: AsgardianRArmPalmGizmo
+      position: {x: -0.061560277, y: 0.0036516082, z: 0.021172835}
+      rotation: {x: -0.11552884, y: 0.0475134, z: 0.096442506, w: 0.9874687}
+      scale: {x: 0.9999999, y: 1, z: 0.99999994}
+    - name: AsgardianRArmPinky2Gizmo
+      parentName: AsgardianRArmPinky1Gizmo
+      position: {x: -0.01612945, y: -0.00000005813598, z: -0.0000000072669977}
+      rotation: {x: -0.049503785, y: 0.01307483, z: 0.14659737, w: 0.9878703}
+      scale: {x: 1.0000027, y: 0.9999976, z: 1}
+    - name: AsgardianRArmPinky3Gizmo
+      parentName: AsgardianRArmPinky2Gizmo
+      position: {x: -0.013055597, y: -0.000000021800993, z: -0.0000000072669977}
+      rotation: {x: 0.008882311, y: -0.036752537, z: 0.14767109, w: 0.98831356}
+      scale: {x: 1.0000033, y: 0.999997, z: 0.9999998}
+    - name: AsgardianRArmRing1Gizmo
+      parentName: AsgardianRArmPalmGizmo
+      position: {x: -0.06252577, y: 0.004252182, z: -0.0010112027}
+      rotation: {x: -0.10782943, y: -0.021690873, z: 0.07468649, w: 0.9911227}
+      scale: {x: 0.9999999, y: 0.99999994, z: 0.99999994}
+    - name: AsgardianRArmRing2Gizmo
+      parentName: AsgardianRArmRing1Gizmo
+      position: {x: -0.022737157, y: -0.00000008720397, z: 0}
+      rotation: {x: -0.013070481, y: 0.02822302, z: 0.17828245, w: 0.9834877}
+      scale: {x: 1.0000027, y: 0.99999756, z: 1}
+    - name: AsgardianRArmRing3Gizmo
+      parentName: AsgardianRArmRing2Gizmo
+      position: {x: -0.018023781, y: -0.000000021800993, z: -0.000000014533995}
+      rotation: {x: -0.01318123, y: -0.031477634, z: 0.13498136, w: 0.9902603}
+      scale: {x: 1.0000033, y: 0.9999971, z: 1}
+    - name: AsgardianRArmThumb1Gizmo
+      parentName: AsgardianRArmPalmGizmo
+      position: {x: -0.015938707, y: -0.011312855, z: -0.023023855}
+      rotation: {x: -0.33564776, y: -0.46809447, z: -0.0629504, w: 0.81502485}
+      scale: {x: 0.9999999, y: 0.99999994, z: 0.9999998}
+    - name: AsgardianRArmThumb2Gizmo
+      parentName: AsgardianRArmThumb1Gizmo
+      position: {x: -0.015611342, y: 0, z: 0}
+      rotation: {x: -0.05970807, y: -0.003165769, z: 0.22154054, w: 0.9733164}
+      scale: {x: 1.000002, y: 1.0000011, z: 0.9999969}
+    - name: AsgardianRArmThumb3Gizmo
+      parentName: AsgardianRArmThumb2Gizmo
+      position: {x: -0.022148123, y: -0.00000002906799, z: -0.000000014533995}
+      rotation: {x: -0.0012916989, y: -0.00774075, z: 0.1411747, w: 0.98995364}
+      scale: {x: 1.0000031, y: 1, z: 0.9999968}
+    - name: AsgardianLPlatform
+      parentName: Asgardian2GizmoHolder
+      position: {x: -0.10616677, y: -0.05016603, z: 0.02343717}
+      rotation: {x: 0.7071068, y: -0.00000009415696, z: -0.7071067, w: -0.00000009415697}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AsgardianLFootGizmo
+      parentName: AsgardianLPlatform
+      position: {x: -0.028295372, y: -0.037378516, z: -0.007845291}
+      rotation: {x: -0.55375624, y: 0.8309705, z: 0.042621434, w: 0.03202303}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AsgardianLFoot1Gizmo
+      parentName: AsgardianLFootGizmo
+      position: {x: -0.06461864, y: 0.00024823702, z: 0.0000000072669977}
+      rotation: {x: 0.008810757, y: 0.05257786, z: -0.17149144, w: 0.9837422}
+      scale: {x: 1.0000001, y: 0.9999999, z: 0.99999994}
+    - name: AsgardianLFoot2Gizmo
+      parentName: AsgardianLFoot1Gizmo
+      position: {x: -0.028634196, y: -0.0000000018167494, z: 0}
+      rotation: {x: -7.698344e-17, y: -2.3857378e-15, z: -0.032251403, w: 0.9994798}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AsgardianRPlatform
+      parentName: Asgardian2GizmoHolder
+      position: {x: 0.0806459, y: -0.050166063, z: 0.02343717}
+      rotation: {x: 0.7071068, y: -0.00000009415696, z: -0.7071067, w: -0.00000009415697}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AsgardianRFootGizmo
+      parentName: AsgardianRPlatform
+      position: {x: -0.02828578, y: -0.03736089, z: 0.0075175855}
+      rotation: {x: -0.55366033, y: 0.83117235, z: -0.041328438, w: -0.03008088}
+      scale: {x: 1.0000001, y: 0.99999994, z: 1}
+    - name: AsgardianRFoot1Gizmo
+      parentName: AsgardianRFootGizmo
+      position: {x: -0.064618655, y: 0.00024822247, z: 0.0000000072669977}
+      rotation: {x: -0.009212517, y: -0.050279528, z: -0.17169997, w: 0.9838223}
+      scale: {x: 1, y: 0.9999998, z: 1}
+    - name: AsgardianRFoot2Gizmo
+      parentName: AsgardianRFoot1Gizmo
+      position: {x: -0.028634198, y: 0.0000000018167494, z: 0}
+      rotation: {x: -7.698344e-17, y: -2.3857378e-15, z: -0.032251403, w: 0.9994798}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AsgardianRUpVectorNode
+      parentName: Asgardian2GizmoHolder
+      position: {x: 0.13560274, y: -0.5146133, z: 0.31869897}
+      rotation: {x: 0.7071068, y: -0.00000009415696, z: -0.7071067, w: -0.00000009415697}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AsgardianLUpVectorNode
+      parentName: Asgardian2GizmoHolder
+      position: {x: -0.16960962, y: -0.5142922, z: 0.31880945}
+      rotation: {x: 0.7071068, y: -0.00000009415696, z: -0.7071067, w: -0.00000009415697}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AsgardianLUpVectorNode 1
+      parentName: Asgardian2GizmoHolder
+      position: {x: -0.18150516, y: 0.46412984, z: 0.6543832}
+      rotation: {x: 0.7071068, y: -0.00000009415696, z: -0.7071067, w: -0.00000009415697}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AsgardianRArmUpVectorNode
+      parentName: Asgardian2GizmoHolder
+      position: {x: 0.15152852, y: 0.46412966, z: 0.6543832}
+      rotation: {x: 0.7071068, y: -0.00000009415696, z: -0.7071067, w: -0.00000009415697}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AsgardianSpine2Gizmo
+      parentName: AsgardianSpearBaseModelv2(Clone)
+      position: {x: 0.00014842219, y: 0.60053843, z: -0.01545177}
+      rotation: {x: 0.5382905, y: -0.45852315, z: -0.5382904, w: 0.45852304}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AsgardianLIKTarget
+      parentName: AsgardianSpearBaseModelv2(Clone)
+      position: {x: -0.22321413, y: 0.49111772, z: 0.039602544}
+      rotation: {x: -0.62280095, y: 0.7554521, z: -0.18055491, w: -0.093867265}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AsgardianRArmIKTarget
+      parentName: AsgardianSpearBaseModelv2(Clone)
+      position: {x: 0.21795213, y: 0.4888404, z: 0.038804565}
+      rotation: {x: -0.17427592, y: -0.09347594, z: -0.63442904, w: 0.74725497}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AsgardianClothes2
+      parentName: AsgardianSpearBaseModelv2(Clone)
+      position: {x: 0.00022164115, y: 0.5255443, z: -0.0045041395}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AsgardianArmor2
+      parentName: AsgardianSpearBaseModelv2(Clone)
+      position: {x: 0.027875096, y: 0.75629294, z: 0.000000036923293}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Dummy002
+      parentName: AsgardianSpearBaseModelv2(Clone)
+      position: {x: 0.21795398, y: 0.48883182, z: 0.038813632}
+      rotation: {x: -0.1745573, y: -0.09375352, z: -0.6341999, w: 0.747349}
+      scale: {x: 1.0000004, y: 0.9999877, z: 0.99999297}
+    - name: Dummy
+      parentName: AsgardianSpearBaseModelv2(Clone)
+      position: {x: 0.21795213, y: 0.4888404, z: 0.038804565}
+      rotation: {x: -0.17427866, y: -0.09347361, z: -0.6344288, w: 0.74725485}
+      scale: {x: 1.0000001, y: 0.9999938, z: 0.99999636}
+    - name: Pike001
+      parentName: Dummy
+      position: {x: 0.0103026265, y: -0.013351975, z: -0.06874942}
+      rotation: {x: -0.0903391, y: -0.10200972, z: 0.68362993, w: 0.7169959}
+      scale: {x: 1.0688386, y: 1.06885, z: 1.068866}
+    - name: Dummy001
+      parentName: Pike001
+      position: {x: -0.0005713604, y: -0.016376674, z: -0.2717855}
+      rotation: {x: 0.9096731, y: -0.40293568, z: 0.089028776, w: -0.047027774}
+      scale: {x: 0.93558604, y: 0.9355944, z: 0.9355806}
+    - name: AsgardianPelvis
+      parentName: AsgardianSpearBaseModelv2(Clone)
+      position: {x: 0.00014845068, y: 0.5215558, z: -0.038905084}
+      rotation: {x: 0.49912703, y: -0.50087154, z: -0.49912694, w: 0.5008715}
+      scale: {x: 1, y: 1, z: 1}
+    - name: BeltCloth
+      parentName: AsgardianPelvis
+      position: {x: -0.0010081942, y: 0.038861666, z: 0.0027893067}
+      rotation: {x: -0.7071057, y: 0.0012279305, z: 0.7071057, w: 0.0012399537}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AsgardianSpine1
+      parentName: AsgardianPelvis
+      position: {x: -0.0062925224, y: -0.0075243367, z: 0.000000029096377}
+      rotation: {x: 0.000000016459085, y: -0.000000049820898, z: -0.20183703, w: 0.9794192}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: AsgardianSpine2
+      parentName: AsgardianSpine1
+      position: {x: -0.079048455, y: 0, z: 4.967674e-10}
+      rotation: {x: -0.0000000029541831, y: 0.000000017857793, z: 0.12133674, w: 0.9926114}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: AsgardianSpine3
+      parentName: AsgardianSpine2
+      position: {x: -0.07037977, y: 0.000351105, z: 1.8451361e-10}
+      rotation: {x: -0.000000004251359, y: 0.0000000254608, z: 0.13278417, w: 0.99114496}
+      scale: {x: 0.9999998, y: 0.9999999, z: 1}
+    - name: AsgardianChest
+      parentName: AsgardianSpine3
+      position: {x: -0.15653986, y: -0.0000000072669977, z: 7.238611e-10}
+      rotation: {x: -0.0000000044245976, y: -0.000000014681944, z: -0.09984649, w: 0.99500287}
+      scale: {x: 0.9999999, y: 1, z: 1}
+    - name: AsgardianNeck
+      parentName: AsgardianChest
+      position: {x: -0.0004289854, y: -0.0018888817, z: -0.0000000035909187}
+      rotation: {x: -0.0000000011117379, y: 0.000000017371194, z: -0.14411551, w: 0.9895609}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: AsgardianHead
+      parentName: AsgardianNeck
+      position: {x: -0.06358233, y: 0.00000002906799, z: 0}
+      rotation: {x: -0.000000005882867, y: -0.000000014409343, z: 0.19014218, w: 0.98175657}
+      scale: {x: 1, y: 0.9999999, z: 1}
+    - name: Eyes
+      parentName: AsgardianHead
+      position: {x: -0.04054101, y: 0.05815579, z: 0.00043026093}
+      rotation: {x: 2.162214e-21, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AsgardianLCollarbone
+      parentName: AsgardianChest
+      position: {x: 0.033122685, y: 0.057051696, z: 0.016266255}
+      rotation: {x: 0.06172554, y: 0.6785469, z: 0.1584918, w: 0.7145939}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: AsgardianLUpperarm
+      parentName: AsgardianLCollarbone
+      position: {x: -0.11542017, y: -0.000000050868984, z: 0.00000011627196}
+      rotation: {x: 0.13600674, y: 0.027477138, z: -0.15847796, w: 0.97756433}
+      scale: {x: 1.0000001, y: 1.0000001, z: 0.99999976}
+    - name: AsgardianLForearm
+      parentName: AsgardianLUpperarm
+      position: {x: -0.15859082, y: 0, z: 0}
+      rotation: {x: 0.097904034, y: -0.011987091, z: -0.02336503, w: 0.9948493}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
+    - name: AsgardianLPalm
+      parentName: AsgardianLForearm
+      position: {x: -0.1338072, y: 0.000000014533995, z: 0}
+      rotation: {x: -0.8242873, y: -0.0039518015, z: 0.10220941, w: 0.55685556}
+      scale: {x: 0.9999998, y: 1.0000002, z: 0.9999999}
+    - name: AsgardianLThumb1
+      parentName: AsgardianLPalm
+      position: {x: -0.015938677, y: -0.011312855, z: 0.023023855}
+      rotation: {x: 0.31235412, y: 0.39752108, z: -0.122048564, w: 0.85411716}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: AsgardianLThumb2
+      parentName: AsgardianLThumb1
+      position: {x: -0.01217568, y: 0, z: 0}
+      rotation: {x: 0.060697168, y: 0.0008608695, z: 0.033789434, w: 0.99758375}
+      scale: {x: 0.99999934, y: 0.99999785, z: 1.000003}
+    - name: AsgardianLThumb3
+      parentName: AsgardianLThumb2
+      position: {x: -0.02214808, y: 0.00000002906799, z: -0.00000002906799}
+      rotation: {x: 0.001018495, y: 0.007780697, z: 0.106353514, w: 0.99429744}
+      scale: {x: 0.99999833, y: 0.99999875, z: 1.000003}
+    - name: AsgardianLIndex1
+      parentName: AsgardianLPalm
+      position: {x: -0.06202115, y: -0.0005549661, z: 0.020930057}
+      rotation: {x: 0.08304209, y: 0.04996986, z: 0.009787739, w: 0.9952444}
+      scale: {x: 0.99999994, y: 1, z: 0.9999999}
+    - name: AsgardianLIndex2
+      parentName: AsgardianLIndex1
+      position: {x: -0.018094795, y: 0.00000005813598, z: 0}
+      rotation: {x: 0.004378398, y: -0.008086192, z: 0.035598084, w: 0.9993239}
+      scale: {x: 0.9999978, y: 1.0000025, z: 0.99999976}
+    - name: AsgardianLIndex3
+      parentName: AsgardianLIndex2
+      position: {x: -0.013438132, y: 0.00000005813598, z: 0.00000002906799}
+      rotation: {x: 0.0026884375, y: 0.016513528, z: 0.08500449, w: 0.99624014}
+      scale: {x: 0.9999964, y: 1.0000038, z: 0.9999999}
+    - name: AsgardianLMiddle1
+      parentName: AsgardianLPalm
+      position: {x: -0.061364505, y: 0.0049318206, z: -0.00090099144}
+      rotation: {x: 0.105762474, y: 0.025289644, z: 0.032742754, w: 0.99353045}
+      scale: {x: 0.99999994, y: 1, z: 0.99999994}
+    - name: AsgardianLMiddle2
+      parentName: AsgardianLMiddle1
+      position: {x: -0.022737099, y: 0.00000008720397, z: 0.00000002906799}
+      rotation: {x: 0.01328184, y: -0.0053850245, z: 0.034033127, w: 0.999318}
+      scale: {x: 0.9999969, y: 1.000003, z: 1.0000001}
+    - name: AsgardianLMiddle3
+      parentName: AsgardianLMiddle2
+      position: {x: -0.018023694, y: 0.00000008720397, z: -0.000000043601986}
+      rotation: {x: 0.013182877, y: 0.031475954, z: 0.13498023, w: 0.9902605}
+      scale: {x: 0.9999948, y: 1.0000049, z: 1.0000002}
+    - name: AsgardianLPinky1
+      parentName: AsgardianLPalm
+      position: {x: -0.05946334, y: 0.0040294337, z: -0.021160683}
+      rotation: {x: 0.11734299, y: -0.03243357, z: 0.038675558, w: 0.99180794}
+      scale: {x: 0.9999999, y: 0.99999994, z: 0.99999994}
+    - name: AsgardianLPinky2
+      parentName: AsgardianLPinky1
+      position: {x: -0.016129391, y: 0.00000002906799, z: 0.000000021800993}
+      rotation: {x: 0.05001531, y: -0.0032153788, z: 0.036043853, w: 0.9980927}
+      scale: {x: 0.99999666, y: 1.000003, z: 1.0000005}
+    - name: AsgardianLPinky3
+      parentName: AsgardianLPinky2
+      position: {x: -0.013055481, y: 0.00000002906799, z: 0.0000000072669977}
+      rotation: {x: -0.008882646, y: 0.036752712, z: 0.14767101, w: 0.98831356}
+      scale: {x: 0.9999961, y: 1.0000038, z: 1.0000005}
+    - name: AsgardianRArmCollarbone
+      parentName: AsgardianChest
+      position: {x: 0.033122685, y: 0.057051696, z: -0.016266258}
+      rotation: {x: -0.061726023, y: -0.6785473, z: 0.1584907, w: 0.7145938}
+      scale: {x: 0.99999994, y: 1.0000001, z: 0.9999999}
+    - name: AsgardianRArmUpperarm
+      parentName: AsgardianRArmCollarbone
+      position: {x: -0.115420155, y: 0.000000050868984, z: 0}
+      rotation: {x: -0.109234214, y: -0.0314024, z: -0.15757158, w: 0.980945}
+      scale: {x: 0.9999999, y: 0.9999998, z: 1.0000001}
+    - name: AsgardianRArmForearm
+      parentName: AsgardianRArmUpperarm
+      position: {x: -0.15859088, y: -0.0000000036334988, z: 0}
+      rotation: {x: -0.102971, y: 0.010472526, z: -0.024228033, w: 0.99433416}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: AsgardianRArmPalm
+      parentName: AsgardianRArmForearm
+      position: {x: -0.1338072, y: -0.000000014533995, z: 0}
+      rotation: {x: 0.80703574, y: 0.00019942902, z: 0.10884921, w: 0.58038366}
+      scale: {x: 1.0000006, y: 0.9999997, z: 1.0000001}
+    - name: AsgardianRArmPinky1
+      parentName: AsgardianRArmPalm
+      position: {x: -0.061560277, y: 0.0036516082, z: 0.021172835}
+      rotation: {x: -0.115291215, y: -0.014564637, z: -0.010770707, w: 0.99316657}
+      scale: {x: 0.9999999, y: 1, z: 0.99999994}
+    - name: AsgardianRArmPinky2
+      parentName: AsgardianRArmPinky1
+      position: {x: -0.01612945, y: -0.00000005813598, z: -0.0000000072669977}
+      rotation: {x: -0.050016135, y: 0.0032170643, z: 0.03604543, w: 0.99809265}
+      scale: {x: 1.0000027, y: 0.9999976, z: 1}
+    - name: AsgardianRArmPinky3
+      parentName: AsgardianRArmPinky2
+      position: {x: -0.013055597, y: -0.000000021800993, z: -0.0000000072669977}
+      rotation: {x: 0.008882311, y: -0.036752537, z: 0.14767109, w: 0.98831356}
+      scale: {x: 1.0000033, y: 0.999997, z: 0.9999998}
+    - name: AsgardianRArmRing1
+      parentName: AsgardianRArmPalm
+      position: {x: -0.06252577, y: 0.004252182, z: -0.0010112027}
+      rotation: {x: -0.105300285, y: -0.037578363, z: 0.0008583903, w: 0.9937299}
+      scale: {x: 0.9999999, y: 0.99999994, z: 0.99999994}
+    - name: AsgardianRArmRing2
+      parentName: AsgardianRArmRing1
+      position: {x: -0.022737157, y: -0.00000008720397, z: 0}
+      rotation: {x: -0.013280785, y: 0.005388718, z: 0.03403302, w: 0.99931794}
+      scale: {x: 1.0000027, y: 0.99999756, z: 1}
+    - name: AsgardianRArmRing3
+      parentName: AsgardianRArmRing2
+      position: {x: -0.018023781, y: -0.000000021800993, z: -0.000000014533995}
+      rotation: {x: -0.01318123, y: -0.031477634, z: 0.13498136, w: 0.9902603}
+      scale: {x: 1.0000033, y: 0.9999971, z: 1}
+    - name: AsgardianRArmIndex1
+      parentName: AsgardianRArmPalm
+      position: {x: -0.06414983, y: -0.002388226, z: -0.021535689}
+      rotation: {x: -0.07760603, y: -0.0916535, z: -0.0049661137, w: 0.9927499}
+      scale: {x: 0.9999999, y: 1, z: 0.99999994}
+    - name: AsgardianRArmIndex2
+      parentName: AsgardianRArmIndex1
+      position: {x: -0.018094825, y: -0.00000005813598, z: 0}
+      rotation: {x: -0.004379471, y: 0.0080849705, z: 0.035594027, w: 0.9993241}
+      scale: {x: 1.0000024, y: 0.9999979, z: 0.9999999}
+    - name: AsgardianRArmIndex3
+      parentName: AsgardianRArmIndex2
+      position: {x: -0.013438161, y: -0.00000005813598, z: -0.00000002906799}
+      rotation: {x: -0.0026895278, y: -0.01651304, z: 0.085005686, w: 0.99624}
+      scale: {x: 1.0000038, y: 0.9999968, z: 0.9999998}
+    - name: AsgardianRArmThumb1
+      parentName: AsgardianRArmPalm
+      position: {x: -0.015938707, y: -0.011312855, z: -0.023023855}
+      rotation: {x: -0.29826084, y: -0.43048143, z: -0.1410019, w: 0.8401457}
+      scale: {x: 0.9999999, y: 0.99999994, z: 0.9999998}
+    - name: AsgardianRArmThumb2
+      parentName: AsgardianRArmThumb1
+      position: {x: -0.015611342, y: 0, z: 0}
+      rotation: {x: -0.061198138, y: -0.00045978985, z: 0.032288436, w: 0.99760324}
+      scale: {x: 1.000002, y: 1.0000011, z: 0.9999969}
+    - name: AsgardianRArmThumb3
+      parentName: AsgardianRArmThumb2
+      position: {x: -0.022148123, y: -0.00000002906799, z: -0.000000014533995}
+      rotation: {x: -0.0012916989, y: -0.00774075, z: 0.1411747, w: 0.98995364}
+      scale: {x: 1.0000031, y: 1, z: 0.9999968}
+    - name: AsgardianRThigh
+      parentName: AsgardianPelvis
+      position: {x: -0.009300187, y: 0.02535781, z: -0.04751472}
+      rotation: {x: -0.093729004, y: 0.9936393, z: 0.01543504, w: -0.060478304}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: AsgardianRCalf
+      parentName: AsgardianRThigh
+      position: {x: -0.2307102, y: 0.00000010173797, z: 0.0000003488159}
+      rotation: {x: -0.00079495524, y: -0.042920556, z: 0.22099133, w: 0.97433054}
+      scale: {x: 1.000001, y: 0.9999973, z: 1.0000012}
+    - name: AsgardianRFoot
+      parentName: AsgardianRCalf
+      position: {x: -0.26313165, y: 0, z: 0}
+      rotation: {x: 0.06112253, y: 0.011706925, z: -0.65378666, w: 0.7541154}
+      scale: {x: 1.0000029, y: 0.9999994, z: 0.99999857}
+    - name: AsgardianRFoot1
+      parentName: AsgardianRFoot
+      position: {x: -0.064618655, y: 0.00024822247, z: 0.0000000072669977}
+      rotation: {x: -0.009212517, y: -0.050279528, z: -0.17169997, w: 0.9838223}
+      scale: {x: 1, y: 0.9999998, z: 1}
+    - name: AsgardianRFoot2
+      parentName: AsgardianRFoot1
+      position: {x: -0.028634198, y: 0.0000000018167494, z: 0}
+      rotation: {x: -7.698344e-17, y: -2.3857378e-15, z: -0.032251403, w: 0.9994798}
+      scale: {x: 1, y: 1, z: 1}
+    - name: AsgardianLThigh
+      parentName: AsgardianPelvis
+      position: {x: -0.009300071, y: 0.025357753, z: 0.047514737}
+      rotation: {x: -0.09270357, y: 0.9927746, z: -0.03843138, w: 0.065785736}
+      scale: {x: 1, y: 0.99999994, z: 1.0000001}
+    - name: AsgardianLCalf
+      parentName: AsgardianLThigh
+      position: {x: -0.23106779, y: 0.00000017440794, z: -0.0000003270149}
+      rotation: {x: 0.00078738393, y: 0.057496168, z: 0.21960889, w: 0.973892}
+      scale: {x: 1.0000002, y: 0.9999991, z: 1.0000007}
+    - name: AsgardianLFoot
+      parentName: AsgardianLCalf
+      position: {x: -0.26305288, y: 0.0000000036334988, z: 0.0000000072669977}
+      rotation: {x: -0.07911747, y: -0.029446248, z: -0.65387636, w: 0.75187707}
+      scale: {x: 1.0000005, y: 1.0000006, z: 0.99999875}
+    - name: AsgardianLFoot1
+      parentName: AsgardianLFoot
+      position: {x: -0.06461864, y: 0.00024823702, z: 0.0000000072669977}
+      rotation: {x: 0.008810757, y: 0.05257786, z: -0.17149144, w: 0.9837422}
+      scale: {x: 1.0000001, y: 0.9999999, z: 0.99999994}
+    - name: AsgardianLFoot2
+      parentName: AsgardianLFoot1
+      position: {x: -0.028634196, y: -0.0000000018167494, z: 0}
+      rotation: {x: -7.698344e-17, y: -2.3857378e-15, z: -0.032251403, w: 0.9994798}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -83,16 +658,16 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.0038099997
+    globalScale: 0.0125
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
