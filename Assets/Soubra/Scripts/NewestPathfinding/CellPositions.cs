@@ -508,18 +508,19 @@ public class CellPositions : MonoBehaviour
         {
             Debug.Log("Checking Hits");
 
-                for (int x = 0; x < units.Count; x++)
-                {
+            for (int x = 0; x < units.Count; x++)
+            {
 
-                    if (units[x] != null && units[x].tileX == attackNodes[i].x && units[x].tileZ == attackNodes[i].y && !units[x].enemy)
+                if (units[x] != null && units[x].tileX == attackNodes[i].x && units[x].tileZ == attackNodes[i].y && !units[x].enemy)
+                {
+                    if (!effectedUnits.Contains(units[x]) && !unit.unitsToAnimate.Contains(units[x]))
                     {
-                        if (!effectedUnits.Contains(units[x]))
-                        {
-                            effectedUnits.Add(units[x]);
-                        }
-                        Debug.Log("HIT: " + units[x].name);
+                        effectedUnits.Add(units[x]);
+                        unit.unitsToAnimate.Add(units[x]);
                     }
+                    Debug.Log("HIT: " + units[x].name);
                 }
+            }
             
 
         }

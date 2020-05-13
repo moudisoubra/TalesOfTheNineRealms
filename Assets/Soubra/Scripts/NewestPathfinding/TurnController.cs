@@ -30,8 +30,11 @@ public class TurnController : MonoBehaviour
     public GameObject nameHolderPositionBack;
     public GameObject turnButton;
     public List<GameObject> uiNames;
+    public List<Sprite> characterPics;
+    public List<Sprite> icons;
     public ControlHealthFill chfScript;
     public TriggerDragonAttacks tdaScript;
+    public SkillsTextsComponents stcScript;
     private void Start()
     {
         ChangeStatus();
@@ -57,9 +60,23 @@ public class TurnController : MonoBehaviour
         if (chfScript != null)
         {
             Unit unit = tmScript.selectedUnit.GetComponent<Unit>();
-            chfScript.ac = unit.armorClass;
             chfScript.maxHealth = unit.maxHealth;
             chfScript.health = unit.health;
+            if (unit.enemyType == Unit.EnemyType.Player)
+            {
+                chfScript.playerCharacter.texture = characterPics[0].texture;
+                chfScript.playerIcon.sprite = icons[0];
+            }
+            if (unit.enemyType == Unit.EnemyType.Hugin)
+            {
+                chfScript.playerCharacter.texture = characterPics[1].texture;
+                chfScript.playerIcon.sprite = icons[1];
+            }
+            if (unit.enemyType == Unit.EnemyType.Munin)
+            {
+                chfScript.playerCharacter.texture = characterPics[2].texture;
+                chfScript.playerIcon.sprite = icons[1];
+            }
         }
         //if (tmScript.selectedUnit.CompareTag("Player"))
         //{
@@ -194,12 +211,12 @@ public class TurnController : MonoBehaviour
             {
                 buttons[i].SetActive(true);
                 //buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<Unit>().attackNames[i];
-                buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<Unit>().attackNames[i];
-
+                //buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<Unit>().attackNames[i];
+                buttons[i].GetComponentInChildren<Image>().sprite = unit.GetComponent<Unit>().unitSkillPictures[i];
                 if (unit.attack2CoolDown > 0)
                 {
                     buttons[1].GetComponent<Button>().interactable = false;
-                    buttons[1].GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<Unit>().attackNames[1] + " (" + unit.attack2CoolDown + ")";
+                    //buttons[1].GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<Unit>().attackNames[1] + " (" + unit.attack2CoolDown + ")";
                 }
                 else
                 {
@@ -209,7 +226,7 @@ public class TurnController : MonoBehaviour
                 if (unit.attack3CoolDown > 0)
                 {
                     buttons[2].GetComponent<Button>().interactable = false;
-                    buttons[2].GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<Unit>().attackNames[2] + " (" + unit.attack3CoolDown + ")";
+                    //buttons[2].GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<Unit>().attackNames[2] + " (" + unit.attack3CoolDown + ")";
                 }
                 else
                 {
@@ -225,7 +242,7 @@ public class TurnController : MonoBehaviour
             {
                 buttons[i].SetActive(false);
                 //buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "";
-                buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "";
+                //buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = "";
             }
         }
     }
@@ -249,7 +266,6 @@ public class TurnController : MonoBehaviour
 
                 buttons[i].SetActive(true);
                 //buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<Unit>().attackNames[i];
-                buttons[i].GetComponentInChildren<TextMeshProUGUI>().text = unit.GetComponent<Unit>().attackNames[i];
 
 
                 if (i == uiStep)
@@ -387,4 +403,31 @@ public class TurnController : MonoBehaviour
         }
     }
 
+    public void DisplaySkillText(int i)
+    {
+        Debug.Log("Above Button");
+        stcScript.gameObject.SetActive(true);
+        stcScript.skillTitle.text = unit.unitSkillsTitles[i];
+        stcScript.skillText.text = unit.unitSkillsText[i];
+
+        if (i == 2 && unit.attack2CoolDown > 0)
+        {
+            stcScript.skillCoolDown.enabled = true;
+            stcScript.skillCoolDownNumber.text = unit.attack2CoolDown.ToString();
+        }
+        if (i == 3 && unit.attack3CoolDown > 0)
+        {
+            stcScript.skillCoolDown.enabled = true;
+            stcScript.skillCoolDownNumber.text = unit.attack3CoolDown.ToString();
+        }
+    }
+    public void RemoveSkillText()
+    {
+        Debug.Log("Exited Above Button");
+        stcScript.gameObject.SetActive(false);
+        stcScript.skillTitle.text = "";
+        stcScript.skillText.text = "";
+        stcScript.skillCoolDown.enabled = false;
+        stcScript.skillCoolDownNumber.text = "";
+    }
 }

@@ -131,8 +131,12 @@ public class Attack : GAction
                 {
                     GameObject stone = Instantiate(gmClass.stone, gmClass.gameObject.transform.position + new Vector3(0, 3.5f, 0), Quaternion.identity);
 
-                    stone.GetComponent<Launcher>().target = unit.targetEnemy.transform;
-                    stone.GetComponent<Launcher>().launch = true;
+                    Debug.Log("Setting as parent here  " + gmClass.stone.transform.parent);
+                    Launcher lScript = stone.GetComponent<Launcher>();
+                    gmClass.unit.animator.gameObject.GetComponent<GiantRock>().lScript = lScript;
+                    lScript.target = unit.targetEnemy.transform;
+                    stone.GetComponent<Launcher>().stay = true;
+                    stone.GetComponent<Launcher>().stone = gmClass.stonePosition;
                     gmClass.spawn = false;
                 }
                 unit.coolDown = 3;

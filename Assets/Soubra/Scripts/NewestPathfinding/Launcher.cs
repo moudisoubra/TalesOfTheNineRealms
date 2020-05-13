@@ -5,8 +5,10 @@ using UnityEngine;
 public class Launcher : MonoBehaviour
 {
     public bool launch;
+    public bool stay;
     public Rigidbody rb;
     public Transform target;
+    public GameObject stone;
     public float height = 15;
     public float gravity = -18;
 
@@ -14,6 +16,7 @@ public class Launcher : MonoBehaviour
     void Start()
     {
         rb.useGravity = false;
+        this.transform.SetParent(stone.transform.parent);
     }
 
     // Update is called once per frame
@@ -21,8 +24,14 @@ public class Launcher : MonoBehaviour
     {
         if (launch)
         {
+            stay = false;
             Launch();
             launch = false;
+        }
+        else if(stay)
+        {
+            this.transform.position = stone.transform.position;
+            this.transform.rotation = stone.transform.rotation;
         }
     }
 

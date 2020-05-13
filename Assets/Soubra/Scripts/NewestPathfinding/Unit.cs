@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
 {
@@ -58,8 +59,10 @@ public class Unit : MonoBehaviour
     public List<GAction> actions;
     public List<TileMap.Node> currentPath = null;
     public TileMap.Node currentNode;
-    public List<string> attackNames;
     public List<Unit> unitsToAnimate;
+    public List<Sprite> unitSkillPictures;
+    public List<string> unitSkillsText;
+    public List<string> unitSkillsTitles;
     public enum EnemyType { AsgardianMelee, AsgardianRanged, GiantMelee, GiantRanged, TreePerson, Dragon, Player, Hugin, Munin };
     public EnemyType enemyType;
 
