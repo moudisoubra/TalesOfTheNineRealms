@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
 {
@@ -58,8 +59,10 @@ public class Unit : MonoBehaviour
     public List<GAction> actions;
     public List<TileMap.Node> currentPath = null;
     public TileMap.Node currentNode;
-    public List<string> attackNames;
     public List<Unit> unitsToAnimate;
+    public List<Sprite> unitSkillPictures;
+    public List<string> unitSkillsTex;
+    public List<string> unitSkillsTitle;
     public enum EnemyType { AsgardianMelee, AsgardianRanged, GiantMelee, GiantRanged, TreePerson, Dragon, Player, Hugin, Munin };
     public EnemyType enemyType;
 
@@ -84,6 +87,34 @@ public class Unit : MonoBehaviour
         hmScript = GetComponentInChildren<HitOrMiss>();
         ogAddedAttackRoll = addedAttackRoll;
         ogArmorClass = armorClass;
+
+        if (enemyType == EnemyType.Player)
+        {
+            unitSkillsTitle.Add("Spear Strike");
+            unitSkillsTex.Add("Odin attacks forward with a swipe then a strike. (Two Cells)");
+            unitSkillsTitle.Add("Sweep Strike");
+            unitSkillsTex.Add("Odin attacks all adjacent cells with a sweeping attack.");
+            unitSkillsTitle.Add("Rage");
+            unitSkillsTex.Add("Odin unleashes a raging fury, giving him an attack buff for the number rolled.");
+        }
+        if (enemyType == EnemyType.Hugin)
+        {
+            unitSkillsTitle.Add("Peck");
+            unitSkillsTex.Add("Hugin lunges forward pecking the enemy one cell away.");
+            unitSkillsTitle.Add("Cure Wounds");
+            unitSkillsTex.Add("Hugin uses magic to heal selected ally. (Select cell under ally to apply)");
+            unitSkillsTitle.Add("Sheild Rune");
+            unitSkillsTex.Add("Hugin activates its shield rune to increase the selected ally's armor class by number rolled. (Select cell under ally to apply)");
+        }
+        if (enemyType == EnemyType.Munin)
+        {
+            unitSkillsTitle.Add("Peck");
+            unitSkillsTex.Add("Munin lunges forward pecking the enemy one cell away.");
+            unitSkillsTitle.Add("Dash");
+            unitSkillsTex.Add("Munin doubles the movement speed of selected ally. (Select cell under ally to apply)");
+            unitSkillsTitle.Add("Precision");
+            unitSkillsTex.Add("Munin uses his magic to ensure the selected ally's next attack will hit.(Select cell under ally to apply)");
+        }
     }
     public void Update()
     {

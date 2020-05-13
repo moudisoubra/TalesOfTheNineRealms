@@ -27,7 +27,7 @@ public class NewDialogueNpc : MonoBehaviour
         dialogue.index = 0;
         dialogue.panel.SetActive(true);
         dialogue.StartCoroutine(dialogue.TypeEffect());
-        dialogue.odinWalk.noWalkie = true;
+        //dialogue.odinWalk.noWalkie = true;
     }
     public void TriggerThis()
     {
@@ -40,7 +40,7 @@ public class NewDialogueNpc : MonoBehaviour
         dialogue.index = 0;
         dialogue.panel.SetActive(true);
         dialogue.StartCoroutine(dialogue.TypeEffect());
-        dialogue.odinWalk.noWalkie = true;
+        //dialogue.odinWalk.noWalkie = true;
         this.GetComponent<Collider>().enabled = false;
     }
 
@@ -72,7 +72,7 @@ public class NewDialogueNpc : MonoBehaviour
             dialogue.index = 0;
             dialogue.panel.SetActive(true);
             dialogue.StartCoroutine(dialogue.TypeEffect());
-            dialogue.odinWalk.noWalkie = true;
+            //dialogue.odinWalk.noWalkie = true;
             this.GetComponent<Collider>().enabled = false;
         }
     }

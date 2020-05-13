@@ -167,8 +167,11 @@ public class SetupBattle : MonoBehaviour
             tdScript.BlackPanel();
             tdScript.dScript.textDisplay.text = "";
             tdScript.dScript.index = 0;
-            owcScript.enabled = true;
-            clScript.goBlack = true;
+            if (owcScript != null)
+            {
+                owcScript.enabled = true;
+            }
+            clScript.goBlack = true; 
             for (int i = 0; i < turnOff.Count; i++)
             {
                 turnOff[i].SetActive(true);

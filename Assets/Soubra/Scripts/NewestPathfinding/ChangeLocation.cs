@@ -11,9 +11,11 @@ public class ChangeLocation : MonoBehaviour
 
     public List<GameObject> originals;
     public List<GameObject> newLocation;
+    public List<GameObject> oldLocation;
     public GameObject cameraTarget;
     public GameObject lookAtTarget;
 
+    public bool enemyWon = false;
     public bool move = false;
     public bool goBlack = false;
     public bool clear = false;
@@ -45,13 +47,24 @@ public class ChangeLocation : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            attpScript.moveToThisPosition = cameraTarget;
-            attpScript.lookAtThis = lookAtTarget;
-
-            for (int i = 0; i < originals.Count; i++)
+            if (enemyWon)
             {
-                originals[i].transform.position = newLocation[i].transform.position;
-                originals[i].transform.rotation = newLocation[i].transform.rotation;
+                for (int i = 0; i < originals.Count; i++)
+                {
+                    originals[i].transform.position = oldLocation[i].transform.position;
+                    originals[i].transform.rotation = oldLocation[i].transform.rotation;
+                }
+            }
+            else
+            {
+                attpScript.moveToThisPosition = cameraTarget;
+                attpScript.lookAtThis = lookAtTarget;
+
+                for (int i = 0; i < originals.Count; i++)
+                {
+                    originals[i].transform.position = newLocation[i].transform.position;
+                    originals[i].transform.rotation = newLocation[i].transform.rotation;
+                }
             }
             if (timer >= timerDuration)
             {

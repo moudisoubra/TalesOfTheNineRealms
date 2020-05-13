@@ -6,6 +6,7 @@ public class GiantsClass : CellPositions
 {
     public EnemyAgent eaScript;
     public GameObject stone;
+    public GameObject stonePosition;
     public bool spawn = true;
     public bool first = false;
     public override void FirstAttack()
@@ -112,5 +113,6 @@ public class GiantsClass : CellPositions
         eaScript.currentAction = null;
         spawn = true;
         unit.remainingMovement = unit.moveSpeed;
+        giantAttack3 = 0;
     }
 }
