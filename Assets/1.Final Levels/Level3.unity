@@ -11610,8 +11610,10 @@ MonoBehaviour:
   animator: {fileID: 1507964293}
   actions:
   - {fileID: 239837495}
-  attackNames: []
   unitsToAnimate: []
+  unitSkillPictures: []
+  unitSkillsTex: []
+  unitSkillsTitle: []
   enemyType: 2
   direction: 0
   attack: 0
@@ -11687,6 +11689,7 @@ MonoBehaviour:
   waiting: 1
   eaScript: {fileID: 239837493}
   stone: {fileID: 67033157368914888, guid: a182bf088824cd5488f826a825fbdab4, type: 3}
+  stonePosition: {fileID: 0}
   spawn: 1
   first: 0
 --- !u!114 &239837497
@@ -11796,6 +11799,7 @@ MonoBehaviour:
   tcScript: {fileID: 0}
   running: 0
   done: 0
+  CHSCRIPT: 0
   chScript: {fileID: 0}
 --- !u!114 &239837501
 MonoBehaviour:
@@ -15793,8 +15797,10 @@ MonoBehaviour:
   animator: {fileID: 546565625}
   actions:
   - {fileID: 322779785}
-  attackNames: []
   unitsToAnimate: []
+  unitSkillPictures: []
+  unitSkillsTex: []
+  unitSkillsTitle: []
   enemyType: 2
   direction: 0
   attack: 0
@@ -15870,6 +15876,7 @@ MonoBehaviour:
   waiting: 1
   eaScript: {fileID: 322779783}
   stone: {fileID: 67033157368914888, guid: a182bf088824cd5488f826a825fbdab4, type: 3}
+  stonePosition: {fileID: 0}
   spawn: 1
   first: 0
 --- !u!114 &322779787
@@ -15979,6 +15986,7 @@ MonoBehaviour:
   tcScript: {fileID: 0}
   running: 0
   done: 0
+  CHSCRIPT: 0
   chScript: {fileID: 0}
 --- !u!114 &322779791
 MonoBehaviour:
@@ -22686,8 +22694,10 @@ MonoBehaviour:
   animator: {fileID: 2084563410}
   actions:
   - {fileID: 469409217}
-  attackNames: []
   unitsToAnimate: []
+  unitSkillPictures: []
+  unitSkillsTex: []
+  unitSkillsTitle: []
   enemyType: 3
   direction: 0
   attack: 0
@@ -22798,6 +22808,7 @@ MonoBehaviour:
   waiting: 1
   eaScript: {fileID: 469409218}
   stone: {fileID: 67033157368914888, guid: a182bf088824cd5488f826a825fbdab4, type: 3}
+  stonePosition: {fileID: 0}
   spawn: 1
   first: 0
 --- !u!114 &469409221
@@ -22907,6 +22918,7 @@ MonoBehaviour:
   tcScript: {fileID: 0}
   running: 0
   done: 0
+  CHSCRIPT: 0
   chScript: {fileID: 0}
 --- !u!114 &469409225
 MonoBehaviour:
@@ -36270,6 +36282,53 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6586037035214149243, guid: fc02cb79d2c651f48a61e433257ba031, type: 3}
+--- !u!1 &641004430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 641004432}
+  - component: {fileID: 641004431}
+  m_Layer: 0
+  m_Name: Light Probe Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!220 &641004431
+LightProbeGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641004430}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: -12.41539, y: -1.910078, z: 17.359245}
+  - {x: 22.550316, y: -5.6677933, z: 21.929604}
+  - {x: 15.936943, y: -2.0059338, z: -0.45361328}
+  - {x: -13.041534, y: -1, z: -1}
+  - {x: -1.8070602, y: -42.344654, z: -33.777283}
+  - {x: -8.899094, y: 71.38287, z: -53.836315}
+  m_Dering: 1
+--- !u!4 &641004432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641004430}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -124.79071, y: -2.1202583, z: 91.30586}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 62
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &643568334 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2455037184384259855, guid: 7b221484376e97a4aab999716b8c341e,
@@ -37880,6 +37939,98 @@ Transform:
   m_Father: {fileID: 469409219}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &670813681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 670813682}
+  - component: {fileID: 670813683}
+  m_Layer: 0
+  m_Name: Point Light (75)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &670813682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670813681}
+  m_LocalRotation: {x: -0.558222, y: -0.47656566, z: 0.4237702, w: 0.53074694}
+  m_LocalPosition: {x: -494.7, y: 1584.2, z: 794.7001}
+  m_LocalScale: {x: 1.7211891, y: 1.7211894, z: 1.7211891}
+  m_Children: []
+  m_Father: {fileID: 857788552}
+  m_RootOrder: 232
+  m_LocalEulerAnglesHint: {x: -10.873, y: -94.524, z: 88.97201}
+--- !u!108 &670813683
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670813681}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 3
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.826898, b: 0, a: 1}
+  m_Intensity: 4.18
+  m_Range: 23.3
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 2
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 62.49872, y: 16.965252}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &672433800
 GameObject:
   m_ObjectHideFlags: 0
@@ -40129,8 +40280,10 @@ MonoBehaviour:
   actions:
   - {fileID: 709871122}
   - {fileID: 709871125}
-  attackNames: []
   unitsToAnimate: []
+  unitSkillPictures: []
+  unitSkillsTex: []
+  unitSkillsTitle: []
   enemyType: 5
   direction: 0
   attack: 0
@@ -41580,8 +41733,10 @@ MonoBehaviour:
   animator: {fileID: 1459273906}
   actions:
   - {fileID: 743413859}
-  attackNames: []
   unitsToAnimate: []
+  unitSkillPictures: []
+  unitSkillsTex: []
+  unitSkillsTitle: []
   enemyType: 2
   direction: 0
   attack: 0
@@ -41657,6 +41812,7 @@ MonoBehaviour:
   waiting: 1
   eaScript: {fileID: 743413857}
   stone: {fileID: 67033157368914888, guid: a182bf088824cd5488f826a825fbdab4, type: 3}
+  stonePosition: {fileID: 0}
   spawn: 1
   first: 0
 --- !u!114 &743413861
@@ -41766,6 +41922,7 @@ MonoBehaviour:
   tcScript: {fileID: 0}
   running: 0
   done: 0
+  CHSCRIPT: 0
   chScript: {fileID: 0}
 --- !u!114 &743413865
 MonoBehaviour:
@@ -53156,6 +53313,7 @@ Transform:
   - {fileID: 1118849275}
   - {fileID: 1623018116}
   - {fileID: 1074512928}
+  - {fileID: 670813682}
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 97.885, z: 0}
@@ -58488,8 +58646,10 @@ MonoBehaviour:
   animator: {fileID: 1815075361}
   actions:
   - {fileID: 984994541}
-  attackNames: []
   unitsToAnimate: []
+  unitSkillPictures: []
+  unitSkillsTex: []
+  unitSkillsTitle: []
   enemyType: 2
   direction: 0
   attack: 0
@@ -58598,6 +58758,7 @@ MonoBehaviour:
   waiting: 1
   eaScript: {fileID: 984994542}
   stone: {fileID: 67033157368914888, guid: a182bf088824cd5488f826a825fbdab4, type: 3}
+  stonePosition: {fileID: 0}
   spawn: 1
   first: 0
 --- !u!114 &984994545
@@ -58707,6 +58868,7 @@ MonoBehaviour:
   tcScript: {fileID: 0}
   running: 0
   done: 0
+  CHSCRIPT: 0
   chScript: {fileID: 0}
 --- !u!114 &984994549
 MonoBehaviour:
@@ -61311,8 +61473,10 @@ MonoBehaviour:
   - {fileID: 381024206}
   newLocation:
   - {fileID: 545069891}
+  oldLocation: []
   cameraTarget: {fileID: 1000231630}
   lookAtTarget: {fileID: 52708259}
+  enemyWon: 0
   move: 0
   goBlack: 0
   clear: 0
@@ -63377,6 +63541,7 @@ MonoBehaviour:
   rotationSlerpSpeed: 5
   stopMovement: 0
   anim: {fileID: 1066992783}
+  movement: {x: 0, y: 0}
 --- !u!95 &1066992783
 Animator:
   serializedVersion: 3
@@ -83044,6 +83209,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c6462f7b0ee4333429d73a7b61572631, type: 2}
+    - target: {fileID: -8834875632477750628, guid: 1c636765498d45e4f81074c147a6c21e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -8746550924173957169, guid: 1c636765498d45e4f81074c147a6c21e,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -95885,8 +96055,10 @@ MonoBehaviour:
   animator: {fileID: 968596136}
   actions:
   - {fileID: 1634605360}
-  attackNames: []
   unitsToAnimate: []
+  unitSkillPictures: []
+  unitSkillsTex: []
+  unitSkillsTitle: []
   enemyType: 3
   direction: 0
   attack: 0
@@ -95997,6 +96169,7 @@ MonoBehaviour:
   waiting: 1
   eaScript: {fileID: 1634605359}
   stone: {fileID: 67033157368914888, guid: a182bf088824cd5488f826a825fbdab4, type: 3}
+  stonePosition: {fileID: 0}
   spawn: 1
   first: 0
 --- !u!114 &1634605362
@@ -96106,6 +96279,7 @@ MonoBehaviour:
   tcScript: {fileID: 0}
   running: 0
   done: 0
+  CHSCRIPT: 0
   chScript: {fileID: 0}
 --- !u!114 &1634605366
 MonoBehaviour:
@@ -101798,8 +101972,10 @@ MonoBehaviour:
   animator: {fileID: 615820336}
   actions:
   - {fileID: 1763624448}
-  attackNames: []
   unitsToAnimate: []
+  unitSkillPictures: []
+  unitSkillsTex: []
+  unitSkillsTitle: []
   enemyType: 2
   direction: 0
   attack: 0
@@ -101908,6 +102084,7 @@ MonoBehaviour:
   waiting: 1
   eaScript: {fileID: 1763624449}
   stone: {fileID: 67033157368914888, guid: a182bf088824cd5488f826a825fbdab4, type: 3}
+  stonePosition: {fileID: 0}
   spawn: 1
   first: 0
 --- !u!114 &1763624452
@@ -102017,6 +102194,7 @@ MonoBehaviour:
   tcScript: {fileID: 0}
   running: 0
   done: 0
+  CHSCRIPT: 0
   chScript: {fileID: 0}
 --- !u!114 &1763624456
 MonoBehaviour:
@@ -104908,8 +105086,10 @@ MonoBehaviour:
   - {fileID: 381024206}
   newLocation:
   - {fileID: 1752850377}
+  oldLocation: []
   cameraTarget: {fileID: 1070862609}
   lookAtTarget: {fileID: 1163090123}
+  enemyWon: 0
   move: 0
   goBlack: 0
   clear: 0
@@ -105700,8 +105880,10 @@ MonoBehaviour:
   - {fileID: 381024206}
   newLocation:
   - {fileID: 1684427693}
+  oldLocation: []
   cameraTarget: {fileID: 81925108}
   lookAtTarget: {fileID: 1198509936}
+  enemyWon: 0
   move: 0
   goBlack: 0
   clear: 0
@@ -108258,8 +108440,10 @@ MonoBehaviour:
   animator: {fileID: 1776449580}
   actions:
   - {fileID: 1906250795}
-  attackNames: []
   unitsToAnimate: []
+  unitSkillPictures: []
+  unitSkillsTex: []
+  unitSkillsTitle: []
   enemyType: 3
   direction: 0
   attack: 0
@@ -108335,6 +108519,7 @@ MonoBehaviour:
   waiting: 1
   eaScript: {fileID: 1906250793}
   stone: {fileID: 67033157368914888, guid: a182bf088824cd5488f826a825fbdab4, type: 3}
+  stonePosition: {fileID: 0}
   spawn: 1
   first: 0
 --- !u!114 &1906250797
@@ -108444,6 +108629,7 @@ MonoBehaviour:
   tcScript: {fileID: 0}
   running: 0
   done: 0
+  CHSCRIPT: 0
   chScript: {fileID: 0}
 --- !u!114 &1906250801
 MonoBehaviour:
@@ -111908,8 +112094,10 @@ MonoBehaviour:
   animator: {fileID: 984201070}
   actions:
   - {fileID: 1977205844}
-  attackNames: []
   unitsToAnimate: []
+  unitSkillPictures: []
+  unitSkillsTex: []
+  unitSkillsTitle: []
   enemyType: 2
   direction: 0
   attack: 0
@@ -111985,6 +112173,7 @@ MonoBehaviour:
   waiting: 1
   eaScript: {fileID: 1977205842}
   stone: {fileID: 67033157368914888, guid: a182bf088824cd5488f826a825fbdab4, type: 3}
+  stonePosition: {fileID: 0}
   spawn: 1
   first: 0
 --- !u!114 &1977205846
@@ -112094,6 +112283,7 @@ MonoBehaviour:
   tcScript: {fileID: 0}
   running: 0
   done: 0
+  CHSCRIPT: 0
   chScript: {fileID: 0}
 --- !u!114 &1977205850
 MonoBehaviour:
@@ -124406,6 +124596,7 @@ MonoBehaviour:
   rotationSlerpSpeed: 5
   stopMovement: 0
   anim: {fileID: 1066992783}
+  movement: {x: 0, y: 0}
 --- !u!4 &8307019063141922009
 Transform:
   m_ObjectHideFlags: 0
