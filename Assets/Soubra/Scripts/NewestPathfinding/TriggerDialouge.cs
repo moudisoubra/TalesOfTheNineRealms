@@ -62,8 +62,9 @@ public class TriggerDialouge : MonoBehaviour
         if (other.CompareTag("Player") && !setup)
         {
             firstTime = true;
-            owcScript.anim.SetBool("Run", false);
-            owcScript.enabled = false;
+            other.GetComponent<PlayerMovementController>().anim.SetBool("Run", false);
+            //owcScript.anim.SetBool("Run", false);
+            //owcScript.enabled = false;
             attpScript.moveToThisPosition = tweenTo;
             attpScript.lookAtThis = lookAt;
             ndnScript.TriggerThis();

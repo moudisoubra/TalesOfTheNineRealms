@@ -407,8 +407,8 @@ public class TurnController : MonoBehaviour
     {
         Debug.Log("Above Button");
         stcScript.gameObject.SetActive(true);
-        stcScript.skillTitle.text = unit.unitSkillsTitles[i];
-        stcScript.skillText.text = unit.unitSkillsText[i];
+        stcScript.skillTitle.text = unit.unitSkillsTitle[i];
+        stcScript.skillText.text = unit.unitSkillsTex[i];
 
         if (i == 2 && unit.attack2CoolDown > 0)
         {

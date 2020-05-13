@@ -124,7 +124,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launch: 0
+  stay: 0
   rb: {fileID: 7885368912438332859}
   target: {fileID: 0}
+  stone: {fileID: 0}
   height: 15
   gravity: -18
