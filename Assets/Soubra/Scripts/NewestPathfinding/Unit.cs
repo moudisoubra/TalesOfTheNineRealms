@@ -74,7 +74,7 @@ public class Unit : MonoBehaviour
 
     public Vector3 ravenFlying;
     public Vector3 ravenOnGround;
-
+    public InitiativeRoll irScript;
     Vector3 bossPosition;
     Quaternion bossRotation;
     private void Start()

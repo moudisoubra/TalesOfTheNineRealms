@@ -24,5 +24,5 @@ Material:
     - Vector1_1601D214: 0.9
     m_Colors:
     - Color_ABEE16DA: {r: 0.2509804, g: 5.5529413, b: 5.992157, a: 0}
-    - Vector2_1FC5E314: {r: 15, g: 15, b: 0, a: 0}
-    - _BaseColorA: {r: 0.7490196, g: 0.7490196, b: 0.7490196, a: 0.6313726}
+    - Vector2_1FC5E314: {r: 6, g: 6, b: 6, a: 6}
+    - _BaseColorA: {r: 1.4980392, g: 1.4980392, b: 1.4980392, a: 1}

@@ -15,6 +15,9 @@ public class PlayerMovementController : MonoBehaviour
     private Transform mainCameraValues;
 
     public Vector2 movement;
+    public Vector3 hitpoint;
+    public float hitPointTimer;
+    public GameObject hitChecker;
 
     void Start()
     {
@@ -68,5 +71,17 @@ public class PlayerMovementController : MonoBehaviour
         var moveWithVelo = direction * speed; //Creating new varible for player movement. 
         moveWithVelo.y = RB.velocity.y; //making sure we are not messing with the Y & it stays the same.
         RB.velocity = moveWithVelo; //Making the player move using velocity rather than add force! :D
+        hitPointTimer += Time.deltaTime;
+        Debug.DrawRay(hitChecker.transform.position, Vector3.down);
+        RaycastHit hit;
+        Ray ray = new Ray(hitChecker.transform.position, Vector3.down);
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.transform.CompareTag("InstantGround") && hitPointTimer > 5)
+            {
+                hitpoint = hit.point;
+                hitPointTimer = 0;
+            }
+        }
     }
 }
