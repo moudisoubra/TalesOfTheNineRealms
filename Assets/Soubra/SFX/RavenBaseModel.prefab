@@ -1,0 +1,2678 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &52842262981687237
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7965122077173389523}
+  m_Layer: 0
+  m_Name: RavenRLegDigit41
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7965122077173389523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52842262981687237}
+  m_LocalRotation: {x: 0.35022333, y: 0.92729837, z: 0.046710417, w: -0.12361037}
+  m_LocalPosition: {x: -0.08919001, y: -0.04176995, z: 0.00014139712}
+  m_LocalScale: {x: 0.9999994, y: 1.000001, z: 0.9999999}
+  m_Children:
+  - {fileID: 8834830157580451090}
+  m_Father: {fileID: 6525642223548662503}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &146342358899048676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1258469466675938400}
+  m_Layer: 0
+  m_Name: RavenHead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1258469466675938400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146342358899048676}
+  m_LocalRotation: {x: -5.9955825e-15, y: 1.03132275e-14, z: -0.42575714, w: 0.9048375}
+  m_LocalPosition: {x: -0.11855459, y: -0.018967032, z: -0.0000000027761295}
+  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 1}
+  m_Children:
+  - {fileID: 7004739063620050589}
+  - {fileID: 5644419154332422987}
+  m_Father: {fileID: 5633017876133197123}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &234675648576255049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3826623285698004570}
+  - component: {fileID: 8097561551782620482}
+  - component: {fileID: 8097561551782620484}
+  - component: {fileID: 8097561551782620487}
+  m_Layer: 0
+  m_Name: RavenBaseModel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3826623285698004570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234675648576255049}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.32, z: 0}
+  m_LocalScale: {x: 0.394039, y: 0.394039, z: 0.394039}
+  m_Children:
+  - {fileID: 3234524806090959913}
+  - {fileID: 8300829911927007539}
+  - {fileID: 5516395763732593242}
+  - {fileID: 2540719518547092757}
+  - {fileID: 1167238716622908209}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &8097561551782620482
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234675648576255049}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fbcfda05712ffc440b4a09633cae6cd8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8097561551782620484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234675648576255049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8431737183d87844381f3b9d1d97ead6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+--- !u!114 &8097561551782620487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234675648576255049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c203a4cb8d34de64f82dac3ff5e7a3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aSource: {fileID: 0}
+  sfx:
+  - {fileID: 8300000, guid: ec571d0a8fb0ae6438ce61eab7ff827f, type: 3}
+  - {fileID: 8300000, guid: 48c47fa50e713f341a19f5488219fe65, type: 3}
+--- !u!1 &241194245707507260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4623460272536352428}
+  m_Layer: 0
+  m_Name: Raven1Bone005
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4623460272536352428
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241194245707507260}
+  m_LocalRotation: {x: -0.0000053205654, y: 0.000005378179, z: 0.84603816, w: 0.53312236}
+  m_LocalPosition: {x: -0.009244502, y: -0.037964538, z: -0.0025814176}
+  m_LocalScale: {x: 0.99999934, y: 1.0000006, z: 1}
+  m_Children:
+  - {fileID: 7423476448116421822}
+  m_Father: {fileID: 8779752754845913849}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &379304353208398040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2649920633985407665}
+  m_Layer: 0
+  m_Name: RavenNeck2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2649920633985407665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379304353208398040}
+  m_LocalRotation: {x: -4.7149886e-15, y: 6.965135e-15, z: 0.06293837, w: 0.99801743}
+  m_LocalPosition: {x: -0.09760481, y: 0, z: 3.5527137e-15}
+  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 1}
+  m_Children:
+  - {fileID: 5633017876133197123}
+  m_Father: {fileID: 5126416902179582024}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &833702306061786409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3234524806090959913}
+  m_Layer: 0
+  m_Name: Raven
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3234524806090959913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833702306061786409}
+  m_LocalRotation: {x: 0.5000001, y: -0.50000006, z: -0.4999999, w: 0.49999997}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3826623285698004570}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &842255263553781013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3636809441618033029}
+  m_Layer: 0
+  m_Name: RavenLArm4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3636809441618033029
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842255263553781013}
+  m_LocalRotation: {x: -0.0012505247, y: -0.00903508, z: 0.023584438, w: 0.9996803}
+  m_LocalPosition: {x: -0.25417888, y: -0.00000028312206, z: -0.0000008940697}
+  m_LocalScale: {x: 0.9999996, y: 0.9999999, z: 1.0000006}
+  m_Children:
+  - {fileID: 1417924305360132764}
+  - {fileID: 3141402938575886214}
+  - {fileID: 7714064508399916187}
+  - {fileID: 3148580580719722175}
+  m_Father: {fileID: 9156265471883815038}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &847862446838087424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3402222821526022211}
+  m_Layer: 0
+  m_Name: RavenRArm3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3402222821526022211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847862446838087424}
+  m_LocalRotation: {x: 0.0021144524, y: -0.05014037, z: -0.08105471, w: 0.99544543}
+  m_LocalPosition: {x: -0.254179, y: 0.00000016391277, z: -0.000000834465}
+  m_LocalScale: {x: 1.0000008, y: 1, z: 0.9999993}
+  m_Children:
+  - {fileID: 2168853545640897683}
+  - {fileID: 3322633691185531943}
+  m_Father: {fileID: 6161012981699583222}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1012721125946671699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 601794904632926437}
+  m_Layer: 0
+  m_Name: Raven1Bone004Bone001
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &601794904632926437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012721125946671699}
+  m_LocalRotation: {x: 0.0000002740455, y: 0.000003141721, z: 0.17257386, w: 0.98499656}
+  m_LocalPosition: {x: -0.20334308, y: 0.00000029802322, z: 0.0000011324883}
+  m_LocalScale: {x: 0.99999875, y: 1.0000006, z: 1.0000008}
+  m_Children: []
+  m_Father: {fileID: 4053579692996976834}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1391582519093218664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6161012981699583222}
+  m_Layer: 0
+  m_Name: RavenRArm2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6161012981699583222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391582519093218664}
+  m_LocalRotation: {x: -0.016795302, y: 0.027528927, z: -0.5029375, w: 0.863721}
+  m_LocalPosition: {x: -0.29218945, y: -0.000000059604645, z: 0}
+  m_LocalScale: {x: 0.9999998, y: 1.0000002, z: 0.9999999}
+  m_Children:
+  - {fileID: 7179231405654790511}
+  - {fileID: 3402222821526022211}
+  m_Father: {fileID: 360898497824116100}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1391611137740927601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4765043810869052478}
+  m_Layer: 0
+  m_Name: RavenLLeg3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4765043810869052478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391611137740927601}
+  m_LocalRotation: {x: -0.002418402, y: 0.12449033, z: -0.43766364, w: 0.89047563}
+  m_LocalPosition: {x: -0.31430864, y: 0.000000014901161, z: 0}
+  m_LocalScale: {x: 1.0000044, y: 0.9999959, z: 0.9999997}
+  m_Children:
+  - {fileID: 6080216962804656079}
+  m_Father: {fileID: 3422568845978838598}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1403051795685830396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3276209912936904525}
+  m_Layer: 0
+  m_Name: Raven1Bone002 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3276209912936904525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403051795685830396}
+  m_LocalRotation: {x: 0.00001149563, y: -0.00002317517, z: 0.45298827, w: 0.8915165}
+  m_LocalPosition: {x: -0.16347945, y: -0.16830973, z: 0.00075799227}
+  m_LocalScale: {x: 0.9999994, y: 1.0000013, z: 0.9999995}
+  m_Children:
+  - {fileID: 7960186939254755965}
+  m_Father: {fileID: 3322633691185531943}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1487988515888298340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6550927151839158915}
+  m_Layer: 0
+  m_Name: RavenRLegDigit22
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6550927151839158915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487988515888298340}
+  m_LocalRotation: {x: 1.0594656e-28, y: -1.4910653e-14, z: 7.1054274e-15, w: 1}
+  m_LocalPosition: {x: -0.05422485, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8084021787921266101}
+  m_Father: {fileID: 4168418227165355421}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1520221848113738478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7960186939254755965}
+  m_Layer: 0
+  m_Name: Raven1Bone002Bone001 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7960186939254755965
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520221848113738478}
+  m_LocalRotation: {x: -0.000002548362, y: 0.0000017168412, z: -0.018682769, w: 0.9998255}
+  m_LocalPosition: {x: -0.64596736, y: 0, z: 0.0000009536743}
+  m_LocalScale: {x: 0.9999994, y: 1.0000014, z: 0.9999996}
+  m_Children: []
+  m_Father: {fileID: 3276209912936904525}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1535804274027966239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5024905577042501369}
+  m_Layer: 0
+  m_Name: RavenTail1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5024905577042501369
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535804274027966239}
+  m_LocalRotation: {x: -5.0033974e-15, y: 8.412539e-16, z: 0.6837814, w: 0.729687}
+  m_LocalPosition: {x: 0.0056484938, y: -0.13191637, z: 0.000000013349011}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1795842098550264193}
+  m_Father: {fileID: 2540719518547092757}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1622455068786548238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7650333189465710701}
+  m_Layer: 0
+  m_Name: Raven1Bone004Bone001 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7650333189465710701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622455068786548238}
+  m_LocalRotation: {x: -0.0000015582898, y: 0.0000024613898, z: 0.1725744, w: 0.9849965}
+  m_LocalPosition: {x: -0.20334336, y: -0.00000017881393, z: 0.0000010728836}
+  m_LocalScale: {x: 1.0000013, y: 0.9999995, z: 0.9999994}
+  m_Children: []
+  m_Father: {fileID: 2168853545640897683}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1869383408450716845
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6710006233846679743}
+  m_Layer: 0
+  m_Name: RavenSpine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6710006233846679743
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869383408450716845}
+  m_LocalRotation: {x: 0.000000027959459, y: -0.00000004489006, z: -0.7028161, w: 0.71137154}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8485333374256752138}
+  m_Father: {fileID: 2540719518547092757}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1896019988913586559
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6052307310373276160}
+  m_Layer: 0
+  m_Name: Raven1Bone003 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6052307310373276160
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896019988913586559}
+  m_LocalRotation: {x: -0.0019329942, y: 0.0025938174, z: 0.5959447, w: 0.80301905}
+  m_LocalPosition: {x: -0.06981373, y: -0.25860965, z: -0.026394546}
+  m_LocalScale: {x: 0.99999964, y: 1.0000011, z: 0.99999946}
+  m_Children:
+  - {fileID: 2003785799864579635}
+  m_Father: {fileID: 3322633691185531943}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2040781521049507932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6386478706038266737}
+  m_Layer: 0
+  m_Name: Raven1Bone004Bone002
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6386478706038266737
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040781521049507932}
+  m_LocalRotation: {x: -0.0055094594, y: 0.031280726, z: 0.17340489, w: 0.98433834}
+  m_LocalPosition: {x: -0.25545198, y: 0.00000023841858, z: 0.0000013709068}
+  m_LocalScale: {x: 0.9999988, y: 1.0000008, z: 1.0000008}
+  m_Children: []
+  m_Father: {fileID: 3148580580719722175}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2047247969540709253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1270967853666228645}
+  m_Layer: 0
+  m_Name: RavenLArm1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1270967853666228645
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047247969540709253}
+  m_LocalRotation: {x: -0.26599583, y: 0.5456727, z: 0.58687353, w: 0.53578633}
+  m_LocalPosition: {x: -0.036559105, y: -0.05064076, z: 0.04008608}
+  m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_Children:
+  - {fileID: 8779752754845913849}
+  m_Father: {fileID: 8485333374256752138}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2380898500142432335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1641860321727135440}
+  m_Layer: 0
+  m_Name: RavenRLeg3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1641860321727135440
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2380898500142432335}
+  m_LocalRotation: {x: 0.00238077, y: -0.12447306, z: -0.43767577, w: 0.89047223}
+  m_LocalPosition: {x: -0.31430864, y: -0.000000014901161, z: 0}
+  m_LocalScale: {x: 1.0000037, y: 0.99999774, z: 0.99999964}
+  m_Children:
+  - {fileID: 6525642223548662503}
+  m_Father: {fileID: 2074797762477291496}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2446210931970006839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2744777844203647933}
+  m_Layer: 0
+  m_Name: RavenRLegDigit11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2744777844203647933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2446210931970006839}
+  m_LocalRotation: {x: -0.102611326, y: -0.27174804, z: -0.3380962, w: 0.8951619}
+  m_LocalPosition: {x: -0.11793231, y: -0.008725584, z: -0.03540127}
+  m_LocalScale: {x: 0.99999905, y: 1.000001, z: 1}
+  m_Children:
+  - {fileID: 1075991285096663191}
+  m_Father: {fileID: 6525642223548662503}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2471419256150766203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4186276828116432922}
+  m_Layer: 0
+  m_Name: RavenLLegDigit41
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4186276828116432922
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471419256150766203}
+  m_LocalRotation: {x: 0.35022333, y: 0.9272985, z: -0.046710227, w: 0.12360988}
+  m_LocalPosition: {x: -0.089189894, y: -0.041769624, z: -0.00014136732}
+  m_LocalScale: {x: 1.0000007, y: 0.9999991, z: 1.0000002}
+  m_Children:
+  - {fileID: 9076693332548600351}
+  m_Father: {fileID: 6080216962804656079}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2504566271747009654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8760635428816405307}
+  m_Layer: 0
+  m_Name: RavenLLegDigit11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8760635428816405307
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2504566271747009654}
+  m_LocalRotation: {x: 0.102611266, y: 0.2717477, z: -0.33809638, w: 0.895162}
+  m_LocalPosition: {x: -0.11793233, y: -0.008725107, z: 0.035401374}
+  m_LocalScale: {x: 1.000001, y: 0.9999991, z: 1}
+  m_Children:
+  - {fileID: 7521696496985278490}
+  m_Father: {fileID: 6080216962804656079}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2537373063957675323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5126416902179582024}
+  m_Layer: 0
+  m_Name: RavenNeck1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5126416902179582024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2537373063957675323}
+  m_LocalRotation: {x: 2.2929277e-15, y: -1.301224e-15, z: 0.05939441, w: 0.9982346}
+  m_LocalPosition: {x: -0.069066525, y: -0.009299159, z: -0.000000006621679}
+  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 1}
+  m_Children:
+  - {fileID: 2649920633985407665}
+  m_Father: {fileID: 8485333374256752138}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2564376478054972053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3141402938575886214}
+  m_Layer: 0
+  m_Name: Raven1Bone002
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3141402938575886214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2564376478054972053}
+  m_LocalRotation: {x: -0.000017111544, y: 0.000021876067, z: 0.45298824, w: 0.8915165}
+  m_LocalPosition: {x: -0.16347957, y: -0.16831009, z: -0.00075781345}
+  m_LocalScale: {x: 1.0000008, y: 0.9999988, z: 1.0000007}
+  m_Children:
+  - {fileID: 5680794726571246995}
+  m_Father: {fileID: 3636809441618033029}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2801342121061463638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7714064508399916187}
+  m_Layer: 0
+  m_Name: Raven1Bone003
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7714064508399916187
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2801342121061463638}
+  m_LocalRotation: {x: 0.0019272302, y: -0.0025941487, z: 0.59594417, w: 0.8030194}
+  m_LocalPosition: {x: -0.069814086, y: -0.25861, z: 0.026396394}
+  m_LocalScale: {x: 1.0000004, y: 0.99999905, z: 1.0000007}
+  m_Children:
+  - {fileID: 1727618676780991641}
+  m_Father: {fileID: 3636809441618033029}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3049624762208241604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5718723994936991139}
+  m_Layer: 0
+  m_Name: RavenLLegDigit22
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5718723994936991139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3049624762208241604}
+  m_LocalRotation: {x: 3.5527137e-15, y: -1.8480686e-15, z: 6.5656584e-30, w: 1}
+  m_LocalPosition: {x: -0.05422488, y: 0.0000000018626451, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
+  m_Children:
+  - {fileID: 671231414496631188}
+  m_Father: {fileID: 2701393940695987155}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3097116935514092551
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6525642223548662503}
+  m_Layer: 0
+  m_Name: RavenRLegAnkle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6525642223548662503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3097116935514092551}
+  m_LocalRotation: {x: 0.13315383, y: 0.040144492, z: -0.24343096, w: 0.95989573}
+  m_LocalPosition: {x: -0.21187231, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999464, y: 1.0000021, z: 1.0000025}
+  m_Children:
+  - {fileID: 2744777844203647933}
+  - {fileID: 4168418227165355421}
+  - {fileID: 6623040535647303350}
+  - {fileID: 7965122077173389523}
+  m_Father: {fileID: 1641860321727135440}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3180071341721388033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8834830157580451090}
+  m_Layer: 0
+  m_Name: RavenRLegDigit42
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8834830157580451090
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3180071341721388033}
+  m_LocalRotation: {x: -1.4210855e-14, y: -1.4450999e-14, z: -2.0536104e-28, w: 1}
+  m_LocalPosition: {x: -0.09435125, y: 0.0000000018626451, z: 0.000000007450581}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 7965122077173389523}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3183472095077968610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6080216962804656079}
+  m_Layer: 0
+  m_Name: RavenLLegAnkle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6080216962804656079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3183472095077968610}
+  m_LocalRotation: {x: -0.1331153, y: -0.04013531, z: -0.24343227, w: 0.95990115}
+  m_LocalPosition: {x: -0.21187231, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000002, y: 1.0000004, z: 0.99999964}
+  m_Children:
+  - {fileID: 8760635428816405307}
+  - {fileID: 2701393940695987155}
+  - {fileID: 3745875021052019501}
+  - {fileID: 4186276828116432922}
+  m_Father: {fileID: 4765043810869052478}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3716081653741368881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7521696496985278490}
+  m_Layer: 0
+  m_Name: RavenLLegDigit12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7521696496985278490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3716081653741368881}
+  m_LocalRotation: {x: 0, y: -0.047927987, z: -0, w: 0.9988508}
+  m_LocalPosition: {x: -0.070898995, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4045245856213787504}
+  m_Father: {fileID: 8760635428816405307}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3734069035130884934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8767886670596351188}
+  m_Layer: 0
+  m_Name: Raven1Bone001 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8767886670596351188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3734069035130884934}
+  m_LocalRotation: {x: -0.0003069722, y: 0.00095266616, z: 0.30967325, w: 0.95084256}
+  m_LocalPosition: {x: -0.24496281, y: -0.0812507, z: 0.016772509}
+  m_LocalScale: {x: 0.9999996, y: 1.0000012, z: 0.99999946}
+  m_Children:
+  - {fileID: 1782074968944292020}
+  m_Father: {fileID: 3322633691185531943}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3804868514770994359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1704222623502026670}
+  m_Layer: 0
+  m_Name: Raven1Bone004 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1704222623502026670
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3804868514770994359}
+  m_LocalRotation: {x: -0.03221338, y: 0.017910428, z: 0.82789904, w: 0.55966485}
+  m_LocalPosition: {x: 0.0017982721, y: -0.060757548, z: -0.0010945797}
+  m_LocalScale: {x: 1.0000015, y: 1, z: 0.99999875}
+  m_Children:
+  - {fileID: 658747802968274348}
+  m_Father: {fileID: 3322633691185531943}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3935230578958006190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3214993617082843098}
+  m_Layer: 0
+  m_Name: RavenTail3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3214993617082843098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3935230578958006190}
+  m_LocalRotation: {x: -2.7150527e-15, y: 1.0737575e-14, z: 0.05940513, w: 0.998234}
+  m_LocalPosition: {x: -0.4801611, y: 0, z: 1.9539925e-14}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1795842098550264193}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4151378155930811572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 378942170670731652}
+  m_Layer: 0
+  m_Name: Raven1Bone005Bone001 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &378942170670731652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4151378155930811572}
+  m_LocalRotation: {x: -0.0000005383538, y: 0.0000028580325, z: 0.06801195, w: 0.99768454}
+  m_LocalPosition: {x: -0.16684492, y: -0.000000059604645, z: 0.0000009536743}
+  m_LocalScale: {x: 1.0000008, y: 0.9999995, z: 0.9999999}
+  m_Children: []
+  m_Father: {fileID: 7179231405654790511}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4205707083978547685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3422568845978838598}
+  m_Layer: 0
+  m_Name: RavenLLeg2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3422568845978838598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4205707083978547685}
+  m_LocalRotation: {x: -0.02653706, y: 0.09961644, z: 0.42673105, w: 0.8984837}
+  m_LocalPosition: {x: -0.1582259, y: -0.000010281801, z: -0.0000023543835}
+  m_LocalScale: {x: 0.9999999, y: 1.0000001, z: 1}
+  m_Children:
+  - {fileID: 4765043810869052478}
+  m_Father: {fileID: 4094971391229455969}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4256517681096366611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1782074968944292020}
+  m_Layer: 0
+  m_Name: Raven1Bone001Bone001 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1782074968944292020
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4256517681096366611}
+  m_LocalRotation: {x: -0.0000028833713, y: -0.00000018626372, z: -0.00000030547446,
+    w: 1}
+  m_LocalPosition: {x: -0.56858814, y: 0.00000029802322, z: -0.00000011920929}
+  m_LocalScale: {x: 0.9999996, y: 1.0000012, z: 0.9999994}
+  m_Children: []
+  m_Father: {fileID: 8767886670596351188}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4670774691954776842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3179166408845290906}
+  m_Layer: 0
+  m_Name: RavenRLegDigit32
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3179166408845290906
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4670774691954776842}
+  m_LocalRotation: {x: 7.904493e-15, y: -0.09642982, z: 7.904492e-15, w: 0.9953398}
+  m_LocalPosition: {x: -0.0591051, y: 0, z: -0.000000014901161}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
+  m_Children:
+  - {fileID: 3528082677454424902}
+  m_Father: {fileID: 6623040535647303350}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5260058201211203745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4094971391229455969}
+  m_Layer: 0
+  m_Name: RavenLLeg1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4094971391229455969
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5260058201211203745}
+  m_LocalRotation: {x: 0.019327413, y: 0.9660615, z: -0.05421014, w: 0.25181937}
+  m_LocalPosition: {x: -0.0061635375, y: -0.020040333, z: 0.08274761}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_Children:
+  - {fileID: 3422568845978838598}
+  m_Father: {fileID: 2540719518547092757}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5277673668319262209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3528082677454424902}
+  m_Layer: 0
+  m_Name: RavenRLegDigit33
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3528082677454424902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5277673668319262209}
+  m_LocalRotation: {x: 7.1054274e-15, y: -1.22185875e-14, z: 7.1054257e-15, w: 1}
+  m_LocalPosition: {x: -0.056868315, y: -0.0000000018626451, z: -0.000000014901161}
+  m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000002}
+  m_Children: []
+  m_Father: {fileID: 3179166408845290906}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5314869849574230491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7030256859155636597}
+  m_Layer: 0
+  m_Name: RavenLLegDigit32
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7030256859155636597
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5314869849574230491}
+  m_LocalRotation: {x: 2.905008e-15, y: 0.09642983, z: 6.857253e-15, w: 0.9953398}
+  m_LocalPosition: {x: -0.059105128, y: -0.0000000018626451, z: 0}
+  m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000002}
+  m_Children:
+  - {fileID: 1166528010323317795}
+  m_Father: {fileID: 3745875021052019501}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5336375451642852615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2540719518547092757}
+  m_Layer: 0
+  m_Name: RavenPelvis
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2540719518547092757
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5336375451642852615}
+  m_LocalRotation: {x: 0.42012328, y: -0.5687675, z: -0.42012322, w: 0.5687675}
+  m_LocalPosition: {x: 0.0000000024953015, y: 0.6913507, z: 0.18863195}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4094971391229455969}
+  - {fileID: 7529317300773464905}
+  - {fileID: 6710006233846679743}
+  - {fileID: 5024905577042501369}
+  m_Father: {fileID: 3826623285698004570}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5365425608494351777
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4168418227165355421}
+  m_Layer: 0
+  m_Name: RavenRLegDigit21
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4168418227165355421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5365425608494351777}
+  m_LocalRotation: {x: 0.00003527424, y: 0.000027645698, z: -0.3533244, w: 0.93550086}
+  m_LocalPosition: {x: -0.14283386, y: 0.007988796, z: -0.0030130148}
+  m_LocalScale: {x: 0.9999991, y: 1.000001, z: 1}
+  m_Children:
+  - {fileID: 6550927151839158915}
+  m_Father: {fileID: 6525642223548662503}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5487952659479457756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2003785799864579635}
+  m_Layer: 0
+  m_Name: Raven1Bone003Bone001 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2003785799864579635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487952659479457756}
+  m_LocalRotation: {x: -0.0000029620462, y: -0.06405501, z: 0.0000029959576, w: 0.9979464}
+  m_LocalPosition: {x: -0.45459396, y: -0.00000023841858, z: 0.0000013709068}
+  m_LocalScale: {x: 0.99999887, y: 1.0000011, z: 1.0000002}
+  m_Children: []
+  m_Father: {fileID: 6052307310373276160}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5512975920713485203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7004739063620050589}
+  - component: {fileID: 5365276388081930720}
+  - component: {fileID: 1839051062871373286}
+  m_Layer: 0
+  m_Name: RavenEyes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7004739063620050589
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5512975920713485203}
+  m_LocalRotation: {x: 7.640412e-14, y: -2.7741516e-13, z: 2.1195662e-26, w: 1}
+  m_LocalPosition: {x: -0.18385822, y: -0.035817027, z: 0.0005326271}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1258469466675938400}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &5365276388081930720
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5512975920713485203}
+  m_Mesh: {fileID: -1609395663272830329, guid: fca180fe0f4fb5341afb607420201e94, type: 3}
+--- !u!23 &1839051062871373286
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5512975920713485203}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 64d7489b10e51ed4094ca212c3a258e9, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!1 &5577857154610949963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8300829911927007539}
+  - component: {fileID: 28070013424221696}
+  m_Layer: 0
+  m_Name: Raven 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8300829911927007539
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5577857154610949963}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3826623285698004570}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &28070013424221696
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5577857154610949963}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9f2d9cb607a65364e984687a668e6362, type: 2}
+  - {fileID: 2100000, guid: 664fcc54acbb742429f17f125d8fae0b, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 1180111674282816561, guid: fca180fe0f4fb5341afb607420201e94, type: 3}
+  m_Bones:
+  - {fileID: 5644419154332422987}
+  - {fileID: 1258469466675938400}
+  - {fileID: 5633017876133197123}
+  - {fileID: 2649920633985407665}
+  - {fileID: 5126416902179582024}
+  - {fileID: 1270967853666228645}
+  - {fileID: 4045245856213787504}
+  - {fileID: 7521696496985278490}
+  - {fileID: 8760635428816405307}
+  - {fileID: 671231414496631188}
+  - {fileID: 5718723994936991139}
+  - {fileID: 2701393940695987155}
+  - {fileID: 4094971391229455969}
+  - {fileID: 2540719518547092757}
+  - {fileID: 6710006233846679743}
+  - {fileID: 3422568845978838598}
+  - {fileID: 1166528010323317795}
+  - {fileID: 7030256859155636597}
+  - {fileID: 3745875021052019501}
+  - {fileID: 6080216962804656079}
+  - {fileID: 5024905577042501369}
+  - {fileID: 4765043810869052478}
+  - {fileID: 4186276828116432922}
+  - {fileID: 9076693332548600351}
+  - {fileID: 3214993617082843098}
+  - {fileID: 1795842098550264193}
+  - {fileID: 8485333374256752138}
+  - {fileID: 2074797762477291496}
+  - {fileID: 7529317300773464905}
+  - {fileID: 360898497824116100}
+  - {fileID: 8748023062429495129}
+  - {fileID: 1417924305360132764}
+  - {fileID: 3636809441618033029}
+  - {fileID: 3141402938575886214}
+  - {fileID: 9156265471883815038}
+  - {fileID: 7714064508399916187}
+  - {fileID: 4053579692996976834}
+  - {fileID: 3148580580719722175}
+  - {fileID: 5680794726571246995}
+  - {fileID: 6386478706038266737}
+  - {fileID: 1727618676780991641}
+  - {fileID: 601794904632926437}
+  - {fileID: 8779752754845913849}
+  - {fileID: 4623460272536352428}
+  - {fileID: 7423476448116421822}
+  - {fileID: 5518791156279859756}
+  - {fileID: 1075991285096663191}
+  - {fileID: 2744777844203647933}
+  - {fileID: 8084021787921266101}
+  - {fileID: 6550927151839158915}
+  - {fileID: 4168418227165355421}
+  - {fileID: 3528082677454424902}
+  - {fileID: 3179166408845290906}
+  - {fileID: 6623040535647303350}
+  - {fileID: 6525642223548662503}
+  - {fileID: 7965122077173389523}
+  - {fileID: 1641860321727135440}
+  - {fileID: 8834830157580451090}
+  - {fileID: 1782074968944292020}
+  - {fileID: 8767886670596351188}
+  - {fileID: 3322633691185531943}
+  - {fileID: 3276209912936904525}
+  - {fileID: 3402222821526022211}
+  - {fileID: 6052307310373276160}
+  - {fileID: 1704222623502026670}
+  - {fileID: 2168853545640897683}
+  - {fileID: 6161012981699583222}
+  - {fileID: 7960186939254755965}
+  - {fileID: 2003785799864579635}
+  - {fileID: 658747802968274348}
+  - {fileID: 7179231405654790511}
+  - {fileID: 7650333189465710701}
+  - {fileID: 378942170670731652}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 2540719518547092757}
+  m_AABB:
+    m_Center: {x: 0.0745433, y: -0.16984445, z: 0.00074505806}
+    m_Extent: {x: 0.7298761, y: 1.4039094, z: 2.0975993}
+  m_DirtyAABB: 0
+--- !u!1 &5624047057988058293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5516395763732593242}
+  m_Layer: 0
+  m_Name: RavenLLegPlatform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5516395763732593242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5624047057988058293}
+  m_LocalRotation: {x: 0.5954518, y: -0.59545165, z: -0.38136235, w: 0.3813624}
+  m_LocalPosition: {x: -0.2836081, y: 0.000000029076922, z: 0.17847274}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3826623285698004570}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5662311584317121344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5633017876133197123}
+  m_Layer: 0
+  m_Name: RavenNeck3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5633017876133197123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5662311584317121344}
+  m_LocalRotation: {x: 3.0700172e-16, y: 1.039486e-14, z: 0.14488845, w: 0.989448}
+  m_LocalPosition: {x: -0.09760475, y: -0.000000029802322, z: 3.5527137e-15}
+  m_LocalScale: {x: 0.9999998, y: 0.9999998, z: 1}
+  m_Children:
+  - {fileID: 1258469466675938400}
+  m_Father: {fileID: 2649920633985407665}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5713615724373656698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1727618676780991641}
+  m_Layer: 0
+  m_Name: Raven1Bone003Bone001
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1727618676780991641
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5713615724373656698}
+  m_LocalRotation: {x: -0.0000018874305, y: 0.06405808, z: 0.0000032922974, w: 0.9979462}
+  m_LocalPosition: {x: -0.45459425, y: 0.00000035762787, z: 0.0000014901161}
+  m_LocalScale: {x: 1.0000012, y: 0.99999905, z: 0.9999999}
+  m_Children: []
+  m_Father: {fileID: 7714064508399916187}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5782691615428403857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8779752754845913849}
+  m_Layer: 0
+  m_Name: RavenLArm2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8779752754845913849
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5782691615428403857}
+  m_LocalRotation: {x: 0.016792221, y: -0.027529096, z: -0.5029373, w: 0.8637212}
+  m_LocalPosition: {x: -0.29218948, y: 0.000000059604645, z: 0}
+  m_LocalScale: {x: 1.0000002, y: 0.9999997, z: 1.0000001}
+  m_Children:
+  - {fileID: 4623460272536352428}
+  - {fileID: 9156265471883815038}
+  m_Father: {fileID: 1270967853666228645}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5891631884093306117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5644419154332422987}
+  m_Layer: 0
+  m_Name: RavenMouth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5644419154332422987
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891631884093306117}
+  m_LocalRotation: {x: -9.881495e-15, y: 5.077069e-15, z: -0.09546396, w: 0.9954329}
+  m_LocalPosition: {x: -0.16197222, y: 0.10876185, z: 0.000000013033574}
+  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1258469466675938400}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5993096582463557467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8748023062429495129}
+  m_Layer: 0
+  m_Name: Raven1Bone001Bone001
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8748023062429495129
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5993096582463557467}
+  m_LocalRotation: {x: -0.0000028722022, y: -0.00000019371565, z: 0.00000023934916,
+    w: 1}
+  m_LocalPosition: {x: -0.56858873, y: -0.00000029802322, z: -0.00000017881393}
+  m_LocalScale: {x: 1.0000007, y: 0.99999887, z: 1.0000006}
+  m_Children: []
+  m_Father: {fileID: 1417924305360132764}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6059335855617911515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3148580580719722175}
+  m_Layer: 0
+  m_Name: Raven1Bone004 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3148580580719722175
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6059335855617911515}
+  m_LocalRotation: {x: 0.03220795, y: -0.01790896, z: 0.82789856, w: 0.55966586}
+  m_LocalPosition: {x: 0.0017980337, y: -0.060757548, z: 0.0010950565}
+  m_LocalScale: {x: 0.9999985, y: 1.0000002, z: 1.0000015}
+  m_Children:
+  - {fileID: 6386478706038266737}
+  m_Father: {fileID: 3636809441618033029}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6112913673320961862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4045245856213787504}
+  m_Layer: 0
+  m_Name: RavenLLegDigit13
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4045245856213787504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6112913673320961862}
+  m_LocalRotation: {x: 0, y: -0.04792799, z: -0, w: 0.9988508}
+  m_LocalPosition: {x: -0.061341897, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7521696496985278490}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6363314333667618952
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 658747802968274348}
+  m_Layer: 0
+  m_Name: Raven1Bone004Bone002 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &658747802968274348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6363314333667618952}
+  m_LocalRotation: {x: 0.0055086464, y: -0.031275038, z: 0.17340513, w: 0.98433846}
+  m_LocalPosition: {x: -0.25545278, y: -0.00000023841858, z: 0.0000013709068}
+  m_LocalScale: {x: 1.0000013, y: 0.9999995, z: 0.99999946}
+  m_Children: []
+  m_Father: {fileID: 1704222623502026670}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6713404510440077749
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6623040535647303350}
+  m_Layer: 0
+  m_Name: RavenRLegDigit31
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6623040535647303350
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6713404510440077749}
+  m_LocalRotation: {x: 0.10731371, y: 0.28407297, z: -0.33663327, w: 0.8913273}
+  m_LocalPosition: {x: -0.12890276, y: -0.005982548, z: 0.047141135}
+  m_LocalScale: {x: 0.99999976, y: 1.000001, z: 0.9999994}
+  m_Children:
+  - {fileID: 3179166408845290906}
+  m_Father: {fileID: 6525642223548662503}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6812663585860318520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5680794726571246995}
+  m_Layer: 0
+  m_Name: Raven1Bone002Bone001
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5680794726571246995
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6812663585860318520}
+  m_LocalRotation: {x: -0.0000030731724, y: -0.00000043439852, z: -0.018682718, w: 0.9998255}
+  m_LocalPosition: {x: -0.6459682, y: 0.000000059604645, z: 0.000000834465}
+  m_LocalScale: {x: 1.0000008, y: 0.99999887, z: 1.0000007}
+  m_Children: []
+  m_Father: {fileID: 3141402938575886214}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6955663805435789286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8084021787921266101}
+  m_Layer: 0
+  m_Name: RavenRLegDigit23
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8084021787921266101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6955663805435789286}
+  m_LocalRotation: {x: 1.0594656e-28, y: -1.4910653e-14, z: 7.1054274e-15, w: 1}
+  m_LocalPosition: {x: -0.05422488, y: 0, z: -0.000000014901161}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6550927151839158915}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6980346473588201712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3745875021052019501}
+  m_Layer: 0
+  m_Name: RavenLLegDigit31
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3745875021052019501
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6980346473588201712}
+  m_LocalRotation: {x: -0.107313514, y: -0.28407252, z: -0.33663335, w: 0.89132744}
+  m_LocalPosition: {x: -0.1289027, y: -0.005982116, z: -0.047141045}
+  m_LocalScale: {x: 1.0000004, y: 0.9999991, z: 1.0000006}
+  m_Children:
+  - {fileID: 7030256859155636597}
+  m_Father: {fileID: 6080216962804656079}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7211821537297271365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 671231414496631188}
+  m_Layer: 0
+  m_Name: RavenLLegDigit23
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &671231414496631188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7211821537297271365}
+  m_LocalRotation: {x: 3.5527137e-15, y: -1.8480686e-15, z: 6.5656584e-30, w: 1}
+  m_LocalPosition: {x: -0.05422485, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 5718723994936991139}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7214993451713552620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7179231405654790511}
+  m_Layer: 0
+  m_Name: Raven1Bone005 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7179231405654790511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7214993451713552620}
+  m_LocalRotation: {x: 0.000000030344477, y: -0.0000029076336, z: 0.8460383, w: 0.5331222}
+  m_LocalPosition: {x: -0.009244382, y: -0.037964538, z: 0.002581656}
+  m_LocalScale: {x: 1.0000007, y: 0.9999994, z: 0.9999999}
+  m_Children:
+  - {fileID: 378942170670731652}
+  m_Father: {fileID: 6161012981699583222}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7370745260635891463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2074797762477291496}
+  m_Layer: 0
+  m_Name: RavenRLeg2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2074797762477291496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7370745260635891463}
+  m_LocalRotation: {x: 0.026536418, y: -0.099618934, z: 0.4267324, w: 0.8984828}
+  m_LocalPosition: {x: -0.1582259, y: -0.000010281801, z: 0.0000023245811}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_Children:
+  - {fileID: 1641860321727135440}
+  m_Father: {fileID: 7529317300773464905}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7642500875044284152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1075991285096663191}
+  m_Layer: 0
+  m_Name: RavenRLegDigit12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1075991285096663191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7642500875044284152}
+  m_LocalRotation: {x: -2.4667459e-15, y: 0.047927987, z: 1.4345569e-14, w: 0.9988508}
+  m_LocalPosition: {x: -0.07089898, y: 0, z: -0.000000029802322}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
+  m_Children:
+  - {fileID: 5518791156279859756}
+  m_Father: {fileID: 2744777844203647933}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7715864067448645096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1166528010323317795}
+  m_Layer: 0
+  m_Name: RavenLLegDigit33
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1166528010323317795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7715864067448645096}
+  m_LocalRotation: {x: -3.9757252e-29, y: 5.595337e-15, z: 7.1054257e-15, w: 1}
+  m_LocalPosition: {x: -0.056868374, y: 0.0000000018626451, z: 0}
+  m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000002}
+  m_Children: []
+  m_Father: {fileID: 7030256859155636597}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7856547882892396818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1795842098550264193}
+  m_Layer: 0
+  m_Name: RavenTail2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1795842098550264193
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7856547882892396818}
+  m_LocalRotation: {x: -3.122126e-16, y: 5.341637e-15, z: -0.05865747, w: 0.9982782}
+  m_LocalPosition: {x: -0.48016107, y: 0, z: 1.7763568e-14}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3214993617082843098}
+  m_Father: {fileID: 5024905577042501369}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7980752829822479092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1167238716622908209}
+  m_Layer: 0
+  m_Name: RavenRLegPlatform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1167238716622908209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7980752829822479092}
+  m_LocalRotation: {x: 0.38136256, y: -0.3813625, z: -0.5954516, w: 0.59545165}
+  m_LocalPosition: {x: 0.28360805, y: 0.000000029076906, z: 0.17847282}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3826623285698004570}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8131786928981506409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5518791156279859756}
+  m_Layer: 0
+  m_Name: RavenRLegDigit13
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5518791156279859756
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8131786928981506409}
+  m_LocalRotation: {x: -4.2492505e-15, y: 0.04792799, z: 1.4431099e-14, w: 0.9988508}
+  m_LocalPosition: {x: -0.06134191, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
+  m_Children: []
+  m_Father: {fileID: 1075991285096663191}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8158041384677744788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2701393940695987155}
+  m_Layer: 0
+  m_Name: RavenLLegDigit21
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2701393940695987155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8158041384677744788}
+  m_LocalRotation: {x: -0.000035126952, y: -0.00002733489, z: -0.35332453, w: 0.9355008}
+  m_LocalPosition: {x: -0.14283389, y: 0.007989302, z: 0.0030131787}
+  m_LocalScale: {x: 1.000001, y: 0.9999991, z: 1}
+  m_Children:
+  - {fileID: 5718723994936991139}
+  m_Father: {fileID: 6080216962804656079}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8371043058895857517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2168853545640897683}
+  m_Layer: 0
+  m_Name: Raven1Bone004 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2168853545640897683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8371043058895857517}
+  m_LocalRotation: {x: 0.000029433742, y: -0.000034235294, z: 0.816698, w: 0.5770653}
+  m_LocalPosition: {x: 0.012941182, y: -0.0290858, z: 0.010124207}
+  m_LocalScale: {x: 1.0000007, y: 1.0000001, z: 0.9999994}
+  m_Children:
+  - {fileID: 7650333189465710701}
+  m_Father: {fileID: 3402222821526022211}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8443559435570530610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7423476448116421822}
+  m_Layer: 0
+  m_Name: Raven1Bone005Bone001
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7423476448116421822
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8443559435570530610}
+  m_LocalRotation: {x: 0.00000023008816, y: 0.0000029785658, z: 0.06801193, w: 0.99768454}
+  m_LocalPosition: {x: -0.1668447, y: 0, z: 0.000001013279}
+  m_LocalScale: {x: 0.9999993, y: 1.0000007, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4623460272536352428}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8485356547131236368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9156265471883815038}
+  m_Layer: 0
+  m_Name: RavenLArm3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9156265471883815038
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8485356547131236368}
+  m_LocalRotation: {x: -0.0021191528, y: 0.05013691, z: -0.0810535, w: 0.9954457}
+  m_LocalPosition: {x: -0.25417906, y: -0.00000014901161, z: -0.0000007748604}
+  m_LocalScale: {x: 0.99999934, y: 0.99999994, z: 1.0000007}
+  m_Children:
+  - {fileID: 4053579692996976834}
+  - {fileID: 3636809441618033029}
+  m_Father: {fileID: 8779752754845913849}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8532696707106765522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9076693332548600351}
+  m_Layer: 0
+  m_Name: RavenLLegDigit42
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9076693332548600351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8532696707106765522}
+  m_LocalRotation: {x: -1.7763568e-15, y: 3.002484e-15, z: 5.333483e-30, w: 1}
+  m_LocalPosition: {x: -0.09435126, y: -0.0000000018626451, z: 0.000000007450581}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 4186276828116432922}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8678625084013665363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 360898497824116100}
+  m_Layer: 0
+  m_Name: RavenRArm1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &360898497824116100
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8678625084013665363}
+  m_LocalRotation: {x: 0.26599574, y: -0.5456727, z: 0.58687365, w: 0.5357862}
+  m_LocalPosition: {x: -0.036559105, y: -0.05064076, z: -0.04008608}
+  m_LocalScale: {x: 1, y: 1, z: 0.99999994}
+  m_Children:
+  - {fileID: 6161012981699583222}
+  m_Father: {fileID: 8485333374256752138}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8731724013498455552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1417924305360132764}
+  m_Layer: 0
+  m_Name: Raven1Bone001
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1417924305360132764
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8731724013498455552}
+  m_LocalRotation: {x: 0.00030161501, y: -0.00095480157, z: 0.30967367, w: 0.9508424}
+  m_LocalPosition: {x: -0.24496281, y: -0.08125107, z: -0.016773641}
+  m_LocalScale: {x: 1.0000006, y: 0.9999989, z: 1.0000006}
+  m_Children:
+  - {fileID: 8748023062429495129}
+  m_Father: {fileID: 3636809441618033029}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8813346864995202359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4053579692996976834}
+  m_Layer: 0
+  m_Name: Raven1Bone004
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4053579692996976834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8813346864995202359}
+  m_LocalRotation: {x: -0.000035037778, y: 0.00003545823, z: 0.8166974, w: 0.5770661}
+  m_LocalPosition: {x: 0.012941062, y: -0.02908577, z: -0.010123789}
+  m_LocalScale: {x: 0.9999993, y: 1, z: 1.0000008}
+  m_Children:
+  - {fileID: 601794904632926437}
+  m_Father: {fileID: 9156265471883815038}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8946425024261192878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8485333374256752138}
+  m_Layer: 0
+  m_Name: RavenChest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8485333374256752138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8946425024261192878}
+  m_LocalRotation: {x: -0.00000005633448, y: 0.000000019496733, z: 0.0060496693, w: 0.9999817}
+  m_LocalPosition: {x: -0.33307627, y: 0, z: 0.0000000045780766}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_Children:
+  - {fileID: 1270967853666228645}
+  - {fileID: 5126416902179582024}
+  - {fileID: 360898497824116100}
+  m_Father: {fileID: 6710006233846679743}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8989526166468755889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7529317300773464905}
+  m_Layer: 0
+  m_Name: RavenRLeg1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7529317300773464905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8989526166468755889}
+  m_LocalRotation: {x: 0.019326627, y: 0.96606106, z: 0.054210506, w: -0.25182083}
+  m_LocalPosition: {x: -0.0061635375, y: -0.020040333, z: -0.08274759}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_Children:
+  - {fileID: 2074797762477291496}
+  m_Father: {fileID: 2540719518547092757}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9068124486735889445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3322633691185531943}
+  m_Layer: 0
+  m_Name: RavenRArm4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3322633691185531943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9068124486735889445}
+  m_LocalRotation: {x: 0.0012462107, y: 0.009031284, z: 0.023583526, w: 0.9996803}
+  m_LocalPosition: {x: -0.25417936, y: 0.00000029802322, z: -0.0000009536743}
+  m_LocalScale: {x: 1.0000007, y: 1.0000001, z: 0.9999995}
+  m_Children:
+  - {fileID: 8767886670596351188}
+  - {fileID: 3276209912936904525}
+  - {fileID: 6052307310373276160}
+  - {fileID: 1704222623502026670}
+  m_Father: {fileID: 3402222821526022211}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
