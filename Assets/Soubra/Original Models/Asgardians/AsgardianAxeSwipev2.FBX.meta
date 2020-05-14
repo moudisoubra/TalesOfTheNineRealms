@@ -19,37 +19,9 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
-      in configuration does not match rotation in animation file:\n\t'AsgardianChest'
-      : rotation error = 2.099857 deg\n"
+    rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'AsgardianLFoot1' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\t'AsgardianRFoot'
-      has scale animation that will be discarded.\n\t'AsgardianRFoot1' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'AsgardianChest'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'AsgardianChest'
-      has scale animation that will be discarded.\n\t'AsgardianLUpperarm' has scale
-      animation that will be discarded.\n\t'AsgardianLForearm' has scale animation
-      that will be discarded.\n\t'AsgardianLPalm' has scale animation that will be
-      discarded.\n\t'AsgardianLThumb2' has scale animation that will be discarded.\n\t'AsgardianLThumb3'
-      has scale animation that will be discarded.\n\t'AsgardianLIndex1' has scale
-      animation that will be discarded.\n\t'AsgardianLIndex2' has scale animation
-      that will be discarded.\n\t'AsgardianLIndex3' has scale animation that will
-      be discarded.\n\t'AsgardianLMiddle1' has scale animation that will be discarded.\n\t'AsgardianLMiddle2'
-      has scale animation that will be discarded.\n\t'AsgardianLMiddle3' has scale
-      animation that will be discarded.\n\t'AsgardianLPinky1' has scale animation
-      that will be discarded.\n\t'AsgardianLPinky3' has scale animation that will
-      be discarded.\n\t'AsgardianRArmUpperarm' has scale animation that will be discarded.\n\t'AsgardianRArmForearm'
-      has scale animation that will be discarded.\n\t'AsgardianRArmPalm' has scale
-      animation that will be discarded.\n\t'AsgardianRArmThumb1' has scale animation
-      that will be discarded.\n\t'AsgardianRArmThumb2' has scale animation that will
-      be discarded.\n\t'AsgardianRArmThumb3' has scale animation that will be discarded.\n\t'AsgardianRArmIndex1'
-      has scale animation that will be discarded.\n\t'AsgardianRArmRing1' has scale
-      animation that will be discarded.\n\t'AsgardianRArmRing2' has scale animation
-      that will be discarded.\n\t'AsgardianRArmRing3' has scale animation that will
-      be discarded.\n\t'AsgardianRArmPinky2' has scale animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -100,6 +72,13 @@ ModelImporter:
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
+        messageOptions: 0
+      - time: 0.32924688
+        functionName: PlayThisSFX
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
         messageOptions: 0
       transformMask: []
       maskType: 3

@@ -28,7 +28,7 @@ public class CheckTreeDragonSpawn : GAction
         if (currentTreeDragons.Count < 2)
         {
             int x = dClass.currentNode.x + Random.Range(-5, 5);
-            int y = dClass.currentNode.y - 2;
+            int y = dClass.currentNode.y - 5;
 
             GameObject temp = Instantiate(treeDragonPrefab, 
                 tmScript.graph[x, y].ground.transform.position
