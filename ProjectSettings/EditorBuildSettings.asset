@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Soubra/Scenes/Trying Small Scale Again.unity
     guid: 6e09a03c04d94f84387438ab0504efab
   - enabled: 1
-    path: Assets/Tookey/Scenes/MenuTookey.unity
+    path: Assets/1.Final Levels/MenuTookey.unity
     guid: 23aa82d2abe545e4a8ad0833f24026ba
   - enabled: 1
     path: Assets/1.Final Levels/Asgard Final.unity

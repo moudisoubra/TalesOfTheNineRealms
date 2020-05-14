@@ -22,6 +22,10 @@ public class ChangeScenes : MonoBehaviour
         bScript.BEAMMEUPSCOTTY = true;
     }
 
+    public void ChangeScene(string name)
+    {
+        SceneManager.LoadScene(name);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
