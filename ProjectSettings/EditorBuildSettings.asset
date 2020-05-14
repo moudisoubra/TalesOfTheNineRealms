@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Soubra/Scenes/Trying Small Scale Again.unity
     guid: 6e09a03c04d94f84387438ab0504efab
-  - enabled: 1
+  - enabled: 0
     path: Assets/1.Final Levels/Asgard Final.unity
     guid: df579bf65ab6e824794e4e1de4af36f4
   - enabled: 1
