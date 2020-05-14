@@ -21,13 +21,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'TreeDragonChest' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\t'TreeDragonLLegAnkle'
-      has scale animation that will be discarded.\n\t'TreeDragonLFoot' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'TreeDragonRFoot'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -78,6 +72,20 @@ ModelImporter:
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
+        messageOptions: 0
+      - time: 0.27739385
+        functionName: PlayThisSFX
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.38432494
+        functionName: PlayThisSFX
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
         messageOptions: 0
       transformMask: []
       maskType: 3

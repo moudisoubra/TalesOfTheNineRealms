@@ -12,12 +12,15 @@ EditorBuildSettings:
     path: Assets/Soubra/Scenes/Trying Small Scale Again.unity
     guid: 6e09a03c04d94f84387438ab0504efab
   - enabled: 1
+    path: Assets/Tookey/Scenes/MenuTookey.unity
+    guid: 23aa82d2abe545e4a8ad0833f24026ba
+  - enabled: 1
     path: Assets/1.Final Levels/Asgard Final.unity
     guid: df579bf65ab6e824794e4e1de4af36f4
-  - enabled: 0
+  - enabled: 1
     path: Assets/1.Final Levels/Jotunheim.unity
     guid: 15618a57ac10d37418298062a5da05df
-  - enabled: 0
+  - enabled: 1
     path: Assets/1.Final Levels/Level3.unity
     guid: 571bef28db0e4504196f8510c873d5d8
   m_configObjects: {}
