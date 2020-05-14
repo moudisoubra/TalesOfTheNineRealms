@@ -308,14 +308,14 @@ public class TurnController : MonoBehaviour
             unit.CheckAttackStatus();
             if (unit.attackMode && !unit.attackedAlready)
             {
-                Debug.Log("You Already Attacked");
+                Debug.Log("You prepared attack");
                 SetAttack(i);
             }
         }
         if (unit.attackMode && !unit.attackedAlready)
         {
             unit.targetTile = null;
-            Debug.Log("You Already Attacked");
+            Debug.Log("You prepared attack");
             SetAttack(i);
         }
     }

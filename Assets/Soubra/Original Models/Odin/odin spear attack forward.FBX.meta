@@ -19,25 +19,9 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
-      in configuration does not match rotation in animation file:\n\t'OdinLForearm2'
-      : rotation error = 9.892329 deg\n\t'OdinLPalm' : rotation error = 47.526798
-      deg\n\t'OdinRForearm2' : rotation error = 23.036562 deg\n\t'OdinRPalm' : rotation
-      error = 45.113808 deg\n"
+    rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'OdinLDigit11' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'OdinRDigit11' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'OdinLUpperarm'
-      has scale animation that will be discarded.\n\t'OdinLForearm1' has scale animation
-      that will be discarded.\n\t'OdinLForearm2' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'OdinLPalm' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'OdinLPalm'
-      has scale animation that will be discarded.\n\t'OdinLDigit11 1' has scale animation
-      that will be discarded.\n\t'OdinRForearm2' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'OdinRPalm' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -75,6 +59,20 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.26243234
+        functionName: PlayThisSFX
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5280743
+        functionName: PlayThisSFX
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 2
+        messageOptions: 0
       - time: 0.61346203
         functionName: DoDamage
         data: 

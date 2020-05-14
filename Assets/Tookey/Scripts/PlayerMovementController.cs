@@ -16,7 +16,7 @@ public class PlayerMovementController : MonoBehaviour
 
     public Vector2 movement;
     public Vector3 hitpoint;
-    public float hitPointTimer;
+    public float hitPointTimer = 5;
     public GameObject hitChecker;
 
     void Start()

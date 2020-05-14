@@ -16,7 +16,7 @@ public class FireDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (temp != unit)
+        if (temp != unit && unit != null)
         {
             unit.health -= 2;
             temp = unit;

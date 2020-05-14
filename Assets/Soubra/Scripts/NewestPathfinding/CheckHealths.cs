@@ -21,6 +21,10 @@ public class CheckHealths : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.K) && sbScript.tmScript.done)
+        {
+            playersWon = true;
+        }
         for (int i = 0; i < playableCharacters.Count; i++)
         {
             if (playableCharacters[i].health <= 0)

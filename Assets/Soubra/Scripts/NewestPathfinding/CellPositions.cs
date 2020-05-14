@@ -154,8 +154,8 @@ public class CellPositions : MonoBehaviour
             {
 
                 Debug.Log("Caw Caw I am Bird");
-                
-                
+                DoingAllTheDamageDiceMagic(d6);
+
             }
             if (attack == Attacks.Second)
             {
@@ -466,7 +466,7 @@ public class CellPositions : MonoBehaviour
         for (int i = 0; i < attackNodes.Count; i++)
         {
             TileMap.Node n = attackNodes[i];
-            if (map.graph[n.x, n.y].ground.GetComponentInChildren<GivePosition>().bossCell)
+            if (!map.UnitCanEnterTile(n.x, n.y) && map.graph[n.x, n.y].ground.GetComponentInChildren<GivePosition>().bossCell)
             {
                 temp = attackNodes.IndexOf(n);
             }

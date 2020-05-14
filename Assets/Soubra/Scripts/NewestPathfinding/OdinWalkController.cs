@@ -26,23 +26,23 @@ public class OdinWalkController : MonoBehaviour
 
         //transparentMaterial.SetVector("_playerPosition", transform.position);
 
-        if (!noWalkie)
-        {
-            float translation = Input.GetAxis("Vertical") * speed;
-            float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
-            translation *= Time.deltaTime;
-            rotation *= Time.deltaTime;
-            transform.Translate(0, 0, translation);
-            transform.Rotate(0, rotation, 0);
+        //if (!noWalkie)
+        //{
+        //    float translation = Input.GetAxis("Vertical") * speed;
+        //    float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
+        //    translation *= Time.deltaTime;
+        //    rotation *= Time.deltaTime;
+        //    transform.Translate(0, 0, translation);
+        //    transform.Rotate(0, rotation, 0);
 
-            if (translation > 0)
-            {
-                anim.SetBool("Run", true);
-            }
-            else
-            {
-                anim.SetBool("Run", false);
-            }
-        }
+        //    if (translation > 0)
+        //    {
+        //        anim.SetBool("Run", true);
+        //    }
+        //    else
+        //    {
+        //        anim.SetBool("Run", false);
+        //    }
+        //}
     }
 }

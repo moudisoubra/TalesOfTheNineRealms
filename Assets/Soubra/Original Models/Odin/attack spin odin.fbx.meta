@@ -19,34 +19,9 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
-      in configuration does not match rotation in animation file:\n\t'OdinLForearm2'
-      : rotation error = 9.016964 deg\n\t'OdinLPalm' : rotation error = 48.524090
-      deg\n\t'OdinRForearm2' : rotation error = 23.036642 deg\n\t'OdinRPalm' : rotation
-      error = 45.113747 deg\n"
+    rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'OdinLCalf' has translation animation that
-      will be discarded.\n\t'OdinLDigit11' is inbetween humanoid transforms and has
-      rotation animation that will be discarded.\n\t'OdinRDigit11' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\t'OdinLForearm2'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'OdinLPalm'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'OdinLPalm'
-      has scale animation that will be discarded.\n\t'OdinLDigit11 1' has scale animation
-      that will be discarded.\n\t'OdinLDigit12 1' has scale animation that will be
-      discarded.\n\t'OdinLDigit13' has scale animation that will be discarded.\n\t'OdinLDigit21'
-      has scale animation that will be discarded.\n\t'OdinLDigit22' has scale animation
-      that will be discarded.\n\t'OdinLDigit31' has scale animation that will be
-      discarded.\n\t'OdinLDigit32' has scale animation that will be discarded.\n\t'OdinLDigit33'
-      has scale animation that will be discarded.\n\t'OdinLDigit41' has scale animation
-      that will be discarded.\n\t'OdinLDigit42' has scale animation that will be
-      discarded.\n\t'OdinLDigit43' has scale animation that will be discarded.\n\t'OdinLDigit51'
-      has scale animation that will be discarded.\n\t'OdinLDigit52' has scale animation
-      that will be discarded.\n\t'OdinLDigit53' has scale animation that will be
-      discarded.\n\t'OdinRForearm2' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\t'OdinRPalm' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -84,6 +59,13 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.19203262
+        functionName: PlayThisSFX
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.76079524
         functionName: DoDamage
         data: 
